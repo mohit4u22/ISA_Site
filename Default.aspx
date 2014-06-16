@@ -14,7 +14,7 @@
     <!--  jquery plguin -->
     <script type="text/javascript" src="js/jquery.min.js"></script>
 
-    <!--start slider -->
+    <!--start slider --  ---->
     <link rel="stylesheet" href="css/fwslider.css" media="all">
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/css3-mediaqueries.js"></script>
