@@ -12,11 +12,11 @@
 
     <link rel="stylesheet" type="text/css" href="css/prettyPhoto.css">
     <!--  jquery plguin -->
-    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="Scripts/jquery-1.9.1.js"></script>
 
     <!--start slider -->
     <link rel="stylesheet" href="css/fwslider.css" media="all">
-    <script src="js/jquery-ui.min.js"></script>
+
     <script src="js/css3-mediaqueries.js"></script>
     <script src="js/fwslider.js"></script>
     <!--end slider -->
@@ -53,6 +53,7 @@
             });
         });
     </script>
+
     <!-- //End fancyBox light-box -->
 </head>
 <body>
@@ -681,7 +682,7 @@
                     <div id="small-dialog-login" class="ModalPopup mfp-hide">
                         <div class="pop_up">
                             <div class="payment-online-form-left">
-
+                                 <ul class="JQValidateErrors"></ul>
                                 <h4><span class="glyphicon glyphicon-user"></span>Login</h4>
                                 <ul>
                                     <li>
@@ -716,20 +717,20 @@
                     <div id="small-dialog-register" class="mfp-hide ModalPopup">
                         <div class="pop_up">
                             <div class="payment-online-form-left">
-
+                                <ul class="JQValidateErrors"></ul>
                                 <h4><span class="shipping"></span>Sign Up</h4>
                                 <form id="frmRegister" name="frmRegister">
                                     <ul>
                                         <li>
-                                            <input class="text-box-dark" type="text" id="txtregisterFName"></li>
+                                            <input class="text-box-dark" type="text" id="txtregisterFName" name="txtregisterFName" placeholder="First Name"></li>
                                         <li>
-                                            <input class="text-box-dark" type="text" id="txtregisterLName" value="Last Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Last Name';}"></li>
+                                            <input class="text-box-dark" type="text" id="txtregisterLName" name="txtregisterLName" placeholder="Last Name"></li>
                                     </ul>
                                     <ul>
                                         <li>
-                                            <input class="text-box-dark" type="text" id="txtregisterEmail" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}"></li>
+                                            <input class="text-box-dark" type="text" id="txtregisterEmail" name="txtregisterEmail" placeholder="Email"></li>
                                         <li>
-                                            <input class="text-box-dark" type="text" id="txtregisterCEmail" value="Confirm Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Confirm Email';}"></li>
+                                            <input class="text-box-dark" type="text" id="txtregisterCEmail" placeholder="Confirm Email"></li>
 
                                     </ul>
                                     <ul>
@@ -788,7 +789,7 @@
                                             <k><a href="javascript:void(0)"  id="btnRegisterCancel">Cancel</a></k>
                                         </li>
                                         <li>
-                                            <m> <a href="javascript:void(0)"  id="btnRegister" onclick="RegisterUser();">Register</a></m>
+                                            <m> <a href="javascript:void(0)"  id="btnRegister" onclick="RegisterUser();" >Register</a></m>
                                         </li>
 
                                     </ul>
@@ -819,6 +820,11 @@
                 </div>
                 <div class="clear"></div>
             </div>
+        </div>
+    </div>
+
+    <div id="small-dialog-register" class="mfp-hide ModalPopup">
+        <div class="pop_up">
         </div>
     </div>
     <!-- Add fancyBox light-box -->
@@ -1078,6 +1084,7 @@
         </div>
     </div>
     <!-- scroll_top_btn -->
+    <script src="js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="Scripts/jquery.validate.js"></script>
     <script type="text/javascript" src="js/move-top.js"></script>
     <script type="text/javascript" src="js/easing.js"></script>
