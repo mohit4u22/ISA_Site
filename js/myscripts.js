@@ -3,35 +3,41 @@ var LoginValidator;
 $(document).ready(function () {
     $('.JQValidateErrors').hide();
     BindRegisterUserValidation();
+    BindLoginValidator();
 });
 
 
 
 function LoginUser() {
-    LoginForm.validate();
-    var val = LoginForm.valid();
-    var email = $('#txtloginEmail').val()
-    var password = $('#txtloginPassword').val()
+    if (!LoginValidator.validate()) {
+        $('.JQValidateErrors').show();
+        return false;
+    }
+    else {
+        $('.JQValidateErrors').hide();
+        var email = $('#txtloginEmail').val()
+        var password = $('#txtloginPassword').val()
 
-    $.ajax({
-        type: "Post",
-        url: "../WebService.asmx/LoginUser",
-        data: "{'email': '" + email + "', 'password': '" + password + "'}",
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
-        success: function (result) {
-            if (result.d == "Success") {
-                alert("User Logged in Successfully");
-            }
-            else {
-                alert("We're sorry but we are not able to authorize user as this time. <br>" + result.d);
-            }
+        $.ajax({
+            type: "Post",
+            url: "../WebService.asmx/LoginUser",
+            data: "{'email': '" + email + "', 'password': '" + password + "'}",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                if (result.d == "Success") {
+                    alert("User Logged in Successfully");
+                }
+                else {
+                    alert("We're sorry but we are not able to authorize user as this time. <br>" + result.d);
+                }
 
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            alert(jqXHR.responseText);
-        }
-    });
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert(jqXHR.responseText);
+            }
+        });
+    }
 }
 
 function RegisterUser() {
@@ -103,6 +109,9 @@ function BindRegisterUserValidation() {
         txtregisterEmail: {
             required: true,
             email: true
+        },
+        txtregisterCEmail: {
+            equalTo: '#txtregisterEmail'
         }
     };
     var messages = {
@@ -115,10 +124,37 @@ function BindRegisterUserValidation() {
         txtregisterEmail: {
             required: "Please enter email.",
             email: "Please Enter a Valid Email"
+        },
+        txtregisterCEmail: {
+            equalTo: 'Please enter confirm email.'
         }
     };
 
     SignupValidator = new jQueryValidatorWrapper('frmRegister', rules, messages);
+
+
+}
+
+
+function BindLoginValidator() {
+    var rules = {
+        txtloginEmail: {
+            required: true
+        },
+        txtloginPassword: {
+            required: true
+        }
+    };
+    var messages = {
+        txtloginEmail: {
+            required: "Please enter Email"
+        },
+        txtloginPassword: {
+            required: "Please enter Password"
+        }
+    };
+
+    LoginValidator = new jQueryValidatorWrapper('frmLogin', rules, messages);
 
 
 }
@@ -138,10 +174,9 @@ function jQueryValidatorWrapper(formId, rules, messages) {
         },
         unhighlight: function (element) {
             $(element).parent().removeClass('has-error');
-             
+
             $('#liJqValidate_' + $(element).attr('id') + '').remove();
-            if ($('ul.JQValidateErrors li').length == 0)
-            {
+            if ($('ul.JQValidateErrors li').length == 0) {
                 $('.JQValidateErrors').hide();
             }
         }

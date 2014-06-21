@@ -682,35 +682,37 @@
                     <div id="small-dialog-login" class="ModalPopup mfp-hide">
                         <div class="pop_up">
                             <div class="payment-online-form-left">
-                                 <ul class="JQValidateErrors"></ul>
+                                <ul class="JQValidateErrors"></ul>
                                 <h4><span class="glyphicon glyphicon-user"></span>Login</h4>
-                                <ul>
-                                    <li>
-                                        <input class="text-box-dark" type="text" id="txtloginEmail" value="Email Id" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email Id';}"></li>
-                                    <div class="clear"></div>
-                                </ul>
-                                <ul>
-                                    <li>
-                                        <input class="text-box-dark" type="text" id="txtloginPassword" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"></li>
-                                </ul>
-                                <div class="clear"></div>
-
-                                <div class="span3">
-                                    <ul class="payment-sendbtns">
+                                <form id="frmLogin" name="frmLogin">
+                                    <ul>
                                         <li>
-                                            <k> <a href="javascript:void(0)"  id="btnLoginCancel">Cancel
-                                                </a></k>
-                                        </li>
-                                        <li>
-                                            <m> <a href="javascript:void(0)"  id="btnLogin" onclick="LoginUser();" >Login</a></m>
-                                        </li>
-
+                                            <input class="text-box-dark" type="text" id="txtloginEmail" name="txtloginEmail" placeholder="Enter Email Address"></li>
+                                        <div class="clear"></div>
                                     </ul>
+                                    <ul>
+                                        <li>
+                                            <input class="text-box-dark" type="text" id="txtloginPassword" name="txtloginPassword" placeholder="Password"></li>
+                                    </ul>
+                                    <div class="clear"></div>
+
+                                    <div class="span3">
+                                        <ul class="payment-sendbtns">
+                                            <li>
+                                                <k> <a href="javascript:void(0)"  id="btnLoginCancel">Cancel
+                                                </a></k>
+                                            </li>
+                                            <li>
+                                                <m> <a href="javascript:void(0)"  id="btnLogin" onclick="LoginUser();" >Login</a></m>
+                                            </li>
+
+                                        </ul>
+                                </form>
                                 </div>
                                 <div class="clear"></div>
 
                             </div>
-                        </div>
+                        
                     </div>
                     <!-----pop-up-grid---->
                     <!-----pop-up-grid---->
@@ -730,7 +732,7 @@
                                         <li>
                                             <input class="text-box-dark" type="text" id="txtregisterEmail" name="txtregisterEmail" placeholder="Email"></li>
                                         <li>
-                                            <input class="text-box-dark" type="text" id="txtregisterCEmail" placeholder="Confirm Email"></li>
+                                            <input class="text-box-dark" type="text" id="txtregisterCEmail" name="txtregisterCEmail" placeholder="Confirm Email"></li>
 
                                     </ul>
                                     <ul>
