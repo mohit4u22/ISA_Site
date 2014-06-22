@@ -3,7 +3,7 @@ var LoginValidator;
 $(document).ready(function () {
     $('.JQValidateErrors').hide();
     BindRegisterUserValidation();
-    BindLoginValidator();
+    BindLoginValidation();
 });
 
 
@@ -48,19 +48,19 @@ function RegisterUser() {
     else {
         $('.JQValidateErrors').hide();
         var firstname = $('#txtregisterFName').val();
-        var lastname = $('#txtregisterFName').val();
-        var email = $('#txtregisterFName').val();
-        var confirmemail = $('#txtregisterFName').val();
-        var password = $('#txtregisterFName').val();
-        var confirmpassword = $('#txtregisterFName').val();
-        var phone = $('#txtregisterFName').val();
-        var country = $('#txtregisterFName').val();
-        var street = $('#txtregisterFName').val();
-        var city = $('#txtregisterFName').val();
-        var state = $('#txtregisterFName').val();
-        var zip = $('#txtregisterFName').val();
-        var securityques = $('#txtregisterFName').val();
-        var securityanswer = $('#txtregisterFName').val();
+        var lastname = $('#txtregisterLName').val();
+        var email = $('#txtregisterEmail').val();
+        var confirmemail = $('#txtregisterCEmail').val();
+        var password = $('#txtregisterPassword').val();
+        var confirmpassword = $('#txtregisterCPassword').val();
+        var phone = $('#txtregisterPhone').val();
+        var country = $('#txtregisterCountry').val();
+        var street = $('#txtregisterStreet').val();
+        var city = $('#txtregisterCity').val();
+        var state = $('#txtregisterState').val();
+        var zip = $('#txtregisterZip').val();
+        var securityques = $('#txtregisterSquestion').val();
+        var securityanswer = $('#txtregisterSanswer').val();
 
         $.ajax({
             type: "Post",
@@ -112,8 +112,29 @@ function BindRegisterUserValidation() {
         },
         txtregisterCEmail: {
             equalTo: '#txtregisterEmail'
+        },
+        txtregisterPassword: {
+            required: true,
+            pwcheck: true,
+            minlength: 8
+        },
+        txtregisterCPassword: {
+            equalTo: '#txtregisterPassword'
+        },
+        txtregisterCountry: {
+            required: true
+        },
+        txtregisterCity: {
+            required: true
+        },
+        txtregisterSquestion: {
+            required: true
+        },
+        txtregisterSanswer: {
+            required: true
         }
     };
+
     var messages = {
         txtregisterFName: {
             required: "Please enter First Name"
@@ -126,9 +147,30 @@ function BindRegisterUserValidation() {
             email: "Please Enter a Valid Email"
         },
         txtregisterCEmail: {
-            equalTo: 'Please enter confirm email.'
+            equalTo: "Emails do not match"
+        },
+        txtregisterPassword: {
+            required: "Please enter Password",
+            pwcheck: "Please enter valid password",
+            minlength: "Please enter valid password"
+        },
+        txtregisterCPassword: {
+            equalTo: "Passwords do not match"
+        },
+        txtregisterCountry: {
+            required: "Please enter your Country"
+        },
+        txtregisterCity: {
+            required: "Please enter your City"
+        },
+        txtregisterSquestion: {
+            required: "Please enter your Security Question"
+        },
+        txtregisterSanswer: {
+            required: "Please enter your Security Answer"
         }
     };
+
 
     SignupValidator = new jQueryValidatorWrapper('frmRegister', rules, messages);
 
@@ -136,7 +178,7 @@ function BindRegisterUserValidation() {
 }
 
 
-function BindLoginValidator() {
+function BindLoginValidation() {
     var rules = {
         txtloginEmail: {
             required: true
