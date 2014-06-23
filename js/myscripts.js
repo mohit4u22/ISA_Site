@@ -3,35 +3,41 @@ var LoginValidator;
 $(document).ready(function () {
     $('.JQValidateErrors').hide();
     BindRegisterUserValidation();
+    BindLoginValidation();
 });
 
 
 
 function LoginUser() {
-    LoginForm.validate();
-    var val = LoginForm.valid();
-    var email = $('#txtloginEmail').val()
-    var password = $('#txtloginPassword').val()
+    if (!LoginValidator.validate()) {
+        $('.JQValidateErrors').show();
+        return false;
+    }
+    else {
+        $('.JQValidateErrors').hide();
+        var email = $('#txtloginEmail').val()
+        var password = $('#txtloginPassword').val()
 
-    $.ajax({
-        type: "Post",
-        url: "../WebService.asmx/LoginUser",
-        data: "{'email': '" + email + "', 'password': '" + password + "'}",
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
-        success: function (result) {
-            if (result.d == "Success") {
-                alert("User Logged in Successfully");
-            }
-            else {
-                alert("We're sorry but we are not able to authorize user as this time. <br>" + result.d);
-            }
+        $.ajax({
+            type: "Post",
+            url: "../WebService.asmx/LoginUser",
+            data: "{'email': '" + email + "', 'password': '" + password + "'}",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                if (result.d == "Success") {
+                    alert("User Logged in Successfully");
+                }
+                else {
+                    alert("We're sorry but we are not able to authorize user as this time. <br>" + result.d);
+                }
 
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            alert(jqXHR.responseText);
-        }
-    });
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert(jqXHR.responseText);
+            }
+        });
+    }
 }
 
 function RegisterUser() {
@@ -42,19 +48,19 @@ function RegisterUser() {
     else {
         $('.JQValidateErrors').hide();
         var firstname = $('#txtregisterFName').val();
-        var lastname = $('#txtregisterFName').val();
-        var email = $('#txtregisterFName').val();
-        var confirmemail = $('#txtregisterFName').val();
-        var password = $('#txtregisterFName').val();
-        var confirmpassword = $('#txtregisterFName').val();
-        var phone = $('#txtregisterFName').val();
-        var country = $('#txtregisterFName').val();
-        var street = $('#txtregisterFName').val();
-        var city = $('#txtregisterFName').val();
-        var state = $('#txtregisterFName').val();
-        var zip = $('#txtregisterFName').val();
-        var securityques = $('#txtregisterFName').val();
-        var securityanswer = $('#txtregisterFName').val();
+        var lastname = $('#txtregisterLName').val();
+        var email = $('#txtregisterEmail').val();
+        var confirmemail = $('#txtregisterCEmail').val();
+        var password = $('#txtregisterPassword').val();
+        var confirmpassword = $('#txtregisterCPassword').val();
+        var phone = $('#txtregisterPhone').val();
+        var country = $('#txtregisterCountry').val();
+        var street = $('#txtregisterStreet').val();
+        var city = $('#txtregisterCity').val();
+        var state = $('#txtregisterState').val();
+        var zip = $('#txtregisterZip').val();
+        var securityques = $('#txtregisterSquestion').val();
+        var securityanswer = $('#txtregisterSanswer').val();
 
         $.ajax({
             type: "Post",
@@ -103,8 +109,32 @@ function BindRegisterUserValidation() {
         txtregisterEmail: {
             required: true,
             email: true
+        },
+        txtregisterCEmail: {
+            equalTo: '#txtregisterEmail'
+        },
+        txtregisterPassword: {
+            required: true,
+            pwcheck: true,
+            minlength: 8
+        },
+        txtregisterCPassword: {
+            equalTo: '#txtregisterPassword'
+        },
+        txtregisterCountry: {
+            required: true
+        },
+        txtregisterCity: {
+            required: true
+        },
+        txtregisterSquestion: {
+            required: true
+        },
+        txtregisterSanswer: {
+            required: true
         }
     };
+
     var messages = {
         txtregisterFName: {
             required: "Please enter First Name"
@@ -115,10 +145,58 @@ function BindRegisterUserValidation() {
         txtregisterEmail: {
             required: "Please enter email.",
             email: "Please Enter a Valid Email"
+        },
+        txtregisterCEmail: {
+            equalTo: "Emails do not match"
+        },
+        txtregisterPassword: {
+            required: "Please enter Password",
+            pwcheck: "Please enter valid password",
+            minlength: "Please enter valid password"
+        },
+        txtregisterCPassword: {
+            equalTo: "Passwords do not match"
+        },
+        txtregisterCountry: {
+            required: "Please enter your Country"
+        },
+        txtregisterCity: {
+            required: "Please enter your City"
+        },
+        txtregisterSquestion: {
+            required: "Please enter your Security Question"
+        },
+        txtregisterSanswer: {
+            required: "Please enter your Security Answer"
         }
     };
 
+
     SignupValidator = new jQueryValidatorWrapper('frmRegister', rules, messages);
+
+
+}
+
+
+function BindLoginValidation() {
+    var rules = {
+        txtloginEmail: {
+            required: true
+        },
+        txtloginPassword: {
+            required: true
+        }
+    };
+    var messages = {
+        txtloginEmail: {
+            required: "Please enter Email"
+        },
+        txtloginPassword: {
+            required: "Please enter Password"
+        }
+    };
+
+    LoginValidator = new jQueryValidatorWrapper('frmLogin', rules, messages);
 
 
 }
@@ -138,10 +216,9 @@ function jQueryValidatorWrapper(formId, rules, messages) {
         },
         unhighlight: function (element) {
             $(element).parent().removeClass('has-error');
-             
+
             $('#liJqValidate_' + $(element).attr('id') + '').remove();
-            if ($('ul.JQValidateErrors li').length == 0)
-            {
+            if ($('ul.JQValidateErrors li').length == 0) {
                 $('.JQValidateErrors').hide();
             }
         }

@@ -497,7 +497,7 @@
                     </ul>
                     <div class="cart">
                         <div class="span3">
-                            <a class="popup-with-zoom-anim" href="#small-dialog"><i>Purchase</i></a>
+                            <a class="popup-with-zoom-anim" href="#small-dialog-pickup"><i>Purchase</i></a>
                         </div>
                     </div>
                 </div>
@@ -615,7 +615,7 @@
                                     <h4><span class="shipping"></span>Shipping</h4>
                                     <ul>
                                         <li>
-                                            <input class="text-box-dark" type="text" value="Frist Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Frist Name';}"></li>
+                                            <input class="text-box-dark" type="text" value="First Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Frist Name';}"></li>
                                         <li>
                                             <input class="text-box-dark" type="text" value="Last Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Last Name';}"></li>
                                     </ul>
@@ -682,35 +682,37 @@
                     <div id="small-dialog-login" class="ModalPopup mfp-hide">
                         <div class="pop_up">
                             <div class="payment-online-form-left">
-                                 <ul class="JQValidateErrors"></ul>
+                                <ul class="JQValidateErrors"></ul>
                                 <h4><span class="glyphicon glyphicon-user"></span>Login</h4>
-                                <ul>
-                                    <li>
-                                        <input class="text-box-dark" type="text" id="txtloginEmail" value="Email Id" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email Id';}"></li>
-                                    <div class="clear"></div>
-                                </ul>
-                                <ul>
-                                    <li>
-                                        <input class="text-box-dark" type="text" id="txtloginPassword" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"></li>
-                                </ul>
-                                <div class="clear"></div>
-
-                                <div class="span3">
-                                    <ul class="payment-sendbtns">
+                                <form id="frmLogin" name="frmLogin">
+                                    <ul>
                                         <li>
-                                            <k> <a href="javascript:void(0)"  id="btnLoginCancel">Cancel
-                                                </a></k>
-                                        </li>
-                                        <li>
-                                            <m> <a href="javascript:void(0)"  id="btnLogin" onclick="LoginUser();" >Login</a></m>
-                                        </li>
-
+                                            <input class="text-box-dark" type="text" id="txtloginEmail" name="txtloginEmail" placeholder="Enter Email Address"></li>
+                                        <div class="clear"></div>
                                     </ul>
+                                    <ul>
+                                        <li>
+                                            <input class="text-box-dark" type="text" id="txtloginPassword" name="txtloginPassword" placeholder="Password"></li>
+                                    </ul>
+                                    <div class="clear"></div>
+
+                                    <div class="span3">
+                                        <ul class="payment-sendbtns">
+                                            <li>
+                                                <k> <a href="javascript:void(0)"  id="btnLoginCancel">Cancel
+                                                </a></k>
+                                            </li>
+                                            <li>
+                                                <m> <a href="javascript:void(0)"  id="btnLogin" onclick="LoginUser();" >Login</a></m>
+                                            </li>
+
+                                        </ul>
+                                </form>
                                 </div>
                                 <div class="clear"></div>
 
                             </div>
-                        </div>
+                        
                     </div>
                     <!-----pop-up-grid---->
                     <!-----pop-up-grid---->
@@ -730,55 +732,55 @@
                                         <li>
                                             <input class="text-box-dark" type="text" id="txtregisterEmail" name="txtregisterEmail" placeholder="Email"></li>
                                         <li>
-                                            <input class="text-box-dark" type="text" id="txtregisterCEmail" placeholder="Confirm Email"></li>
+                                            <input class="text-box-dark" type="text" id="txtregisterCEmail" name="txtregisterCEmail" placeholder="Confirm Email"></li>
 
                                     </ul>
                                     <ul>
                                         <li>
-                                            <input class="text-box-dark" type="text" id="txtregisterPassword" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"></li>
+                                            <input class="text-box-dark" type="text" id="txtregisterPassword" name="txtregisterPassword" placeholder="Password" ></li>
                                         <li>
-                                            <input class="text-box-dark" type="text" id="txtregisterCPassword" value="Confirm Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Confirm Password';}"></li>
+                                            <input class="text-box-dark" type="text" id="txtregisterCPassword" name="txtregisterCPassword" placeholder="Confirm Password"></li>
 
-                                    </ul>
-                                    <div class="clear"></div>
-
-                                    <ul>
-                                        <li>
-                                            <input class="text-box-dark" type="text" id="txtregisterPhone" value="Phone Number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Phone Number';}"></li>
                                     </ul>
                                     <div class="clear"></div>
+
                                     <ul>
-
                                         <li>
-                                            <input class="text-box-dark" type="text" id="txtregisterCountry" value="Country" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Country';}"></li>
-
+                                            <input class="text-box-dark" type="text" id="txtregisterPhone" name="txtregisterPhone" placeholder="Phone Number" ></li>
                                     </ul>
                                     <div class="clear"></div>
                                     <ul>
 
                                         <li>
-                                            <input class="text-box-dark" type="text" id="txtregisterStreet" value="Street" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Street';}"></li>
+                                            <input class="text-box-dark" type="text" id="txtregisterCountry" name="txtregisterCountry" placeholder="Country"></li>
+
+                                    </ul>
+                                    <div class="clear"></div>
+                                    <ul>
+
                                         <li>
-                                            <input class="text-box-dark" type="text" id="txtregisterCity" value="City" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'City';}"></li>
+                                            <input class="text-box-dark" type="text" id="txtregisterStreet" name="txtregisterStreet" placeholder="Street" ></li>
+                                        <li>
+                                            <input class="text-box-dark" type="text" id="txtregisterCity" name="txtregisterCity" placeholder="City" ></li>
 
                                     </ul>
                                     <ul>
 
                                         <li>
-                                            <input class="text-box-dark" type="text" id="txtregisterState" value="State" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'State';}"></li>
+                                            <input class="text-box-dark" type="text" id="txtregisterState" name="txtregisterState" placeholder="State"></li>
                                         <li>
-                                            <input class="text-box-light hasDatepicker" type="text" id="txtregisterZip" value="Zip" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Zip';}"><em class="pay-date"> </em></li>
+                                            <input class="text-box-light hasDatepicker" type="text" id="txtregisterZip" name="txtregisterZip" placeholder="Zip"><em class="pay-date"></em></li>
 
                                     </ul>
                                     <div class="clear"></div>
                                     <ul>
                                         <li>
-                                            <input class="text-box-dark" type="text" id="txtregisterSquestion" value="Security Question" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Security Question';}"></li>
+                                            <input class="text-box-dark" type="text" id="txtregisterSquestion" name="txtregisterSquestion" placeholder="Security Question" ></li>
                                     </ul>
                                     <div class="clear"></div>
                                     <ul>
                                         <li>
-                                            <input class="text-box-dark" type="text" id="txtregisterSanswer" value="Security Answer" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Security Answer';}"></li>
+                                            <input class="text-box-dark" type="text" id="txtregisterSanswer" name="txtregisterSanswer" placeholder="Security Answer"></li>
 
                                     </ul>
                                 </form>
@@ -790,6 +792,87 @@
                                         </li>
                                         <li>
                                             <m> <a href="javascript:void(0)"  id="btnRegister" onclick="RegisterUser();" >Register</a></m>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                                <div class="clear"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-----pop-up-grid---->
+                    <!-----pop-up-grid---->
+                    <div id="small-dialog-pickup" class="mfp-hide ModalPopup">
+                        <div class="pop_up">
+                            <div class="payment-online-form-left">
+                                <ul class="JQValidateErrors"></ul>
+                                <h4><span class="shipping"></span>Pick Up Form</h4>
+                                <form id="frmPickup" name="frmPickup">
+                                    <ul>
+                                        <li>
+                                            <input class="text-box-dark" type="text" id="txtpickupFName" name="txtpickupFName" placeholder="First Name"></li>
+                                        <li>
+                                            <input class="text-box-dark" type="text" id="txtpickupLName" name="txtpickupLName" placeholder="Last Name"></li>
+                                    </ul>
+                                    <ul>
+                                        <li>
+                                            <input class="text-box-dark" type="text" id="txtpickupEmail" name="txtpickupEmail" placeholder="Email"></li>
+                                        <li>
+                                            <input class="text-box-dark" type="text" id="txtpickupPhone" name="txtpickupPhone" placeholder="Phone Number" ></li>
+
+                                    </ul>
+
+                                    <div class="clear"></div>
+                                    <ul>
+                                     <li>
+                                            <input class="text-box-dark" type="text" id="txtpickupFlight" name="txtpickupFlight" placeholder="Flight Name/Number"></li>
+                                    </ul>
+                                    <div class="clear"></div>
+                                    <ul>
+                                       <%-- <li>
+                                            <input class="text-box-light hasDatepicker" type="date" id="datepicker" value="Expiration Date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Expiration Date';}"><em class="pay-date"> </em></li>--%>
+                                        <li>
+                                        <input class="text-box-dark" type="date" id="txtpickupArrivalDate" name="txtpickupArrivalDate" value="yyyy-mm-dd" onkeypress="return false"></li>
+                                       
+
+                                    </ul>
+                                    <div class="clear"></div>
+                                    <ul>
+
+                                        <li>
+                                            <input class="text-box-dark" type="time" id="txtpickupTime" name="txtpickupTime" placeholder="Street" ></li>
+
+                                    </ul>
+                                    <ul>
+
+                                        <li>
+                                            <input class="text-box-dark" type="text" id="txtpickupAirport" name="txtpickupAirport" placeholder="Airport"></li>
+
+                                    </ul>
+                                    <div class="clear"></div>
+                                    <ul>
+
+                                        <li>
+                                            <input class="text-box-dark" type="text" id="txtpickupVenue" name="txtpickupVenue" placeholder="Venue"></li>
+
+                                    </ul>
+                                    <div class="clear"></div>
+                                    <ul>
+                                        <li>
+                                        <textarea class="text-box-dark" id="txtpickupComment" name="txtpickupComment" cols="40" rows="4" placeholder="Additional Comments"></textarea></li>
+                                    </ul>
+                                </form>
+                                <div class="clear"></div>
+                                <div class="span3">
+                                    <ul class="payment-sendbtns">
+                                        <li>
+                                            <k><a href="javascript:void(0)"  id="btnpickupCancel">Cancel</a></k>
+                                        </li>
+                                        <li>
+                                            <m> <a href="javascript:void(0)"  id="btnpickup" onclick="pickupUser();" >Request</a></m>
                                         </li>
 
                                     </ul>
