@@ -708,11 +708,11 @@
 
                                         </ul>
                                 </form>
-                                </div>
-                                <div class="clear"></div>
-
                             </div>
-                        
+                            <div class="clear"></div>
+
+                        </div>
+
                     </div>
                     <!-----pop-up-grid---->
                     <!-----pop-up-grid---->
@@ -737,7 +737,7 @@
                                     </ul>
                                     <ul>
                                         <li>
-                                            <input class="text-box-dark" type="text" id="txtregisterPassword" name="txtregisterPassword" placeholder="Password" ></li>
+                                            <input class="text-box-dark" type="text" id="txtregisterPassword" name="txtregisterPassword" placeholder="Password"></li>
                                         <li>
                                             <input class="text-box-dark" type="text" id="txtregisterCPassword" name="txtregisterCPassword" placeholder="Confirm Password"></li>
 
@@ -746,28 +746,28 @@
 
                                     <ul>
                                         <li>
-                                            <input class="text-box-dark" type="text" id="txtregisterPhone" name="txtregisterPhone" placeholder="Phone Number" ></li>
+                                            <input class="text-box-dark" type="text" id="txtregisterPhone" name="txtregisterPhone" placeholder="Phone Number"></li>
                                     </ul>
                                     <div class="clear"></div>
                                     <ul>
 
                                         <li>
-                                            <input class="text-box-dark" type="text" id="txtregisterCountry" name="txtregisterCountry" placeholder="Country"></li>
-
+                                            <select name="ddlCountry" id="ddlCountry" style="width: 200px;"></select>
+                                        </li>
                                     </ul>
                                     <div class="clear"></div>
                                     <ul>
 
                                         <li>
-                                            <input class="text-box-dark" type="text" id="txtregisterStreet" name="txtregisterStreet" placeholder="Street" ></li>
+                                            <input class="text-box-dark" type="text" id="txtregisterStreet" name="txtregisterStreet" placeholder="Street"></li>
                                         <li>
-                                            <input class="text-box-dark" type="text" id="txtregisterCity" name="txtregisterCity" placeholder="City" ></li>
+                                            <input class="text-box-dark" type="text" id="txtregisterCity" name="txtregisterCity" placeholder="City"></li>
 
                                     </ul>
                                     <ul>
 
                                         <li>
-                                            <input class="text-box-dark" type="text" id="txtregisterState" name="txtregisterState" placeholder="State"></li>
+                                              <select name="ddlState" id="ddlState" style="width: 200px;"></select>
                                         <li>
                                             <input class="text-box-light hasDatepicker" type="text" id="txtregisterZip" name="txtregisterZip" placeholder="Zip"><em class="pay-date"></em></li>
 
@@ -775,7 +775,7 @@
                                     <div class="clear"></div>
                                     <ul>
                                         <li>
-                                            <input class="text-box-dark" type="text" id="txtregisterSquestion" name="txtregisterSquestion" placeholder="Security Question" ></li>
+                                            <input class="text-box-dark" type="text" id="txtregisterSquestion" name="txtregisterSquestion" placeholder="Security Question"></li>
                                     </ul>
                                     <div class="clear"></div>
                                     <ul>
@@ -821,29 +821,29 @@
                                         <li>
                                             <input class="text-box-dark" type="text" id="txtpickupEmail" name="txtpickupEmail" placeholder="Email"></li>
                                         <li>
-                                            <input class="text-box-dark" type="text" id="txtpickupPhone" name="txtpickupPhone" placeholder="Phone Number" ></li>
+                                            <input class="text-box-dark" type="text" id="txtpickupPhone" name="txtpickupPhone" placeholder="Phone Number"></li>
 
                                     </ul>
 
                                     <div class="clear"></div>
                                     <ul>
-                                     <li>
+                                        <li>
                                             <input class="text-box-dark" type="text" id="txtpickupFlight" name="txtpickupFlight" placeholder="Flight Name/Number"></li>
                                     </ul>
                                     <div class="clear"></div>
                                     <ul>
-                                       <%-- <li>
+                                        <%-- <li>
                                             <input class="text-box-light hasDatepicker" type="date" id="datepicker" value="Expiration Date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Expiration Date';}"><em class="pay-date"> </em></li>--%>
                                         <li>
-                                        <input class="text-box-dark" type="date" id="txtpickupArrivalDate" name="txtpickupArrivalDate" value="yyyy-mm-dd" onkeypress="return false"></li>
-                                       
+                                            <input class="text-box-dark" type="date" id="txtpickupArrivalDate" name="txtpickupArrivalDate" value="yyyy-mm-dd" onkeypress="return false"></li>
+
 
                                     </ul>
                                     <div class="clear"></div>
                                     <ul>
 
                                         <li>
-                                            <input class="text-box-dark" type="time" id="txtpickupTime" name="txtpickupTime" placeholder="Street" ></li>
+                                            <input class="text-box-dark" type="time" id="txtpickupTime" name="txtpickupTime" placeholder="Street"></li>
 
                                     </ul>
                                     <ul>
@@ -862,7 +862,7 @@
                                     <div class="clear"></div>
                                     <ul>
                                         <li>
-                                        <textarea class="text-box-dark" id="txtpickupComment" name="txtpickupComment" cols="40" rows="4" placeholder="Additional Comments"></textarea></li>
+                                            <textarea class="text-box-dark" id="txtpickupComment" name="txtpickupComment" cols="40" rows="4" placeholder="Additional Comments"></textarea></li>
                                     </ul>
                                 </form>
                                 <div class="clear"></div>
