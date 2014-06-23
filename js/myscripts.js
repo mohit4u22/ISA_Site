@@ -2,8 +2,11 @@
 var LoginValidator;
 $(document).ready(function () {
     $('.JQValidateErrors').hide();
+    BindCountriesStates();
     BindRegisterUserValidation();
     BindLoginValidation();
+
+
 });
 
 
@@ -247,4 +250,60 @@ function jQueryValidatorWrapper(formId, rules, messages) {
 
         return result;
     };
+
+}
+
+
+function BindCountriesStates() {
+    $.ajax({
+        type: "Get",
+        url: "../WebService.asmx/GetCountries",
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (result) {
+            if (result.d.length > 0) {
+                var decoded = $('<div/>').html(result.d).text();
+                $('#ddlCountry').append("<option value=''></option>");
+                $('#ddlCountry').append(decoded);
+
+
+            }
+
+
+
+
+
+
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            // alert(jqXHR.responseText);
+        }
+    });
+
+    $('#ddlCountry').change(function () {
+        var dStates = "";
+        var code = $('#ddlCountry').val();
+        $.ajax({
+            type: "Post",
+            url: "../WebService.asmx/GetStates",
+            data: "{'code': '" + code +  "'}",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                if (result.d.length > 0) {
+                    dStates = $('<div/>').html(result.d).text();
+                    $('#ddlState').html('');
+                    $('#ddlState').append(dStates);
+                }
+
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+              alert(jqXHR.responseText);
+            }
+        });
+
+    });
+
+
 }
