@@ -8,7 +8,7 @@
 
 
 
-<script type="text/javascript" src="js/supersized.3.2.7.js"></script>
+<script type="text/javascript" src="js/supersized.3.2.7.min.js"></script>
 <script type="text/javascript" src="js/supersized.shutter.min.js"></script>
 
 <script type="text/javascript">
