@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
 
+<%@ Register Src="~/ISAGMap.ascx" TagName="ISAGmap" TagPrefix="uc" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -57,6 +58,7 @@
     <!-- //End fancyBox light-box -->
 </head>
 <body>
+
     <!-- start header -->
     <div class="header_bg">
         <div class="wrap">
@@ -451,11 +453,23 @@
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/modernizr.custom.js"></script>
+    <div id="divGMapWrapper" class="cbp-so-scroller">
+        <!--Portfolio-->
+        <div id="divGMap" class="clearfix">
+           
+        </div>
+    </div>
+    </div>
     <!----------- message1 ------------>
-    <div class="message1">
+    <div class="message1" style="padding:0;">
         <div class="wrap">
-            <h3>Pricing Table</h3>
-            <p>Clean beautiful flat Table</p>
+             <table style="margin: 0 auto;">
+                <tr>
+                    <td>
+                        <uc:ISAGmap ID="ucGmap" runat="server" />
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
     <!-----------start-pricing----------->
@@ -767,7 +781,7 @@
                                     <ul>
 
                                         <li>
-                                              <select name="ddlState" id="ddlState" style="width: 200px;"></select>
+                                            <select name="ddlState" id="ddlState" style="width: 200px;"></select>
                                         <li>
                                             <input class="text-box-light hasDatepicker" type="text" id="txtregisterZip" name="txtregisterZip" placeholder="Zip"><em class="pay-date"></em></li>
 
@@ -835,7 +849,7 @@
                                         <%-- <li>
                                             <input class="text-box-light hasDatepicker" type="date" id="datepicker" value="Expiration Date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Expiration Date';}"><em class="pay-date"> </em></li>--%>
                                         <li>
-                                            <input class="text-box-dark"  type="date" id="txtpickupArrivalDate" name="txtpickupArrivalDate" value="yyyy-mm-dd" onkeypress="return false"></li>
+                                            <input class="text-box-dark" type="date" id="txtpickupArrivalDate" name="txtpickupArrivalDate" value="yyyy-mm-dd" onkeypress="return false"></li>
 
 
                                     </ul>
