@@ -71,6 +71,8 @@
                 <div class="h_right">
                     <ul class="menu">
                         <li class="active"><a href="#home">Home</a></li>
+                        
+                        <li><a href="#BoardMembers" class="scroll">Board Members</a></li>
                         <li><a href="#services" class="scroll">Services</a></li>
                         <li><a href="#portfolio" class="scroll">Portfolio</a></li>
                         <li><a href="#pricing" class="scroll">Pricing</a></li>
@@ -80,7 +82,7 @@
                         <li>
                             <a class="popup-with-zoom-anim" href="#small-dialog-register"><i>Register</i></a>
                         </li>
-                        <li><a href="#about" class="scroll">About</a></li>
+                       <%-- <li><a href="#about" class="scroll">About</a></li>--%>
                         <li class="last"><a href="#contact" class="scroll">Contact</a></li>
                     </ul>
                     <div id="sb-search" class="sb-search">
@@ -953,34 +955,11 @@
         </div>
     </div>
     <!----------- about ------------>
-    <div class="about" id="about">
+    <div class="BoardMembers" id="BoardMembers">
         <div class="wrap">
-            <h4>About Us</h4>
-            <div class="section group">
-                <div class="label_1_of_4 about_1_of_4">
-                    <img src="images/about1.jpg">
-                    <h3>MICHAEL TURNER </h3>
-                    <span>consectetur</span>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
-                </div>
-                <div class="label_1_of_4 about_1_of_4">
-                    <img src="images/about2.jpg">
-                    <h3>JOHN SMITH </h3>
-                    <span>consectetur</span>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
-                </div>
-                <div class="label_1_of_4 about_1_of_4">
-                    <img src="images/about3.jpg">
-                    <h3>ASHLEY HUNTER </h3>
-                    <span>consectetur</span>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer .</p>
-                </div>
-                <div class="label_1_of_4 about_1_of_4">
-                    <img src="images/about4.jpg">
-                    <h3>TIM BIRD </h3>
-                    <span>consectetur</span>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.</p>
-                </div>
+            <h4>Board Members</h4>
+            <div class="section group" id="divBoardMembersWrapper">
+               
             </div>
             <div class="client">
                 <h3>
