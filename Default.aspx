@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
 
 <%@ Register Src="~/ISAGMap.ascx" TagName="ISAGmap" TagPrefix="uc" %>
+<%@ Register Src="~/ISAGallery.ascx" TagName="ISAGallery" TagPrefix="uc" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -14,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="css/prettyPhoto.css">
     <!--  jquery plguin -->
     <script type="text/javascript" src="Scripts/jquery-1.9.1.js"></script>
+       <script src="js/jquery-ui.min.js"></script>
 
     <!--start slider --  ---->
     <link rel="stylesheet" href="css/fwslider.css" media="all">
@@ -71,7 +73,7 @@
                 <div class="h_right">
                     <ul class="menu">
                         <li class="active"><a href="#home">Home</a></li>
-                        
+
                         <li><a href="#BoardMembers" class="scroll">Board Members</a></li>
                         <li><a href="#services" class="scroll">Services</a></li>
                         <li><a href="#portfolio" class="scroll">Portfolio</a></li>
@@ -82,7 +84,7 @@
                         <li>
                             <a class="popup-with-zoom-anim" href="#small-dialog-register"><i>Register</i></a>
                         </li>
-                       <%-- <li><a href="#about" class="scroll">About</a></li>--%>
+                        <%-- <li><a href="#about" class="scroll">About</a></li>--%>
                         <li class="last"><a href="#contact" class="scroll">Contact</a></li>
                     </ul>
                     <div id="sb-search" class="sb-search">
@@ -242,207 +244,8 @@
                 </div>
                 <!--end:wrapper-->
 
-                <ul id="container" class="clickable cs-style-5 grid clearfix isotope" style="position: relative; overflow: hidden; height: 534px; width: 1475px;">
-
-                    <li class="element photo isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(0px, 0px, 0px);">
-                        <figure>
-                            <img src="images/pf-1.jpg" alt="">
-                            <figcaption>
-                                <h3><a href="#">This is project name</a></h3>
-                                <div class="meta-box clearfix">
-                                    <span class="entry-categories"><a href="#">print art</a></span>
-                                    &nbsp;/&nbsp;
-                                    <span class="entry-categories"><a href="#">photo</a></span>
-                                </div>
-                                <footer>
-                                    <div id="nivo-lightbox-demo">
-                                        <p><a href="images/pf-1.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">View</a> </p>
-                                    </div>
-                                </footer>
-                            </figcaption>
-                        </figure>
-
-                    </li>
-
-                    <li class="element web-design isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(295px, 0px, 0px);">
-                        <figure>
-                            <img src="images/pf-2.jpg" alt="">
-                            <figcaption>
-                                <h3><a href="#">This is project name</a></h3>
-                                <div class="meta-box clearfix">
-                                    <span class="entry-categories"><a href="#">print art</a></span>
-                                    &nbsp;/&nbsp;
-                                    <span class="entry-categories"><a href="#">photo</a></span>
-                                </div>
-                                <footer>
-                                    <div id="nivo-lightbox-demo">
-                                        <p><a href="images/pf-2.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">View</a> </p>
-                                    </div>
-                                </footer>
-                            </figcaption>
-                        </figure>
-
-                    </li>
-
-                    <li class="element ios-app isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(590px, 0px, 0px);">
-                        <figure>
-                            <img src="images/pf-3.jpg" alt="">
-                            <figcaption>
-                                <h3><a href="#">This is project name</a></h3>
-                                <div class="meta-box clearfix">
-                                    <span class="entry-categories"><a href="#">print art</a></span>
-                                    &nbsp;/&nbsp;
-                                    <span class="entry-categories"><a href="#">photo</a></span>
-                                </div>
-                                <footer>
-                                    <div id="nivo-lightbox-demo">
-                                        <p><a href="images/pf-3.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">View</a> </p>
-                                    </div>
-                                </footer>
-                            </figcaption>
-                        </figure>
-
-                    </li>
-
-                    <li class="element graphic isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(885px, 0px, 0px);">
-                        <figure>
-                            <img src="images/pf-4.jpg" alt="">
-                            <figcaption>
-                                <h3><a href="#">This is project name</a></h3>
-                                <div class="meta-box clearfix">
-                                    <span class="entry-categories"><a href="#">print art</a></span>
-                                    &nbsp;/&nbsp;
-                                    <span class="entry-categories"><a href="#">photo</a></span>
-                                </div>
-                                <footer>
-                                    <div id="nivo-lightbox-demo">
-                                        <p><a href="images/pf-4.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">View</a> </p>
-                                    </div>
-                                </footer>
-                            </figcaption>
-                        </figure>
-
-                    </li>
-
-                    <li class="element photo isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(1180px, 0px, 0px);">
-                        <figure>
-                            <img src="images/pf-5.jpg" alt="">
-                            <figcaption>
-                                <h3><a href="#">This is project name</a></h3>
-                                <div class="meta-box clearfix">
-                                    <span class="entry-categories"><a href="#">print art</a></span>
-                                    &nbsp;/&nbsp;
-                                    <span class="entry-categories"><a href="#">photo</a></span>
-                                </div>
-                                <footer>
-                                    <div id="nivo-lightbox-demo">
-                                        <p><a href="images/pf-5.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">View</a> </p>
-                                    </div>
-                                </footer>
-                            </figcaption>
-                        </figure>
-
-                    </li>
-
-                    <li class="element web-design isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(0px, 267px, 0px);">
-                        <figure>
-                            <img src="images/pf-6.jpg" alt="">
-                            <figcaption>
-                                <h3><a href="#">This is project name</a></h3>
-                                <div class="meta-box clearfix">
-                                    <span class="entry-categories"><a href="#">print art</a></span>
-                                    &nbsp;/&nbsp;
-                                    <span class="entry-categories"><a href="#">photo</a></span>
-                                </div>
-                                <footer>
-                                    <div id="nivo-lightbox-demo">
-                                        <p><a href="images/pf-6.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">View</a> </p>
-                                    </div>
-                                </footer>
-                            </figcaption>
-                        </figure>
-
-                    </li>
-
-                    <li class="element ios-app isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(295px, 267px, 0px);">
-                        <figure>
-                            <img src="images/pf-7.jpg" alt="">
-                            <figcaption>
-                                <h3><a href="#">This is project name</a></h3>
-                                <div class="meta-box clearfix">
-                                    <span class="entry-categories"><a href="#">print art</a></span>
-                                    &nbsp;/&nbsp;
-                                    <span class="entry-categories"><a href="#">photo</a></span>
-                                </div>
-                                <footer>
-                                    <div id="nivo-lightbox-demo">
-                                        <p><a href="images/pf-7.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">View</a> </p>
-                                    </div>
-                                </footer>
-
-                            </figcaption>
-                        </figure>
-
-                    </li>
-
-                    <li class="element graphic isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(590px, 267px, 0px);">
-                        <figure>
-                            <img src="images/pf-8.jpg" alt="">
-                            <figcaption>
-                                <h3><a href="#">This is project name</a></h3>
-                                <div class="meta-box clearfix">
-                                    <span class="entry-categories"><a href="#">print art</a></span>
-                                    &nbsp;/&nbsp;
-                                    <span class="entry-categories"><a href="#">photo</a></span>
-                                </div>
-                                <footer>
-                                    <div id="nivo-lightbox-demo">
-                                        <p><a href="images/pf-8.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">View</a> </p>
-                                    </div>
-                                </footer>
-                            </figcaption>
-                        </figure>
-                    </li>
-
-                    <li class="element photo isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(885px, 267px, 0px);">
-                        <figure>
-                            <img src="images/pf-9.jpg" alt="">
-                            <figcaption>
-                                <h3><a href="#">This is project name</a></h3>
-                                <div class="meta-box clearfix">
-                                    <span class="entry-categories"><a href="#">print art</a></span>
-                                    &nbsp;/&nbsp;
-                                    <span class="entry-categories"><a href="#">photo</a></span>
-                                </div>
-                                <footer>
-                                    <div id="nivo-lightbox-demo">
-                                        <p><a href="images/pf-9.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">View</a> </p>
-                                    </div>
-                                </footer>
-                            </figcaption>
-                        </figure>
-
-                    </li>
-
-                    <li class="element web-design isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(1180px, 267px, 0px);">
-                        <figure>
-                            <img src="images/pf-10.jpg" alt="">
-                            <figcaption>
-                                <h3><a href="#">This is project name</a></h3>
-                                <div class="meta-box clearfix">
-                                    <span class="entry-categories"><a href="#">print art</a></span>
-                                    &nbsp;/&nbsp;
-                                    <span class="entry-categories"><a href="#">photo</a></span>
-                                </div>
-                                <footer>
-                                    <div id="nivo-lightbox-demo">
-                                        <p><a href="images/pf-10.jpg" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">View</a> </p>
-                                    </div>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <div class="clear"></div>
-                </ul>
+                <uc:ISAGallery ID="ISAGallery" runat="server" />
+                  <div class="clear"></div>
                 <!-- #container -->
 
             </div>
@@ -458,14 +261,13 @@
     <div id="divGMapWrapper" class="cbp-so-scroller">
         <!--Portfolio-->
         <div id="divGMap" class="clearfix">
-           
         </div>
     </div>
     </div>
     <!----------- message1 ------------>
-    <div class="message1" style="padding:0;">
+    <div class="message1" style="padding: 0;">
         <div class="wrap">
-             <table style="margin: 0 auto;">
+            <table style="margin: 0 auto;">
                 <tr>
                     <td>
                         <uc:ISAGmap ID="ucGmap" runat="server" />
@@ -959,7 +761,6 @@
         <div class="wrap">
             <h4>Board Members</h4>
             <div class="section group" id="divBoardMembersWrapper">
-               
             </div>
             <div class="client">
                 <h3>
@@ -1145,6 +946,7 @@
                 </ul>
             </div>
             <div class="clear"></div>
+
         </div>
     </div>
     <div class="footer-bottom">
@@ -1159,8 +961,9 @@
             <div class="clear"></div>
         </div>
     </div>
+
     <!-- scroll_top_btn -->
-    <script src="js/jquery-ui.min.js"></script>
+ 
     <script type="text/javascript" src="Scripts/jquery.validate.js"></script>
     <script type="text/javascript" src="js/move-top.js"></script>
     <script type="text/javascript" src="js/easing.js"></script>
