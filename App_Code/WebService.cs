@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Net;
 using System.Web;
-using System.Web.Services;
 using System.Web.Script.Serialization;
 using System.Web.Script.Services;
-using System.Data.SqlClient;
-using System.Data;
-using System.Configuration;
+using System.Web.Services;
 
 /// <summary>
 /// Summary description for WebService
@@ -40,9 +41,9 @@ public class WebService : System.Web.Services.WebService
     [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
     public string LoginUser(String email, String password)
     {
-      
-         SqlConnection dbConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnectionString"].ToString());
-        String retval="";
+
+        SqlConnection dbConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnectionString"].ToString());
+        String retval = "";
 
         try
         {
@@ -55,7 +56,7 @@ public class WebService : System.Web.Services.WebService
                 if (userdata["Email"].Equals(email) && userdata["Password"].Equals(password))
                 {
                     retval = "Success";
-                 
+
                 }
                 else
                 {
@@ -77,11 +78,11 @@ public class WebService : System.Web.Services.WebService
         }
 
 
-          JavaScriptSerializer js = new JavaScriptSerializer();
+        JavaScriptSerializer js = new JavaScriptSerializer();
         return js.Serialize(retval);
 
-            }
-    
+    }
+
 
 
     [WebMethod]
@@ -90,7 +91,7 @@ public class WebService : System.Web.Services.WebService
     {
         //// Database code
         SqlConnection dbConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnectionString"].ToString());
-        String retval="";
+        String retval = "";
         try
         {
             dbConnection.Open();
@@ -102,79 +103,95 @@ public class WebService : System.Web.Services.WebService
         }
 
 
-                finally
-                {
-                    string sqlstring = "select * from usertable where email='" + email + "';";
-                    SqlCommand checkidtable = new SqlCommand(sqlstring, dbConnection);
-                    SqlDataReader cc = checkidtable.ExecuteReader();
+        finally
+        {
+            string sqlstring = "select * from usertable where email='" + email + "';";
+            SqlCommand checkidtable = new SqlCommand(sqlstring, dbConnection);
+            SqlDataReader cc = checkidtable.ExecuteReader();
 
-         
 
-                    if (cc.HasRows)
-                    {
-                       retval = "User Email already exists";
-                    }
 
-                    else
-                    {
-                        cc.Close();
-                        
-                        string studentinfo = "insert into usertable values('"
-                            + fname + "', '"
-                            + lname + "', '"
-                            + email + "', '"
-                            + password + "', '"
-                            + phone + "', '"
-                            + country + "', '"
-                            + street + "', '"
-                            + city + "', '"
-                            + state + "', '"
-                            + zip + "', '"
-                            + securityques + "', '"
-                            + securityanswer + "')";
+            if (cc.HasRows)
+            {
+                retval = "User Email already exists";
+            }
 
-                        SqlCommand sqlcommand1 = new SqlCommand(studentinfo, dbConnection);
-                        sqlcommand1.ExecuteNonQuery();
-                        sqlcommand1.Dispose();
+            else
+            {
+                cc.Close();
 
-                        dbConnection.Close();
-                        retval="Success";
+                string studentinfo = "insert into usertable values('"
+                    + fname + "', '"
+                    + lname + "', '"
+                    + email + "', '"
+                    + password + "', '"
+                    + phone + "', '"
+                    + country + "', '"
+                    + street + "', '"
+                    + city + "', '"
+                    + state + "', '"
+                    + zip + "', '"
+                    + securityques + "', '"
+                    + securityanswer + "')";
 
-                        //smtpclient mailclient = new smtpclient();
-                        //mailmessage mail = new mailmessage("mohit4u22@gmail.com", textbox6.text);
+                SqlCommand sqlcommand1 = new SqlCommand(studentinfo, dbConnection);
+                sqlcommand1.ExecuteNonQuery();
+                sqlcommand1.Dispose();
 
-                        //string body = "congratulations, you have successfully signed up!! <br>" + "welcome " + textbox2.text + ", " + textbox1.text +
-                        //    "!!!!!<br /> with username : <b>" + textbox3.text + "</b><br /> and password :<b> " + textbox4.text +
-                        //    "</b><br /> confirm password : " + textbox5.text +
-                        //    "<br /> emailid : " + textbox6.text +
-                        //    "<br /> security question : " + textbox7.text +
-                        //    "<br /> security answer : " + textbox8.text +
-                        //    "<br /> categories of interest : " + cat +
-                        //    "<br /> cost: min : " + textbox9.text + " and max :" + textbox10.text +
-                        //    "<br /> size: min : " + textbox11.text + " and max :" + textbox12.text + "<br/>";
+                dbConnection.Close();
+                retval = "Success";
 
-                        //string path = server.mappath("images/isulogo.jpg");
-                        //linkedresource logo = new linkedresource(path);
-                        //logo.contentid = "mylogo";
-                        //alternateview altview = alternateview.createalternateviewfromstring("<img src=cid:mylogo/><br />" + body, null, "text/html");
-                        //altview.linkedresources.add(logo);
+                //smtpclient mailclient = new smtpclient();
+                //mailmessage mail = new mailmessage("mohit4u22@gmail.com", textbox6.text);
 
-                        //mail.alternateviews.add(altview);
+                //string body = "congratulations, you have successfully signed up!! <br>" + "welcome " + textbox2.text + ", " + textbox1.text +
+                //    "!!!!!<br /> with username : <b>" + textbox3.text + "</b><br /> and password :<b> " + textbox4.text +
+                //    "</b><br /> confirm password : " + textbox5.text +
+                //    "<br /> emailid : " + textbox6.text +
+                //    "<br /> security question : " + textbox7.text +
+                //    "<br /> security answer : " + textbox8.text +
+                //    "<br /> categories of interest : " + cat +
+                //    "<br /> cost: min : " + textbox9.text + " and max :" + textbox10.text +
+                //    "<br /> size: min : " + textbox11.text + " and max :" + textbox12.text + "<br/>";
 
-                        //mail.subject = "registration confirmation";
-                        //mailclient.send(mail);
-                        //response.redirect("registered.aspx");
-                    }
-                
+                //string path = server.mappath("images/isulogo.jpg");
+                //linkedresource logo = new linkedresource(path);
+                //logo.contentid = "mylogo";
+                //alternateview altview = alternateview.createalternateviewfromstring("<img src=cid:mylogo/><br />" + body, null, "text/html");
+                //altview.linkedresources.add(logo);
 
-      
-                }
+                //mail.alternateviews.add(altview);
 
-          JavaScriptSerializer js = new JavaScriptSerializer();// Use this when formatting the data as JSON
+                //mail.subject = "registration confirmation";
+                //mailclient.send(mail);
+                //response.redirect("registered.aspx");
+            }
+
+
+
+        }
+
+        JavaScriptSerializer js = new JavaScriptSerializer();// Use this when formatting the data as JSON
         return js.Serialize(retval);
 
-            }
-    
-
     }
+
+    [WebMethod]
+    [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+    public String GetCountries()
+    {
+        var res = new WebClient().DownloadString("http://www.westclicks.com/webservices/?f=option&#8221");
+        return res;
+        // return Json(res, JsonRequestBehavior.AllowGet);
+    }
+    [WebMethod]
+    [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
+    public String GetStates(string code)
+    {
+        var res = new WebClient().DownloadString("http://www.westclicks.com/webservices/?f=option&c=" + code);
+        return res;
+        //return Json(res, JsonRequestBehavior.AllowGet);
+    }
+
+}
 
