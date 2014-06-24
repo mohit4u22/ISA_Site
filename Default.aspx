@@ -835,7 +835,7 @@
                                         <%-- <li>
                                             <input class="text-box-light hasDatepicker" type="date" id="datepicker" value="Expiration Date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Expiration Date';}"><em class="pay-date"> </em></li>--%>
                                         <li>
-                                            <input class="text-box-dark" type="date" id="txtpickupArrivalDate" name="txtpickupArrivalDate" value="yyyy-mm-dd" onkeypress="return false"></li>
+                                            <input class="text-box-dark"  type="date" id="txtpickupArrivalDate" name="txtpickupArrivalDate" value="yyyy-mm-dd" onkeypress="return false"></li>
 
 
                                     </ul>
