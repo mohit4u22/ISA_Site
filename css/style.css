@@ -1262,6 +1262,22 @@ body > div.message > div > div {
             .data p a:hover {
                 color: #999;
             }
+            /* BoardMembers*/
+
+            .BoardMembers {
+    background: #282A2E;
+    padding: 5% 0 6%;
+    text-align: center;
+}
+
+    .BoardMembers h4 {
+        color: #ffffff;
+        font-size: 2.5em;
+        font-weight: 400;
+        margin-bottom: 2%;
+    }
+
+
 /*--- about ---*/
 .about {
     background: #282A2E;
