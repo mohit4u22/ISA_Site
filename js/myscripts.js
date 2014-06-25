@@ -316,7 +316,7 @@ function PopulateBoardMembers()
     var position = 'President';
     $('#divBoardMembersWrapper').html('');
     var divtext = '';
-    for (var i = 0 ; i < 20 ; i++)
+    for (var i = 0 ; i < 6 ; i++)
     {
         divtext += "<div class='label_1_of_4 about_1_of_4'> <img src='" + photo + "' alt='" + Name + "' /><h3>" + Name + "</h3><span>" + position + "</span><p>" + Desc + "</p></div>";
     }
