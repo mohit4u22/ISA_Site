@@ -286,7 +286,7 @@ function BindCountriesStates() {
         $.ajax({
             type: "Post",
             url: "../WebService.asmx/GetStates",
-            data: "{'code': '" + code +  "'}",
+            data: "{'code': '" + code + "'}",
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (result) {
@@ -299,7 +299,7 @@ function BindCountriesStates() {
 
             },
             error: function (jqXHR, textStatus, errorThrown) {
-              alert(jqXHR.responseText);
+                alert(jqXHR.responseText);
             }
         });
 
@@ -308,18 +308,23 @@ function BindCountriesStates() {
 
 }
 
-function PopulateBoardMembers()
-{
-    var Name='Mohit Jain';
-    var Desc = 'An awesome guy.';
-    var photo='images/BoardMembers/about1.jpg';
-    var position = 'President';
-    $('#divBoardMembersWrapper').html('');
-    var divtext = '';
-    for (var i = 0 ; i < 6 ; i++)
-    {
-        divtext += "<div class='label_1_of_4 about_1_of_4'> <img src='" + photo + "' alt='" + Name + "' /><h3>" + Name + "</h3><span>" + position + "</span><p>" + Desc + "</p></div>";
-    }
-    $('#divBoardMembersWrapper').append(divtext)
+function PopulateBoardMembers() {
+    $.ajax({
+        type: "Get",
+        url: "../WebService.asmx/GetBoardMembers",
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (result) {
+            var obj = JSON.parse(result.d);
+            var divtext = '';
+            $.each(obj, function (i, item) {
+                divtext += "<div class='label_1_of_4 about_1_of_4'> <img src='" + item.PhotoPath + "' alt='" + item.Name + "' /><h3>" + item.Name + "</h3><span>" + item.Position + "</span><p>" + item.Description + "</p></div>";
+            });
+            $('#divBoardMembersWrapper').append(divtext);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+           // alert(jqXHR.responseText);
+        }
+    });
 
 }
