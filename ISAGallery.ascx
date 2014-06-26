@@ -18,7 +18,8 @@
         $('#supersized-loader').empty().remove();
         $('#supersized').empty().remove();
         $('#hzDownscaled').empty().remove();
-        $('body').append('<div id="supersized-loader"></div><ul id="supersized"></ul>');
+        //$('body').append('<div id="supersized-loader"></div><ul id="supersized"></ul>');
+        $('body').append('<ul id="supersized"></ul>');
         supersizedFunction.supersized({ slides: newsl }); // add your other SZ options here
 
 
