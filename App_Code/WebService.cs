@@ -42,35 +42,42 @@ public class WebService : System.Web.Services.WebService
     public string LoginUser(String email, String password)
     {
 
-        SqlConnection dbConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnectionString"].ToString());
         String retval = "";
 
         try
         {
 
             string SQLString = "SELECT * FROM usertable WHERE email='" + email + "'";
-            SqlCommand checkIDTable = new SqlCommand(SQLString, dbConnection);
-            SqlDataReader userdata = checkIDTable.ExecuteReader();
-            if (userdata.Read())
+            SqlHelper sqlh = new SqlHelper();
+            try
             {
-                if (userdata["Email"].Equals(email) && userdata["Password"].Equals(password))
+                SqlDataReader userdata = sqlh.ReturnDataReaderFromSQLText(SQLString);
+                if (userdata.Read())
                 {
-                    retval = "Success";
+                    if (userdata["Email"].Equals(email) && userdata["Password"].Equals(password))
+                    {
+                        retval = "Success";
 
+                    }
+                    else
+                    {
+                        retval = "You have entered Wrong Credentials. Please Try Again!";
+                        //LinkButtonforgot.Visible = true;
+                        //Label1.Text = "You have entered Wrong Credentials. Please Try Again!!!!";
+                    }
                 }
                 else
                 {
                     retval = "You have entered Wrong Credentials. Please Try Again!";
-                    //LinkButtonforgot.Visible = true;
-                    //Label1.Text = "You have entered Wrong Credentials. Please Try Again!!!!";
                 }
+                userdata.Close();
             }
-            else
+            catch (Exception ex) { }
+            finally
             {
-                retval = "You have entered Wrong Credentials. Please Try Again!";
+                sqlh.Kill();
             }
-            userdata.Close();
-            dbConnection.Close();
+
         }
         catch (SqlException exception)
         {
@@ -90,85 +97,69 @@ public class WebService : System.Web.Services.WebService
     public string SignUpUser(String fname, String lname, String email, String password, String phone, String country, String street, String city, String state, String zip, String securityques, String securityanswer)
     {
         //// Database code
-        SqlConnection dbConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnectionString"].ToString());
         String retval = "";
-        try
-        {
-            dbConnection.Open();
 
+
+
+
+        string SQLString = "SELECT * FROM usertable WHERE email='" + email + "'";
+        SqlHelper sqlh = new SqlHelper();
+        SqlDataReader cc = sqlh.ReturnDataReaderFromSQLText(SQLString);
+
+
+        if (cc.HasRows)
+        {
+            retval = "User Email already exists";
         }
-        catch (SqlException exception)
+
+        else
         {
-            retval = "There is an Error with the DB, Please try Again!";
-        }
+            cc.Close();
+
+            string studentinfo = "insert into usertable values('"
+                + fname + "', '"
+                + lname + "', '"
+                + email + "', '"
+                + password + "', '"
+                + phone + "', '"
+                + country + "', '"
+                + street + "', '"
+                + city + "', '"
+                + state + "', '"
+                + zip + "', '"
+                + securityques + "', '"
+                + securityanswer + "')";
 
 
-        finally
-        {
-            string sqlstring = "select * from usertable where email='" + email + "';";
-            SqlCommand checkidtable = new SqlCommand(sqlstring, dbConnection);
-            SqlDataReader cc = checkidtable.ExecuteReader();
+            sqlh.ExecuteNonQuerySQLText(studentinfo);
+           
+            sqlh.Kill();
+            retval = "Success";
 
+            //smtpclient mailclient = new smtpclient();
+            //mailmessage mail = new mailmessage("mohit4u22@gmail.com", textbox6.text);
 
+            //string body = "congratulations, you have successfully signed up!! <br>" + "welcome " + textbox2.text + ", " + textbox1.text +
+            //    "!!!!!<br /> with username : <b>" + textbox3.text + "</b><br /> and password :<b> " + textbox4.text +
+            //    "</b><br /> confirm password : " + textbox5.text +
+            //    "<br /> emailid : " + textbox6.text +
+            //    "<br /> security question : " + textbox7.text +
+            //    "<br /> security answer : " + textbox8.text +
+            //    "<br /> categories of interest : " + cat +
+            //    "<br /> cost: min : " + textbox9.text + " and max :" + textbox10.text +
+            //    "<br /> size: min : " + textbox11.text + " and max :" + textbox12.text + "<br/>";
 
-            if (cc.HasRows)
-            {
-                retval = "User Email already exists";
-            }
+            //string path = server.mappath("images/isulogo.jpg");
+            //linkedresource logo = new linkedresource(path);
+            //logo.contentid = "mylogo";
+            //alternateview altview = alternateview.createalternateviewfromstring("<img src=cid:mylogo/><br />" + body, null, "text/html");
+            //altview.linkedresources.add(logo);
 
-            else
-            {
-                cc.Close();
+            //mail.alternateviews.add(altview);
 
-                string studentinfo = "insert into usertable values('"
-                    + fname + "', '"
-                    + lname + "', '"
-                    + email + "', '"
-                    + password + "', '"
-                    + phone + "', '"
-                    + country + "', '"
-                    + street + "', '"
-                    + city + "', '"
-                    + state + "', '"
-                    + zip + "', '"
-                    + securityques + "', '"
-                    + securityanswer + "')";
-
-                SqlCommand sqlcommand1 = new SqlCommand(studentinfo, dbConnection);
-                sqlcommand1.ExecuteNonQuery();
-                sqlcommand1.Dispose();
-
-                dbConnection.Close();
-                retval = "Success";
-
-                //smtpclient mailclient = new smtpclient();
-                //mailmessage mail = new mailmessage("mohit4u22@gmail.com", textbox6.text);
-
-                //string body = "congratulations, you have successfully signed up!! <br>" + "welcome " + textbox2.text + ", " + textbox1.text +
-                //    "!!!!!<br /> with username : <b>" + textbox3.text + "</b><br /> and password :<b> " + textbox4.text +
-                //    "</b><br /> confirm password : " + textbox5.text +
-                //    "<br /> emailid : " + textbox6.text +
-                //    "<br /> security question : " + textbox7.text +
-                //    "<br /> security answer : " + textbox8.text +
-                //    "<br /> categories of interest : " + cat +
-                //    "<br /> cost: min : " + textbox9.text + " and max :" + textbox10.text +
-                //    "<br /> size: min : " + textbox11.text + " and max :" + textbox12.text + "<br/>";
-
-                //string path = server.mappath("images/isulogo.jpg");
-                //linkedresource logo = new linkedresource(path);
-                //logo.contentid = "mylogo";
-                //alternateview altview = alternateview.createalternateviewfromstring("<img src=cid:mylogo/><br />" + body, null, "text/html");
-                //altview.linkedresources.add(logo);
-
-                //mail.alternateviews.add(altview);
-
-                //mail.subject = "registration confirmation";
-                //mailclient.send(mail);
-                //response.redirect("registered.aspx");
-            }
-
-
-
+            //mail.subject = "registration confirmation";
+            //mailclient.send(mail);
+            //response.redirect("registered.aspx");
         }
 
         JavaScriptSerializer js = new JavaScriptSerializer();// Use this when formatting the data as JSON
@@ -193,5 +184,37 @@ public class WebService : System.Web.Services.WebService
         //return Json(res, JsonRequestBehavior.AllowGet);
     }
 
+    [WebMethod]
+    [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+    public String GetBoardMembers()
+    {
+        SqlHelper sqlh = new SqlHelper();
+        DataSet ds = sqlh.ReturnDataSetFromSqlText("select * from BoardMembers");
+        DataTable dt = new DataTable();
+        if (ds != null && ds.Tables.Count > 0)
+        {
+            dt = ds.Tables[0];
+        }
+        return ConvertDataTabletoJSON(dt);
+    }
+
+
+    public string ConvertDataTabletoJSON(DataTable dt)
+    {
+        JavaScriptSerializer serializer = new JavaScriptSerializer();
+        List<Dictionary<string, Object>> rows = new List<Dictionary<string, object>>();
+        Dictionary<string, Object> row;
+        foreach (DataRow dr in dt.Rows)
+        {
+            row = new Dictionary<string, object>();
+            foreach (DataColumn col in dt.Columns)
+            {
+                row.Add(col.ColumnName, dr[col]);
+            }
+            rows.Add(row);
+        }
+        return serializer.Serialize(rows);
+
+    }
 }
 
