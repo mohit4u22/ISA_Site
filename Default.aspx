@@ -201,7 +201,7 @@
     <div class="message">
         <div class="wrap">
             <h3>“Each of us is a unique strand in the intricate web of life and here to make a contribution.”</h3>
-            <h2 color: #7C7C7C;font-size: 2em;font-weight: 400;>Want to contribute something to the community?</h2>
+            <h2 style="color:#7C7C7C;font-size:2em;font-weight:400;">Want to contribute something to the community?</h2>
             <div class="buttons">
                <%-- <div class="span1">
                     <a href="#">
