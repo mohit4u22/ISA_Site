@@ -200,17 +200,18 @@
     <!----------- message ------------>
     <div class="message">
         <div class="wrap">
-            <h3>Do You Like This Clean Theme?</h3>
+            <h3>“Each of us is a unique strand in the intricate web of life and here to make a contribution.”</h3>
+            <h2 color: #7C7C7C;font-size: 2em;font-weight: 400;>Want to contribute something to the community?</h2>
             <div class="buttons">
-                <div class="span1">
+               <%-- <div class="span1">
                     <a href="#">
                         <i>Purchase</i>
                         <div class="clear"></div>
                     </a>
-                </div>
+                </div>--%>
                 <div class="span2">
                     <a href="#">
-                        <i>Follow</i>
+                        <i>Donate</i>
                         <div class="clear"></div>
                     </a>
                 </div>
