@@ -107,7 +107,7 @@ body {
 }
 
 .wrap {
-    width: 80%;
+    width: 92%;
     margin: 0px auto;
 }
 /* start header */
@@ -350,6 +350,19 @@ body {
     padding: 0px;
     margin: 0px;
 }
+
+.service-grids p{
+    font-size: 0.875em;
+color: #C0BEBE;
+line-height: 1.8em;
+}
+
+.service-grids h2{
+    font-size: 1.2em;
+color: #C0BEBE;
+line-height: 1.8em;
+}
+
 
 .images_1_of_4 {
     display: block;
