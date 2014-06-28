@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="css/prettyPhoto.css">
     <!--  jquery plguin -->
     <script type="text/javascript" src="Scripts/jquery-1.9.1.js"></script>
-       <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
 
     <!--start slider --  ---->
     <link rel="stylesheet" href="css/fwslider.css" media="all">
@@ -172,24 +172,37 @@
         <div class="wrap">
             <div class="service-grids">
                 <h2>our Services</h2>
+
+                <p>
+                    The Indian Students Association would like to extend a warm welcome to all new Aspirants joining us here in Illinois State University, Normal, IL this fall.
+                    We are excited to have you and look forward to helping you make the most of your college experience.
+                    In order for us to be able to help you out,
+                     we will sometimes require some information from you in order to tailor our services to your needs and preferences.</p>
+
+                    <h2>Airport Pickup and Temporary Accomodation (or APTA)</h2>
+                <p>These are the wildly popular services offered to incoming students by the ISA.
+                    We offer to pick you up from the Airports or any other major venue and arrange for your housing for a few days until your housing arragements fall into place.
+                    We try to make your first few days as informational, entertaining and comforting as possible.
+                    Please sign up for the above services and we will make sure you are taken care of!
+                </p>
                 <div class="images_1_of_4">
                     <img src="images/cal.png">
-                    <h3><a href="#">WebDesign</a></h3>
+                    <h3><a href="#">NEW STUDENTS GUIDE</a></h3>
                     <p>Lorem ipsum is simply dummy text of the printing and typesetting industry.Lorem ipsum has been </p>
                 </div>
                 <div class="images_1_of_4">
                     <img src="images/port.png">
-                    <h3><a href="#">UIDesign</a></h3>
+                    <h3><a href="#">VACCINES AND IMMUNIZATIONS</a></h3>
                     <p>Lorem ipsum is simply dummy text of the printing and typesetting industry.Lorem ipsum has been</p>
                 </div>
                 <div class="images_1_of_4">
                     <img src="images/recyle.png">
-                    <h3><a href="#">Prototype</a></h3>
+                    <h3><a href="#">LIFE IN AMERICA</a></h3>
                     <p>Lorem ipsum is simply dummy text of the printing and typesetting industry.Lorem ipsum has been </p>
                 </div>
                 <div class="images_1_of_4">
                     <img src="images/camera.png">
-                    <h3><a href="#">Photography</a></h3>
+                    <h3><a href="#">RESTAURANTS</a></h3>
                     <p>Lorem ipsum is simply dummy text of the printing and typesetting industry.Lorem ipsum has been</p>
                 </div>
                 <div class="clear"></div>
@@ -201,9 +214,9 @@
     <div class="message">
         <div class="wrap">
             <h3>“Each of us is a unique strand in the intricate web of life and here to make a contribution.”</h3>
-            <h2 style="color:#7C7C7C;font-size:2em;font-weight:400;">Want to contribute something to the community?</h2>
+            <h2 style="color: #7C7C7C; font-size: 2em; font-weight: 400;">Want to contribute something to the community?</h2>
             <div class="buttons">
-               <%-- <div class="span1">
+                <%-- <div class="span1">
                     <a href="#">
                         <i>Purchase</i>
                         <div class="clear"></div>
@@ -212,7 +225,7 @@
                 <div class="span2">
                     <a class="popup-with-zoom-anim" href="small-dialog-donate">
                         <i>Donate</i>
-                       <%-- <div class="clear"></div>--%>
+                        <%-- <div class="clear"></div>--%>
                     </a>
                 </div>
                 <div class="clear"></div>
@@ -246,7 +259,7 @@
                 <!--end:wrapper-->
 
                 <uc:ISAGallery ID="ISAGallery" runat="server" />
-                  <div class="clear"></div>
+                <div class="clear"></div>
                 <!-- #container -->
 
             </div>
@@ -705,7 +718,7 @@
                     </div>
                     <!-----pop-up-grid---->
 
-                          <!-----pop-up-grid---->
+                    <!-----pop-up-grid---->
                     <div id="small-dialog-donate" class="mfp-hide ModalPopup">
                         <div class="pop_up">
                             <div class="payment-online-form-left">
@@ -727,14 +740,15 @@
                                     </ul>
 
                                     <div class="clear"></div>
-                                 
+
                                     <ul>
                                         <li>
                                             <textarea class="text-box-dark" id="txtdonateComment" name="txtdonateComment" cols="40" rows="4" placeholder="Additional Comments/Description"></textarea></li>
                                     </ul>
                                     <ul>
                                         <li>
-                                            <h3>Someone from the Board committee will contact you soon!</h3><li>
+                                            <h3>Someone from the Board committee will contact you soon!</h3>
+                                            <li>
                                     </ul>
                                 </form>
                                 <div class="clear"></div>
@@ -1010,14 +1024,14 @@
                     <img src="images/logonew.png" alt=""></a>
             </div>
             <div class="copy-right">
-                <p>Template <a href="http://isaatisu.com/"> © isaosu.com All rights reserved.</a></p>
+                <p>Template <a href="http://isaatisu.com/">© isaosu.com All rights reserved.</a></p>
             </div>
             <div class="clear"></div>
         </div>
     </div>
 
     <!-- scroll_top_btn -->
- 
+
     <script type="text/javascript" src="Scripts/jquery.validate.js"></script>
     <script type="text/javascript" src="js/move-top.js"></script>
     <script type="text/javascript" src="js/easing.js"></script>
