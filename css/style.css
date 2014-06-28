@@ -116,7 +116,7 @@ body {
 }
 
 .header {
-    padding: 2% 4%;
+    padding: 1% 2%;
 }
 
 .logo {
@@ -1999,7 +1999,7 @@ body {
 /*---start-media-queries---*/
 @media only screen and (max-width: 1366px) {
     .wrap {
-        width: 95%;
+        width: 92%;
     }
 
     #fwslider .title {

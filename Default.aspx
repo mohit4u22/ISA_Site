@@ -67,7 +67,7 @@
             <div class="header">
                 <div class="logo">
                     <h1><a href="default.aspx">
-                        <img src="images/logo.png" alt="" /></a></h1>
+                        <img src="images/logonew.png" alt="" /></a></h1>
 
                 </div>
                 <div class="h_right">
@@ -132,7 +132,7 @@
                     <div class="slide_content">
                         <div class="slide_content_wrap">
                             <!-- Text title -->
-                            <h4 class="title">Welcome To Indian Student Association</h4>
+                            <h4 class="title">Welcome To Indian Students Association</h4>
                             <!-- /Text title -->
                             <!-- Text description -->
                             <p class="description">Be a part of this Organization!</p>
@@ -691,7 +691,7 @@
                                             <k><a href="javascript:void(0)"  id="btnpickupCancel">Cancel</a></k>
                                         </li>
                                         <li>
-                                            <m> <a href="javascript:void(0)"  id="btnpickup" onclick="pickupUser();" >Request</a></m>
+                                            <m> <a href="javascript:void(0)"  id="btnpickup" onclick="PickupUser();" >Request</a></m>
                                         </li>
 
                                     </ul>
@@ -905,7 +905,7 @@
                 <div class="para-contact">
                     <h4>MORE INFO</h4>
                     <div class="get-intouch-left-address">
-                        <p>Indian Student Association</p>
+                        <p>Indian Students Association</p>
                         <p>Bone Student Center</p>
                         <p>Illinois State University, Normal, IL, 61761</p>
                         <p>(309) 750 4438</p>
@@ -1007,10 +1007,10 @@
         <div class="wrap">
             <div class="image">
                 <a href="index.html">
-                    <img src="images/logo.png" alt=""></a>
+                    <img src="images/logonew.png" alt=""></a>
             </div>
             <div class="copy-right">
-                <p>Template <a href="http://w3layouts.com/">w3layouts.com</a></p>
+                <p>Template <a href="http://isaatisu.com/"> © isaosu.com All rights reserved.</a></p>
             </div>
             <div class="clear"></div>
         </div>
