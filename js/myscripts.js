@@ -119,7 +119,7 @@ function DonateUser() {
 
         $.ajax({
             type: "Post",
-            url: "../WebService.asmx/SignUpUser",
+            url: "../WebService.asmx/DonateUser",
             data: "{'fname': '" + firstname +
                 "', 'lname': '" + lastname +
                 "', 'email': '" + email +  
