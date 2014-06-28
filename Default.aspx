@@ -732,6 +732,10 @@
                                         <li>
                                             <textarea class="text-box-dark" id="txtdonateComment" name="txtdonateComment" cols="40" rows="4" placeholder="Additional Comments/Description"></textarea></li>
                                     </ul>
+                                    <ul>
+                                        <li>
+                                            <h3>Someone from the Board committee will contact you soon!</h3><li>
+                                    </ul>
                                 </form>
                                 <div class="clear"></div>
                                 <div class="span3">
@@ -740,7 +744,7 @@
                                             <k><a href="javascript:void(0)"  id="btndonateCancel">Cancel</a></k>
                                         </li>
                                         <li>
-                                            <m> <a href="javascript:void(0)"  id="btndonate" onclick="donateUser();" >Send</a></m>
+                                            <m> <a href="javascript:void(0)"  id="btndonate" onclick="DonateUser();" >Send</a></m>
                                         </li>
 
                                     </ul>
@@ -871,7 +875,7 @@
     <!----------- message3 ------------>
     <div class="message3">
         <div class="wrap">
-            <h3>You Loked Over 6000px</h3>
+            <h3>Serving for the people, By the people</h3>
             <p>That's Great!</p>
         </div>
     </div>
@@ -901,12 +905,11 @@
                 <div class="para-contact">
                     <h4>MORE INFO</h4>
                     <div class="get-intouch-left-address">
-                        <p>2345 Setwant natrer, 1234</p>
-                        <p>Washington. United States.</p>
-                        <p>2345 Setwant natrer, 1234</p>
-                        <p>Washington. United States.</p>
-                        <p>(401) 1234 567</p>
-                        <p><a href="mailto:info@mycompany.com">info(at)appstore.com</a></p>
+                        <p>Indian Student Association</p>
+                        <p>Bone Student Center</p>
+                        <p>Illinois State University, Normal, IL, 61761</p>
+                        <p>(309) 750 4438</p>
+                        <p><a href="mailto:president@isaatisu.com">president@isaatisu.com</a></p>
                     </div>
                     <div class="span4">
                         <a href="#">

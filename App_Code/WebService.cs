@@ -168,6 +168,40 @@ public class WebService : System.Web.Services.WebService
     }
 
     [WebMethod]
+    [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
+    public string DonateUser(String firstname, String lastname, String email, String phone, String comment)
+    {
+
+        String retval = "";
+
+            string SQLString = "SELECT * FROM donatetable WHERE email='" + email + "'";
+            SqlHelper sqlh = new SqlHelper();
+            try
+            {
+                SqlDataReader userdata = sqlh.ReturnDataReaderFromSQLText(SQLString);
+                string studentdonateinfo = "insert into donatetable values('"
+                + firstname + "', '"
+                + lastname + "', '"
+                + email + "', '"
+               + phone + "', '"
+               + comment + "')";
+
+                sqlh.ExecuteNonQuerySQLText(studentdonateinfo);
+
+                sqlh.Kill();
+                retval = "Success";
+
+            }
+
+         catch (SqlException exception)
+        {
+            retval = "Some Error";
+        }
+        JavaScriptSerializer js = new JavaScriptSerializer();// Use this when formatting the data as JSON
+        return js.Serialize(retval);
+    }
+
+    [WebMethod]
     [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
     public String GetCountries()
     {
