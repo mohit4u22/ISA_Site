@@ -210,9 +210,9 @@
                     </a>
                 </div>--%>
                 <div class="span2">
-                    <a href="#">
+                    <a class="popup-with-zoom-anim" href="small-dialog-donate">
                         <i>Donate</i>
-                        <div class="clear"></div>
+                       <%-- <div class="clear"></div>--%>
                     </a>
                 </div>
                 <div class="clear"></div>
@@ -704,6 +704,56 @@
                         </div>
                     </div>
                     <!-----pop-up-grid---->
+
+                          <!-----pop-up-grid---->
+                    <div id="small-dialog-donate" class="mfp-hide ModalPopup">
+                        <div class="pop_up">
+                            <div class="payment-online-form-left">
+                                <ul class="JQValidateErrors"></ul>
+                                <h4><span class="shipping"></span>Information Form - Donation</h4>
+                                <form id="frmDonate" name="frmDonate">
+                                    <ul>
+                                        <li>
+                                            <input class="text-box-dark" type="text" id="txtdonateFName" name="txtdonateFName" placeholder="First Name"></li>
+                                        <li>
+                                            <input class="text-box-dark" type="text" id="txtdonateLName" name="txtdonateLName" placeholder="Last Name"></li>
+                                    </ul>
+                                    <ul>
+                                        <li>
+                                            <input class="text-box-dark" type="text" id="txtdonateEmail" name="txtdonateEmail" placeholder="Email"></li>
+                                        <li>
+                                            <input class="text-box-dark" type="text" id="txtdonatePhone" name="txtdonatePhone" placeholder="Phone Number"></li>
+
+                                    </ul>
+
+                                    <div class="clear"></div>
+                                 
+                                    <ul>
+                                        <li>
+                                            <textarea class="text-box-dark" id="txtdonateComment" name="txtdonateComment" cols="40" rows="4" placeholder="Additional Comments/Description"></textarea></li>
+                                    </ul>
+                                </form>
+                                <div class="clear"></div>
+                                <div class="span3">
+                                    <ul class="payment-sendbtns">
+                                        <li>
+                                            <k><a href="javascript:void(0)"  id="btndonateCancel">Cancel</a></k>
+                                        </li>
+                                        <li>
+                                            <m> <a href="javascript:void(0)"  id="btndonate" onclick="donateUser();" >Send</a></m>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                                <div class="clear"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-----pop-up-grid---->
+
                 </div>
                 <div class="clear"></div>
             </div>
