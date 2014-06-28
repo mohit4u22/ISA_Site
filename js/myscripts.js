@@ -1,11 +1,13 @@
 ﻿var SignupValidator;
 var LoginValidator;
+var DonateValidator;
 $(document).ready(function () {
     $('.JQValidateErrors').hide();
     BindCountriesStates();
     BindRegisterUserValidation();
     BindLoginValidation();
     PopulateBoardMembers();
+    BindDonateValidation();
 
 });
 
@@ -100,6 +102,50 @@ function RegisterUser() {
         });
     }
 }
+
+function DonateUser() {
+    if (!DonateValidator.validate()) {
+        $('.JQValidateErrors').show();
+        return false;
+    }
+    else {
+        $('.JQValidateErrors').hide();
+        var firstname = $('#txtdonateFName').val();
+        var lastname = $('#txtdonateLName').val();
+        var email = $('#txtdonateEmail').val();
+        var phone = $('#txtdonatePhone').val();
+        var comment = $('#txtdonateComment').val();
+    
+
+        $.ajax({
+            type: "Post",
+            url: "../WebService.asmx/SignUpUser",
+            data: "{'fname': '" + firstname +
+                "', 'lname': '" + lastname +
+                "', 'email': '" + email +  
+                  "', 'phone': '" + phone +
+                 "', 'comment': '" + comment +
+    
+                "'}",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                if (result.d == "Success") {
+                    alert(" Successful");
+                }
+                else {
+                    alert("We're sorry but we are not able to send this message at this time. <br>" + result.d);
+                }
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert("We're not able to send this message at this time.");
+            }
+        });
+    }
+}
+
+//Bind Functions from here
 
 function BindRegisterUserValidation() {
     var rules = {
@@ -200,6 +246,46 @@ function BindLoginValidation() {
     };
 
     LoginValidator = new jQueryValidatorWrapper('frmLogin', rules, messages);
+}
+
+function BindDonateValidation() {
+    var rules = {
+       
+        txtdonateFName: {
+            required: true
+        },
+        txtdonateLName: {
+            required: true
+        },
+        txtdonateEmail: {
+            required: true,
+            email: true
+        },
+        txtdonatePhone: {
+            required: true,
+            minlength: 10,
+            phoneUS: true
+        }
+    };
+    var messages = {
+        txtdonateFName: {
+            required: "Please enter First Name"
+        },
+        txtdonateLName: {
+            required: "Please enter Last Name"
+        },
+        txtdonateEmail: {
+            required: "Please enter email.",
+            email: "Please Enter a Valid Email"
+        },
+        txtdonatePhone: {
+            required: "Please enter Phone Number",
+            minlength: "Please enter valid Phone Number",
+            phoneUS: "Please enter valid Phone Number"
+        }
+    };
+
+    DonateValidator = new jQueryValidatorWrapper('frmDonate', rules, messages);
 
 
 }
