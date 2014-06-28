@@ -5,7 +5,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>The Parallel Website Template | Home :: w3layouts</title>
+    <title>Indian Students Association</title>
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'>
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -171,7 +171,7 @@
     <div class="sevice" id="services">
         <div class="wrap">
             <div class="service-grids">
-                <h2>our Services</h2>
+                <h2>Our Services</h2>
 
                 <p>
                     The Indian Students Association would like to extend a warm welcome to all new Aspirants joining us here in Illinois State University, Normal, IL this fall.
@@ -179,12 +179,21 @@
                     In order for us to be able to help you out,
                      we will sometimes require some information from you in order to tailor our services to your needs and preferences.</p>
 
-                    <h2>Airport Pickup and Temporary Accomodation (or APTA)</h2>
+                    <h3>Airport Pickup and Temporary Accomodation (or APTA)</h3>
                 <p>These are the wildly popular services offered to incoming students by the ISA.
                     We offer to pick you up from the Airports or any other major venue and arrange for your housing for a few days until your housing arragements fall into place.
                     We try to make your first few days as informational, entertaining and comforting as possible.
-                    Please sign up for the above services and we will make sure you are taken care of!
+                    Please sign up for the above services and we will make sure you are taken care of! Lastly, we know you all are excited about coming to Normal and the Illinois State University and a lot of you have shown enthusiasm about becoming a part of ISA.
+We look forward to welcoming you into the fold, and promise you that we will have booths set up at all our events in order to ensure you can join our ranks whenever you like!
+Watch out for cool deals we arrange for members of the ISA family throughout the year, and make sure you don't miss out!
                 </p>
+
+<p>
+If you have questions regarding any service of ISA, please contact:
+Ankit Rathore
+<a style="transition: all 0.5s ease-out;color:azure;" href="mailto:arathore@gmail.com">arathore@gmail.com</a></p>
+                <div class="clear"></div>
+                <br /><br />
                 <div class="images_1_of_4">
                     <img src="images/cal.png">
                     <h3><a href="#">NEW STUDENTS GUIDE</a></h3>
@@ -293,20 +302,36 @@
     <!-----------start-pricing----------->
     <div class="pricing-plans" id="pricing">
         <div class="wrap">
-            <h3>Our Price</h3>
+            <h3>ISA Service Forms</h3>
             <div class="pricing-grids">
                 <div class="pricing-grid">
                     <div class="price-value">
-                        <a href="#">Wesite hosting</a>
+                        <a href="#">Accomodation</a>
                     </div>
                     <h3><a href="#">$5.01/month</a></h3>
+                   <h3>Illinois State University has a wide range of accommodation options and most students find
+                        that we have an accommodation solution to suit their needs.
+If you would prefer not to live in University accommodation, we can also offer you advice
+                        and assistance on finding private rented accommodation.</h3>
+                    <div class="cart">
+                        <div class="span3">
+                            <a class="popup-with-zoom-anim" href="#small-dialog"><i>Purchase</i></a>
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="pricing-grid">
+                    <div class="price-value">
+                        <a href="#">Need Any Help? Register!</a>
+                    </div>
+                    <h3>ISA at ISU will be glad to provide services of accomodation and Pick up. Please fill up the registation
+                    forms on the left and right to avail these services.</h3>
+                    <br /><br />
+                    <h3><a href="#">Some Other ISU Serices are</a></h3>
                     <ul>
-                        <li><a href="#">Lorem ipsum</a></li>
-                        <li><a href="#">Dolor sitamet, Consect</a></li>
-                        <li><a href="#">Adipiscing elit</a></li>
-                        <li><a href="#">Proin commodo turips</a></li>
-                        <li><a href="#">Laws pulvinarvel</a></li>
-                        <li><a href="#">Prnare nisi pretium</a></li>
+                        <li><a href="#">ISA Library</a></li>
+                        <li><a href="#">Academic Help</a></li>
+                        <li><a href="#">Alumni Guidance</a></li>
                     </ul>
                     <div class="cart">
                         <div class="span3">
@@ -314,41 +339,24 @@
                         </div>
                     </div>
                 </div>
-                <div class="pricing-grid">
+                  <div class="pricing-grid">
                     <div class="price-value">
-                        <a href="#">Reseller cloud</a>
+                        <a href="#">Pick Up Service</a>
                     </div>
                     <h3><a href="#">$10.01/month</a></h3>
-                    <ul>
-                        <li><a href="#">Lorem ipsum</a></li>
-                        <li><a href="#">Dolor sitamet, Consect</a></li>
-                        <li><a href="#">Adipiscing elit</a></li>
-                        <li><a href="#">Proin commodo turips</a></li>
-                        <li><a href="#">Laws pulvinarvel</a></li>
-                        <li><a href="#">Prnare nisi pretium</a></li>
-                    </ul>
+                    <h3>
+                        ISA tries to do the best it can to pick new students up from the airport.
+                        So to avoid any inconvenience please fill up the forms and wait until someone contacts you.
+                        Feel free to contact in case there is any concern.
+                        <br />
+                        Again, ISA is a student organization,
+                        and pick-up arrangements are done by volunteers on the basis of their availibility
+                        and proximity. We do not guarantee a pick up.
+
+                    </h3>
                     <div class="cart">
                         <div class="span3">
                             <a class="popup-with-zoom-anim" href="#small-dialog-pickup"><i>Purchase</i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="pricing-grid">
-                    <div class="price-value">
-                        <a href="#">Dedicated hosting</a>
-                    </div>
-                    <h3><a href="#">$20.01/month</a></h3>
-                    <ul>
-                        <li><a href="#">Lorem ipsum</a></li>
-                        <li><a href="#">Dolor sitamet, Consect</a></li>
-                        <li><a href="#">Adipiscing elit</a></li>
-                        <li><a href="#">Proin commodo turips</a></li>
-                        <li><a href="#">Laws pulvinarvel</a></li>
-                        <li><a href="#">Prnare nisi pretium</a></li>
-                    </ul>
-                    <div class="cart">
-                        <div class="span3">
-                            <a class="popup-with-zoom-anim" href="#small-dialog"><i>Purchase</i></a>
                         </div>
                     </div>
                 </div>
@@ -1024,7 +1032,8 @@
                     <img src="images/logonew.png" alt=""></a>
             </div>
             <div class="copy-right">
-                <p>Template <a href="http://isaatisu.com/">© isaosu.com All rights reserved.</a></p>
+                <p> <a href="http://isaatisu.com/">© isaatisu.com All rights reserved.</a></p>
+                <p>Developed By: <a href="mailto:mohitjain0890@gmail.com">Mohit Jain</a></p>
             </div>
             <div class="clear"></div>
         </div>
