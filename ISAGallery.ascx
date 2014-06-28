@@ -103,7 +103,7 @@
 
     <ul id="demo-block">
         <li><a href="http://buildinternet.com/project/supersized/" target="_blank">
-            <img src="img/supersized-logo.png" /></a></li>
+            <img src="img/supersized-logonew.png" /></a></li>
         <li>Photographers: <a href="http://cargocollective.com/mariakazvan" target="_blank">Maria Kazvan</a>, <a href="http://colindub.com" target="_blank">Colin Wojno</a>, &amp; <a href="http://brookeshaden.com/" target="_blank">Brooke Shaden</a></li>
     </ul>
 
