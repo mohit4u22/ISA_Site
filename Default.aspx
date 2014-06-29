@@ -2,6 +2,7 @@
 
 <%@ Register Src="~/ISAGMap.ascx" TagName="ISAGmap" TagPrefix="uc" %>
 <%@ Register Src="~/ISAGallery.ascx" TagName="ISAGallery" TagPrefix="uc" %>
+<%@ Register Src="~/ISA_Events.ascx" TagName="ISAEvents" TagPrefix="uc" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -177,10 +178,12 @@
                     The Indian Students Association would like to extend a warm welcome to all new Aspirants joining us here in Illinois State University, Normal, IL this fall.
                     We are excited to have you and look forward to helping you make the most of your college experience.
                     In order for us to be able to help you out,
-                     we will sometimes require some information from you in order to tailor our services to your needs and preferences.</p>
+                     we will sometimes require some information from you in order to tailor our services to your needs and preferences.
+                </p>
 
-                    <h3>Airport Pickup and Temporary Accomodation (or APTA)</h3>
-                <p>These are the wildly popular services offered to incoming students by the ISA.
+                <h3>Airport Pickup and Temporary Accomodation (or APTA)</h3>
+                <p>
+                    These are the wildly popular services offered to incoming students by the ISA.
                     We offer to pick you up from the Airports or any other major venue and arrange for your housing for a few days until your housing arragements fall into place.
                     We try to make your first few days as informational, entertaining and comforting as possible.
                     Please sign up for the above services and we will make sure you are taken care of! Lastly, we know you all are excited about coming to Normal and the Illinois State University and a lot of you have shown enthusiasm about becoming a part of ISA.
@@ -188,12 +191,14 @@ We look forward to welcoming you into the fold, and promise you that we will hav
 Watch out for cool deals we arrange for members of the ISA family throughout the year, and make sure you don't miss out!
                 </p>
 
-<p>
-If you have questions regarding any service of ISA, please contact:
+                <p>
+                    If you have questions regarding any service of ISA, please contact:
 Ankit Rathore
-<a style="transition: all 0.5s ease-out;color:azure;" href="mailto:arathore@gmail.com">arathore@gmail.com</a></p>
+                    <a style="transition: all 0.5s ease-out; color: azure;" href="mailto:arathore@gmail.com">arathore@gmail.com</a>
+                </p>
                 <div class="clear"></div>
-                <br /><br />
+                <br />
+                <br />
                 <div class="images_1_of_4">
                     <img src="images/cal.png">
                     <h3><a href="#">NEW STUDENTS GUIDE</a></h3>
@@ -232,7 +237,7 @@ Ankit Rathore
                     </a>
                 </div>--%>
                 <div class="span2">
-                    <a class="popup-with-zoom-anim" href="small-dialog-donate">
+                    <a class="popup-with-zoom-anim" href="#small-dialog-donate">
                         <i>Donate</i>
                         <%-- <div class="clear"></div>--%>
                     </a>
@@ -299,7 +304,7 @@ Ankit Rathore
                         <a href="#">Accomodation</a>
                     </div>
                     <h3><a href="#">$5.01/month</a></h3>
-                   <h3>Illinois State University has a wide range of accommodation options and most students find
+                    <h3>Illinois State University has a wide range of accommodation options and most students find
                         that we have an accommodation solution to suit their needs.
 If you would prefer not to live in University accommodation, we can also offer you advice
                         and assistance on finding private rented accommodation.</h3>
@@ -309,14 +314,15 @@ If you would prefer not to live in University accommodation, we can also offer y
                         </div>
                     </div>
                 </div>
-              
+
                 <div class="pricing-grid">
                     <div class="price-value">
                         <a href="#">Need Any Help? Register!</a>
                     </div>
                     <h3>ISA at ISU will be glad to provide services of accomodation and Pick up. Please fill up the registation
                     forms on the left and right to avail these services.</h3>
-                    <br /><br />
+                    <br />
+                    <br />
                     <h3><a href="#">Some Other ISU Serices are</a></h3>
                     <ul>
                         <li><a href="#">ISA Library</a></li>
@@ -329,13 +335,12 @@ If you would prefer not to live in University accommodation, we can also offer y
                         </div>
                     </div>
                 </div>
-                  <div class="pricing-grid">
+                <div class="pricing-grid">
                     <div class="price-value">
                         <a href="#">Pick Up Service</a>
                     </div>
                     <h3><a href="#">$10.01/month</a></h3>
-                    <h3>
-                        ISA tries to do the best it can to pick new students up from the airport.
+                    <h3>ISA tries to do the best it can to pick new students up from the airport.
                         So to avoid any inconvenience please fill up the forms and wait until someone contacts you.
                         Feel free to contact in case there is any concern.
                         <br />
@@ -353,160 +358,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                 <div class="clear"></div>
 
                 <div class="pricing-grids">
-                    <div class="pricing-grid1">
-                        <div class="price-value">
-                            <a href="#">Wesite hosting</a>
-                        </div>
-                        <h3><a href="#">$5.01/month</a></h3>
-                        <ul>
-                            <li><a href="#">Lorem ipsum</a></li>
-                            <li><a href="#">Dolor sitamet, Consect</a></li>
-                            <li><a href="#">Adipiscing elit</a></li>
-                            <li><a href="#">Proin commodo turips</a></li>
-                            <li><a href="#">Laws pulvinarvel</a></li>
-                            <li><a href="#">Prnare nisi pretium</a></li>
-                        </ul>
-                        <div class="cart1">
-                            <div class="span3">
-                                <a class="popup-with-zoom-anim" href="#small-dialog">
-                                    <j>Purchase</j>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pricing-grid2">
-                        <div class="price-value">
-                            <a href="#">Reseller cloud</a>
-                        </div>
-                        <h3><a href="#">$10.01/month</a></h3>
-                        <ul>
-                            <li><a href="#">Lorem ipsum</a></li>
-                            <li><a href="#">Dolor sitamet, Consect</a></li>
-                            <li><a href="#">Adipiscing elit</a></li>
-                            <li><a href="#">Proin commodo turips</a></li>
-                            <li><a href="#">Laws pulvinarvel</a></li>
-                            <li><a href="#">Prnare nisi pretium</a></li>
-                        </ul>
-                        <div class="cart1">
-                            <div class="span3">
-                                <a class="popup-with-zoom-anim" href="#small-dialog">
-                                    <k>Purchase</k>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pricing-grid3">
-                        <div class="price-value">
-                            <a href="#">Dedicated hosting</a>
-                        </div>
-                        <h3><a href="#">$20.01/month</a></h3>
-                        <ul>
-                            <li><a href="#">Lorem ipsum</a></li>
-                            <li><a href="#">Dolor sitamet, Consect</a></li>
-                            <li><a href="#">Adipiscing elit</a></li>
-                            <li><a href="#">Proin commodo turips</a></li>
-                            <li><a href="#">Laws pulvinarvel</a></li>
-                            <li><a href="#">Prnare nisi pretium</a></li>
-                        </ul>
-                        <div class="cart1">
-                            <div class="span3">
-                                <a class="popup-with-zoom-anim" href="#small-dialog">
-                                    <l>Purchase</l>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pricing-grid4">
-                        <div class="price-value">
-                            <a href="#">Dedicated hosting</a>
-                        </div>
-                        <h3><a href="#">$20.01/month</a></h3>
-                        <ul>
-                            <li><a href="#">Lorem ipsum</a></li>
-                            <li><a href="#">Dolor sitamet, Consect</a></li>
-                            <li><a href="#">Adipiscing elit</a></li>
-                            <li><a href="#">Proin commodo turips</a></li>
-                            <li><a href="#">Laws pulvinarvel</a></li>
-                            <li><a href="#">Prnare nisi pretium</a></li>
-                        </ul>
-                        <div class="cart1">
-                            <div class="span3">
-                                <a class="popup-with-zoom-anim" href="#small-dialog">
-                                    <m>Purchase</m>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-----pop-up-grid---->
-                    <div id="small-dialog" class="mfp-hide">
-                        <div class="pop_up">
-                            <div class="payment-online-form-left">
-                                <form>
-                                    <h4><span class="shipping"></span>Shipping</h4>
-                                    <ul>
-                                        <li>
-                                            <input class="text-box-dark" type="text" value="First Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Frist Name';}"></li>
-                                        <li>
-                                            <input class="text-box-dark" type="text" value="Last Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Last Name';}"></li>
-                                    </ul>
-                                    <ul>
-                                        <li>
-                                            <input class="text-box-dark" type="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}"></li>
-                                        <li>
-                                            <input class="text-box-dark" type="text" value="Company Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Company Name';}"></li>
-                                    </ul>
-                                    <ul>
-                                        <li>
-                                            <input class="text-box-dark" type="text" value="Phone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Phone';}"></li>
-                                        <li>
-                                            <input class="text-box-dark" type="text" value="Address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Address';}"></li>
-                                        <div class="clear"></div>
-                                    </ul>
-                                    <div class="clear"></div>
-                                    <ul class="payment-type">
-                                        <h4><span class="payment"></span>Payments</h4>
-                                        <li><span class="col_checkbox">
-                                            <input id="3" class="css-checkbox1" type="checkbox">
-                                            <label for="3" name="demo_lbl_1" class="css-label1"></label>
-                                            <a class="visa" href="#"></a>
-                                        </span>
-
-                                        </li>
-                                        <li>
-                                            <span class="col_checkbox">
-                                                <input id="4" class="css-checkbox2" type="checkbox">
-                                                <label for="4" name="demo_lbl_2" class="css-label2"></label>
-                                                <a class="paypal" href="#"></a>
-                                            </span>
-                                        </li>
-                                        <div class="clear"></div>
-                                    </ul>
-                                    <ul>
-                                        <li>
-                                            <input class="text-box-dark" type="text" value="Card Number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Card Number';}"></li>
-                                        <li>
-                                            <input class="text-box-dark" type="text" value="Name on card" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name on card';}"></li>
-                                        <div class="clear"></div>
-                                    </ul>
-                                    <ul>
-                                        <li>
-                                            <input class="text-box-light hasDatepicker" type="text" id="datepicker" value="Expiration Date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Expiration Date';}"><em class="pay-date"> </em></li>
-                                        <li>
-                                            <input class="text-box-dark" type="text" value="Security Code" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Security Code';}"></li>
-                                        <div class="clear"></div>
-                                    </ul>
-                                    <ul class="payment-sendbtns">
-                                        <li>
-                                            <input type="reset" value="Cancel"></li>
-                                        <li>
-                                            <input type="submit" value="Process order"></li>
-                                    </ul>
-                                    <div class="clear"></div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <!-----pop-up-grid---->
+                    <uc:ISAEvents ID="ucISaEvents" runat="server" />
 
                     <!-----pop-up-grid---->
                     <div id="small-dialog-login" class="ModalPopup mfp-hide">
@@ -529,7 +381,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                     <div class="span3">
                                         <ul class="payment-sendbtns">
                                             <li>
-                                                <k> <a href="javascript:void(0)"  id="btnLoginCancel">Cancel
+                                                <k> <a href="javascript:void(0)" onclick="ResetForm('frmLogin')"  id="btnLoginCancel">Cancel
                                                 </a></k>
                                             </li>
                                             <li>
@@ -612,6 +464,12 @@ If you would prefer not to live in University accommodation, we can also offer y
                                         <li>
                                             <input class="text-box-dark" type="text" id="txtregisterSanswer" name="txtregisterSanswer" placeholder="Security Answer"></li>
 
+                                    </ul>
+                                    <div class="clear"></div>
+                                    <ul>
+                                        <li>
+                                            <input class="text-box-dark" type="checkbox" id="txtregisterSanswer" name="txtregisterSanswer" placeholder="Security Answer"></li>
+                                        input type="checkbox" name="vehicle" value="Car">Send Confirmation Email
                                     </ul>
                                 </form>
                                 <div class="clear"></div>
@@ -1022,7 +880,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                     <img src="images/logonew.png" alt=""></a>
             </div>
             <div class="copy-right">
-                <p> <a href="http://isaatisu.com/">© isaatisu.com All rights reserved.</a></p>
+                <p><a href="http://isaatisu.com/">© isaatisu.com All rights reserved.</a></p>
                 <p>Developed By: <a href="mailto:mohitjain0890@gmail.com">Mohit Jain</a></p>
             </div>
             <div class="clear"></div>
