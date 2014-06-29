@@ -877,10 +877,9 @@ button::-moz-focus-inner {
         padding: 0 3%;
     }
 
-    .payment-online-form-left input[type="text"], .payment-online-form-left input[type="date"], .payment-online-form-left input[type="time"] {
+    .payment-online-form-left input[type="text"], .payment-online-form-left input[type="date"], .payment-online-form-left input[type="time"], .payment-online-form-left select {
         padding: 1em 1em;
         font-family: 'Open Sans', sans-serif;
-        ;
         color: #485460;
         width: 42%;
         margin: 0.5em 0;
