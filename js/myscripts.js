@@ -573,3 +573,14 @@ function PopulateGalleryFolders() {
     });
 
 }
+
+function ResetForm(FormID)
+{
+
+    $('#' + FormID + ' input').val('');
+
+
+
+    $('#' + FormID).find('input[type=text],textarea,select').filter(':visible:first').focus();
+
+}
