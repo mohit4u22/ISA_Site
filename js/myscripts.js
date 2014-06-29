@@ -3,6 +3,7 @@ var LoginValidator;
 var DonateValidator;
 var PickupValidator;
 $(document).ready(function () {
+    PopulateGalleryFolders();
     $('.JQValidateErrors').hide();
     BindCountriesStates();
     BindRegisterUserValidation();
@@ -116,17 +117,17 @@ function DonateUser() {
         var email = $('#txtdonateEmail').val();
         var phone = $('#txtdonatePhone').val();
         var comment = $('#txtdonateComment').val();
-    
+
 
         $.ajax({
             type: "Post",
             url: "../WebService.asmx/DonateUser",
             data: "{'fname': '" + firstname +
                 "', 'lname': '" + lastname +
-                "', 'email': '" + email +  
+                "', 'email': '" + email +
                   "', 'phone': '" + phone +
                  "', 'comment': '" + comment +
-    
+
                 "'}",
             dataType: "json",
             contentType: "application/json; charset=utf-8",
@@ -300,7 +301,7 @@ function BindLoginValidation() {
 
 function BindDonateValidation() {
     var rules = {
-       
+
         txtdonateFName: {
             required: true
         },
@@ -380,9 +381,9 @@ function BindPickupValidation() {
             email: "Please Enter a Valid Email"
         },
         txtpickupPhone: {
-                required: "Please enter Phone Number",
-                minlength: "Please enter valid Phone Number",
-                phoneUS: "Please enter valid Phone Number"
+            required: "Please enter Phone Number",
+            minlength: "Please enter valid Phone Number",
+            phoneUS: "Please enter valid Phone Number"
         },
         txtpickupVenue: {
             equalTo: "Passwords do not match"
@@ -522,7 +523,52 @@ function PopulateBoardMembers() {
             $('#divBoardMembersWrapper').append(divtext);
         },
         error: function (jqXHR, textStatus, errorThrown) {
-           // alert(jqXHR.responseText);
+            // alert(jqXHR.responseText);
+        }
+    });
+
+}
+
+function PopulateGalleryFolders() {
+
+    $.ajax({
+        type: "Get",
+        url: "../WebService.asmx/GetGalleryFolders",
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (result) {
+            var obj = JSON.parse(result.d);
+            var fdr = '';
+
+            var transX = 0, transY = 0, index = 0;
+            $.each(obj, function (i, item) {
+
+                fdr += '<li class="element photo isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(' + transX + 'px, ' + transY + 'px, 0px);">';
+                fdr += '<a href="javascript:void(0);" onclick="openGallery(\'' + item.GalleryFolderPath + '\');" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">';
+                fdr += '<img src="' + item.FolderImage + '" alt="' + item.GalleryFolderName + '" width="200" height="200"  />';
+                fdr += '<h3>' + item.GalleryFolderName + '</h3></a>';
+                fdr += '</li>'
+                // fdr += '<div class="meta-box clearfix">';
+                //fdr += ' <span class="entry-categories"><a href="#">print art</a></span>';
+                //fdr += '  &nbsp;/&nbsp;';
+                //fdr += '<span class="entry-categories"><a href="#">' + item.GalleryFolderName + '</a></span>'
+                //fdr += '</div><footer><div id="nivo-lightbox-demo">';
+                //fdr += '<p><a href="javascript:void(0);" onclick="openGallery();" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">View</a> </p>'
+                //fdr += '</div></footer></figcaption></li>';
+                index++;
+                if (index % 5 == 0) {
+                    transY = transY + 267;
+                }
+                transX = transX + 295;
+                if (transX > 1190)
+                    transX = 0;
+            });
+            fdr += ' <div class="clear"> </div>';
+            $('#divGalleryFolders ul').html(fdr);//.css({height: 575 + 'px', width:  1475 +'px'});;
+           
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            // alert(jqXHR.responseText);
         }
     });
 
