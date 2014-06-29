@@ -255,7 +255,7 @@ public class WebService : System.Web.Services.WebService
 
     [WebMethod]
     [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
-    public String GetGalleryFolders()
+    public String GetEvents()
     {
         SqlHelper sqlh = new SqlHelper();
         DataSet ds = sqlh.ReturnDataSetFromSqlText("select * from Events");
