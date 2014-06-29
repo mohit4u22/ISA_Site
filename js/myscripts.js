@@ -581,6 +581,6 @@ function ResetForm(FormID)
 
 
 
-    $('#' + FormID).find('input[type=text],textarea,select').filter(':visible:first').focus();
+    $('#' + FormID).find('input[type=text],textarea,input,select').filter(':visible:first').focus();
 
 }

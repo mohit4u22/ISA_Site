@@ -10,6 +10,7 @@ using System.Web.Script.Serialization;
 using System.Web.Script.Services;
 using System.Web.Services;
 using System.IO;
+using System.Net.Mail;
 
 /// <summary>
 /// Summary description for WebService
@@ -95,7 +96,7 @@ public class WebService : System.Web.Services.WebService
 
     [WebMethod]
     [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
-    public string SignUpUser(String fname, String lname, String email, String password, String phone, String country, String street, String city, String state, String zip, String securityques, String securityanswer)
+    public string SignUpUser(String fname, String lname, String email, String password, String phone, String country, String street, String city, String state, String zip, String securityques, String securityanswer, bool status)
     {
         //// Database code
         String retval = "";
@@ -129,43 +130,59 @@ public class WebService : System.Web.Services.WebService
                 + state + "', '"
                 + zip + "', '"
                 + securityques + "', '"
-                + securityanswer + "')";
+                + securityanswer + "')"
+                + status + "')";
 
 
             sqlh.ExecuteNonQuerySQLText(studentinfo);
 
             sqlh.Kill();
             retval = "Success";
+            //checkBoxvalidator(status);
+            if (status)
+                {
+                    SmtpClient mailClient = new SmtpClient();
+                    MailMessage mail = new MailMessage("mohitjain0890@gmail.com", email);
 
-            //smtpclient mailclient = new smtpclient();
-            //mailmessage mail = new mailmessage("mohit4u22@gmail.com", textbox6.text);
+                    string body = "Congratulations, you have successfully signed up for the INDIAN STUDENTS ASSOCIATION!! <br/>Title : ";
+                    body += "The Description you entered is " + "<br>" +
+                           "<br /> Full Name : " + fname + " " +lname+
+                           "<br /> Email : " + email +
+                           "<br /> Password : " + password +
+                           "<br /> Security Ques : " + securityques +
+                           "<br /> Security Answer : " + securityanswer +
+                       //    "<br /> <a href='" + appSettings["SiteRootUrl"] + "/default.aspx?status=" + PropertyID.ToString() + "'>Click Here </a> to view the property details." +
+                       //"<br/><br/><br/>" +" <a href='" + appSettings["SiteRootUrl"] +"Unsubscribe.aspx'>Click Here</a> to unsubscribe";
 
-            //string body = "congratulations, you have successfully signed up!! <br>" + "welcome " + textbox2.text + ", " + textbox1.text +
-            //    "!!!!!<br /> with username : <b>" + textbox3.text + "</b><br /> and password :<b> " + textbox4.text +
-            //    "</b><br /> confirm password : " + textbox5.text +
-            //    "<br /> emailid : " + textbox6.text +
-            //    "<br /> security question : " + textbox7.text +
-            //    "<br /> security answer : " + textbox8.text +
-            //    "<br /> categories of interest : " + cat +
-            //    "<br /> cost: min : " + textbox9.text + " and max :" + textbox10.text +
-            //    "<br /> size: min : " + textbox11.text + " and max :" + textbox12.text + "<br/>";
+                           "<br/>";
 
-            //string path = server.mappath("images/isulogo.jpg");
-            //linkedresource logo = new linkedresource(path);
-            //logo.contentid = "mylogo";
-            //alternateview altview = alternateview.createalternateviewfromstring("<img src=cid:mylogo/><br />" + body, null, "text/html");
-            //altview.linkedresources.add(logo);
+                    string path = Server.MapPath("images/logonew.jpg");
+                    LinkedResource logo = new LinkedResource(path);
+                    logo.ContentId = "MyLogo";
+                    AlternateView altview = AlternateView.CreateAlternateViewFromString("<img src=cid:MyLogo/><br />" + body, null, "text/html");
+                    altview.LinkedResources.Add(logo);
 
-            //mail.alternateviews.add(altview);
+                    mail.AlternateViews.Add(altview);
 
-            //mail.subject = "registration confirmation";
-            //mailclient.send(mail);
-            //response.redirect("registered.aspx");
+                    mail.IsBodyHtml = true;
+                    mail.Subject = "Welcome To ISA at ISU";
+                    mailClient.Send(mail);
+                }
+    
         }
 
         JavaScriptSerializer js = new JavaScriptSerializer();// Use this when formatting the data as JSON
         return js.Serialize(retval);
 
+    //      public bool checkBoxvalidator(bool status)
+    //{
+    //    if(chkregistersendemail.checked)
+    //        return true;
+
+    //        else
+    //        return false;
+
+    //}
 
     }
 
@@ -334,5 +351,7 @@ public class WebService : System.Web.Services.WebService
         return serializer.Serialize(rows);
 
     }
+
+  
 }
 

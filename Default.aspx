@@ -434,7 +434,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                     <ul>
 
                                         <li>
-                                            <select name="ddlCountry" id="ddlCountry" style="width: 200px;"></select>
+                                            <select name="ddlCountry" id="ddlCountry" style="margin-right: 5%;"></select>
                                         </li>
                                     </ul>
                                     <div class="clear"></div>
@@ -449,7 +449,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                     <ul>
 
                                         <li>
-                                            <select name="ddlState" id="ddlState" style="width: 200px;"></select>
+                                            <select name="ddlState" id="ddlState" style="margin-right: 5%;"></select>
                                         <li>
                                             <input class="text-box-light hasDatepicker" type="text" id="txtregisterZip" name="txtregisterZip" placeholder="Zip"><em class="pay-date"></em></li>
 
@@ -468,15 +468,14 @@ If you would prefer not to live in University accommodation, we can also offer y
                                     <div class="clear"></div>
                                     <ul>
                                         <li>
-                                            <input class="text-box-dark" type="checkbox" id="txtregisterSanswer" name="txtregisterSanswer" placeholder="Security Answer"></li>
-                                        input type="checkbox" name="vehicle" value="Car">Send Confirmation Email
+                                            <input class="text-box-dark" type="checkbox" id="chkregistersendemail" name="chkregistersendemail"></li>
                                     </ul>
                                 </form>
                                 <div class="clear"></div>
                                 <div class="span3">
                                     <ul class="payment-sendbtns">
                                         <li>
-                                            <k><a href="javascript:void(0)"  id="btnRegisterCancel">Cancel</a></k>
+                                            <k><a href="javascript:void(0)" onclick="ResetForm('frmRegister')"  id="btnRegisterCancel">Cancel</a></k>
                                         </li>
                                         <li>
                                             <m> <a href="javascript:void(0)"  id="btnRegister" onclick="RegisterUser();" >Register</a></m>
@@ -557,7 +556,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                 <div class="span3">
                                     <ul class="payment-sendbtns">
                                         <li>
-                                            <k><a href="javascript:void(0)"  id="btnpickupCancel">Cancel</a></k>
+                                            <k><a href="javascript:void(0)" onclick="ResetForm('frmPickup')"  id="btnpickupCancel">Cancel</a></k>
                                         </li>
                                         <li>
                                             <m> <a href="javascript:void(0)"  id="btnpickup" onclick="PickupUser();" >Request</a></m>
@@ -611,7 +610,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                 <div class="span3">
                                     <ul class="payment-sendbtns">
                                         <li>
-                                            <k><a href="javascript:void(0)"  id="btndonateCancel">Cancel</a></k>
+                                            <k><a href="javascript:void(0)" onclick="ResetForm('frmDonate')"  id="btndonateCancel">Cancel</a></k>
                                         </li>
                                         <li>
                                             <m> <a href="javascript:void(0)"  id="btndonate" onclick="DonateUser();" >Send</a></m>
@@ -781,13 +780,14 @@ If you would prefer not to live in University accommodation, we can also offer y
                         <p>(309) 750 4438</p>
                         <p><a href="mailto:president@isaatisu.com">president@isaatisu.com</a></p>
                     </div>
-                    <div class="span4">
-                        <a href="#">
-                            <i>
-                                <input type="submit" value="Purchase"></i>
-                            <div class="clear"></div>
+                    <br /><br />
+                    <div class="buttons">
+                        <div class="span2">
+                        <a href="https://illinoisstate.collegiatelink.net/organization/indian-student-association">
+                            <i>ISA Profile at ISU</i>
                         </a>
                     </div>
+                        </div>
                     <div class="clear"></div>
                 </div>
                 <a class="mov-top" href="#home1"><span></span></a>
