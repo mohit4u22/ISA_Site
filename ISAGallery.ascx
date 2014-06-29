@@ -40,8 +40,42 @@
     jQuery(function ($) {
         supersizedFunction = $;
         $('#supersized').hide();
-        // PopulateGalleryFolders();
+        PopulateGalleryFolders();
     });
+
+
+    function PopulateGalleryFolders() {
+
+        $.ajax({
+            type: "Get",
+            url: "../WebService.asmx/GetEvents",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                var obj = JSON.parse(result.d);
+                var fdr = '';
+
+                var divtext = '';
+                $.each(obj, function (i, item) {
+                    divtext += "<div class='label_1_of_4 about_1_of_4'><div class='ic_container'> <img  height=250 width=250 src='" + item.FolderImage + "' alt='" + item.GalleryFolderName + "' /> ><div class='ic_caption'><p class='ic_category'></p><h3>" + item.GalleryFolderName + "</h3><p class='ic_text'><span style='margin:12px;' class='span3'><i><a onclick=\"openGallery('" + item.GalleryFolderPath + "')\" href='javascript:void(0)' style='color:white; opacity:1; text-decoration:none;'>View Images</a></i> </span></p></div></div></div>";
+                });
+                $('#divGalleryFolders').append(divtext);
+
+              
+                $(".ic_container").capslide({
+                    caption_color: '#fff',
+                    caption_bgcolor: '#000',
+                    overlay_bgcolor: '#f9ca8d',
+                    border: '4px solid #000',
+                    showcaption: true
+                });
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                // alert(jqXHR.responseText);
+            }
+        });
+
+    }
 
     function openGallery(FolderName) {
 
@@ -67,7 +101,7 @@
                 $('#supersized').css('left', (window.outerWidth + 100) + 'px');
                 $('#supersized').show();
                 $('#supersized').animate({ 'left': '0' }, 1000);
-               $('body').append("<a id=ancCloseGallery href='javascript:void(0);' onclick='CloseGallerySlideShow();' style='position:fixed; z-index:1000; top:10px; left:47%; height:75px; width:130px;'><img height=32 width=65 src='Images/CloseBtn.png' alt='' /></a>");
+                $('body').append("<a id=ancCloseGallery href='javascript:void(0);' onclick='CloseGallerySlideShow();' style='position:fixed; z-index:1000; top:10px; left:47%; height:75px; width:130px;'><img height=32 width=65 src='Images/CloseBtn.png' alt='' /></a>");
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 alert(jqXHR.responseText);
@@ -81,7 +115,7 @@
     }
     function CloseGallerySlideShow() {
         $('#supersized').animate({ 'left': window.outerWidth + 100 + 'px' }, 1000, function () {
-           // $('#supersized').empty().remove();
+            // $('#supersized').empty().remove();
             $('#supersized').remove();
             $('#SlideshowGallery').hide();
             $('#ancCloseGallery').remove();
@@ -111,206 +145,7 @@
 </style>
 
 <div id="divGalleryFolders">
-    <ul id="container" class="clickable cs-style-5 grid clearfix isotope" style="position: relative; overflow: hidden; height: 534px; width: 1475px;">
-        <li class="element photo isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(0px, 0px, 0px);">
-            <figure>
-                <img src="images/pf-1.jpg" alt="">
-                <figcaption>
-                    <h3><a href="#">This is project name</a></h3>
-                    <div class="meta-box clearfix">
-                        <span class="entry-categories"><a href="#">print art</a></span>
-                        &nbsp;/&nbsp;
-                                    <span class="entry-categories"><a href="#">photo</a></span>
-                    </div>
-                    <footer>
-                        <div id="nivo-lightbox-demo">
-                            <p><a href="images/pf-1.jpg" data-lightbox-gallery="gallery1" id="A1">View</a> </p>
-                        </div>
-                    </footer>
-                </figcaption>
-            </figure>
 
-        </li>
-
-        <li class="element web-design isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(295px, 0px, 0px);">
-            <figure>
-                <img src="images/pf-2.jpg" alt="">
-                <figcaption>
-                    <h3><a href="#">This is project name</a></h3>
-                    <div class="meta-box clearfix">
-                        <span class="entry-categories"><a href="#">print art</a></span>
-                        &nbsp;/&nbsp;
-                                    <span class="entry-categories"><a href="#">photo</a></span>
-                    </div>
-                    <footer>
-                        <div id="Div1">
-                            <p><a href="images/pf-2.jpg" data-lightbox-gallery="gallery1" id="A2">View</a> </p>
-                        </div>
-                    </footer>
-                </figcaption>
-            </figure>
-
-        </li>
-
-        <li class="element ios-app isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(590px, 0px, 0px);">
-            <figure>
-                <img src="images/pf-3.jpg" alt="">
-                <figcaption>
-                    <h3><a href="#">This is project name</a></h3>
-                    <div class="meta-box clearfix">
-                        <span class="entry-categories"><a href="#">print art</a></span>
-                        &nbsp;/&nbsp;
-                                    <span class="entry-categories"><a href="#">photo</a></span>
-                    </div>
-                    <footer>
-                        <div id="Div2">
-                            <p><a href="images/pf-3.jpg" data-lightbox-gallery="gallery1" id="A3">View</a> </p>
-                        </div>
-                    </footer>
-                </figcaption>
-            </figure>
-
-        </li>
-
-        <li class="element graphic isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(885px, 0px, 0px);">
-            <figure>
-                <img src="images/pf-4.jpg" alt="">
-                <figcaption>
-                    <h3><a href="#">This is project name</a></h3>
-                    <div class="meta-box clearfix">
-                        <span class="entry-categories"><a href="#">print art</a></span>
-                        &nbsp;/&nbsp;
-                                    <span class="entry-categories"><a href="#">photo</a></span>
-                    </div>
-                    <footer>
-                        <div id="Div3">
-                            <p><a href="images/pf-4.jpg" data-lightbox-gallery="gallery1" id="A4">View</a> </p>
-                        </div>
-                    </footer>
-                </figcaption>
-            </figure>
-
-        </li>
-
-        <li class="element photo isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(1180px, 0px, 0px);">
-            <figure>
-                <img src="images/pf-5.jpg" alt="">
-                <figcaption>
-                    <h3><a href="#">This is project name</a></h3>
-                    <div class="meta-box clearfix">
-                        <span class="entry-categories"><a href="#">print art</a></span>
-                        &nbsp;/&nbsp;
-                                    <span class="entry-categories"><a href="#">photo</a></span>
-                    </div>
-                    <footer>
-                        <div id="Div4">
-                            <p><a href="images/pf-5.jpg" data-lightbox-gallery="gallery1" id="A5">View</a> </p>
-                        </div>
-                    </footer>
-                </figcaption>
-            </figure>
-
-        </li>
-
-        <li class="element web-design isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(0px, 267px, 0px);">
-            <figure>
-                <img src="images/pf-6.jpg" alt="">
-                <figcaption>
-                    <h3><a href="#">This is project name</a></h3>
-                    <div class="meta-box clearfix">
-                        <span class="entry-categories"><a href="#">print art</a></span>
-                        &nbsp;/&nbsp;
-                                    <span class="entry-categories"><a href="#">photo</a></span>
-                    </div>
-                    <footer>
-                        <div id="Div5">
-                            <p><a href="images/pf-6.jpg" data-lightbox-gallery="gallery1" id="A6">View</a> </p>
-                        </div>
-                    </footer>
-                </figcaption>
-            </figure>
-
-        </li>
-
-        <li class="element ios-app isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(295px, 267px, 0px);">
-            <figure>
-                <img src="images/pf-7.jpg" alt="">
-                <figcaption>
-                    <h3><a href="#">This is project name</a></h3>
-                    <div class="meta-box clearfix">
-                        <span class="entry-categories"><a href="#">print art</a></span>
-                        &nbsp;/&nbsp;
-                                    <span class="entry-categories"><a href="#">photo</a></span>
-                    </div>
-                    <footer>
-                        <div id="Div6">
-                            <p><a href="images/pf-7.jpg" data-lightbox-gallery="gallery1" id="A7">View</a> </p>
-                        </div>
-                    </footer>
-
-                </figcaption>
-            </figure>
-
-        </li>
-
-        <li class="element graphic isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(590px, 267px, 0px);">
-            <figure>
-                <img src="images/pf-8.jpg" alt="">
-                <figcaption>
-                    <h3><a href="#">This is project name</a></h3>
-                    <div class="meta-box clearfix">
-                        <span class="entry-categories"><a href="#">print art</a></span>
-                        &nbsp;/&nbsp;
-                                    <span class="entry-categories"><a href="#">photo</a></span>
-                    </div>
-                    <footer>
-                        <div id="Div7">
-                            <p><a href="images/pf-8.jpg" data-lightbox-gallery="gallery1" id="A8">View</a> </p>
-                        </div>
-                    </footer>
-                </figcaption>
-            </figure>
-        </li>
-
-        <li class="element photo isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(885px, 267px, 0px);">
-            <figure>
-                <img src="images/pf-9.jpg" alt="">
-                <figcaption>
-                    <h3><a href="#">This is project name</a></h3>
-                    <div class="meta-box clearfix">
-                        <span class="entry-categories"><a href="#">print art</a></span>
-                        &nbsp;/&nbsp;
-                                    <span class="entry-categories"><a href="#">photo</a></span>
-                    </div>
-                    <footer>
-                        <div id="Div8">
-                            <p><a href="images/pf-9.jpg" data-lightbox-gallery="gallery1" id="A9">View</a> </p>
-                        </div>
-                    </footer>
-                </figcaption>
-            </figure>
-
-        </li>
-
-        <li class="element web-design isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(1180px, 267px, 0px);">
-            <figure>
-                <img src="images/pf-10.jpg" alt="">
-                <figcaption>
-                    <h3><a href="#">This is project name</a></h3>
-                    <div class="meta-box clearfix">
-                        <span class="entry-categories"><a href="#">print art</a></span>
-                        &nbsp;/&nbsp;
-                                    <span class="entry-categories"><a href="#">photo</a></span>
-                    </div>
-                    <footer>
-                        <div id="Div9">
-                            <p><a href="images/pf-10.jpg" data-lightbox-gallery="gallery1" id="A10">View</a> </p>
-                        </div>
-                </figcaption>
-            </figure>
-        </li>
-        <div class="clear"></div>
-    </ul>
     <!-- #container -->
 </div>
 <!--Demo styles (you can delete this block)-->
