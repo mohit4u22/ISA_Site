@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Script.Serialization;
 using System.Web.Script.Services;
 using System.Web.Services;
+using System.IO;
 
 /// <summary>
 /// Summary description for WebService
@@ -132,7 +133,7 @@ public class WebService : System.Web.Services.WebService
 
 
             sqlh.ExecuteNonQuerySQLText(studentinfo);
-           
+
             sqlh.Kill();
             retval = "Success";
 
@@ -174,26 +175,26 @@ public class WebService : System.Web.Services.WebService
 
         String retval = "";
 
-            string SQLString = "SELECT * FROM donatetable WHERE email='" + email + "'";
-            SqlHelper sqlh = new SqlHelper();
-            try
-            {
-                SqlDataReader userdata = sqlh.ReturnDataReaderFromSQLText(SQLString);
-                string studentdonateinfo = "insert into donatetable values('"
-                + firstname + "', '"
-                + lastname + "', '"
-                + email + "', '"
-               + phone + "', '"
-               + comment + "')";
+        string SQLString = "SELECT * FROM donatetable WHERE email='" + email + "'";
+        SqlHelper sqlh = new SqlHelper();
+        try
+        {
+            SqlDataReader userdata = sqlh.ReturnDataReaderFromSQLText(SQLString);
+            string studentdonateinfo = "insert into donatetable values('"
+            + firstname + "', '"
+            + lastname + "', '"
+            + email + "', '"
+           + phone + "', '"
+           + comment + "')";
 
-                sqlh.ExecuteNonQuerySQLText(studentdonateinfo);
+            sqlh.ExecuteNonQuerySQLText(studentdonateinfo);
 
-                sqlh.Kill();
-                retval = "Success";
+            sqlh.Kill();
+            retval = "Success";
 
-            }
+        }
 
-         catch (SqlException exception)
+        catch (SqlException exception)
         {
             retval = "Some Error";
         }
@@ -232,6 +233,86 @@ public class WebService : System.Web.Services.WebService
         return ConvertDataTabletoJSON(dt);
     }
 
+    [WebMethod]
+    [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+    public String GetGalleryFolders()
+    {
+        SqlHelper sqlh = new SqlHelper();
+        DataSet ds = sqlh.ReturnDataSetFromSqlText("select * from Events");
+        DataTable dt = new DataTable();
+        String returnVal = "";
+        if (ds != null && ds.Tables.Count > 0)
+        {
+            dt = ds.Tables[0];
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            List<Dictionary<string, Object>> rows = new List<Dictionary<string, object>>();
+            Dictionary<string, Object> row;
+            foreach (DataRow dr in dt.Rows)
+            {
+                row = new Dictionary<string, object>();
+                foreach (DataColumn col in dt.Columns)
+                {
+                    row.Add(col.ColumnName, dr[col]);
+                    if (col.ColumnName.ToLower().Equals("galleryfolderpath"))
+                    {
+                        if (Directory.Exists(Server.MapPath(@"~\Images\Gallery\" + dr[col])))
+                        {
+                            row.Add("FolderImage", @"Images\Gallery\" + dr[col] + @"\" + getrandomfile(Server.MapPath(@"~\Images\Gallery\" + dr[col])));
+                        }
+                    }
+                }
+                rows.Add(row);
+            }
+            returnVal = serializer.Serialize(rows);
+        }
+        return returnVal;
+
+    }
+
+    [WebMethod]
+    [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
+    public String GetGalleryFiles(String FolderName)
+    {
+        List<String> fls = new List<string>();
+        if (Directory.Exists(Server.MapPath(@"~\Images\Gallery\" + FolderName)))
+        {
+            DirectoryInfo dinfo = new DirectoryInfo(Server.MapPath(@"~\Images\Gallery\" + FolderName));
+            FileInfo[] finfo = dinfo.GetFiles();
+            foreach (FileInfo inf in finfo)
+            {
+                if ((inf.Extension.ToLower() == ".jpg") ||
+           (inf.Extension.ToLower() == ".gif") ||
+           (inf.Extension.ToLower() == ".bmp") ||
+           (inf.Extension.ToLower() == ".png"))
+                {
+                    fls.Add(FolderName + "\\" +  inf.Name);
+                }
+            }
+        }
+        JavaScriptSerializer serializer = new JavaScriptSerializer();
+        return serializer.Serialize(fls);
+    }
+
+
+    private string getrandomfile(string path)
+    {
+        string file = null;
+        if (!string.IsNullOrEmpty(path))
+        {
+            var extensions = new string[] { ".png", ".jpg", ".gif" };
+            try
+            {
+                var di = new DirectoryInfo(path);
+                var rgFiles = di.GetFiles("*.*").Where(f => extensions.Contains(f.Extension.ToLower()));
+                Random R = new Random();
+                file = rgFiles.ElementAt(R.Next(0, rgFiles.Count())).Name;
+            }
+            // probably should only catch specific exceptions
+            // throwable by the above methods.
+            catch { }
+        }
+        return file;
+    }
 
     public string ConvertDataTabletoJSON(DataTable dt)
     {
