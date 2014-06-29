@@ -227,8 +227,8 @@ Ankit Rathore
     <!----------- message ------------>
     <div class="message">
         <div class="wrap">
-            <h3>“Each of us is a unique strand in the intricate web of life and here to make a contribution.”</h3>
-            <h2 style="color: #7C7C7C; font-size: 2em; font-weight: 400;">Want to contribute something to the community?</h2>
+            <h3 style="color: white; bacground-color: black; opacity: 0.5;">“Each of us is a unique strand in the intricate web of life and here to make a contribution.”</h3>
+            <h2 style="color: white; background-color: black; opacity: 0.5; font-size: 2em; font-weight: 400;">Want to contribute something to the community?</h2>
             <div class="buttons">
                 <%-- <div class="span1">
                     <a href="#">
@@ -276,24 +276,22 @@ Ankit Rathore
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/modernizr.custom.js"></script>
+
     <div id="divGMapWrapper" class="cbp-so-scroller">
         <!--Portfolio-->
         <div id="divGMap" class="clearfix">
         </div>
     </div>
+
     </div>
     <!----------- message1 ------------>
-    <div class="message1" style="padding: 0;">
+    <div class="message2">
         <div class="wrap">
-            <table style="margin: 0 auto;">
-                <tr>
-                    <td>
-                        <uc:ISAGmap ID="ucGmap" runat="server" />
-                    </td>
-                </tr>
-            </table>
+            <h3>Our team</h3>
+            <p>We a professional and progresive team</p>
         </div>
     </div>
+
     <!-----------start-pricing----------->
     <div class="pricing-plans" id="pricing">
         <div class="wrap">
@@ -357,9 +355,8 @@ If you would prefer not to live in University accommodation, we can also offer y
                 </div>
                 <div class="clear"></div>
 
-                <div class="pricing-grids">
-                    <uc:ISAEvents ID="ucISaEvents" runat="server" />
 
+                <div class="pricing-grids">
                     <!-----pop-up-grid---->
                     <div id="small-dialog-login" class="ModalPopup mfp-hide">
                         <div class="pop_up">
@@ -631,6 +628,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                 </div>
                 <div class="clear"></div>
             </div>
+
             <div class="client">
                 <h3>
                     <img src="images/line.png" /><i>CLIENT ABOUT US</i><img src="images/line.png" /></h3>
@@ -649,10 +647,35 @@ If you would prefer not to live in University accommodation, we can also offer y
         </div>
     </div>
 
-    <div id="small-dialog-register" class="mfp-hide ModalPopup">
-        <div class="pop_up">
+    <!----------- message1 ------------>
+    <div class="message2">
+        <div class="wrap">
+            <h3>Our team</h3>
+            <p>We a professional and progresive team</p>
         </div>
     </div>
+
+    <!-----------start-pricing----------->
+    <div class="pricing-plans">
+        <div class="wrap">
+            <div class="wrapper clearfix">
+                <div class="section-title">
+                    <h3 class="heading">Events</h3>
+                    <h6></h6>
+                </div>
+                <!--end:section-title-->
+                <br />
+            </div>
+            <!--end:wrapper-->
+
+
+
+            <uc:ISAEvents ID="ucISaEvents" runat="server" />
+            <div class="clear"></div>
+        </div>
+    </div>
+
+
     <!-- Add fancyBox light-box -->
     <!-- Add fancyBox light-box -->
     <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
@@ -687,59 +710,23 @@ If you would prefer not to live in University accommodation, we can also offer y
             <h4>Board Members</h4>
             <div class="section group" id="divBoardMembersWrapper">
             </div>
-            <div class="client">
-                <h3>
-                    <img src="images/line.png" /><i>Our skills</i><img src="images/line.png" /></h3>
-                <!----------- clock position ------------>
-                <div></div>
-                <div class="pie-wrapper progress-45 style-2">
-                    <span class="label">45<span class="smaller">%</span></span>
-                    <div class="pie">
-                        <div class="left-side half-circle"></div>
-                        <div class="right-side half-circle"></div>
-                    </div>
-                    <div class="shadow"></div>
-                    <h3>WEB-DESIGN</h3>
-                </div>
+        </div>
+    </div>
 
-                <div class="pie-wrapper progress-75 style-2">
-                    <span class="label">75<span class="smaller">%</span></span>
-                    <div class="pie">
-                        <div class="left-side half-circle"></div>
-                        <div class="right-side half-circle"></div>
-                    </div>
-                    <div class="shadow"></div>
-                    <h3>CREATIVE</h3>
-                </div>
-
-                <div class="pie-wrapper progress-95 style-2">
-                    <span class="label">95<span class="smaller">%</span></span>
-                    <div class="pie">
-                        <div class="left-side half-circle"></div>
-                        <div class="right-side half-circle"></div>
-                    </div>
-                    <div class="shadow"></div>
-                    <h3>UI-DESIGN</h3>
-                </div>
-                <div class="pie-wrapper progress-45 style-2">
-                    <span class="label">45<span class="smaller">%</span></span>
-                    <div class="pie">
-                        <div class="left-side half-circle"></div>
-                        <div class="right-side half-circle"></div>
-                    </div>
-                    <div class="shadow"></div>
-                    <h3>PROTOTYPES</h3>
-                </div>
-                <div class="pie-wrapper progress-75 style-2">
-                    <span class="label">75<span class="smaller">%</span></span>
-                    <div class="pie">
-                        <div class="left-side half-circle"></div>
-                        <div class="right-side half-circle"></div>
-                    </div>
-                    <div class="shadow"></div>
-                    <h3>PHOTOGRAPHY</h3>
-                </div>
+    <div class="message2">
+        <div class="wrap">
+            <h3>Our team</h3>
+            <p>We a professional and progresive team</p>
+        </div>
+    </div>
+    <!----------- about ------------>
+    <div class="BoardMembers" id="Div1">
+        <div class="wrap">
+            <h4>Map</h4>
+            <div class="section group" id="div2">
+                <uc:ISAGmap ID="ucISAGMap" runat="server" />
             </div>
+            <div class="clear"></div>
         </div>
     </div>
     <!----------- message3 ------------>
@@ -749,7 +736,7 @@ If you would prefer not to live in University accommodation, we can also offer y
             <p>That's Great!</p>
         </div>
     </div>
-    <!--------start-contact----------->
+    <di---->
     <div class="contact" id="contact">
         <div class="wrap">
             <h2>Contact Us</h2>

@@ -1,157 +1,80 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ISA_Events.ascx.cs" Inherits="ISA_Events" %>
+<script type="text/javascript">
 
+    var eventsJSON;
+    $(document).ready(function () {
+        PopulateEvents();
+    });
 
-<div class="pricing-grid1">
-                        <div class="price-value">
-                            <a href="#">Wesite hosting</a>
-                        </div>
-                        <h3><a href="#">$5.01/month</a></h3>
-                        <ul>
-                            <li><a href="#">Lorem ipsum</a></li>
-                            <li><a href="#">Dolor sitamet, Consect</a></li>
-                            <li><a href="#">Adipiscing elit</a></li>
-                            <li><a href="#">Proin commodo turips</a></li>
-                            <li><a href="#">Laws pulvinarvel</a></li>
-                            <li><a href="#">Prnare nisi pretium</a></li>
-                        </ul>
-                        <div class="cart1">
-                            <div class="span3">
-                                <a class="popup-with-zoom-anim" href="#small-dialog">
-                                    <j>Purchase</j>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pricing-grid2">
-                        <div class="price-value">
-                            <a href="#">Reseller cloud</a>
-                        </div>
-                        <h3><a href="#">$10.01/month</a></h3>
-                        <ul>
-                            <li><a href="#">Lorem ipsum</a></li>
-                            <li><a href="#">Dolor sitamet, Consect</a></li>
-                            <li><a href="#">Adipiscing elit</a></li>
-                            <li><a href="#">Proin commodo turips</a></li>
-                            <li><a href="#">Laws pulvinarvel</a></li>
-                            <li><a href="#">Prnare nisi pretium</a></li>
-                        </ul>
-                        <div class="cart1">
-                            <div class="span3">
-                                <a class="popup-with-zoom-anim" href="#small-dialog">
-                                    <k>Purchase</k>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pricing-grid3">
-                        <div class="price-value">
-                            <a href="#">Dedicated hosting</a>
-                        </div>
-                        <h3><a href="#">$20.01/month</a></h3>
-                        <ul>
-                            <li><a href="#">Lorem ipsum</a></li>
-                            <li><a href="#">Dolor sitamet, Consect</a></li>
-                            <li><a href="#">Adipiscing elit</a></li>
-                            <li><a href="#">Proin commodo turips</a></li>
-                            <li><a href="#">Laws pulvinarvel</a></li>
-                            <li><a href="#">Prnare nisi pretium</a></li>
-                        </ul>
-                        <div class="cart1">
-                            <div class="span3">
-                                <a class="popup-with-zoom-anim" href="#small-dialog">
-                                    <l>Purchase</l>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pricing-grid4">
-                        <div class="price-value">
-                            <a href="#">Dedicated hosting</a>
-                        </div>
-                        <h3><a href="#">$20.01/month</a></h3>
-                        <ul>
-                            <li><a href="#">Lorem ipsum</a></li>
-                            <li><a href="#">Dolor sitamet, Consect</a></li>
-                            <li><a href="#">Adipiscing elit</a></li>
-                            <li><a href="#">Proin commodo turips</a></li>
-                            <li><a href="#">Laws pulvinarvel</a></li>
-                            <li><a href="#">Prnare nisi pretium</a></li>
-                        </ul>
-                        <div class="cart1">
-                            <div class="span3">
-                                <a class="popup-with-zoom-anim" href="#small-dialog">
-                                    <m>Purchase</m>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-----pop-up-grid---->
-                    <div id="small-dialog" class="mfp-hide">
-                        <div class="pop_up">
-                            <div class="payment-online-form-left">
-                                <form>
-                                    <h4><span class="shipping"></span>Shipping</h4>
-                                    <ul>
-                                        <li>
-                                            <input class="text-box-dark" type="text" value="First Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Frist Name';}"></li>
-                                        <li>
-                                            <input class="text-box-dark" type="text" value="Last Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Last Name';}"></li>
-                                    </ul>
-                                    <ul>
-                                        <li>
-                                            <input class="text-box-dark" type="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}"></li>
-                                        <li>
-                                            <input class="text-box-dark" type="text" value="Company Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Company Name';}"></li>
-                                    </ul>
-                                    <ul>
-                                        <li>
-                                            <input class="text-box-dark" type="text" value="Phone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Phone';}"></li>
-                                        <li>
-                                            <input class="text-box-dark" type="text" value="Address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Address';}"></li>
-                                        <div class="clear"></div>
-                                    </ul>
-                                    <div class="clear"></div>
-                                    <ul class="payment-type">
-                                        <h4><span class="payment"></span>Payments</h4>
-                                        <li><span class="col_checkbox">
-                                            <input id="3" class="css-checkbox1" type="checkbox">
-                                            <label for="3" name="demo_lbl_1" class="css-label1"></label>
-                                            <a class="visa" href="#"></a>
-                                        </span>
+    function PopulateEvents() {
+        $.ajax({
+            type: "Get",
+            url: "../WebService.asmx/GetEvents",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                eventsJSON = JSON.parse(result.d);
+                var divtext = '';
+                $.each(eventsJSON, function (i, item) {
+                    divtext += '<div class="pricing-grid1" onclick="OpenGalleryDetail(\'' + item.ID + '\')" ><div class="price-value"><a href="#">' + item.EventName + '</a>';
+                    divtext += '</div><h3><a href="#"><img width=100 height=100 src="Images/' + item.PosterPath + '" alt="' + item.EventName + '" />';
+                    divtext += '</a></h3><div style="padding:10px;">' + item.EventDescription.toString().substring(0, 100) + ' ...</div><a href="javascript:void(0)" style="float:right; margin:10px;">more</a></div>';
+                });
+                $('#divEvents').html(divtext);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                // alert(jqXHR.responseText);
+            }
+        });
 
-                                        </li>
-                                        <li>
-                                            <span class="col_checkbox">
-                                                <input id="4" class="css-checkbox2" type="checkbox">
-                                                <label for="4" name="demo_lbl_2" class="css-label2"></label>
-                                                <a class="paypal" href="#"></a>
-                                            </span>
-                                        </li>
-                                        <div class="clear"></div>
-                                    </ul>
-                                    <ul>
-                                        <li>
-                                            <input class="text-box-dark" type="text" value="Card Number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Card Number';}"></li>
-                                        <li>
-                                            <input class="text-box-dark" type="text" value="Name on card" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name on card';}"></li>
-                                        <div class="clear"></div>
-                                    </ul>
-                                    <ul>
-                                        <li>
-                                            <input class="text-box-light hasDatepicker" type="text" id="datepicker" value="Expiration Date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Expiration Date';}"><em class="pay-date"> </em></li>
-                                        <li>
-                                            <input class="text-box-dark" type="text" value="Security Code" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Security Code';}"></li>
-                                        <div class="clear"></div>
-                                    </ul>
-                                    <ul class="payment-sendbtns">
-                                        <li>
-                                            <input type="reset" value="Cancel"></li>
-                                        <li>
-                                            <input type="submit" value="Process order"></li>
-                                    </ul>
-                                    <div class="clear"></div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <!-----pop-up-grid---->
+    }
+
+    function OpenGalleryDetail(EventID) {
+        //alert(EventID);
+        var selectedItem;
+        $.each(eventsJSON, function (i, item) {
+            if (item.ID.toString() === EventID) {
+                selectedItem = item;
+                return false;
+            }
+        });
+        $('#spnEventDetailPopupHeader').html(selectedItem.EventName);
+        $('#imgEventDetailPopup').attr('src', "Images\\" + selectedItem.PosterPath);
+        $('#spnEventDetailPopupDescription').html(selectedItem.EventDescription);
+        $.magnificPopup.open({
+            items: {
+                src: $('#divEventsDetail'), // can be a HTML string, jQuery object, or CSS selector
+                type: 'inline'
+            },
+            fixedContentPos: false,
+            fixedBgPos: true,
+            overflowY: 'auto',
+            closeBtnInside: true,
+            preloader: false,
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+    }
+</script>
+<div id="divEvents">
+</div>
+
+<!-----pop-up-grid---->
+<div id="divEventsDetail" class="ModalPopup mfp-hide">
+    <div class="pop_up">
+        <div class="payment-online-form-left">
+            <h4><span class="event"></span>&nbsp;&nbsp;<span id="spnEventDetailPopupHeader" style=""></span></h4>
+
+            <br />
+            <img id="imgEventDetailPopup"></img>
+            <br />
+            <span id="spnEventDetailPopupDescription"></span>
+        </div>
+        <div class="clear"></div>
+
+    </div>
+
+</div>
+
+<!-----pop-up-grid---->
