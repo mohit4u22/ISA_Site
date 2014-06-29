@@ -924,6 +924,13 @@ button::-moz-focus-inner {
     background: url(../images/icon.png) no-repeat -111px -31px;
 }
 
+.event {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    background: url(../images/icon.png) no-repeat -111px -65px;
+}
+
 .payment {
     width: 32px;
     height: 32px;

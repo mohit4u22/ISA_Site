@@ -3,7 +3,6 @@ var LoginValidator;
 var DonateValidator;
 var PickupValidator;
 $(document).ready(function () {
-    PopulateGalleryFolders();
     $('.JQValidateErrors').hide();
     BindCountriesStates();
     BindRegisterUserValidation();
@@ -529,50 +528,6 @@ function PopulateBoardMembers() {
 
 }
 
-function PopulateGalleryFolders() {
-
-    $.ajax({
-        type: "Get",
-        url: "../WebService.asmx/GetGalleryFolders",
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
-        success: function (result) {
-            var obj = JSON.parse(result.d);
-            var fdr = '';
-
-            var transX = 0, transY = 0, index = 0;
-            $.each(obj, function (i, item) {
-
-                fdr += '<li class="element photo isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(' + transX + 'px, ' + transY + 'px, 0px);">';
-                fdr += '<a href="javascript:void(0);" onclick="openGallery(\'' + item.GalleryFolderPath + '\');" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">';
-                fdr += '<img src="' + item.FolderImage + '" alt="' + item.GalleryFolderName + '" width="200" height="200"  />';
-                fdr += '<h3>' + item.GalleryFolderName + '</h3></a>';
-                fdr += '</li>'
-                // fdr += '<div class="meta-box clearfix">';
-                //fdr += ' <span class="entry-categories"><a href="#">print art</a></span>';
-                //fdr += '  &nbsp;/&nbsp;';
-                //fdr += '<span class="entry-categories"><a href="#">' + item.GalleryFolderName + '</a></span>'
-                //fdr += '</div><footer><div id="nivo-lightbox-demo">';
-                //fdr += '<p><a href="javascript:void(0);" onclick="openGallery();" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">View</a> </p>'
-                //fdr += '</div></footer></figcaption></li>';
-                index++;
-                if (index % 5 == 0) {
-                    transY = transY + 267;
-                }
-                transX = transX + 295;
-                if (transX > 1190)
-                    transX = 0;
-            });
-            fdr += ' <div class="clear"> </div>';
-            $('#divGalleryFolders ul').html(fdr);//.css({height: 575 + 'px', width:  1475 +'px'});;
-           
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            // alert(jqXHR.responseText);
-        }
-    });
-
-}
 
 function ResetForm(FormID)
 {
@@ -584,3 +539,55 @@ function ResetForm(FormID)
     $('#' + FormID).find('input[type=text],textarea,input,select').filter(':visible:first').focus();
 
 }
+
+
+
+
+(function ($) {
+    $.fn.capslide = function (options) {
+        var opts = $.extend({}, $.fn.capslide.defaults, options);
+        return this.each(function () {
+            $this = $(this);
+            var o = $.meta ? $.extend({}, opts, $this.data()) : opts;
+
+            if (!o.showcaption) $this.find('.ic_caption').css('display', 'none');
+            else $this.find('.ic_text').css('display', 'none');
+
+            var _img = $this.find('img:first');
+            var w = _img.css('width');
+            var h = _img.css('height');
+            $('.ic_caption', $this).css({ 'color': o.caption_color, 'background-color': o.caption_bgcolor, 'bottom': '-10px', 'width': w });
+            $('.overlay', $this).css('background-color', o.overlay_bgcolor);
+            $this.css({ 'width': w, 'height': h, 'border': o.border });
+            $this.hover(
+				function () {
+				    if ((navigator.appVersion).indexOf('MSIE 7.0') > 0)
+				        $('.overlay', $(this)).show();
+				    else
+				        $('.overlay', $(this)).fadeIn();
+				    if (!o.showcaption)
+				        $(this).find('.ic_caption').slideDown(500);
+				    else
+				        $('.ic_text', $(this)).slideDown(500);
+				},
+				function () {
+				    if ((navigator.appVersion).indexOf('MSIE 7.0') > 0)
+				        $('.overlay', $(this)).hide();
+				    else
+				        $('.overlay', $(this)).fadeOut();
+				    if (!o.showcaption)
+				        $(this).find('.ic_caption').slideUp(200);
+				    else
+				        $('.ic_text', $(this)).slideUp(200);
+				}
+			);
+        });
+    };
+    $.fn.capslide.defaults = {
+        caption_color: 'white',
+        caption_bgcolor: 'black',
+        overlay_bgcolor: 'blue',
+        border: '1px solid #fff',
+        showcaption: true
+    };
+})(jQuery);
