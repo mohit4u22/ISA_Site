@@ -76,7 +76,7 @@
 
                         <li><a href="#BoardMembers" class="scroll">Board Members</a></li>
                         <li><a href="#services" class="scroll">Services</a></li>
-                        <li><a href="#portfolio" class="scroll">Portfolio</a></li>
+                        <li><a href="#portfolio" class="scroll">Event Gallery</a></li>
                         <li><a href="#pricing" class="scroll">Pricing</a></li>
                         <li>
                             <a class="popup-with-zoom-anim" href="#small-dialog-login"><i>Login</i></a>
@@ -249,21 +249,11 @@ Ankit Rathore
             <div class="typo1">
                 <div class="wrapper clearfix">
                     <div class="section-title">
-                        <h3 class="heading">Portfolio</h3>
+                        <h3 class="heading">Event Gallery</h3>
                         <h6></h6>
                     </div>
                     <!--end:section-title-->
-
-                    <div id="options" class="clearfix">
-                        <ul id="filters" class="option-set clearfix" data-option-key="filter">
-                            <li><a href="#filter" data-option-value=".web-design">Web-design</a></li>
-                            <li><a href="#filter" data-option-value=".photo">UI Design</a></li>
-                            <li><a href="#filter" data-option-value=".ios-app">Prototype</a></li>
-                            <li><a href="#filter" data-option-value=".graphic">Photography</a></li>
-                        </ul>
-                        <!--end:filters-->
-                    </div>
-
+                    <br />
                 </div>
                 <!--end:wrapper-->
 
