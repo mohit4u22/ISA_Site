@@ -56,31 +56,63 @@
         }
     }
 
+    function codeAddress(addr) {
+        var geocoder = new google.maps.Geocoder();
+
+        geocoder.geocode({ 'address': addr }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                //In this case it creates a marker, but you can get the lat and lng from the location.LatLng
+                //map.setCenter(results[0].geometry.location);
+                //var marker = new google.maps.Marker({
+                //    map: map,
+                //    position: results[0].geometry.location
+                //});
+                return results[0].geometry.location;
+            } else {
+                //alert("Geocode was not successful for the following reason: " + status);
+            }
+        });
+    }
+
     function onPageLoad() {
         if (GBrowserIsCompatible()) {
-            map = new GMap2(document.getElementById("map"));
 
-            map.setCenter(new GLatLng(locations.RKGrocery.Latitude, locations.RKGrocery.Longitude), 17 - 5);
-            map.addControl(new GLargeMapControl());
-            map.addControl(new GMapTypeControl());
-            var id = 0;
-            $.each(locations, function (i, item) {
-                id++;
-                var marker = new PdMarker(new GLatLng(item.Latitude, item.Longitude));
-                marker.setId(id);
-                // marker.setTooltip("Vancouver");
-                var html = "<div style='padding:10px;'>" + item.Description;
-                if (item.Phone && item.Phone.toString().length > 0)
-                    html += "<br>Phone: " + item.Phone;
-                if (item.Website && item.Website.toString().length > 0)
-                    html += "<br>Web: " + item.Website;
-                html += "</div>";
-                marker.setDetailWinHTML(html);
-                marker.setHoverImage("http://www.google.com/mapfiles/dd-start.png");
-                marker.setTooltip(item.Description);
-                map.addOverlay(marker);
+            var yelpaddr = 'http://api.yelp.com/business_review_search?term=Walmart&location=Normal%20IL&ywsid=DU3nRZlsFRHLmSv1qZDL9g';
 
-            });
+            $.getJSON(yelpaddr + '&callback=?',
+         function (data) {
+             $.each(data.businesses, function (i, bus) {
+                 var ltlg = codeAddress(bus.address1 + ' ' + bus.address2 + ' ' + bus.city + ' ' + bus.state + ' '+ bus.zip);
+
+             });
+
+             map = new GMap2(document.getElementById("map"));
+
+             map.setCenter(new GLatLng(locations.RKGrocery.Latitude, locations.RKGrocery.Longitude), 17 - 5);
+             map.addControl(new GLargeMapControl());
+             map.addControl(new GMapTypeControl());
+             var id = 0;
+             $.each(locations, function (i, item) {
+                 id++;
+                 var marker = new PdMarker(new GLatLng(item.Latitude, item.Longitude));
+                 marker.setId(id);
+                 // marker.setTooltip("Vancouver");
+                 var html = "<div style='padding:10px;'>" + item.Description;
+                 if (item.Phone && item.Phone.toString().length > 0)
+                     html += "<br>Phone: " + item.Phone;
+                 if (item.Website && item.Website.toString().length > 0)
+                     html += "<br>Web: " + item.Website;
+                 html += "</div>";
+                 marker.setDetailWinHTML(html);
+                 marker.setHoverImage("http://www.google.com/mapfiles/dd-start.png");
+                 marker.setTooltip(item.Description);
+                 map.addOverlay(marker);
+
+             });
+         }
+     );
+
+
 
             // var transitLayer = new google.maps.TransitLayer();
             // transitLayer.setMap(map);
