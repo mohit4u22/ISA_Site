@@ -106,7 +106,7 @@ public class WebService : System.Web.Services.WebService
 
         string SQLString = "SELECT * FROM usertable WHERE email='" + email + "'";
         SqlHelper sqlh = new SqlHelper();
-        SqlDataReader cc = sqlh.ReturnDataReaderFromSQLText(SQLString);
+        SqlDataReader cc = sqlh.ReturnDataReaderFromSQLText(SQLString)
 
 
         if (cc.HasRows)
@@ -130,59 +130,48 @@ public class WebService : System.Web.Services.WebService
                 + state + "', '"
                 + zip + "', '"
                 + securityques + "', '"
-                + securityanswer + "')"
-                + status + "')";
+                + securityanswer + "')";
+               
 
 
             sqlh.ExecuteNonQuerySQLText(studentinfo);
 
             sqlh.Kill();
             retval = "Success";
-            //checkBoxvalidator(status);
             if (status)
-                {
-                    SmtpClient mailClient = new SmtpClient();
-                    MailMessage mail = new MailMessage("mohitjain0890@gmail.com", email);
+            {
+                SmtpClient mailClient = new SmtpClient();
+                MailMessage mail = new MailMessage("mohitjain0890@gmail.com", email);
 
-                    string body = "Congratulations, you have successfully signed up for the INDIAN STUDENTS ASSOCIATION!! <br/>Title : ";
-                    body += "The Description you entered is " + "<br>" +
-                           "<br /> Full Name : " + fname + " " +lname+
-                           "<br /> Email : " + email +
-                           "<br /> Password : " + password +
-                           "<br /> Security Ques : " + securityques +
-                           "<br /> Security Answer : " + securityanswer +
-                       //    "<br /> <a href='" + appSettings["SiteRootUrl"] + "/default.aspx?status=" + PropertyID.ToString() + "'>Click Here </a> to view the property details." +
-                       //"<br/><br/><br/>" +" <a href='" + appSettings["SiteRootUrl"] +"Unsubscribe.aspx'>Click Here</a> to unsubscribe";
+                string body = "Congratulations, you have successfully signed up for the INDIAN STUDENTS ASSOCIATION!! <br/>Title : ";
+                body += "The Description you entered is " + "<br>" +
+                       "<br /> Full Name : " + fname + " " + lname +
+                       "<br /> Email : " + email +
+                       "<br /> Password : " + password +
+                       "<br /> Security Ques : " + securityques +
+                       "<br /> Security Answer : " + securityanswer +
+                  "<br/><br/><br/>" + " <a href='" + ConfigurationManager.AppSettings["SiteRootUrl"] + "unsubscribe.aspx'>Click Here</a> to unsubscribe";
 
-                           "<br/>";
 
-                    string path = Server.MapPath("images/logonew.jpg");
-                    LinkedResource logo = new LinkedResource(path);
-                    logo.ContentId = "MyLogo";
-                    AlternateView altview = AlternateView.CreateAlternateViewFromString("<img src=cid:MyLogo/><br />" + body, null, "text/html");
-                    altview.LinkedResources.Add(logo);
+                string path = Server.MapPath("images/logonew.jpg");
+                LinkedResource logo = new LinkedResource(path);
+                logo.ContentId = "MyLogo";
+                AlternateView altview = AlternateView.CreateAlternateViewFromString("<img src=cid:MyLogo/><br />" + body, null, "text/html");
+                altview.LinkedResources.Add(logo);
 
-                    mail.AlternateViews.Add(altview);
+                mail.AlternateViews.Add(altview);
 
-                    mail.IsBodyHtml = true;
-                    mail.Subject = "Welcome To ISA at ISU";
-                    mailClient.Send(mail);
-                }
-    
+                mail.IsBodyHtml = true;
+                mail.Subject = "Welcome To ISA at ISU";
+                mailClient.Send(mail);
+            }
+
         }
 
         JavaScriptSerializer js = new JavaScriptSerializer();// Use this when formatting the data as JSON
         return js.Serialize(retval);
 
-    //      public bool checkBoxvalidator(bool status)
-    //{
-    //    if(chkregistersendemail.checked)
-    //        return true;
-
-    //        else
-    //        return false;
-
-    //}
+       
 
     }
 
@@ -305,7 +294,7 @@ public class WebService : System.Web.Services.WebService
            (inf.Extension.ToLower() == ".bmp") ||
            (inf.Extension.ToLower() == ".png"))
                 {
-                    fls.Add(FolderName + "\\" +  inf.Name);
+                    fls.Add(FolderName + "\\" + inf.Name);
                 }
             }
         }
@@ -352,6 +341,6 @@ public class WebService : System.Web.Services.WebService
 
     }
 
-  
+
 }
 
