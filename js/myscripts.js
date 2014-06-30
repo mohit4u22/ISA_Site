@@ -66,6 +66,7 @@ function RegisterUser() {
         var state = $('#txtregisterState').val();
         var zip = $('#txtregisterZip').val();
         var securityques = $('#txtregisterSquestion').val();
+        var securityanswer = $('#txtregisterSanswer').val();
         var status = $('#chkregistersendemail').is(':checked');
 
         $.ajax({
@@ -90,7 +91,7 @@ function RegisterUser() {
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (result) {
-                if (result.d == "Success") {
+                if (result.d.toString().toLowerCase() === "success") {
                     alert("User Created Successfully");
                 }
                 else {

@@ -1640,6 +1640,20 @@ img.mfp-img {
     }
 
 
+    .ModalPopup_850 {
+    background: white;
+    padding: 20px 30px;
+    text-align: left;
+    /*done later*/
+    max-width: 850px; 
+    margin: 40px auto;
+    position: relative;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+
 /*----*/
 .my-mfp-zoom-in .ModalPopup {
     opacity: 0;
