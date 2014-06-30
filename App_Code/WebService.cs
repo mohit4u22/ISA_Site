@@ -106,7 +106,7 @@ public class WebService : System.Web.Services.WebService
 
         string SQLString = "SELECT * FROM usertable WHERE email='" + email + "'";
         SqlHelper sqlh = new SqlHelper();
-        SqlDataReader cc = sqlh.ReturnDataReaderFromSQLText(SQLString)
+        SqlDataReader cc = sqlh.ReturnDataReaderFromSQLText(SQLString);
 
 
         if (cc.HasRows)
@@ -153,7 +153,7 @@ public class WebService : System.Web.Services.WebService
                   "<br/><br/><br/>" + " <a href='" + ConfigurationManager.AppSettings["SiteRootUrl"] + "unsubscribe.aspx'>Click Here</a> to unsubscribe";
 
 
-                string path = Server.MapPath("images/logonew.jpg");
+                string path = Server.MapPath("images/logonew.png");
                 LinkedResource logo = new LinkedResource(path);
                 logo.ContentId = "MyLogo";
                 AlternateView altview = AlternateView.CreateAlternateViewFromString("<img src=cid:MyLogo/><br />" + body, null, "text/html");

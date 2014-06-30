@@ -39,6 +39,26 @@
             $().UItoTop({ easingType: 'easeOutQuart' });
 
         });
+
+
+
+        function OpenServicePdf(Url) {
+            $('#frmNewServicePDF').attr('src', Url);
+            $.magnificPopup.open({
+                items: {
+                    src: $('#small-dialog-NewServicePDF'), // can be a HTML string, jQuery object, or CSS selector
+                    type: 'inline'
+                },
+                fixedContentPos: false,
+                fixedBgPos: true,
+                overflowY: 'auto',
+                closeBtnInside: true,
+                preloader: false,
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-zoom-in'
+            });
+        }
     </script>
     <!-- Add fancyBox light-box -->
     <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
@@ -61,7 +81,14 @@
     <!-- //End fancyBox light-box -->
 </head>
 <body>
-
+    <div id="fb-root"></div>
+    <script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
     <!-- start header -->
     <div class="header_bg">
         <div class="wrap">
@@ -199,11 +226,13 @@ Ankit Rathore
                 <div class="clear"></div>
                 <br />
                 <br />
-                <div class="images_1_of_4">
-                    <img src="images/cal.png">
-                    <h3><a href="#">NEW STUDENTS GUIDE</a></h3>
-                    <p>Lorem ipsum is simply dummy text of the printing and typesetting industry.Lorem ipsum has been </p>
-                </div>
+                <a href="javascript:void(0)" onclick="OpenServicePdf('http://www.isaosu.com/data/new_students_guide.pdf')">
+                    <div class="images_1_of_4">
+                        <img src="images/cal.png">
+                        <h3><a href="#">NEW STUDENTS GUIDE</a></h3>
+                        <p>Lorem ipsum is simply dummy text of the printing and typesetting industry.Lorem ipsum has been </p>
+                    </div>
+                </a>
                 <div class="images_1_of_4">
                     <img src="images/port.png">
                     <h3><a href="#">VACCINES AND IMMUNIZATIONS</a></h3>
@@ -624,6 +653,21 @@ If you would prefer not to live in University accommodation, we can also offer y
                     </div>
                     <!-----pop-up-grid---->
 
+                    <!-----pop-up-grid---->
+                    <div id="small-dialog-NewServicePDF" class="mfp-hide ModalPopup_850">
+                        <div class="pop_up">
+                            <div class="payment-online-form-left">
+
+
+                                <iframe id="frmNewServicePDF" width="800" height="1084"></iframe>
+
+                                <div class="clear"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-----pop-up-grid---->
+
                 </div>
                 <div class="clear"></div>
             </div>
@@ -810,6 +854,7 @@ If you would prefer not to live in University accommodation, we can also offer y
         <div class="wrap">
             <div class="col_1_of_3 span_1_of_3">
                 <h5>RECENT TWEETS</h5>
+                <div id="divTwitter"></div>
                 <h6>
                     <img src="images/twit.png" alt=""><a href="#"><span>booty, 15.10.2013</span></a></h6>
                 <p>
@@ -823,13 +868,7 @@ If you would prefer not to live in University accommodation, we can also offer y
             </div>
             <div class="col_1_of_3 span_1_of_3">
                 <h5>RECENT POSTS</h5>
-                <h6 class="a">15.10.2013</h6>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                <h6 class="a">15.10.2013</h6>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                <h6 class="a">15.10.2013</h6>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-
+                <div class="fb-activity" data-site="developers.facebook.com" data-action="likes, recommends" data-colorscheme="light" data-header="true"></div>
             </div>
             <div class="col_1_of_3 span_1_of_3">
                 <h5>PHOTO STREAM</h5>
@@ -890,5 +929,17 @@ If you would prefer not to live in University accommodation, we can also offer y
 
     <script type="text/javascript" src="js/myscripts.js"> </script>
     <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
+
+
+        <script src="http://twitter.com/javascripts/blogger.js" type="text/javascript"></script>
+<script type="text/javascript">
+    (function () {
+        var e = document.createElement('script');
+        e.type = 'text/javascript';
+        e.async = true;
+        e.src = 'http://twitter.com/statuses/user_timeline/isaatisu.json?callback=twitterCallback2&count=3';
+        document.getElementById('divTwitter').appendChild(e);
+    }());
+</script>
 </body>
 </html>
