@@ -867,7 +867,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry </p>
             </div>
             <div class="col_1_of_3 span_1_of_3">
-               <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FISAATISU&width=293&colorscheme=light&show_faces=true&border_color&stream=true&header=true&height=435" scrolling="yes" frameborder="0" style="border:none; overflow:hidden; width:293px; height:430px; background: white; float:left; " allowtransparency="true"></iframe>
+               <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FISAATISU&width=350&colorscheme=light&show_faces=true&border_color&stream=true&header=true&height=435" scrolling="yes" frameborder="0" style="border:none; overflow:hidden; width:350px; height:430px; background: white; float:left; " allowtransparency="true"></iframe>
 
             </div>
             <div class="col_1_of_3 span_1_of_3">
