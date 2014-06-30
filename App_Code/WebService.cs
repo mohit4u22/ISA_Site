@@ -9,6 +9,8 @@ using System.Web;
 using System.Web.Script.Serialization;
 using System.Web.Script.Services;
 using System.Web.Services;
+using System.IO;
+using System.Net.Mail;
 
 /// <summary>
 /// Summary description for WebService
@@ -94,7 +96,7 @@ public class WebService : System.Web.Services.WebService
 
     [WebMethod]
     [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
-    public string SignUpUser(String fname, String lname, String email, String password, String phone, String country, String street, String city, String state, String zip, String securityques, String securityanswer)
+    public string SignUpUser(String fname, String lname, String email, String password, String phone, String country, String street, String city, String state, String zip, String securityques, String securityanswer, bool status)
     {
         //// Database code
         String retval = "";
@@ -129,42 +131,84 @@ public class WebService : System.Web.Services.WebService
                 + zip + "', '"
                 + securityques + "', '"
                 + securityanswer + "')";
+               
 
 
             sqlh.ExecuteNonQuerySQLText(studentinfo);
-           
+
             sqlh.Kill();
             retval = "Success";
+            if (status)
+            {
+                SmtpClient mailClient = new SmtpClient();
+                MailMessage mail = new MailMessage("mohitjain0890@gmail.com", email);
 
-            //smtpclient mailclient = new smtpclient();
-            //mailmessage mail = new mailmessage("mohit4u22@gmail.com", textbox6.text);
+                string body = "Congratulations, you have successfully signed up for the INDIAN STUDENTS ASSOCIATION!! <br/>Title : ";
+                body += "The Description you entered is " + "<br>" +
+                       "<br /> Full Name : " + fname + " " + lname +
+                       "<br /> Email : " + email +
+                       "<br /> Password : " + password +
+                       "<br /> Security Ques : " + securityques +
+                       "<br /> Security Answer : " + securityanswer +
+                  "<br/><br/><br/>" + " <a href='" + ConfigurationManager.AppSettings["SiteRootUrl"] + "unsubscribe.aspx'>Click Here</a> to unsubscribe";
 
-            //string body = "congratulations, you have successfully signed up!! <br>" + "welcome " + textbox2.text + ", " + textbox1.text +
-            //    "!!!!!<br /> with username : <b>" + textbox3.text + "</b><br /> and password :<b> " + textbox4.text +
-            //    "</b><br /> confirm password : " + textbox5.text +
-            //    "<br /> emailid : " + textbox6.text +
-            //    "<br /> security question : " + textbox7.text +
-            //    "<br /> security answer : " + textbox8.text +
-            //    "<br /> categories of interest : " + cat +
-            //    "<br /> cost: min : " + textbox9.text + " and max :" + textbox10.text +
-            //    "<br /> size: min : " + textbox11.text + " and max :" + textbox12.text + "<br/>";
 
-            //string path = server.mappath("images/isulogo.jpg");
-            //linkedresource logo = new linkedresource(path);
-            //logo.contentid = "mylogo";
-            //alternateview altview = alternateview.createalternateviewfromstring("<img src=cid:mylogo/><br />" + body, null, "text/html");
-            //altview.linkedresources.add(logo);
+                string path = Server.MapPath("images/logonew.png");
+                LinkedResource logo = new LinkedResource(path);
+                logo.ContentId = "MyLogo";
+                AlternateView altview = AlternateView.CreateAlternateViewFromString("<img src=cid:MyLogo/><br />" + body, null, "text/html");
+                altview.LinkedResources.Add(logo);
 
-            //mail.alternateviews.add(altview);
+                mail.AlternateViews.Add(altview);
 
-            //mail.subject = "registration confirmation";
-            //mailclient.send(mail);
-            //response.redirect("registered.aspx");
+                mail.IsBodyHtml = true;
+                mail.Subject = "Welcome To ISA at ISU";
+                mailClient.Send(mail);
+            }
+
         }
 
         JavaScriptSerializer js = new JavaScriptSerializer();// Use this when formatting the data as JSON
         return js.Serialize(retval);
 
+       
+
+    }
+
+
+
+    [WebMethod]
+    [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
+    public string DonateUser(String firstname, String lastname, String email, String phone, String comment)
+    {
+
+        String retval = "";
+
+        string SQLString = "SELECT * FROM donatetable WHERE email='" + email + "'";
+        SqlHelper sqlh = new SqlHelper();
+        try
+        {
+            SqlDataReader userdata = sqlh.ReturnDataReaderFromSQLText(SQLString);
+            string studentdonateinfo = "insert into donatetable values('"
+            + firstname + "', '"
+            + lastname + "', '"
+            + email + "', '"
+           + phone + "', '"
+           + comment + "')";
+
+            sqlh.ExecuteNonQuerySQLText(studentdonateinfo);
+
+            sqlh.Kill();
+            retval = "Success";
+
+        }
+
+        catch (SqlException exception)
+        {
+            retval = "Some Error";
+        }
+        JavaScriptSerializer js = new JavaScriptSerializer();// Use this when formatting the data as JSON
+        return js.Serialize(retval);
     }
 
     [WebMethod]
@@ -198,6 +242,86 @@ public class WebService : System.Web.Services.WebService
         return ConvertDataTabletoJSON(dt);
     }
 
+    [WebMethod]
+    [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+    public String GetEvents()
+    {
+        SqlHelper sqlh = new SqlHelper();
+        DataSet ds = sqlh.ReturnDataSetFromSqlText("select * from Events");
+        DataTable dt = new DataTable();
+        String returnVal = "";
+        if (ds != null && ds.Tables.Count > 0)
+        {
+            dt = ds.Tables[0];
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            List<Dictionary<string, Object>> rows = new List<Dictionary<string, object>>();
+            Dictionary<string, Object> row;
+            foreach (DataRow dr in dt.Rows)
+            {
+                row = new Dictionary<string, object>();
+                foreach (DataColumn col in dt.Columns)
+                {
+                    row.Add(col.ColumnName, dr[col]);
+                    if (col.ColumnName.ToLower().Equals("galleryfolderpath"))
+                    {
+                        if (Directory.Exists(Server.MapPath(@"~\Images\Gallery\" + dr[col])))
+                        {
+                            row.Add("FolderImage", @"Images\Gallery\" + dr[col] + @"\" + getrandomfile(Server.MapPath(@"~\Images\Gallery\" + dr[col])));
+                        }
+                    }
+                }
+                rows.Add(row);
+            }
+            returnVal = serializer.Serialize(rows);
+        }
+        return returnVal;
+
+    }
+
+    [WebMethod]
+    [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
+    public String GetGalleryFiles(String FolderName)
+    {
+        List<String> fls = new List<string>();
+        if (Directory.Exists(Server.MapPath(@"~\Images\Gallery\" + FolderName)))
+        {
+            DirectoryInfo dinfo = new DirectoryInfo(Server.MapPath(@"~\Images\Gallery\" + FolderName));
+            FileInfo[] finfo = dinfo.GetFiles();
+            foreach (FileInfo inf in finfo)
+            {
+                if ((inf.Extension.ToLower() == ".jpg") ||
+           (inf.Extension.ToLower() == ".gif") ||
+           (inf.Extension.ToLower() == ".bmp") ||
+           (inf.Extension.ToLower() == ".png"))
+                {
+                    fls.Add(FolderName + "\\" + inf.Name);
+                }
+            }
+        }
+        JavaScriptSerializer serializer = new JavaScriptSerializer();
+        return serializer.Serialize(fls);
+    }
+
+
+    private string getrandomfile(string path)
+    {
+        string file = null;
+        if (!string.IsNullOrEmpty(path))
+        {
+            var extensions = new string[] { ".png", ".jpg", ".gif" };
+            try
+            {
+                var di = new DirectoryInfo(path);
+                var rgFiles = di.GetFiles("*.*").Where(f => extensions.Contains(f.Extension.ToLower()));
+                Random R = new Random();
+                file = rgFiles.ElementAt(R.Next(0, rgFiles.Count())).Name;
+            }
+            // probably should only catch specific exceptions
+            // throwable by the above methods.
+            catch { }
+        }
+        return file;
+    }
 
     public string ConvertDataTabletoJSON(DataTable dt)
     {
@@ -216,5 +340,7 @@ public class WebService : System.Web.Services.WebService
         return serializer.Serialize(rows);
 
     }
+
+
 }
 

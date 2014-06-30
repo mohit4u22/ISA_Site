@@ -12,14 +12,25 @@
 <script type="text/javascript" src="js/supersized.shutter.min.js"></script>
 
 <script type="text/javascript">
-   
+
     var supersizedFunction;
     function start_supersized(newsl) {
         $('#supersized-loader').empty().remove();
         $('#supersized').empty().remove();
         $('#hzDownscaled').empty().remove();
-        $('body').append('<div id="supersized-loader"></div><ul id="supersized"></ul>');
-        supersizedFunction.supersized({ slides: newsl }); // add your other SZ options here
+        //$('body').append('<div id="supersized-loader"></div><ul id="supersized"></ul>');
+        $('body').append('<ul id="supersized"></ul>');
+        supersizedFunction.supersized({
+            // Functionality
+            slide_interval: 3000,		// Length between transitions
+            transition: 3, 			// 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
+            transition_speed: 700,		// Speed of transition
+
+            // Components							
+            slide_links: 'blank',	// Individual links for each slide (Options: false, 'number', 'name', 'blank')
+            slides: newsl
+
+        }); // add your other SZ options here
 
 
     };
@@ -29,26 +40,86 @@
     jQuery(function ($) {
         supersizedFunction = $;
         $('#supersized').hide();
-      
+        PopulateGalleryFolders();
     });
 
-    function openGallery() {
-        var newSlides = [			// Slideshow Images
-                                      { image: 'http://buildinternet.s3.amazonaws.com/projects/supersized/3.2/slides/kazvan-1.jpg', title: 'Image Credit: Maria Kazvan', thumb: 'http://buildinternet.s3.amazonaws.com/projects/supersized/3.2/thumbs/kazvan-1.jpg', url: 'http://www.nonsensesociety.com/2011/04/maria-kazvan/' },
-                                                      { image: 'http://buildinternet.s3.amazonaws.com/projects/supersized/3.2/slides/kazvan-2.jpg', title: 'Image Credit: Maria Kazvan', thumb: 'http://buildinternet.s3.amazonaws.com/projects/supersized/3.2/thumbs/kazvan-2.jpg', url: 'http://www.nonsensesociety.com/2011/04/maria-kazvan/' },
-                                                      { image: 'http://buildinternet.s3.amazonaws.com/projects/supersized/3.2/slides/kazvan-3.jpg', title: 'Image Credit: Maria Kazvan', thumb: 'http://buildinternet.s3.amazonaws.com/projects/supersized/3.2/thumbs/kazvan-3.jpg', url: 'http://www.nonsensesociety.com/2011/04/maria-kazvan/' },
-                                                      { image: 'http://buildinternet.s3.amazonaws.com/projects/supersized/3.2/slides/wojno-1.jpg', title: 'Image Credit: Colin Wojno', thumb: 'http://buildinternet.s3.amazonaws.com/projects/supersized/3.2/thumbs/wojno-1.jpg', url: 'http://www.nonsensesociety.com/2011/03/colin/' },
-                                                      { image: 'http://buildinternet.s3.amazonaws.com/projects/supersized/3.2/slides/wojno-2.jpg', title: 'Image Credit: Colin Wojno', thumb: 'http://buildinternet.s3.amazonaws.com/projects/supersized/3.2/thumbs/wojno-2.jpg', url: 'http://www.nonsensesociety.com/2011/03/colin/' },
-                                                      { image: 'http://buildinternet.s3.amazonaws.com/projects/supersized/3.2/slides/wojno-3.jpg', title: 'Image Credit: Colin Wojno', thumb: 'http://buildinternet.s3.amazonaws.com/projects/supersized/3.2/thumbs/wojno-3.jpg', url: 'http://www.nonsensesociety.com/2011/03/colin/' },
-                                                      { image: 'http://buildinternet.s3.amazonaws.com/projects/supersized/3.2/slides/shaden-1.jpg', title: 'Image Credit: Brooke Shaden', thumb: 'http://buildinternet.s3.amazonaws.com/projects/supersized/3.2/thumbs/shaden-1.jpg', url: 'http://www.nonsensesociety.com/2011/06/brooke-shaden/' },
-                                                      { image: 'http://buildinternet.s3.amazonaws.com/projects/supersized/3.2/slides/shaden-2.jpg', title: 'Image Credit: Brooke Shaden', thumb: 'http://buildinternet.s3.amazonaws.com/projects/supersized/3.2/thumbs/shaden-2.jpg', url: 'http://www.nonsensesociety.com/2011/06/brooke-shaden/' },
-                                                      { image: 'http://buildinternet.s3.amazonaws.com/projects/supersized/3.2/slides/shaden-3.jpg', title: 'Image Credit: Brooke Shaden', thumb: 'http://buildinternet.s3.amazonaws.com/projects/supersized/3.2/thumbs/shaden-3.jpg', url: 'http://www.nonsensesociety.com/2011/06/brooke-shaden/' }
 
-        ];
-        start_supersized(newSlides);
-        $('#SlideshowGallery').show();
-        $('#supersized').show();
+    function PopulateGalleryFolders() {
 
+        $.ajax({
+            type: "Get",
+            url: "../WebService.asmx/GetEvents",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                var obj = JSON.parse(result.d);
+                var fdr = '';
+
+                var divtext = '';
+                $.each(obj, function (i, item) {
+                    divtext += "<div class='label_1_of_4 about_1_of_4'><div class='ic_container'> <img  height=250 width=250 src='" + item.FolderImage + "' alt='" + item.GalleryFolderName + "' /> ><div class='ic_caption'><p class='ic_category'></p><h3>" + item.GalleryFolderName + "</h3><p class='ic_text'><span style='margin:12px;' class='span3'><i><a onclick=\"openGallery('" + item.GalleryFolderPath + "')\" href='javascript:void(0)' style='color:white; opacity:1; text-decoration:none;'>View Images</a></i> </span></p></div></div></div>";
+                });
+                $('#divGalleryFolders').append(divtext);
+
+              
+                $(".ic_container").capslide({
+                    caption_color: '#fff',
+                    caption_bgcolor: '#000',
+                    overlay_bgcolor: '#f9ca8d',
+                    border: '4px solid #000',
+                    showcaption: true
+                });
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                // alert(jqXHR.responseText);
+            }
+        });
+
+    }
+
+    function openGallery(FolderName) {
+
+        $.ajax({
+            type: "Post",
+            url: "WebService.asmx/GetGalleryFiles",
+            data: "{'FolderName': '" + FolderName + "'}",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                var obj = JSON.parse(result.d);
+                var newSlides = [];
+                $.each(obj, function (i, item) {
+                    var obj = {
+                        image: location.protocol + '//' + location.host + '/Images/Gallery/' + item
+                    };
+                    newSlides.push(obj);
+                });
+
+
+                start_supersized(newSlides);
+                $('#SlideshowGallery').show();
+                $('#supersized').css('left', (window.outerWidth + 100) + 'px');
+                $('#supersized').show();
+                $('#supersized').animate({ 'left': '0' }, 1000);
+                $('body').append("<a id=ancCloseGallery href='javascript:void(0);' onclick='CloseGallerySlideShow();' style='position:fixed; z-index:1000; top:10px; left:47%; height:75px; width:130px;'><img height=32 width=65 src='Images/CloseBtn.png' alt='' /></a>");
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert(jqXHR.responseText);
+            }
+        });
+
+
+
+
+
+    }
+    function CloseGallerySlideShow() {
+        $('#supersized').animate({ 'left': window.outerWidth + 100 + 'px' }, 1000, function () {
+            // $('#supersized').empty().remove();
+            $('#supersized').remove();
+            $('#SlideshowGallery').hide();
+            $('#ancCloseGallery').remove();
+        });
     }
 </script>
 <style type="text/css">
@@ -73,38 +144,14 @@
             }
 </style>
 
-<div>
-    <ul id="container" class="clickable cs-style-5 grid clearfix isotope" style="position: relative; overflow: hidden; height: 534px; width: 1475px;">
+<div id="divGalleryFolders">
 
-        <li class="element photo isotope-item" style="position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(0px, 0px, 0px);">
-            <figure>
-                <img src="images/pf-1.jpg" alt="">
-                <figcaption>
-                    <h3><a href="#">This is project name</a></h3>
-                    <div class="meta-box clearfix">
-                        <span class="entry-categories"><a href="#">print art</a></span>
-                        &nbsp;/&nbsp;
-                                    <span class="entry-categories"><a href="#">photo</a></span>
-                    </div>
-                    <footer>
-                        <div id="nivo-lightbox-demo">
-                            <p><a href="javascript:void(0);" onclick="openGallery();" data-lightbox-gallery="gallery1" id="nivo-lightbox-demo">View</a> </p>
-                        </div>
-                    </footer>
-                </figcaption>
-            </figure>
-
-        </li>
-    </ul>
+    <!-- #container -->
 </div>
 <!--Demo styles (you can delete this block)-->
 <div id="SlideshowGallery" style="display: none;">
 
-    <ul id="demo-block">
-        <li><a href="http://buildinternet.com/project/supersized/" target="_blank">
-            <img src="img/supersized-logo.png" /></a></li>
-        <li>Photographers: <a href="http://cargocollective.com/mariakazvan" target="_blank">Maria Kazvan</a>, <a href="http://colindub.com" target="_blank">Colin Wojno</a>, &amp; <a href="http://brookeshaden.com/" target="_blank">Brooke Shaden</a></li>
-    </ul>
+
 
     <!--End of styles-->
 
