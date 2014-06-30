@@ -1,15 +1,18 @@
 ﻿var SignupValidator;
 var LoginValidator;
+var DonateValidator;
+var PickupValidator;
 $(document).ready(function () {
     $('.JQValidateErrors').hide();
     BindCountriesStates();
     BindRegisterUserValidation();
     BindLoginValidation();
     PopulateBoardMembers();
-
+    BindDonateValidation();
+    BindPickupValidation();
 });
 
-
+// Normal Functions from here
 
 function LoginUser() {
     if (!LoginValidator.validate()) {
@@ -64,6 +67,7 @@ function RegisterUser() {
         var zip = $('#txtregisterZip').val();
         var securityques = $('#txtregisterSquestion').val();
         var securityanswer = $('#txtregisterSanswer').val();
+        var status = $('#chkregistersendemail').is(':checked');
 
         $.ajax({
             type: "Post",
@@ -82,11 +86,12 @@ function RegisterUser() {
                 "', 'zip': '" + zip +
                 "', 'securityques': '" + securityques +
                 "', 'securityanswer': '" + securityanswer +
+                "', 'status': '" + status +
                 "'}",
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (result) {
-                if (result.d == "Success") {
+                if (result.d.toString().toLowerCase() === "success") {
                     alert("User Created Successfully");
                 }
                 else {
@@ -100,6 +105,100 @@ function RegisterUser() {
         });
     }
 }
+
+function DonateUser() {
+    if (!DonateValidator.validate()) {
+        $('.JQValidateErrors').show();
+        return false;
+    }
+    else {
+        $('.JQValidateErrors').hide();
+        var firstname = $('#txtdonateFName').val();
+        var lastname = $('#txtdonateLName').val();
+        var email = $('#txtdonateEmail').val();
+        var phone = $('#txtdonatePhone').val();
+        var comment = $('#txtdonateComment').val();
+
+
+        $.ajax({
+            type: "Post",
+            url: "../WebService.asmx/DonateUser",
+            data: "{'fname': '" + firstname +
+                "', 'lname': '" + lastname +
+                "', 'email': '" + email +
+                  "', 'phone': '" + phone +
+                 "', 'comment': '" + comment +
+
+                "'}",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                if (result.d == "Success") {
+                    alert(" Successful");
+                }
+                else {
+                    alert("We're sorry but we are not able to send this message at this time. <br>" + result.d);
+                }
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert("We're not able to send this message at this time.");
+            }
+        });
+    }
+}
+
+function PickupUser() {
+    if (!PickupValidator.validate()) {
+        $('.JQValidateErrors').show();
+        return false;
+    }
+    else {
+        $('.JQValidateErrors').hide();
+        var firstname = $('#txtpickupFName').val();
+        var lastname = $('#txtpickupLName').val();
+        var email = $('#txtpickupEmail').val();
+        var phone = $('#txtpickupPhone').val();
+        var flight = $('#txtpickupFlight').val();
+        var arrivaldate = $('#txtpickupArrivalDate').val();
+        var time = $('#txtpickupTime').val();
+        var airport = $('#txtpickupAirport').val();
+        var venue = $('#txtpickupVenue').val();
+        var comment = $('#txtpickupComment').val();
+
+        $.ajax({
+            type: "Post",
+            url: "../WebService.asmx/SignUpUser",
+            data: "{'firstname': '" + firstname +
+                "', 'lastname': '" + lastname +
+                "', 'email': '" + email +
+                "', 'phone': '" + phone +
+                "', 'flight': '" + flight +
+                "', 'arrivaldate': '" + arrivaldate +
+                  "', 'time': '" + time +
+                 "', 'airport': '" + airport +
+                "', 'venue': '" + venue +
+                "', 'comment': '" + comment +
+                "'}",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                if (result.d == "Success") {
+                    alert("Message sent Successfully");
+                }
+                else {
+                    alert("We're sorry but we are not able to send this information at this time. <br>" + result.d);
+                }
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert("We're sorry but we are not able to send this information at this time.");
+            }
+        });
+    }
+}
+
+//Bind Functions from here
 
 function BindRegisterUserValidation() {
     var rules = {
@@ -118,7 +217,6 @@ function BindRegisterUserValidation() {
         },
         txtregisterPassword: {
             required: true,
-            pwcheck: true,
             minlength: 8
         },
         txtregisterCPassword: {
@@ -154,7 +252,6 @@ function BindRegisterUserValidation() {
         },
         txtregisterPassword: {
             required: "Please enter Password",
-            pwcheck: "Please enter valid password",
             minlength: "Please enter valid password"
         },
         txtregisterCPassword: {
@@ -180,7 +277,6 @@ function BindRegisterUserValidation() {
 
 }
 
-
 function BindLoginValidation() {
     var rules = {
         txtloginEmail: {
@@ -200,59 +296,110 @@ function BindLoginValidation() {
     };
 
     LoginValidator = new jQueryValidatorWrapper('frmLogin', rules, messages);
-
-
 }
 
-function jQueryValidatorWrapper(formId, rules, messages) {
-    var showErrorMessage = false;
+function BindDonateValidation() {
+    var rules = {
 
-    var validator = $("#" + formId).validate();
-
-    var settings = validator.settings;
-    $.extend(settings, {
-        onchange: true,
-        rules: rules,
-        messages: messages,
-        highlight: function (element) {
-            $(element).parent().addClass('has-error');
+        txtdonateFName: {
+            required: true
         },
-        unhighlight: function (element) {
-            $(element).parent().removeClass('has-error');
-
-            $('#liJqValidate_' + $(element).attr('id') + '').remove();
-            if ($('ul.JQValidateErrors li').length == 0) {
-                $('.JQValidateErrors').hide();
-            }
-        }
-        , errorPlacement: function (error, element) {
-            if (showErrorMessage) {
-                var li = document.createElement("li")
-                li.appendChild(document
-                  .createTextNode(error.html()));
-                $(li).attr('id', 'liJqValidate_' + $(element).attr('id'))
-                $('.JQValidateErrors').append(li);
-            }
+        txtdonateLName: {
+            required: true
         },
-        showErrors: function (errorMap, errorList) {
-            this.defaultShowErrors();
-            if ((errorList.length != 0) && showErrorMessage) {
-                //$dialog.dialog('open');
-            }
+        txtdonateEmail: {
+            required: true,
+            email: true
+        },
+        txtdonatePhone: {
+            required: true,
+            minlength: 10,
+            phoneUS: true
         }
-    });
-    // This is the function to call whem make the validation
-    this.validate = function () {
-        $("ul.JQValidateErrors").empty();
-        showErrorMessage = true;
-        var result = validator.form();
-        showErrorMessage = false;
-
-        return result;
+    };
+    var messages = {
+        txtdonateFName: {
+            required: "Please enter First Name"
+        },
+        txtdonateLName: {
+            required: "Please enter Last Name"
+        },
+        txtdonateEmail: {
+            required: "Please enter email.",
+            email: "Please Enter a Valid Email"
+        },
+        txtdonatePhone: {
+            required: "Please enter Phone Number",
+            minlength: "Please enter valid Phone Number",
+            phoneUS: "Please enter valid Phone Number"
+        }
     };
 
+    DonateValidator = new jQueryValidatorWrapper('frmDonate', rules, messages);
+
+
 }
 
+function BindPickupValidation() {
+    var rules = {
+        txtpickupFName: {
+            required: true
+        },
+        txtpickupLName: {
+            required: true
+        },
+        txtpickupEmail: {
+            required: true,
+            email: true
+        },
+        txtpickupPhone: {
+            required: true,
+            minlength: 10,
+            phoneUS: true
+        },
+        txtpickupVenue: {
+            required: true
+        },
+        txtpickupArrivalDate: {
+            required: true
+        },
+        txtpickupTime: {
+            required: true
+        }
+    };
+
+    var messages = {
+        txtpickupFName: {
+            required: "Please enter First Name"
+        },
+        txtpickupLName: {
+            required: "Please enter Last Name"
+        },
+        txtpickupEmail: {
+            required: "Please enter email.",
+            email: "Please Enter a Valid Email"
+        },
+        txtpickupPhone: {
+            required: "Please enter Phone Number",
+            minlength: "Please enter valid Phone Number",
+            phoneUS: "Please enter valid Phone Number"
+        },
+        txtpickupVenue: {
+            equalTo: "Passwords do not match"
+        },
+        txtpickupArrivalDate: {
+            required: "Please enter your Country"
+        },
+        txtpickupTime: {
+            required: "Please enter your City"
+        }
+    };
+
+
+    PickupValidator = new jQueryValidatorWrapper('frmPickup', rules, messages);
+
+
+}
 
 function BindCountriesStates() {
     $.ajax({
@@ -308,6 +455,58 @@ function BindCountriesStates() {
 
 }
 
+
+
+function jQueryValidatorWrapper(formId, rules, messages) {
+    var showErrorMessage = false;
+
+    var validator = $("#" + formId).validate();
+
+    var settings = validator.settings;
+    $.extend(settings, {
+        onchange: true,
+        rules: rules,
+        messages: messages,
+        highlight: function (element) {
+            $(element).parent().addClass('has-error');
+        },
+        unhighlight: function (element) {
+            $(element).parent().removeClass('has-error');
+
+            $('#liJqValidate_' + $(element).attr('id') + '').remove();
+            if ($('ul.JQValidateErrors li').length == 0) {
+                $('.JQValidateErrors').hide();
+            }
+        }
+        , errorPlacement: function (error, element) {
+            if (showErrorMessage) {
+                var li = document.createElement("li")
+                li.appendChild(document
+                  .createTextNode(error.html()));
+                $(li).attr('id', 'liJqValidate_' + $(element).attr('id'))
+                $('.JQValidateErrors').append(li);
+            }
+        },
+        showErrors: function (errorMap, errorList) {
+            this.defaultShowErrors();
+            if ((errorList.length != 0) && showErrorMessage) {
+                //$dialog.dialog('open');
+            }
+        }
+    });
+    // This is the function to call whem make the validation
+    this.validate = function () {
+        $("ul.JQValidateErrors").empty();
+        showErrorMessage = true;
+        var result = validator.form();
+        showErrorMessage = false;
+
+        return result;
+    };
+
+}
+
+
 function PopulateBoardMembers() {
     $.ajax({
         type: "Get",
@@ -323,8 +522,73 @@ function PopulateBoardMembers() {
             $('#divBoardMembersWrapper').append(divtext);
         },
         error: function (jqXHR, textStatus, errorThrown) {
-           // alert(jqXHR.responseText);
+            // alert(jqXHR.responseText);
         }
     });
 
 }
+
+
+function ResetForm(FormID)
+{
+
+    $('#' + FormID + ' input').val('');
+
+
+
+    $('#' + FormID).find('input[type=text],textarea,input,select').filter(':visible:first').focus();
+
+}
+
+
+
+
+
+(function ($) {
+    $.fn.capslide = function (options) {
+        var opts = $.extend({}, $.fn.capslide.defaults, options);
+        return this.each(function () {
+            $this = $(this);
+            var o = $.meta ? $.extend({}, opts, $this.data()) : opts;
+
+            if (!o.showcaption) $this.find('.ic_caption').css('display', 'none');
+            else $this.find('.ic_text').css('display', 'none');
+
+            var _img = $this.find('img:first');
+            var w = _img.css('width');
+            var h = _img.css('height');
+            $('.ic_caption', $this).css({ 'color': o.caption_color, 'background-color': o.caption_bgcolor, 'bottom': '-10px', 'width': w });
+            $('.overlay', $this).css('background-color', o.overlay_bgcolor);
+            $this.css({ 'width': w, 'height': h, 'border': o.border });
+            $this.hover(
+				function () {
+				    if ((navigator.appVersion).indexOf('MSIE 7.0') > 0)
+				        $('.overlay', $(this)).show();
+				    else
+				        $('.overlay', $(this)).fadeIn();
+				    if (!o.showcaption)
+				        $(this).find('.ic_caption').slideDown(500);
+				    else
+				        $('.ic_text', $(this)).slideDown(500);
+				},
+				function () {
+				    if ((navigator.appVersion).indexOf('MSIE 7.0') > 0)
+				        $('.overlay', $(this)).hide();
+				    else
+				        $('.overlay', $(this)).fadeOut();
+				    if (!o.showcaption)
+				        $(this).find('.ic_caption').slideUp(200);
+				    else
+				        $('.ic_text', $(this)).slideUp(200);
+				}
+			);
+        });
+    };
+    $.fn.capslide.defaults = {
+        caption_color: 'white',
+        caption_bgcolor: 'black',
+        overlay_bgcolor: 'blue',
+        border: '1px solid #fff',
+        showcaption: true
+    };
+})(jQuery);

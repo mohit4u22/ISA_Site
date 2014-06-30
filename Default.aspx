@@ -2,10 +2,11 @@
 
 <%@ Register Src="~/ISAGMap.ascx" TagName="ISAGmap" TagPrefix="uc" %>
 <%@ Register Src="~/ISAGallery.ascx" TagName="ISAGallery" TagPrefix="uc" %>
+<%@ Register Src="~/ISA_Events.ascx" TagName="ISAEvents" TagPrefix="uc" %>
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>The Parallel Website Template | Home :: w3layouts</title>
+    <title>Indian Students Association</title>
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'>
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -15,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="css/prettyPhoto.css">
     <!--  jquery plguin -->
     <script type="text/javascript" src="Scripts/jquery-1.9.1.js"></script>
-       <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
 
     <!--start slider --  ---->
     <link rel="stylesheet" href="css/fwslider.css" media="all">
@@ -38,6 +39,26 @@
             $().UItoTop({ easingType: 'easeOutQuart' });
 
         });
+
+
+
+        function OpenServicePdf(Url) {
+            $('#frmNewServicePDF').attr('src', Url);
+            $.magnificPopup.open({
+                items: {
+                    src: $('#small-dialog-NewServicePDF'), // can be a HTML string, jQuery object, or CSS selector
+                    type: 'inline'
+                },
+                fixedContentPos: false,
+                fixedBgPos: true,
+                overflowY: 'auto',
+                closeBtnInside: true,
+                preloader: false,
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-zoom-in'
+            });
+        }
     </script>
     <!-- Add fancyBox light-box -->
     <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
@@ -60,14 +81,21 @@
     <!-- //End fancyBox light-box -->
 </head>
 <body>
-
+    <div id="fb-root"></div>
+    <script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
     <!-- start header -->
     <div class="header_bg">
         <div class="wrap">
             <div class="header">
                 <div class="logo">
                     <h1><a href="default.aspx">
-                        <img src="images/logo.png" alt="" /></a></h1>
+                        <img src="images/logonew.png" alt="" /></a></h1>
 
                 </div>
                 <div class="h_right">
@@ -76,7 +104,7 @@
 
                         <li><a href="#BoardMembers" class="scroll">Board Members</a></li>
                         <li><a href="#services" class="scroll">Services</a></li>
-                        <li><a href="#portfolio" class="scroll">Portfolio</a></li>
+                        <li><a href="#portfolio" class="scroll">Event Gallery</a></li>
                         <li><a href="#pricing" class="scroll">Pricing</a></li>
                         <li>
                             <a class="popup-with-zoom-anim" href="#small-dialog-login"><i>Login</i></a>
@@ -132,7 +160,7 @@
                     <div class="slide_content">
                         <div class="slide_content_wrap">
                             <!-- Text title -->
-                            <h4 class="title">Welcome To Indian Student Association</h4>
+                            <h4 class="title">Welcome To Indian Students Association</h4>
                             <!-- /Text title -->
                             <!-- Text description -->
                             <p class="description">Be a part of this Organization!</p>
@@ -171,25 +199,53 @@
     <div class="sevice" id="services">
         <div class="wrap">
             <div class="service-grids">
-                <h2>our Services</h2>
-                <div class="images_1_of_4">
-                    <img src="images/cal.png">
-                    <h3><a href="#">WebDesign</a></h3>
-                    <p>Lorem ipsum is simply dummy text of the printing and typesetting industry.Lorem ipsum has been </p>
-                </div>
+                <h2>Our Services</h2>
+
+                <p>
+                    The Indian Students Association would like to extend a warm welcome to all new Aspirants joining us here in Illinois State University, Normal, IL this fall.
+                    We are excited to have you and look forward to helping you make the most of your college experience.
+                    In order for us to be able to help you out,
+                     we will sometimes require some information from you in order to tailor our services to your needs and preferences.
+                </p>
+
+                <h3>Airport Pickup and Temporary Accomodation (or APTA)</h3>
+                <p>
+                    These are the wildly popular services offered to incoming students by the ISA.
+                    We offer to pick you up from the Airports or any other major venue and arrange for your housing for a few days until your housing arragements fall into place.
+                    We try to make your first few days as informational, entertaining and comforting as possible.
+                    Please sign up for the above services and we will make sure you are taken care of! Lastly, we know you all are excited about coming to Normal and the Illinois State University and a lot of you have shown enthusiasm about becoming a part of ISA.
+We look forward to welcoming you into the fold, and promise you that we will have booths set up at all our events in order to ensure you can join our ranks whenever you like!
+Watch out for cool deals we arrange for members of the ISA family throughout the year, and make sure you don't miss out!
+                </p>
+
+                <p>
+                    If you have questions regarding any service of ISA, please contact:
+Ankit Rathore
+                    <a style="transition: all 0.5s ease-out; color: azure;" href="mailto:arathore@gmail.com">arathore@gmail.com</a>
+                </p>
+                <div class="clear"></div>
+                <br />
+                <br />
+                <a href="javascript:void(0)" onclick="OpenServicePdf('http://www.isaosu.com/data/new_students_guide.pdf')">
+                    <div class="images_1_of_4">
+                        <img src="images/cal.png">
+                        <h3><a href="#">NEW STUDENTS GUIDE</a></h3>
+                        <p>Lorem ipsum is simply dummy text of the printing and typesetting industry.Lorem ipsum has been </p>
+                    </div>
+                </a>
                 <div class="images_1_of_4">
                     <img src="images/port.png">
-                    <h3><a href="#">UIDesign</a></h3>
+                    <h3><a href="#">VACCINES AND IMMUNIZATIONS</a></h3>
                     <p>Lorem ipsum is simply dummy text of the printing and typesetting industry.Lorem ipsum has been</p>
                 </div>
                 <div class="images_1_of_4">
                     <img src="images/recyle.png">
-                    <h3><a href="#">Prototype</a></h3>
+                    <h3><a href="#">LIFE IN AMERICA</a></h3>
                     <p>Lorem ipsum is simply dummy text of the printing and typesetting industry.Lorem ipsum has been </p>
                 </div>
                 <div class="images_1_of_4">
                     <img src="images/camera.png">
-                    <h3><a href="#">Photography</a></h3>
+                    <h3><a href="#">RESTAURANTS</a></h3>
                     <p>Lorem ipsum is simply dummy text of the printing and typesetting industry.Lorem ipsum has been</p>
                 </div>
                 <div class="clear"></div>
@@ -200,18 +256,19 @@
     <!----------- message ------------>
     <div class="message">
         <div class="wrap">
-            <h3>Do You Like This Clean Theme?</h3>
+            <h3 style="color: white; bacground-color: black; opacity: 0.5;">“Each of us is a unique strand in the intricate web of life and here to make a contribution.”</h3>
+            <h2 style="color: white; background-color: black; opacity: 0.5; font-size: 2em; font-weight: 400;">Want to contribute something to the community?</h2>
             <div class="buttons">
-                <div class="span1">
+                <%-- <div class="span1">
                     <a href="#">
                         <i>Purchase</i>
                         <div class="clear"></div>
                     </a>
-                </div>
+                </div>--%>
                 <div class="span2">
-                    <a href="#">
-                        <i>Follow</i>
-                        <div class="clear"></div>
+                    <a class="popup-with-zoom-anim" href="#small-dialog-donate">
+                        <i>Donate</i>
+                        <%-- <div class="clear"></div>--%>
                     </a>
                 </div>
                 <div class="clear"></div>
@@ -226,26 +283,16 @@
             <div class="typo1">
                 <div class="wrapper clearfix">
                     <div class="section-title">
-                        <h3 class="heading">Portfolio</h3>
+                        <h3 class="heading">Event Gallery</h3>
                         <h6></h6>
                     </div>
                     <!--end:section-title-->
-
-                    <div id="options" class="clearfix">
-                        <ul id="filters" class="option-set clearfix" data-option-key="filter">
-                            <li><a href="#filter" data-option-value=".web-design">Web-design</a></li>
-                            <li><a href="#filter" data-option-value=".photo">UI Design</a></li>
-                            <li><a href="#filter" data-option-value=".ios-app">Prototype</a></li>
-                            <li><a href="#filter" data-option-value=".graphic">Photography</a></li>
-                        </ul>
-                        <!--end:filters-->
-                    </div>
-
+                    <br />
                 </div>
                 <!--end:wrapper-->
 
                 <uc:ISAGallery ID="ISAGallery" runat="server" />
-                  <div class="clear"></div>
+                <div class="clear"></div>
                 <!-- #container -->
 
             </div>
@@ -258,41 +305,56 @@
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/modernizr.custom.js"></script>
+
     <div id="divGMapWrapper" class="cbp-so-scroller">
         <!--Portfolio-->
         <div id="divGMap" class="clearfix">
         </div>
     </div>
+
     </div>
     <!----------- message1 ------------>
-    <div class="message1" style="padding: 0;">
+    <div class="message2">
         <div class="wrap">
-            <table style="margin: 0 auto;">
-                <tr>
-                    <td>
-                        <uc:ISAGmap ID="ucGmap" runat="server" />
-                    </td>
-                </tr>
-            </table>
+            <h3>Our team</h3>
+            <p>We a professional and progresive team</p>
         </div>
     </div>
+
     <!-----------start-pricing----------->
     <div class="pricing-plans" id="pricing">
         <div class="wrap">
-            <h3>Our Price</h3>
+            <h3>ISA Service Forms</h3>
             <div class="pricing-grids">
                 <div class="pricing-grid">
                     <div class="price-value">
-                        <a href="#">Wesite hosting</a>
+                        <a href="#">Accomodation</a>
                     </div>
                     <h3><a href="#">$5.01/month</a></h3>
+                    <h3>Illinois State University has a wide range of accommodation options and most students find
+                        that we have an accommodation solution to suit their needs.
+If you would prefer not to live in University accommodation, we can also offer you advice
+                        and assistance on finding private rented accommodation.</h3>
+                    <div class="cart">
+                        <div class="span3">
+                            <a class="popup-with-zoom-anim" href="#small-dialog"><i>Purchase</i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pricing-grid">
+                    <div class="price-value">
+                        <a href="#">Need Any Help? Register!</a>
+                    </div>
+                    <h3>ISA at ISU will be glad to provide services of accomodation and Pick up. Please fill up the registation
+                    forms on the left and right to avail these services.</h3>
+                    <br />
+                    <br />
+                    <h3><a href="#">Some Other ISU Serices are</a></h3>
                     <ul>
-                        <li><a href="#">Lorem ipsum</a></li>
-                        <li><a href="#">Dolor sitamet, Consect</a></li>
-                        <li><a href="#">Adipiscing elit</a></li>
-                        <li><a href="#">Proin commodo turips</a></li>
-                        <li><a href="#">Laws pulvinarvel</a></li>
-                        <li><a href="#">Prnare nisi pretium</a></li>
+                        <li><a href="#">ISA Library</a></li>
+                        <li><a href="#">Academic Help</a></li>
+                        <li><a href="#">Alumni Guidance</a></li>
                     </ul>
                     <div class="cart">
                         <div class="span3">
@@ -302,200 +364,28 @@
                 </div>
                 <div class="pricing-grid">
                     <div class="price-value">
-                        <a href="#">Reseller cloud</a>
+                        <a href="#">Pick Up Service</a>
                     </div>
                     <h3><a href="#">$10.01/month</a></h3>
-                    <ul>
-                        <li><a href="#">Lorem ipsum</a></li>
-                        <li><a href="#">Dolor sitamet, Consect</a></li>
-                        <li><a href="#">Adipiscing elit</a></li>
-                        <li><a href="#">Proin commodo turips</a></li>
-                        <li><a href="#">Laws pulvinarvel</a></li>
-                        <li><a href="#">Prnare nisi pretium</a></li>
-                    </ul>
+                    <h3>ISA tries to do the best it can to pick new students up from the airport.
+                        So to avoid any inconvenience please fill up the forms and wait until someone contacts you.
+                        Feel free to contact in case there is any concern.
+                        <br />
+                        Again, ISA is a student organization,
+                        and pick-up arrangements are done by volunteers on the basis of their availibility
+                        and proximity. We do not guarantee a pick up.
+
+                    </h3>
                     <div class="cart">
                         <div class="span3">
                             <a class="popup-with-zoom-anim" href="#small-dialog-pickup"><i>Purchase</i></a>
                         </div>
                     </div>
                 </div>
-                <div class="pricing-grid">
-                    <div class="price-value">
-                        <a href="#">Dedicated hosting</a>
-                    </div>
-                    <h3><a href="#">$20.01/month</a></h3>
-                    <ul>
-                        <li><a href="#">Lorem ipsum</a></li>
-                        <li><a href="#">Dolor sitamet, Consect</a></li>
-                        <li><a href="#">Adipiscing elit</a></li>
-                        <li><a href="#">Proin commodo turips</a></li>
-                        <li><a href="#">Laws pulvinarvel</a></li>
-                        <li><a href="#">Prnare nisi pretium</a></li>
-                    </ul>
-                    <div class="cart">
-                        <div class="span3">
-                            <a class="popup-with-zoom-anim" href="#small-dialog"><i>Purchase</i></a>
-                        </div>
-                    </div>
-                </div>
                 <div class="clear"></div>
 
+
                 <div class="pricing-grids">
-                    <div class="pricing-grid1">
-                        <div class="price-value">
-                            <a href="#">Wesite hosting</a>
-                        </div>
-                        <h3><a href="#">$5.01/month</a></h3>
-                        <ul>
-                            <li><a href="#">Lorem ipsum</a></li>
-                            <li><a href="#">Dolor sitamet, Consect</a></li>
-                            <li><a href="#">Adipiscing elit</a></li>
-                            <li><a href="#">Proin commodo turips</a></li>
-                            <li><a href="#">Laws pulvinarvel</a></li>
-                            <li><a href="#">Prnare nisi pretium</a></li>
-                        </ul>
-                        <div class="cart1">
-                            <div class="span3">
-                                <a class="popup-with-zoom-anim" href="#small-dialog">
-                                    <j>Purchase</j>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pricing-grid2">
-                        <div class="price-value">
-                            <a href="#">Reseller cloud</a>
-                        </div>
-                        <h3><a href="#">$10.01/month</a></h3>
-                        <ul>
-                            <li><a href="#">Lorem ipsum</a></li>
-                            <li><a href="#">Dolor sitamet, Consect</a></li>
-                            <li><a href="#">Adipiscing elit</a></li>
-                            <li><a href="#">Proin commodo turips</a></li>
-                            <li><a href="#">Laws pulvinarvel</a></li>
-                            <li><a href="#">Prnare nisi pretium</a></li>
-                        </ul>
-                        <div class="cart1">
-                            <div class="span3">
-                                <a class="popup-with-zoom-anim" href="#small-dialog">
-                                    <k>Purchase</k>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pricing-grid3">
-                        <div class="price-value">
-                            <a href="#">Dedicated hosting</a>
-                        </div>
-                        <h3><a href="#">$20.01/month</a></h3>
-                        <ul>
-                            <li><a href="#">Lorem ipsum</a></li>
-                            <li><a href="#">Dolor sitamet, Consect</a></li>
-                            <li><a href="#">Adipiscing elit</a></li>
-                            <li><a href="#">Proin commodo turips</a></li>
-                            <li><a href="#">Laws pulvinarvel</a></li>
-                            <li><a href="#">Prnare nisi pretium</a></li>
-                        </ul>
-                        <div class="cart1">
-                            <div class="span3">
-                                <a class="popup-with-zoom-anim" href="#small-dialog">
-                                    <l>Purchase</l>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pricing-grid4">
-                        <div class="price-value">
-                            <a href="#">Dedicated hosting</a>
-                        </div>
-                        <h3><a href="#">$20.01/month</a></h3>
-                        <ul>
-                            <li><a href="#">Lorem ipsum</a></li>
-                            <li><a href="#">Dolor sitamet, Consect</a></li>
-                            <li><a href="#">Adipiscing elit</a></li>
-                            <li><a href="#">Proin commodo turips</a></li>
-                            <li><a href="#">Laws pulvinarvel</a></li>
-                            <li><a href="#">Prnare nisi pretium</a></li>
-                        </ul>
-                        <div class="cart1">
-                            <div class="span3">
-                                <a class="popup-with-zoom-anim" href="#small-dialog">
-                                    <m>Purchase</m>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-----pop-up-grid---->
-                    <div id="small-dialog" class="mfp-hide">
-                        <div class="pop_up">
-                            <div class="payment-online-form-left">
-                                <form>
-                                    <h4><span class="shipping"></span>Shipping</h4>
-                                    <ul>
-                                        <li>
-                                            <input class="text-box-dark" type="text" value="First Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Frist Name';}"></li>
-                                        <li>
-                                            <input class="text-box-dark" type="text" value="Last Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Last Name';}"></li>
-                                    </ul>
-                                    <ul>
-                                        <li>
-                                            <input class="text-box-dark" type="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}"></li>
-                                        <li>
-                                            <input class="text-box-dark" type="text" value="Company Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Company Name';}"></li>
-                                    </ul>
-                                    <ul>
-                                        <li>
-                                            <input class="text-box-dark" type="text" value="Phone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Phone';}"></li>
-                                        <li>
-                                            <input class="text-box-dark" type="text" value="Address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Address';}"></li>
-                                        <div class="clear"></div>
-                                    </ul>
-                                    <div class="clear"></div>
-                                    <ul class="payment-type">
-                                        <h4><span class="payment"></span>Payments</h4>
-                                        <li><span class="col_checkbox">
-                                            <input id="3" class="css-checkbox1" type="checkbox">
-                                            <label for="3" name="demo_lbl_1" class="css-label1"></label>
-                                            <a class="visa" href="#"></a>
-                                        </span>
-
-                                        </li>
-                                        <li>
-                                            <span class="col_checkbox">
-                                                <input id="4" class="css-checkbox2" type="checkbox">
-                                                <label for="4" name="demo_lbl_2" class="css-label2"></label>
-                                                <a class="paypal" href="#"></a>
-                                            </span>
-                                        </li>
-                                        <div class="clear"></div>
-                                    </ul>
-                                    <ul>
-                                        <li>
-                                            <input class="text-box-dark" type="text" value="Card Number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Card Number';}"></li>
-                                        <li>
-                                            <input class="text-box-dark" type="text" value="Name on card" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name on card';}"></li>
-                                        <div class="clear"></div>
-                                    </ul>
-                                    <ul>
-                                        <li>
-                                            <input class="text-box-light hasDatepicker" type="text" id="datepicker" value="Expiration Date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Expiration Date';}"><em class="pay-date"> </em></li>
-                                        <li>
-                                            <input class="text-box-dark" type="text" value="Security Code" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Security Code';}"></li>
-                                        <div class="clear"></div>
-                                    </ul>
-                                    <ul class="payment-sendbtns">
-                                        <li>
-                                            <input type="reset" value="Cancel"></li>
-                                        <li>
-                                            <input type="submit" value="Process order"></li>
-                                    </ul>
-                                    <div class="clear"></div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <!-----pop-up-grid---->
-
                     <!-----pop-up-grid---->
                     <div id="small-dialog-login" class="ModalPopup mfp-hide">
                         <div class="pop_up">
@@ -517,7 +407,7 @@
                                     <div class="span3">
                                         <ul class="payment-sendbtns">
                                             <li>
-                                                <k> <a href="javascript:void(0)"  id="btnLoginCancel">Cancel
+                                                <k> <a href="javascript:void(0)" onclick="ResetForm('frmLogin')"  id="btnLoginCancel">Cancel
                                                 </a></k>
                                             </li>
                                             <li>
@@ -570,7 +460,7 @@
                                     <ul>
 
                                         <li>
-                                            <select name="ddlCountry" id="ddlCountry" style="width: 200px;"></select>
+                                            <select name="ddlCountry" id="ddlCountry" style="margin-right: 5%;"></select>
                                         </li>
                                     </ul>
                                     <div class="clear"></div>
@@ -585,7 +475,7 @@
                                     <ul>
 
                                         <li>
-                                            <select name="ddlState" id="ddlState" style="width: 200px;"></select>
+                                            <select name="ddlState" id="ddlState" style="margin-right: 5%;"></select>
                                         <li>
                                             <input class="text-box-light hasDatepicker" type="text" id="txtregisterZip" name="txtregisterZip" placeholder="Zip"><em class="pay-date"></em></li>
 
@@ -601,12 +491,17 @@
                                             <input class="text-box-dark" type="text" id="txtregisterSanswer" name="txtregisterSanswer" placeholder="Security Answer"></li>
 
                                     </ul>
+                                    <div class="clear"></div>
+                                    <ul>
+                                        <li>
+                                            <input class="text-box-dark" type="checkbox" id="chkregistersendemail" name="chkregistersendemail"></li>
+                                    </ul>
                                 </form>
                                 <div class="clear"></div>
                                 <div class="span3">
                                     <ul class="payment-sendbtns">
                                         <li>
-                                            <k><a href="javascript:void(0)"  id="btnRegisterCancel">Cancel</a></k>
+                                            <k><a href="javascript:void(0)" onclick="ResetForm('frmRegister')"  id="btnRegisterCancel">Cancel</a></k>
                                         </li>
                                         <li>
                                             <m> <a href="javascript:void(0)"  id="btnRegister" onclick="RegisterUser();" >Register</a></m>
@@ -687,10 +582,10 @@
                                 <div class="span3">
                                     <ul class="payment-sendbtns">
                                         <li>
-                                            <k><a href="javascript:void(0)"  id="btnpickupCancel">Cancel</a></k>
+                                            <k><a href="javascript:void(0)" onclick="ResetForm('frmPickup')"  id="btnpickupCancel">Cancel</a></k>
                                         </li>
                                         <li>
-                                            <m> <a href="javascript:void(0)"  id="btnpickup" onclick="pickupUser();" >Request</a></m>
+                                            <m> <a href="javascript:void(0)"  id="btnpickup" onclick="PickupUser();" >Request</a></m>
                                         </li>
 
                                     </ul>
@@ -703,9 +598,80 @@
                         </div>
                     </div>
                     <!-----pop-up-grid---->
+
+                    <!-----pop-up-grid---->
+                    <div id="small-dialog-donate" class="mfp-hide ModalPopup">
+                        <div class="pop_up">
+                            <div class="payment-online-form-left">
+                                <ul class="JQValidateErrors"></ul>
+                                <h4><span class="shipping"></span>Information Form - Donation</h4>
+                                <form id="frmDonate" name="frmDonate">
+                                    <ul>
+                                        <li>
+                                            <input class="text-box-dark" type="text" id="txtdonateFName" name="txtdonateFName" placeholder="First Name"></li>
+                                        <li>
+                                            <input class="text-box-dark" type="text" id="txtdonateLName" name="txtdonateLName" placeholder="Last Name"></li>
+                                    </ul>
+                                    <ul>
+                                        <li>
+                                            <input class="text-box-dark" type="text" id="txtdonateEmail" name="txtdonateEmail" placeholder="Email"></li>
+                                        <li>
+                                            <input class="text-box-dark" type="text" id="txtdonatePhone" name="txtdonatePhone" placeholder="Phone Number"></li>
+
+                                    </ul>
+
+                                    <div class="clear"></div>
+
+                                    <ul>
+                                        <li>
+                                            <textarea class="text-box-dark" id="txtdonateComment" name="txtdonateComment" cols="40" rows="4" placeholder="Additional Comments/Description"></textarea></li>
+                                    </ul>
+                                    <ul>
+                                        <li>
+                                            <h3>Someone from the Board committee will contact you soon!</h3>
+                                            <li>
+                                    </ul>
+                                </form>
+                                <div class="clear"></div>
+                                <div class="span3">
+                                    <ul class="payment-sendbtns">
+                                        <li>
+                                            <k><a href="javascript:void(0)" onclick="ResetForm('frmDonate')"  id="btndonateCancel">Cancel</a></k>
+                                        </li>
+                                        <li>
+                                            <m> <a href="javascript:void(0)"  id="btndonate" onclick="DonateUser();" >Send</a></m>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                                <div class="clear"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-----pop-up-grid---->
+
+                    <!-----pop-up-grid---->
+                    <div id="small-dialog-NewServicePDF" class="mfp-hide ModalPopup_850">
+                        <div class="pop_up">
+                            <div class="payment-online-form-left">
+
+
+                                <iframe id="frmNewServicePDF" width="800" height="1084"></iframe>
+
+                                <div class="clear"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-----pop-up-grid---->
+
                 </div>
                 <div class="clear"></div>
             </div>
+
             <div class="client">
                 <h3>
                     <img src="images/line.png" /><i>CLIENT ABOUT US</i><img src="images/line.png" /></h3>
@@ -724,10 +690,35 @@
         </div>
     </div>
 
-    <div id="small-dialog-register" class="mfp-hide ModalPopup">
-        <div class="pop_up">
+    <!----------- message1 ------------>
+    <div class="message2">
+        <div class="wrap">
+            <h3>Our team</h3>
+            <p>We a professional and progresive team</p>
         </div>
     </div>
+
+    <!-----------start-pricing----------->
+    <div class="pricing-plans">
+        <div class="wrap">
+            <div class="wrapper clearfix">
+                <div class="section-title">
+                    <h3 class="heading">Events</h3>
+                    <h6></h6>
+                </div>
+                <!--end:section-title-->
+                <br />
+            </div>
+            <!--end:wrapper-->
+
+
+
+            <uc:ISAEvents ID="ucISaEvents" runat="server" />
+            <div class="clear"></div>
+        </div>
+    </div>
+
+
     <!-- Add fancyBox light-box -->
     <!-- Add fancyBox light-box -->
     <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
@@ -762,69 +753,33 @@
             <h4>Board Members</h4>
             <div class="section group" id="divBoardMembersWrapper">
             </div>
-            <div class="client">
-                <h3>
-                    <img src="images/line.png" /><i>Our skills</i><img src="images/line.png" /></h3>
-                <!----------- clock position ------------>
-                <div></div>
-                <div class="pie-wrapper progress-45 style-2">
-                    <span class="label">45<span class="smaller">%</span></span>
-                    <div class="pie">
-                        <div class="left-side half-circle"></div>
-                        <div class="right-side half-circle"></div>
-                    </div>
-                    <div class="shadow"></div>
-                    <h3>WEB-DESIGN</h3>
-                </div>
+        </div>
+    </div>
 
-                <div class="pie-wrapper progress-75 style-2">
-                    <span class="label">75<span class="smaller">%</span></span>
-                    <div class="pie">
-                        <div class="left-side half-circle"></div>
-                        <div class="right-side half-circle"></div>
-                    </div>
-                    <div class="shadow"></div>
-                    <h3>CREATIVE</h3>
-                </div>
-
-                <div class="pie-wrapper progress-95 style-2">
-                    <span class="label">95<span class="smaller">%</span></span>
-                    <div class="pie">
-                        <div class="left-side half-circle"></div>
-                        <div class="right-side half-circle"></div>
-                    </div>
-                    <div class="shadow"></div>
-                    <h3>UI-DESIGN</h3>
-                </div>
-                <div class="pie-wrapper progress-45 style-2">
-                    <span class="label">45<span class="smaller">%</span></span>
-                    <div class="pie">
-                        <div class="left-side half-circle"></div>
-                        <div class="right-side half-circle"></div>
-                    </div>
-                    <div class="shadow"></div>
-                    <h3>PROTOTYPES</h3>
-                </div>
-                <div class="pie-wrapper progress-75 style-2">
-                    <span class="label">75<span class="smaller">%</span></span>
-                    <div class="pie">
-                        <div class="left-side half-circle"></div>
-                        <div class="right-side half-circle"></div>
-                    </div>
-                    <div class="shadow"></div>
-                    <h3>PHOTOGRAPHY</h3>
-                </div>
+    <div class="message2">
+        <div class="wrap">
+            <h3>Our team</h3>
+            <p>We a professional and progresive team</p>
+        </div>
+    </div>
+    <!----------- about ------------>
+    <div class="BoardMembers" id="Div1">
+        <div class="wrap">
+            <h4>Map</h4>
+            <div class="section group" id="div2">
+                <uc:ISAGmap ID="ucISAGMap" runat="server" />
             </div>
+            <div class="clear"></div>
         </div>
     </div>
     <!----------- message3 ------------>
     <div class="message3">
         <div class="wrap">
-            <h3>You Loked Over 6000px</h3>
+            <h3>Serving for the people, By the people</h3>
             <p>That's Great!</p>
         </div>
     </div>
-    <!--------start-contact----------->
+    <di---->
     <div class="contact" id="contact">
         <div class="wrap">
             <h2>Contact Us</h2>
@@ -850,20 +805,20 @@
                 <div class="para-contact">
                     <h4>MORE INFO</h4>
                     <div class="get-intouch-left-address">
-                        <p>2345 Setwant natrer, 1234</p>
-                        <p>Washington. United States.</p>
-                        <p>2345 Setwant natrer, 1234</p>
-                        <p>Washington. United States.</p>
-                        <p>(401) 1234 567</p>
-                        <p><a href="mailto:info@mycompany.com">info(at)appstore.com</a></p>
+                        <p>Indian Students Association</p>
+                        <p>Bone Student Center</p>
+                        <p>Illinois State University, Normal, IL, 61761</p>
+                        <p>(309) 750 4438</p>
+                        <p><a href="mailto:president@isaatisu.com">president@isaatisu.com</a></p>
                     </div>
-                    <div class="span4">
-                        <a href="#">
-                            <i>
-                                <input type="submit" value="Purchase"></i>
-                            <div class="clear"></div>
+                    <br /><br />
+                    <div class="buttons">
+                        <div class="span2">
+                        <a href="https://illinoisstate.collegiatelink.net/organization/indian-student-association">
+                            <i>ISA Profile at ISU</i>
                         </a>
                     </div>
+                        </div>
                     <div class="clear"></div>
                 </div>
                 <a class="mov-top" href="#home1"><span></span></a>
@@ -898,26 +853,12 @@
     <div class="footer-top">
         <div class="wrap">
             <div class="col_1_of_3 span_1_of_3">
-                <h5>RECENT TWEETS</h5>
-                <h6>
-                    <img src="images/twit.png" alt=""><a href="#"><span>booty, 15.10.2013</span></a></h6>
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry
-                    <lable>Lorem Ipsum has been</lable>
-                    the industry's standard dummy text ever since
-                </p>
-                <h6>
-                    <img src="images/twit.png" alt=""><a href="#"><span>booty, 15.10.2013</span></a></h6>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry </p>
+                  <a class="twitter-timeline" href="https://twitter.com/isaatisu" data-widget-id="483472365469188096">Tweets by @isaatisu</a>
+<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+
             </div>
             <div class="col_1_of_3 span_1_of_3">
-                <h5>RECENT POSTS</h5>
-                <h6 class="a">15.10.2013</h6>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                <h6 class="a">15.10.2013</h6>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                <h6 class="a">15.10.2013</h6>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+               <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FISAATISU&width=400&colorscheme=light&show_faces=true&border_color&stream=true&header=true&height=600" scrolling="yes" frameborder="0" style="border:none; overflow:hidden; width:400px; height:600px; background: white; float:left; " allowtransparency="true"></iframe>
 
             </div>
             <div class="col_1_of_3 span_1_of_3">
@@ -953,17 +894,18 @@
         <div class="wrap">
             <div class="image">
                 <a href="index.html">
-                    <img src="images/logo.png" alt=""></a>
+                    <img src="images/logonew.png" alt=""></a>
             </div>
             <div class="copy-right">
-                <p>Template <a href="http://w3layouts.com/">w3layouts.com</a></p>
+                <p><a href="http://isaatisu.com/">© isaatisu.com All rights reserved.</a></p>
+                <p>Developed By: <a href="mailto:mohitjain0890@gmail.com">Mohit Jain</a></p>
             </div>
             <div class="clear"></div>
         </div>
     </div>
 
     <!-- scroll_top_btn -->
- 
+
     <script type="text/javascript" src="Scripts/jquery.validate.js"></script>
     <script type="text/javascript" src="js/move-top.js"></script>
     <script type="text/javascript" src="js/easing.js"></script>

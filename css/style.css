@@ -107,7 +107,7 @@ body {
 }
 
 .wrap {
-    width: 80%;
+    width: 92%;
     margin: 0px auto;
 }
 /* start header */
@@ -116,7 +116,7 @@ body {
 }
 
 .header {
-    padding: 2% 4%;
+    padding: 1% 2%;
 }
 
 .logo {
@@ -351,6 +351,19 @@ body {
     margin: 0px;
 }
 
+.service-grids p{
+    font-size: 0.875em;
+color: #C0BEBE;
+line-height: 1.8em;
+}
+
+.service-grids>h3{
+    font-size: 1.2em;
+color: #C0BEBE;
+line-height: 1.8em;
+}
+
+
 .images_1_of_4 {
     display: block;
     float: left;
@@ -434,7 +447,7 @@ body {
         }
 /***************end-servivice************/
 .message {
-    background: url("../images/banner2.jpg") no-repeat;
+    background: url("../images/banner2new.jpg") no-repeat;
     background-size: 100%;
     padding: 12% 0;
     text-align: left;
@@ -1030,7 +1043,7 @@ body > div.message > div > div {
     }
 /*--- message2 ---*/
 .message2 {
-    background: url("../images/pic.jpg") no-repeat;
+    background: url("../images/picnew.png") no-repeat;
     background-size: 100%;
     padding: 11% 0;
     text-align: left;
@@ -1049,7 +1062,7 @@ body > div.message > div > div {
     }
 /*--- message3 ---*/
 .message3 {
-    background: url("../images/banner4.jpg") no-repeat;
+    background: url("../images/banner4new.jpg") no-repeat;
     background-size: 100%;
     padding: 11% 0;
     text-align: left;
@@ -1367,7 +1380,8 @@ body > div.message > div > div {
 html,
 body {
     background: #ecf0f1;
-    color: #444;
+    /*color: #444;*/
+    color:#A9A4A4;
     font-size: 16px;
 }
 
@@ -1761,7 +1775,7 @@ body {
 /***********end-contact*************/
 /*--- social ---*/
 .social {
-    background: url("../images/banner5.jpg") no-repeat;
+    background: url("../images/banner5new.jpg") no-repeat;
     background-size: 100%;
     padding: 10% 0;
     text-align: left;
@@ -1999,7 +2013,7 @@ body {
 /*---start-media-queries---*/
 @media only screen and (max-width: 1366px) {
     .wrap {
-        width: 95%;
+        width: 92%;
     }
 
     #fwslider .title {
@@ -2600,4 +2614,56 @@ li.has-error input[type=text] {
     background-color: antiquewhite;
     border: 1px solid red;
     display:none;
+}
+
+
+.ic_container{
+    vertical-align:baseline;
+    margin:10px;
+    position:relative;
+    overflow:hidden;
+    /*-moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    -khtml-border-radius:10px;
+    -moz-box-shadow: 0 1px 3px #888;
+    -webkit-box-shadow: 0 1px 3px #888;*/
+}
+.overlay{
+    opacity:0.3;
+    position:absolute;
+    top:0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50);
+}
+.ic_caption{
+    position:absolute;    
+    opacity:0.8;   
+    overflow:hidden;
+    margin:0px;
+    padding:0px;
+    left:0px;
+    right:0px;
+    cursor:default;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=60);
+}
+.ic_category{
+    text-transform:uppercase;
+    font-size:11px;
+    letter-spacing:3px;
+    padding:5px;
+    margin:0px;
+}
+.ic_caption h3{
+    padding:0px 5px 15px 5px;
+    margin:0px;
+    font-size:18px;
+}
+.ic_text{
+    padding:5px;
+    margin:0px;
+    text-align:justify;
+    font-size:11px;
+
 }
