@@ -13,7 +13,7 @@ public class SqlHelper : IDisposable
     private SqlCommand command;
     #endregion
 
-   
+
 
     #region Properties
     public int ConnectionTimeout
@@ -36,7 +36,7 @@ public class SqlHelper : IDisposable
     #endregion
 
     #region Constructors
-   
+
 
     public SqlHelper()
     {
@@ -104,7 +104,7 @@ public class SqlHelper : IDisposable
     {
         command.CommandText = sqltext;
         command.CommandType = CommandType.Text;
-        object result;
+        object result = null;
         try
         {
             if (connection.State != ConnectionState.Open)
@@ -118,7 +118,7 @@ public class SqlHelper : IDisposable
         catch (Exception ex)
         {
             this.Kill();
-            throw ex;
+            // throw ex;
         }
         finally
         {
@@ -130,7 +130,7 @@ public class SqlHelper : IDisposable
     public object ExecuteScalarSQLProc(string procedureName)
     {
         command.CommandText = procedureName;
-        object result;
+        object result = null ;
         try
         {
             if (connection.State != ConnectionState.Open)
@@ -144,7 +144,7 @@ public class SqlHelper : IDisposable
         catch (Exception ex)
         {
             this.Kill();
-            throw ex;
+            //throw ex;
         }
         finally
         {
@@ -177,7 +177,7 @@ public class SqlHelper : IDisposable
         catch (Exception ex)
         {
             this.Kill();
-            throw ex;
+            //   throw ex;
         }
 
         return command.Parameters;
@@ -187,7 +187,7 @@ public class SqlHelper : IDisposable
     public SqlDataReader ReturnDataReaderFromSproc(string procedureName)
     {
         command.CommandText = procedureName;
-        SqlDataReader objSqlDataReader;
+        SqlDataReader objSqlDataReader = null;
 
         try
         {
@@ -202,7 +202,7 @@ public class SqlHelper : IDisposable
         catch (Exception ex)
         {
             this.Kill();
-            throw ex;
+            //  throw ex;
         }
 
         return objSqlDataReader;
@@ -213,7 +213,7 @@ public class SqlHelper : IDisposable
         command.CommandText = sqltext;
         command.CommandType = CommandType.Text;
 
-        SqlDataReader objSqlDataReader;
+        SqlDataReader objSqlDataReader = null;
         try
         {
             if (connection.State != ConnectionState.Open)
@@ -225,7 +225,7 @@ public class SqlHelper : IDisposable
         catch (Exception ex)
         {
             this.Kill();
-            throw ex;
+            //  throw ex;
         }
         return objSqlDataReader;
     }
@@ -244,19 +244,24 @@ public class SqlHelper : IDisposable
             objDataAdapter = new SqlDataAdapter(command);
             objDataAdapter.Fill(objDataSet, "table1");
             this.Kill();
-            return objDataSet;
+
         }
 
         catch (Exception ex)
         {
             this.Kill();
-            throw ex;
+            // throw ex;
         }
+        finally
+        {
+            this.Kill();
+        }
+        return objDataSet;
     }
 
     public DataSet ReturnDataSetFromSqlText(string sqlText)
     {
-        command.CommandText = sqlText;
+            command.CommandText = sqlText;
         command.CommandType = CommandType.Text;
 
         SqlDataAdapter objDataAdapter;
@@ -272,14 +277,15 @@ public class SqlHelper : IDisposable
             objDataAdapter = new SqlDataAdapter(command);
             objDataAdapter.Fill(objDataSet, "table1");
             this.Kill();
-            return objDataSet;
+
         }
 
         catch (Exception ex)
         {
             this.Kill();
-            throw ex;
+            // throw ex;
         }
+        return objDataSet;
     }
 
     public void Kill()
@@ -291,7 +297,7 @@ public class SqlHelper : IDisposable
         command.Dispose();
     }
 
-   
+
     #endregion
 
     #region IDisposable Members

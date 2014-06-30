@@ -66,7 +66,7 @@ function RegisterUser() {
         var state = $('#txtregisterState').val();
         var zip = $('#txtregisterZip').val();
         var securityques = $('#txtregisterSquestion').val();
-        var securityanswer = $('#txtregisterSanswer').val();
+        var status = $('#chkregistersendemail').is(':checked');
 
         $.ajax({
             type: "Post",
@@ -85,6 +85,7 @@ function RegisterUser() {
                 "', 'zip': '" + zip +
                 "', 'securityques': '" + securityques +
                 "', 'securityanswer': '" + securityanswer +
+                "', 'status': '" + status +
                 "'}",
             dataType: "json",
             contentType: "application/json; charset=utf-8",
@@ -215,7 +216,6 @@ function BindRegisterUserValidation() {
         },
         txtregisterPassword: {
             required: true,
-            pwcheck: true,
             minlength: 8
         },
         txtregisterCPassword: {
@@ -251,7 +251,6 @@ function BindRegisterUserValidation() {
         },
         txtregisterPassword: {
             required: "Please enter Password",
-            pwcheck: "Please enter valid password",
             minlength: "Please enter valid password"
         },
         txtregisterCPassword: {
@@ -539,6 +538,7 @@ function ResetForm(FormID)
     $('#' + FormID).find('input[type=text],textarea,input,select').filter(':visible:first').focus();
 
 }
+
 
 
 
