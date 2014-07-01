@@ -853,21 +853,12 @@ If you would prefer not to live in University accommodation, we can also offer y
     <div class="footer-top">
         <div class="wrap">
             <div class="col_1_of_3 span_1_of_3">
-                <h5>RECENT TWEETS</h5>
-                <div id="divTwitter"></div>
-                <h6>
-                    <img src="images/twit.png" alt=""><a href="#"><span>booty, 15.10.2013</span></a></h6>
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry
-                    <lable>Lorem Ipsum has been</lable>
-                    the industry's standard dummy text ever since
-                </p>
-                <h6>
-                    <img src="images/twit.png" alt=""><a href="#"><span>booty, 15.10.2013</span></a></h6>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry </p>
+                  <a class="twitter-timeline" href="https://twitter.com/isaatisu" data-widget-id="483472365469188096">Tweets by @isaatisu</a>
+<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+
             </div>
             <div class="col_1_of_3 span_1_of_3">
-               <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FISAATISU&width=350&colorscheme=light&show_faces=true&border_color&stream=true&header=true&height=435" scrolling="yes" frameborder="0" style="border:none; overflow:hidden; width:350px; height:430px; background: white; float:left; " allowtransparency="true"></iframe>
+               <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FISAATISU&width=400&colorscheme=light&show_faces=true&border_color&stream=true&header=true&height=600" scrolling="yes" frameborder="0" style="border:none; overflow:hidden; width:400px; height:600px; background: white; float:left; " allowtransparency="true"></iframe>
 
             </div>
             <div class="col_1_of_3 span_1_of_3">
@@ -929,17 +920,5 @@ If you would prefer not to live in University accommodation, we can also offer y
 
     <script type="text/javascript" src="js/myscripts.js"> </script>
     <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
-
-
-        <script src="http://twitter.com/javascripts/blogger.js" type="text/javascript"></script>
-<script type="text/javascript">
-    (function () {
-        var e = document.createElement('script');
-        e.type = 'text/javascript';
-        e.async = true;
-        e.src = 'http://twitter.com/statuses/user_timeline/isaatisu.json?callback=twitterCallback2&count=3';
-        document.getElementById('divTwitter').appendChild(e);
-    }());
-</script>
 </body>
 </html>
