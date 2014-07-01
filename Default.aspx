@@ -328,29 +328,27 @@ Ankit Rathore
             <div class="pricing-grids">
                 <div class="pricing-grid">
                     <div class="price-value">
-                        <a href="#">Accomodation</a>
+                        <h3><a href="">Accomodation</a></h3>
                     </div>
-                    <h3><a href="#">$5.01/month</a></h3>
-                    <h3>Illinois State University has a wide range of accommodation options and most students find
+                    <h3 style="padding:10px">Illinois State University has a wide range of accommodation options and most students find
                         that we have an accommodation solution to suit their needs.
 If you would prefer not to live in University accommodation, we can also offer you advice
                         and assistance on finding private rented accommodation.</h3>
                     <div class="cart">
                         <div class="span3">
-                            <a class="popup-with-zoom-anim" href="#small-dialog"><i>Purchase</i></a>
+                            <a class="popup-with-zoom-anim" href="#small-dialog-accomodation"><i>Request</i></a>
                         </div>
                     </div>
                 </div>
 
                 <div class="pricing-grid">
                     <div class="price-value">
-                        <a href="#">Need Any Help? Register!</a>
+                        <h3 style="padding:10px"><a href="#">Need Any Help? Register!</a></h3>
                     </div>
                     <h3>ISA at ISU will be glad to provide services of accomodation and Pick up. Please fill up the registation
                     forms on the left and right to avail these services.</h3>
                     <br />
                     <br />
-                    <h3><a href="#">Some Other ISU Serices are</a></h3>
                     <ul>
                         <li><a href="#">ISA Library</a></li>
                         <li><a href="#">Academic Help</a></li>
@@ -358,16 +356,15 @@ If you would prefer not to live in University accommodation, we can also offer y
                     </ul>
                     <div class="cart">
                         <div class="span3">
-                            <a class="popup-with-zoom-anim" href="#small-dialog"><i>Purchase</i></a>
+                            <h3>More To Come..!!</h3>
                         </div>
                     </div>
                 </div>
                 <div class="pricing-grid">
                     <div class="price-value">
-                        <a href="#">Pick Up Service</a>
+                        <h3><a href="#">Pick Up Service</a></h3>
                     </div>
-                    <h3><a href="#">$10.01/month</a></h3>
-                    <h3>ISA tries to do the best it can to pick new students up from the airport.
+                    <h3 style="padding:10px">ISA tries to do the best it can to pick new students up from the airport.
                         So to avoid any inconvenience please fill up the forms and wait until someone contacts you.
                         Feel free to contact in case there is any concern.
                         <br />
@@ -378,7 +375,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                     </h3>
                     <div class="cart">
                         <div class="span3">
-                            <a class="popup-with-zoom-anim" href="#small-dialog-pickup"><i>Purchase</i></a>
+                            <a class="popup-with-zoom-anim" href="#small-dialog-pickup"><i>Request</i></a>
                         </div>
                     </div>
                 </div>
@@ -621,7 +618,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                     </ul>
 
                                     <div class="clear"></div>
-
+                                    Acco
                                     <ul>
                                         <li>
                                             <textarea class="text-box-dark" id="txtdonateComment" name="txtdonateComment" cols="40" rows="4" placeholder="Additional Comments/Description"></textarea></li>
@@ -674,13 +671,15 @@ If you would prefer not to live in University accommodation, we can also offer y
 
             <div class="client">
                 <h3>
-                    <img src="images/line.png" /><i>CLIENT ABOUT US</i><img src="images/line.png" /></h3>
+                    <img src="images/line.png" /><i>PONDER</i><img src="images/line.png" /></h3>
                 <div class="img">
                     <img src="images/left.png" />
                 </div>
                 <div class="data">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic</p>
-                    <p><a href="#">#INDUSTY</a></p>
+                    <p>History itself bears testimony to the fact. All the soul-elevating ideas and 
+the different branches of knowledge that exist in the world are found on 
+proper investigation to have their roots in India.</p>
+                    <p><a href="#">#SWAMI VIVEKANANDA</a></p>
                 </div>
                 <div class="img1">
                     <img src="images/right.png" />

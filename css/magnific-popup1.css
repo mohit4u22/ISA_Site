@@ -493,6 +493,7 @@ button::-moz-focus-inner {
     -webkit-border-radius: 5px;
     background: #313338;
     text-align: center;
+    padding:12px;
     margin-right: 3.8%;
     transition: 0.5s all;
     -webkit-transition: 0.5s all;
