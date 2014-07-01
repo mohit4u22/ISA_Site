@@ -314,10 +314,10 @@ Ankit Rathore
 
     </div>
     <!----------- message1 ------------>
-    <div class="message2">
+    <div class="message6">
         <div class="wrap">
-            <h3>Our team</h3>
-            <p>We a professional and progresive team</p>
+            <h3>Events</h3>
+            <p>Our events are not just events, they are inscribed with much deeper cultural and political importance.</p>
         </div>
     </div>
 
@@ -693,7 +693,7 @@ proper investigation to have their roots in India.</p>
     <div class="message2">
         <div class="wrap">
             <h3>Our team</h3>
-            <p>We a professional and progresive team</p>
+            <p>We are a professional and progressive team</p>
         </div>
     </div>
 
@@ -740,7 +740,7 @@ proper investigation to have their roots in India.</p>
     <!----End-pricingplans---->
     <!-----------end-pricing------------->
     <!----------- message2 ------------>
-    <div class="message2">
+    <div class="message8">
         <div class="wrap">
             <h3>Our team</h3>
             <p>We a professional and progresive team</p>
@@ -755,7 +755,7 @@ proper investigation to have their roots in India.</p>
         </div>
     </div>
 
-    <div class="message2">
+    <div class="message7">
         <div class="wrap">
             <h3>Our team</h3>
             <p>We a professional and progresive team</p>
