@@ -2,8 +2,6 @@
 var LoginValidator;
 var DonateValidator;
 var PickupValidator;
-var AcccomodationValidator;
-
 $(document).ready(function () {
     $('.JQValidateErrors').hide();
     BindCountriesStates();
@@ -12,7 +10,25 @@ $(document).ready(function () {
     PopulateBoardMembers();
     BindDonateValidation();
     BindPickupValidation();
-    BindAccomodationValidation();
+    var cname = $.MyCookie.readCookie('Isa_Site_Login');
+    if (cname != null) {
+        $('#liTopLogin').hide();
+        $('#litopRegister').hide();
+        $('#liTopLogout').show();
+    }
+    else {
+        $('#liTopLogin').show();
+        $('#litopRegister').show();
+        $('#liTopLogout').hide();
+    }
+
+    $('#liTopLogout a').click(function () {
+        $('#liTopLogin').show();
+        $('#litopRegister').show();
+        $('#liTopLogout').hide();
+        $.MyCookie.eraseCookie('Isa_Site_Login');
+        alert('You are successfully logged out!!!');
+    });
 });
 
 // Normal Functions from here
@@ -34,8 +50,14 @@ function LoginUser() {
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (result) {
-                if (result.d == "Success") {
+                var res = JSON.parse(result.d);
+                if (res.toString().toLowerCase() == "success") {
                     alert("User Logged in Successfully");
+                    $.MyCookie.createCookie('Isa_Site_Login', email, 1);
+                    $('#small-dialog-login button.mfp-close').click();
+                    $('#liTopLogin').hide();
+                    $('#litopRegister').hide();
+                    $('#liTopLogout').show();
                 }
                 else {
                     alert("We're sorry but we are not able to authorize user as this time. <br>" + result.d);
@@ -171,7 +193,7 @@ function PickupUser() {
 
         $.ajax({
             type: "Post",
-            url: "../WebService.asmx/DonateUser",
+            url: "../WebService.asmx/SignUpUser",
             data: "{'firstname': '" + firstname +
                 "', 'lastname': '" + lastname +
                 "', 'email': '" + email +
@@ -181,50 +203,6 @@ function PickupUser() {
                   "', 'time': '" + time +
                  "', 'airport': '" + airport +
                 "', 'venue': '" + venue +
-                "', 'comment': '" + comment +
-                "'}",
-            dataType: "json",
-            contentType: "application/json; charset=utf-8",
-            success: function (result) {
-                if (result.d == "Success") {
-                    alert("Message sent Successfully");
-                }
-                else {
-                    alert("We're sorry but we are not able to send this information at this time. <br>" + result.d);
-                }
-
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                alert("We're sorry but we are not able to send this information at this time.");
-            }
-        });
-    }
-}
-
-function AccomodationUser() {
-    if (!AcccomodationValidator.validate()) {
-        $('.JQValidateErrors').show();
-        return false;
-    }
-    else {
-        $('.JQValidateErrors').hide();
-        var firstname = $('#txtaccomodationFName').val();
-        var lastname = $('#txtaccomodationLName').val();
-        var email = $('#txtaccomodationEmail').val();
-        var phone = $('#txtaccomodationPhone').val();
-        var arrivaldate = $('#txtaccomodationArrivalDate').val();
-        var time = $('#txtaccomodationTime').val();
-        var comment = $('#txtaccomodationComment').val();
-
-        $.ajax({
-            type: "Post",
-            url: "../WebService.asmx/SignUpUser",
-            data: "{'firstname': '" + firstname +
-                "', 'lastname': '" + lastname +
-                "', 'email': '" + email +
-                "', 'phone': '" + phone +
-                "', 'arrivaldate': '" + arrivaldate +
-                  "', 'time': '" + time +
                 "', 'comment': '" + comment +
                 "'}",
             dataType: "json",
@@ -503,7 +481,7 @@ function BindCountriesStates() {
 }
 
 
-// Other Functions
+
 function jQueryValidatorWrapper(formId, rules, messages) {
     var showErrorMessage = false;
 
@@ -576,8 +554,7 @@ function PopulateBoardMembers() {
 }
 
 
-function ResetForm(FormID)
-{
+function ResetForm(FormID) {
 
     $('#' + FormID + ' input').val('');
 
@@ -586,6 +563,9 @@ function ResetForm(FormID)
     $('#' + FormID).find('input[type=text],textarea,input,select').filter(':visible:first').focus();
 
 }
+
+
+
 
 
 (function ($) {
@@ -636,3 +616,40 @@ function ResetForm(FormID)
         showcaption: true
     };
 })(jQuery);
+
+
+
+; (function ($) {
+
+    $.MyCookie = $.fn.MyCookie = function () { }
+
+    $.fn.MyCookie.createCookie = function (name, value, hrs) {
+        var expires;
+
+        if (hrs) {
+            var date = new Date();
+            date.setTime(date.getTime() + (hrs * 60 * 60 * 1000));
+            expires = "; expires=" + date.toGMTString();
+        } else {
+            expires = "";
+        }
+        document.cookie = escape(name) + "=" + escape(value) + expires + "; path=/";
+    };
+
+    $.fn.MyCookie.readCookie = function (name) {
+        var nameEQ = escape(name) + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) === 0) return unescape(c.substring(nameEQ.length, c.length));
+        }
+        return null;
+    }
+
+    $.fn.MyCookie.eraseCookie = function (name) {
+        
+        document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    }
+})(jQuery);
+

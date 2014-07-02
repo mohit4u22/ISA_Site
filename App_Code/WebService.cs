@@ -175,8 +175,6 @@ public class WebService : System.Web.Services.WebService
 
     }
 
-
-
     [WebMethod]
     [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
     public string DonateUser(String firstname, String lastname, String email, String phone, String comment)
