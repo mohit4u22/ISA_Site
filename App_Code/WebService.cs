@@ -219,6 +219,7 @@ public class WebService : System.Web.Services.WebService
         return res;
         // return Json(res, JsonRequestBehavior.AllowGet);
     }
+
     [WebMethod]
     [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
     public String GetStates(string code)

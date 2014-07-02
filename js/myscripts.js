@@ -2,6 +2,8 @@
 var LoginValidator;
 var DonateValidator;
 var PickupValidator;
+var AcccomodationValidator;
+
 $(document).ready(function () {
     $('.JQValidateErrors').hide();
     BindCountriesStates();
@@ -10,6 +12,7 @@ $(document).ready(function () {
     PopulateBoardMembers();
     BindDonateValidation();
     BindPickupValidation();
+    BindAccomodationValidation();
 });
 
 // Normal Functions from here
@@ -168,7 +171,7 @@ function PickupUser() {
 
         $.ajax({
             type: "Post",
-            url: "../WebService.asmx/SignUpUser",
+            url: "../WebService.asmx/DonateUser",
             data: "{'firstname': '" + firstname +
                 "', 'lastname': '" + lastname +
                 "', 'email': '" + email +
@@ -178,6 +181,50 @@ function PickupUser() {
                   "', 'time': '" + time +
                  "', 'airport': '" + airport +
                 "', 'venue': '" + venue +
+                "', 'comment': '" + comment +
+                "'}",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                if (result.d == "Success") {
+                    alert("Message sent Successfully");
+                }
+                else {
+                    alert("We're sorry but we are not able to send this information at this time. <br>" + result.d);
+                }
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert("We're sorry but we are not able to send this information at this time.");
+            }
+        });
+    }
+}
+
+function AccomodationUser() {
+    if (!AcccomodationValidator.validate()) {
+        $('.JQValidateErrors').show();
+        return false;
+    }
+    else {
+        $('.JQValidateErrors').hide();
+        var firstname = $('#txtaccomodationFName').val();
+        var lastname = $('#txtaccomodationLName').val();
+        var email = $('#txtaccomodationEmail').val();
+        var phone = $('#txtaccomodationPhone').val();
+        var arrivaldate = $('#txtaccomodationArrivalDate').val();
+        var time = $('#txtaccomodationTime').val();
+        var comment = $('#txtaccomodationComment').val();
+
+        $.ajax({
+            type: "Post",
+            url: "../WebService.asmx/SignUpUser",
+            data: "{'firstname': '" + firstname +
+                "', 'lastname': '" + lastname +
+                "', 'email': '" + email +
+                "', 'phone': '" + phone +
+                "', 'arrivaldate': '" + arrivaldate +
+                  "', 'time': '" + time +
                 "', 'comment': '" + comment +
                 "'}",
             dataType: "json",
@@ -456,7 +503,7 @@ function BindCountriesStates() {
 }
 
 
-
+// Other Functions
 function jQueryValidatorWrapper(formId, rules, messages) {
     var showErrorMessage = false;
 
@@ -539,9 +586,6 @@ function ResetForm(FormID)
     $('#' + FormID).find('input[type=text],textarea,input,select').filter(':visible:first').focus();
 
 }
-
-
-
 
 
 (function ($) {
