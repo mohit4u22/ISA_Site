@@ -175,8 +175,6 @@ public class WebService : System.Web.Services.WebService
 
     }
 
-
-
     [WebMethod]
     [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
     public string DonateUser(String firstname, String lastname, String email, String phone, String comment)
@@ -219,6 +217,7 @@ public class WebService : System.Web.Services.WebService
         return res;
         // return Json(res, JsonRequestBehavior.AllowGet);
     }
+
     [WebMethod]
     [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
     public String GetStates(string code)

@@ -657,6 +657,71 @@ If you would prefer not to live in University accommodation, we can also offer y
                     </div>
                     <!-----pop-up-grid---->
 
+                     <!-----pop-up-grid---->
+                    <div id="small-dialog-accomodation" class="mfp-hide ModalPopup">
+                        <div class="pop_up">
+                            <div class="payment-online-form-left">
+                                <ul class="JQValidateErrors"></ul>
+                                <h4><span class="shipping"></span>Pick Up Form</h4>
+                                <form id="frmAccomodation" name="frmAccomodation">
+                                    <ul>
+                                        <li>
+                                            <input class="text-box-dark" type="text" id="txtaccomodationFName" name="txtaccomodationFName" placeholder="First Name"></li>
+                                        <li>
+                                            <input class="text-box-dark" type="text" id="txtaccomodationLName" name="txtaccomodationLName" placeholder="Last Name"></li>
+                                    </ul>
+                                    <ul>
+                                        <li>
+                                            <input class="text-box-dark" type="text" id="txtaccomodationEmail" name="txtaccomodationEmail" placeholder="Email"></li>
+                                        <li>
+                                            <input class="text-box-dark" type="text" id="txtaccomodationPhone" name="txtaccomodationPhone" placeholder="Phone Number"></li>
+
+                                    </ul>
+                                    <div class="clear"></div>
+                                    <ul>
+                                        <%-- <li>
+                                            <input class="text-box-light hasDatepicker" type="date" id="datepicker" value="Expiration Date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Expiration Date';}"><em class="pay-date"> </em></li>--%>
+                                        <li>
+                                            <input class="text-box-dark" type="date" id="txtaccomodationArrivalDate" name="txtaccomodationArrivalDate" value="yyyy-mm-dd" onkeypress="return false"></li>
+
+
+                                    </ul>
+                                    <div class="clear"></div>
+                                    <ul>
+
+                                        <li>
+                                            <input class="text-box-dark" type="time" id="txtaccomodationTime" name="txtaccomodationTime" placeholder="Street"></li>
+
+                                    </ul>
+                                 
+                                   
+                                    <div class="clear"></div>
+                                    <ul>
+                                        <li>
+                                            <textarea class="text-box-dark" id="txtaccomodationComment" name="txtaccomodationComment" cols="40" rows="4" placeholder="Additional Comments"></textarea></li>
+                                    </ul>
+                                </form>
+                                <div class="clear"></div>
+                                <div class="span3">
+                                    <ul class="payment-sendbtns">
+                                        <li>
+                                            <k><a href="javascript:void(0)" onclick="ResetForm('frmAccomodation')"  id="btnaccomodationCancel">Cancel</a></k>
+                                        </li>
+                                        <li>
+                                            <m> <a href="javascript:void(0)"  id="btnaccomodation" onclick="AccomodationUser();" >Request</a></m>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                                <div class="clear"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-----pop-up-grid---->
+
                     <!-----pop-up-grid---->
                     <div id="small-dialog-NewServicePDF" class="mfp-hide ModalPopup_850">
                         <div class="pop_up">
