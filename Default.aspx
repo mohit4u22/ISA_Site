@@ -113,11 +113,11 @@
                             <a class="popup-with-zoom-anim" href="#small-dialog-register"><i>Register</i></a>
                         </li>
                         <li id="liTopLogout">
-                            <a  href="#"><i>Logout</i></a>
+                            <a href="#"><i>Logout</i></a>
                         </li>
                         <%-- <li><a href="#about" class="scroll">About</a></li>--%>
                         <li class="last"><a href="#contact" class="scroll">Contact</a></li>
-                       
+
                     </ul>
                     <div id="sb-search" class="sb-search">
                         <form>
@@ -125,6 +125,9 @@
                             <input class="sb-search-submit" type="submit" value="">
                             <span class="sb-icon-search"></span>
                         </form>
+                    </div>
+                    <div>
+                        <label id="LoggedinUserName" style="float:right; right:20px; top:35px; position:absolute;">test</label>
                     </div>
                     <script src="js/classie.js"></script>
                     <script src="js/uisearch.js"></script>
@@ -334,7 +337,7 @@ Ankit Rathore
                     <div class="price-value">
                         <h3><a href="">Accomodation</a></h3>
                     </div>
-                    <h3 style="padding:10px">Illinois State University has a wide range of accommodation options and most students find
+                    <h3 style="padding: 10px">Illinois State University has a wide range of accommodation options and most students find
                         that we have an accommodation solution to suit their needs.
 If you would prefer not to live in University accommodation, we can also offer you advice
                         and assistance on finding private rented accommodation.</h3>
@@ -347,7 +350,7 @@ If you would prefer not to live in University accommodation, we can also offer y
 
                 <div class="pricing-grid">
                     <div class="price-value">
-                        <h3 style="padding:10px"><a href="#">Need Any Help? Register!</a></h3>
+                        <h3 style="padding: 10px"><a href="#">Need Any Help? Register!</a></h3>
                     </div>
                     <h3>ISA at ISU will be glad to provide services of accomodation and Pick up. Please fill up the registation
                     forms on the left and right to avail these services.</h3>
@@ -368,7 +371,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                     <div class="price-value">
                         <h3><a href="#">Pick Up Service</a></h3>
                     </div>
-                    <h3 style="padding:10px">ISA tries to do the best it can to pick new students up from the airport.
+                    <h3 style="padding: 10px">ISA tries to do the best it can to pick new students up from the airport.
                         So to avoid any inconvenience please fill up the forms and wait until someone contacts you.
                         Feel free to contact in case there is any concern.
                         <br />
@@ -680,9 +683,11 @@ If you would prefer not to live in University accommodation, we can also offer y
                     <img src="images/left.png" />
                 </div>
                 <div class="data">
-                    <p>History itself bears testimony to the fact. All the soul-elevating ideas and 
+                    <p>
+                        History itself bears testimony to the fact. All the soul-elevating ideas and 
 the different branches of knowledge that exist in the world are found on 
-proper investigation to have their roots in India.</p>
+proper investigation to have their roots in India.
+                    </p>
                     <p><a href="#">#SWAMI VIVEKANANDA</a></p>
                 </div>
                 <div class="img1">

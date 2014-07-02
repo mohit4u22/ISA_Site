@@ -131,7 +131,7 @@ public class WebService : System.Web.Services.WebService
                 + zip + "', '"
                 + securityques + "', '"
                 + securityanswer + "')";
-               
+
 
 
             sqlh.ExecuteNonQuerySQLText(studentinfo);
@@ -171,7 +171,7 @@ public class WebService : System.Web.Services.WebService
         JavaScriptSerializer js = new JavaScriptSerializer();// Use this when formatting the data as JSON
         return js.Serialize(retval);
 
-       
+
 
     }
 
@@ -300,6 +300,20 @@ public class WebService : System.Web.Services.WebService
         }
         JavaScriptSerializer serializer = new JavaScriptSerializer();
         return serializer.Serialize(fls);
+    }
+
+    [WebMethod]
+    [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
+    public void SubmitRSVP(String email, String EventID, String RSVP)
+    {
+        SqlHelper sqlh = new SqlHelper();
+        sqlh.Parameters.AddWithValue("@EventID", EventID);
+        sqlh.Parameters.AddWithValue("@Email", email);
+        Boolean rs = false;
+        Boolean.TryParse(RSVP, out rs);
+        sqlh.Parameters.AddWithValue("@Response", rs);
+        sqlh.ExecuteStoredProcedure("[dbo].[SubmitRSVP]");
+
     }
 
 
