@@ -10,6 +10,25 @@ $(document).ready(function () {
     PopulateBoardMembers();
     BindDonateValidation();
     BindPickupValidation();
+    var cname = $.MyCookie.readCookie('Isa_Site_Login');
+    if (cname != null) {
+        $('#liTopLogin').hide();
+        $('#litopRegister').hide();
+        $('#liTopLogout').show();
+    }
+    else {
+        $('#liTopLogin').show();
+        $('#litopRegister').show();
+        $('#liTopLogout').hide();
+    }
+
+    $('#liTopLogout a').click(function () {
+        $('#liTopLogin').show();
+        $('#litopRegister').show();
+        $('#liTopLogout').hide();
+        $.MyCookie.eraseCookie('Isa_Site_Login');
+        alert('You are successfully logged out!!!');
+    });
 });
 
 // Normal Functions from here
@@ -31,8 +50,14 @@ function LoginUser() {
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (result) {
-                if (result.d == "Success") {
+                var res = JSON.parse(result.d);
+                if (res.toString().toLowerCase() == "success") {
                     alert("User Logged in Successfully");
+                    $.MyCookie.createCookie('Isa_Site_Login', email, 1);
+                    $('#small-dialog-login button.mfp-close').click();
+                    $('#liTopLogin').hide();
+                    $('#litopRegister').hide();
+                    $('#liTopLogout').show();
                 }
                 else {
                     alert("We're sorry but we are not able to authorize user as this time. <br>" + result.d);
@@ -529,8 +554,7 @@ function PopulateBoardMembers() {
 }
 
 
-function ResetForm(FormID)
-{
+function ResetForm(FormID) {
 
     $('#' + FormID + ' input').val('');
 
@@ -592,3 +616,40 @@ function ResetForm(FormID)
         showcaption: true
     };
 })(jQuery);
+
+
+
+; (function ($) {
+
+    $.MyCookie = $.fn.MyCookie = function () { }
+
+    $.fn.MyCookie.createCookie = function (name, value, hrs) {
+        var expires;
+
+        if (hrs) {
+            var date = new Date();
+            date.setTime(date.getTime() + (hrs * 60 * 60 * 1000));
+            expires = "; expires=" + date.toGMTString();
+        } else {
+            expires = "";
+        }
+        document.cookie = escape(name) + "=" + escape(value) + expires + "; path=/";
+    };
+
+    $.fn.MyCookie.readCookie = function (name) {
+        var nameEQ = escape(name) + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) === 0) return unescape(c.substring(nameEQ.length, c.length));
+        }
+        return null;
+    }
+
+    $.fn.MyCookie.eraseCookie = function (name) {
+        
+        document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    }
+})(jQuery);
+
