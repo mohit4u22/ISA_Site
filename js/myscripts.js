@@ -15,19 +15,23 @@ $(document).ready(function () {
         $('#liTopLogin').hide();
         $('#litopRegister').hide();
         $('#liTopLogout').show();
+        $('#LoggedinUserName').html('You are Logged in as: <b>' + cname + '</b>');
     }
     else {
         $('#liTopLogin').show();
         $('#litopRegister').show();
         $('#liTopLogout').hide();
+        $('#LoggedinUserName').html('');
     }
 
     $('#liTopLogout a').click(function () {
+        $('#LoggedinUserName').html('');
         $('#liTopLogin').show();
         $('#litopRegister').show();
         $('#liTopLogout').hide();
         $.MyCookie.eraseCookie('Isa_Site_Login');
         alert('You are successfully logged out!!!');
+     
     });
 });
 
@@ -52,12 +56,19 @@ function LoginUser() {
             success: function (result) {
                 var res = JSON.parse(result.d);
                 if (res.toString().toLowerCase() == "success") {
-                    alert("User Logged in Successfully");
+
                     $.MyCookie.createCookie('Isa_Site_Login', email, 1);
                     $('#small-dialog-login button.mfp-close').click();
                     $('#liTopLogin').hide();
                     $('#litopRegister').hide();
                     $('#liTopLogout').show();
+                    $('#LoggedinUserName').html('You are Logged in as: <b>' + email + '</b>');
+                    if (ReopenForEventID != undefined && ReopenForEventID != null) {
+                        ReopenForEventID = null;
+                        OpenGalleryDetail(ReopenForEventID);
+                        return false;
+                    }
+                    alert("User Logged in Successfully");
                 }
                 else {
                     alert("We're sorry but we are not able to authorize user as this time. <br>" + result.d);
@@ -648,8 +659,10 @@ function ResetForm(FormID) {
     }
 
     $.fn.MyCookie.eraseCookie = function (name) {
-        
+
         document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     }
 })(jQuery);
+
+
 
