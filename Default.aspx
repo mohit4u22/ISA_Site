@@ -106,14 +106,18 @@
                         <li><a href="#services" class="scroll">Services</a></li>
                         <li><a href="#portfolio" class="scroll">Event Gallery</a></li>
                         <li><a href="#pricing" class="scroll">Pricing</a></li>
-                        <li>
+                        <li id="liTopLogin">
                             <a class="popup-with-zoom-anim" href="#small-dialog-login"><i>Login</i></a>
                         </li>
-                        <li>
+                        <li id="litopRegister">
                             <a class="popup-with-zoom-anim" href="#small-dialog-register"><i>Register</i></a>
+                        </li>
+                        <li id="liTopLogout">
+                            <a  href="#"><i>Logout</i></a>
                         </li>
                         <%-- <li><a href="#about" class="scroll">About</a></li>--%>
                         <li class="last"><a href="#contact" class="scroll">Contact</a></li>
+                       
                     </ul>
                     <div id="sb-search" class="sb-search">
                         <form>
