@@ -105,7 +105,7 @@
                         <li><a href="#BoardMembers" class="scroll">Board Members</a></li>
                         <li><a href="#services" class="scroll">Services</a></li>
                         <li><a href="#portfolio" class="scroll">Event Gallery</a></li>
-                        <li><a href="#pricing" class="scroll">Pricing</a></li>
+                        <li><a href="#pricing" class="scroll">Request</a></li>
                         <li id="liTopLogin">
                             <a class="popup-with-zoom-anim" href="#small-dialog-login"><i>Login</i></a>
                         </li>
@@ -184,7 +184,7 @@
                     <div class="slide_content">
                         <div class="slide_content_wrap">
                             <!-- Text title -->
-                            <h4 class="title">Be proud of being an Indian</h4>
+                            <h4 class="title">Proud of being an Indian?</h4>
                             <!-- /Text title -->
                             <!-- Text description -->
                             <p class="description">Help us create more members!</p>
@@ -237,23 +237,27 @@ Ankit Rathore
                     <div class="images_1_of_4">
                         <img src="images/cal.png">
                         <h3><a href="#">NEW STUDENTS GUIDE</a></h3>
-                        <p>Lorem ipsum is simply dummy text of the printing and typesetting industry.Lorem ipsum has been </p>
+                        <p> </p>
                     </div>
                 </a>
+                <a onclick="OpenServicePdf('http://www.isaosu.com/data/vaccines_and_immunizations.pdf')">
                 <div class="images_1_of_4">
-                    <img src="images/port.png">
+                    <img src="images/cal.png">
                     <h3><a href="#">VACCINES AND IMMUNIZATIONS</a></h3>
-                    <p>Lorem ipsum is simply dummy text of the printing and typesetting industry.Lorem ipsum has been</p>
+                    <p></p>
                 </div>
+                    </a>
+                <a onclick="OpenServicePdf('http://www.isaosu.com/data/life_in_america.pdf')">
                 <div class="images_1_of_4">
-                    <img src="images/recyle.png">
+                    <img src="images/cal.png">
                     <h3><a href="#">LIFE IN AMERICA</a></h3>
-                    <p>Lorem ipsum is simply dummy text of the printing and typesetting industry.Lorem ipsum has been </p>
+                    <p></p>
                 </div>
+                    </a>
                 <div class="images_1_of_4">
-                    <img src="images/camera.png">
+                    <img src="images/cal.png">
                     <h3><a href="#">RESTAURANTS</a></h3>
-                    <p>Lorem ipsum is simply dummy text of the printing and typesetting industry.Lorem ipsum has been</p>
+                    <p></p>
                 </div>
                 <div class="clear"></div>
             </div>
@@ -263,8 +267,8 @@ Ankit Rathore
     <!----------- message ------------>
     <div class="message">
         <div class="wrap">
-            <h3 style="color: white; bacground-color: black; opacity: 0.5;">“Each of us is a unique strand in the intricate web of life and here to make a contribution.”</h3>
-            <h2 style="color: white; background-color: black; opacity: 0.5; font-size: 2em; font-weight: 400;">Want to contribute something to the community?</h2>
+            <h3 style="color: white; font-size:3em;">“Each of us is a unique strand in the intricate web of life and here to make a contribution.”</h3>
+            <h2 style="color: white;font-size: 2em; font-weight: 400;">Want to contribute something to the community?</h2>
             <div class="buttons">
                 <%-- <div class="span1">
                     <a href="#">
@@ -498,7 +502,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                     <div class="clear"></div>
                                     <ul>
                                         <li>
-                                            <input class="text-box-dark" type="checkbox" id="chkregistersendemail" name="chkregistersendemail"></li>
+                                            <input class="text-box-dark" type="checkbox" id="chkregistersendemail" name="chkregistersendemail">Send Confirmation mail</li>
                                     </ul>
                                 </form>
                                 <div class="clear"></div>
@@ -552,7 +556,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                         <%-- <li>
                                             <input class="text-box-light hasDatepicker" type="date" id="datepicker" value="Expiration Date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Expiration Date';}"><em class="pay-date"> </em></li>--%>
                                         <li>
-                                            <input class="text-box-dark" type="date" id="txtpickupArrivalDate" name="txtpickupArrivalDate" value="yyyy-mm-dd" onkeypress="return false"></li>
+                                            <input class="text-box-dark" type="date" id="txtpickupArrivalDate" name="txtpickupArrivalDate" value="yyyy-mm-dd" onkeypress="return false">: Select Arrival</li>
 
 
                                     </ul>
@@ -560,9 +564,10 @@ If you would prefer not to live in University accommodation, we can also offer y
                                     <ul>
 
                                         <li>
-                                            <input class="text-box-dark" type="time" id="txtpickupTime" name="txtpickupTime" placeholder="Street"></li>
+                                            <input class="text-box-dark" type="time" id="txtpickupTime" name="txtpickupTime">: Time</li>
 
                                     </ul>
+                                    <div class="clear"></div>
                                     <ul>
 
                                         <li>
@@ -625,7 +630,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                     </ul>
 
                                     <div class="clear"></div>
-                                    Acco
+                            
                                     <ul>
                                         <li>
                                             <textarea class="text-box-dark" id="txtdonateComment" name="txtdonateComment" cols="40" rows="4" placeholder="Additional Comments/Description"></textarea></li>
@@ -662,7 +667,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                         <div class="pop_up">
                             <div class="payment-online-form-left">
                                 <ul class="JQValidateErrors"></ul>
-                                <h4><span class="shipping"></span>Pick Up Form</h4>
+                                <h4><span class="shipping"></span>Accomodation Form</h4>
                                 <form id="frmAccomodation" name="frmAccomodation">
                                     <ul>
                                         <li>
@@ -682,7 +687,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                         <%-- <li>
                                             <input class="text-box-light hasDatepicker" type="date" id="datepicker" value="Expiration Date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Expiration Date';}"><em class="pay-date"> </em></li>--%>
                                         <li>
-                                            <input class="text-box-dark" type="date" id="txtaccomodationArrivalDate" name="txtaccomodationArrivalDate" value="yyyy-mm-dd" onkeypress="return false"></li>
+                                            <input class="text-box-dark" type="date" id="txtaccomodationArrivalDate" name="txtaccomodationArrivalDate" value="yyyy-mm-dd" onkeypress="return false"> : Select Arrival</li>
 
 
                                     </ul>
@@ -690,7 +695,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                     <ul>
 
                                         <li>
-                                            <input class="text-box-dark" type="time" id="txtaccomodationTime" name="txtaccomodationTime" placeholder="Street"></li>
+                                            <input class="text-box-dark" type="time" id="txtaccomodationTime" name="txtaccomodationTime" > : Time</li> 
 
                                     </ul>
                                  
@@ -908,12 +913,10 @@ proper investigation to have their roots in India.
             <!---start-social-icons---->
             <div class="social-icons-set">
                 <ul>
-                    <li><a class="facebook" href="#"></a></li>
-                    <li><a class="twitter" href="#"></a></li>
-                    <li><a class="vimeo" href="#"></a></li>
+                    <li><a class="facebook" href="https://www.facebook.com/ISAATISU"></a></li>
+                    <li><a class="twitter" href="https://twitter.com/isaatisu"></a></li>
+                    <li><a class="vimeo" href="https://www.linkedin.com/groups?home=&gid=4324179&trk=anet_ug_hm"></a></li>
                     <li><a class="rss" href="#"></a></li>
-                    <li><a class="gplus" href="#"></a></li>
-                    <li><a class="pin" href="#"></a></li>
                     <div class="clear"></div>
                 </ul>
                 <div class="clear"></div>
@@ -931,32 +934,14 @@ proper investigation to have their roots in India.
 
             </div>
             <div class="col_1_of_3 span_1_of_3">
-               <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FISAATISU&width=400&colorscheme=light&show_faces=true&border_color&stream=true&header=true&height=600" scrolling="yes" frameborder="0" style="border:none; overflow:hidden; width:400px; height:600px; background: white; float:left; " allowtransparency="true"></iframe>
+               <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FISAATISU&width=400&colorscheme=light&show_faces=true&border_color&stream=true&header=true&height=600" scrolling="yes" frameborder="0" style="border:none; overflow:hidden; width:100%; height:600px; background: white; float:left; " allowtransparency="true"></iframe>
 
             </div>
             <div class="col_1_of_3 span_1_of_3">
-                <h5>PHOTO STREAM</h5>
+                <h5>Photo of the Week</h5>
                 <ul>
                     <li>
-                        <img src="images/pf-1.jpg" alt=""></li>
-                    <li>
-                        <img src="images/pf-2.jpg" alt=""></li>
-                    <li>
-                        <img src="images/pf-3.jpg" alt=""></li>
-                    <li>
-                        <img src="images/pf-4.jpg" alt=""></li>
-                    <li>
-                        <img src="images/pf-5.jpg" alt=""></li>
-                    <li>
-                        <img src="images/pf-6.jpg" alt=""></li>
-                    <li>
-                        <img src="images/pf-8.jpg" alt=""></li>
-                    <li>
-                        <img src="images/pf-2.jpg" alt=""></li>
-                    <li>
-                        <img src="images/pf-4.jpg" alt=""></li>
-                    <li>
-                        <img src="images/pf-5.jpg" alt=""></li>
+                        <img src="images/Gallery/2013_08_Quad_Fest/1040876_628448143852732_740188696_o.jpg" alt=""></li>
                 </ul>
             </div>
             <div class="clear"></div>

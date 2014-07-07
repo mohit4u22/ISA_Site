@@ -2,6 +2,7 @@
 var LoginValidator;
 var DonateValidator;
 var PickupValidator;
+var AccomodationValidator;
 $(document).ready(function () {
     $('.JQValidateErrors').hide();
     BindCountriesStates();
@@ -10,6 +11,7 @@ $(document).ready(function () {
     PopulateBoardMembers();
     BindDonateValidation();
     BindPickupValidation();
+    BindAccomodationValidation();
     var cname = $.MyCookie.readCookie('Isa_Site_Login');
     if (cname != null) {
         $('#liTopLogin').hide();
@@ -204,7 +206,7 @@ function PickupUser() {
 
         $.ajax({
             type: "Post",
-            url: "../WebService.asmx/SignUpUser",
+            url: "../WebService.asmx/PickupUser",
             data: "{'firstname': '" + firstname +
                 "', 'lastname': '" + lastname +
                 "', 'email': '" + email +
@@ -233,6 +235,51 @@ function PickupUser() {
         });
     }
 }
+
+function AccomodationUser() {
+    if (!AccomodationValidator.validate()) {
+            $('.JQValidateErrors').show();
+            return false;
+        }
+        else {
+            $('.JQValidateErrors').hide();
+            var firstname = $('#txtaccomodationFName').val();
+            var lastname = $('#txtaccomodationLName').val();
+            var email = $('#txtaccomodationEmail').val();
+            var phone = $('#txtaccomodationPhone').val();
+            var arrivaldate = $('#txtaccomodationArrivalDate').val();
+            var time = $('#txtaccomodationTime').val();
+            var comment = $('#txtaccomodationComment').val();
+
+            $.ajax({
+                type: "Post",
+                url: "../WebService.asmx/AccomodationUser",
+                data: "{'firstname': '" + firstname +
+                    "', 'lastname': '" + lastname +
+                    "', 'email': '" + email +
+                    "', 'phone': '" + phone +
+                    "', 'arrivaldate': '" + arrivaldate +
+                      "', 'time': '" + time +
+                    "', 'comment': '" + comment +
+                    "'}",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (result) {
+                    if (result.d == "Success") {
+                        alert("Request sent Successfully");
+                    }
+                    else {
+                        alert("We're sorry but we are not able to send this requesr at this time. <br>" + result.d);
+                    }
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert("We're sorry but we are not able to send this request at this time.");
+                }
+            });
+        }
+    }
+
 
 //Bind Functions from here
 
@@ -393,13 +440,13 @@ function BindPickupValidation() {
             minlength: 10,
             phoneUS: true
         },
-        txtpickupVenue: {
-            required: true
-        },
         txtpickupArrivalDate: {
             required: true
         },
         txtpickupTime: {
+            required: true
+        },
+        txtpickupVenue: {
             required: true
         }
     };
@@ -420,19 +467,74 @@ function BindPickupValidation() {
             minlength: "Please enter valid Phone Number",
             phoneUS: "Please enter valid Phone Number"
         },
-        txtpickupVenue: {
-            equalTo: "Passwords do not match"
-        },
         txtpickupArrivalDate: {
-            required: "Please enter your Country"
+            required: "Please enter your Date"
         },
         txtpickupTime: {
-            required: "Please enter your City"
+            required: "Please enter your time"
+        },
+        txtpickupVenue: {
+            required: "Please enter your Venue"
         }
     };
 
 
     PickupValidator = new jQueryValidatorWrapper('frmPickup', rules, messages);
+
+
+}
+
+function BindAccomodationValidation() {
+    var rules = {
+        txtaccomodationFName: {
+            required: true
+        },
+        txtaccomodationLName: {
+            required: true
+        },
+        txtaccomodationEmail: {
+            required: true,
+            email: true
+        },
+        txtaccomodationPhone: {
+            required: true,
+            minlength: 10,
+            phoneUS: true
+        },
+        txtaccomodationArrivalDate: {
+            required: true
+        },
+        txtaccomodationTime: {
+            required: true
+        }
+    };
+
+    var messages = {
+        txtaccomodationFName: {
+            required: "Please enter First Name"
+        },
+        txtaccomodationLName: {
+            required: "Please enter Last Name"
+        },
+        txtaccomodationEmail: {
+            required: "Please enter email.",
+            email: "Please Enter a Valid Email"
+        },
+        txtaccomodationPhone: {
+            required: "Please enter Phone Number",
+            minlength: "Please enter valid Phone Number",
+            phoneUS: "Please enter valid Phone Number"
+        },
+        txtaccomodationArrivalDate: {
+            required: "Please enter your Date"
+        },
+        txtaccomodationTime: {
+            required: "Please enter your Time"
+        }
+    };
+
+
+    AccomodationValidator = new jQueryValidatorWrapper('frmAccomodation', rules, messages);
 
 
 }
@@ -493,6 +595,7 @@ function BindCountriesStates() {
 
 
 
+// Other Functions
 function jQueryValidatorWrapper(formId, rules, messages) {
     var showErrorMessage = false;
 
@@ -576,9 +679,6 @@ function ResetForm(FormID) {
 }
 
 
-
-
-
 (function ($) {
     $.fn.capslide = function (options) {
         var opts = $.extend({}, $.fn.capslide.defaults, options);
@@ -627,7 +727,6 @@ function ResetForm(FormID) {
         showcaption: true
     };
 })(jQuery);
-
 
 
 ; (function ($) {
