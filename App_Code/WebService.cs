@@ -92,8 +92,6 @@ public class WebService : System.Web.Services.WebService
 
     }
 
-
-
     [WebMethod]
     [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
     public string SignUpUser(String fname, String lname, String email, String password, String phone, String country, String street, String city, String state, String zip, String securityques, String securityanswer, bool status)
@@ -186,19 +184,26 @@ public class WebService : System.Web.Services.WebService
         SqlHelper sqlh = new SqlHelper();
         try
         {
-            SqlDataReader userdata = sqlh.ReturnDataReaderFromSQLText(SQLString);
-            string studentdonateinfo = "insert into donatetable values('"
-            + firstname + "', '"
-            + lastname + "', '"
-            + email + "', '"
-           + phone + "', '"
-           + comment + "')";
+            SqlDataReader cc = sqlh.ReturnDataReaderFromSQLText(SQLString);
+            if (cc.HasRows)
+            {
+                retval = "User Email already exists";
+            }
+            else
+            {
+                cc.Close();
+                string studentdonateinfo = "insert into donatetable values('"
+                + firstname + "', '"
+                + lastname + "', '"
+                + email + "', '"
+               + phone + "', '"
+               + comment + "')";
 
-            sqlh.ExecuteNonQuerySQLText(studentdonateinfo);
+                sqlh.ExecuteNonQuerySQLText(studentdonateinfo);
 
-            sqlh.Kill();
-            retval = "Success";
-
+                sqlh.Kill();
+                retval = "Success";
+            }
         }
 
         catch (SqlException exception)
@@ -208,6 +213,113 @@ public class WebService : System.Web.Services.WebService
         JavaScriptSerializer js = new JavaScriptSerializer();// Use this when formatting the data as JSON
         return js.Serialize(retval);
     }
+
+    [WebMethod]
+    [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
+    public string PickupUser(String firstname, String lastname, String email, String phone, String flight, String arrivaldate, String time, String airport, String venue, String comment)
+    {
+        //// Database code
+        String retval = "";
+
+        string SQLString = "SELECT * FROM PickupTable WHERE email='" + email + "'";
+        SqlHelper sqlh = new SqlHelper();
+        try{
+
+          SqlDataReader cc = sqlh.ReturnDataReaderFromSQLText(SQLString);
+
+
+          if (cc.HasRows)
+          {
+            retval = "User Email already exists";
+          }
+
+          else
+          {
+            cc.Close();
+
+            string studentinfo = "insert into PickupTable values('"
+                + firstname + "', '"
+                + lastname + "', '"
+                + email + "', '"
+                + phone + "', '"
+                + flight + "', '"
+                + arrivaldate + "', '"
+                + time + "', '"
+                + airport + "', '"
+                + venue + "', '"
+                + comment + "')";
+
+            sqlh.ExecuteNonQuerySQLText(studentinfo);
+
+            sqlh.Kill();
+            retval = "Success";
+
+          }
+        }
+
+              catch (SqlException exception)
+        {
+            retval = "Sorry could not function this time";
+        }
+        JavaScriptSerializer js = new JavaScriptSerializer();// Use this when formatting the data as JSON
+        return js.Serialize(retval);
+
+
+
+    }
+
+    [WebMethod]
+    [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
+    public string AccomodationUser(String firstname, String lastname, String email, String phone, String arrivaldate, String time, String comment)
+    {
+        //// Database code
+        String retval = "";
+
+        string SQLString = "SELECT * FROM AccomodationTable WHERE email='" + email + "'";
+        SqlHelper sqlh = new SqlHelper();
+        try
+        {
+
+            SqlDataReader cc = sqlh.ReturnDataReaderFromSQLText(SQLString);
+
+
+            if (cc.HasRows)
+            {
+                retval = "User Email already exists";
+            }
+
+            else
+            {
+                cc.Close();
+
+                string studentinfo = "insert into AccomodationTable values('"
+                    + firstname + "', '"
+                    + lastname + "', '"
+                    + email + "', '"
+                    + phone + "', '"
+                    + arrivaldate + "', '"
+                    + time + "', '"
+                    + comment + "')";
+
+                sqlh.ExecuteNonQuerySQLText(studentinfo);
+
+                sqlh.Kill();
+                retval = "Success";
+
+            }
+        }
+
+        catch (SqlException exception)
+        {
+            retval = "Sorry could not request this time";
+        }
+        JavaScriptSerializer js = new JavaScriptSerializer();// Use this when formatting the data as JSON
+        return js.Serialize(retval);
+
+
+
+    }
+
 
     [WebMethod]
     [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
@@ -314,7 +426,6 @@ public class WebService : System.Web.Services.WebService
         sqlh.ExecuteStoredProcedure("[dbo].[SubmitRSVP]");
 
     }
-
 
     private string getrandomfile(string path)
     {

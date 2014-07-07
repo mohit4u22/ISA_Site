@@ -2023,7 +2023,7 @@ body {
 
     .span_1_of_3 li {
         display: inline-block;
-        width: 23%;
+        width: 100%;
         margin: 1% 1% 1% 0;
         cursor: pointer;
         -webkit-transition: all 0.3s ease-in-out;
