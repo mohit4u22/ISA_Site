@@ -20,11 +20,13 @@
 <script type="text/javascript" src="js/pdMarker.js"></script>
 
 
-<div style="background-color: #282A2E; height: 600px; width: 800px;">
+<div style="background-color: #282A2E; height: 45%; width: 55%;">
     <div style="float: left; width: 200px;">
         <ul id="ulMapSideLinks">
             <li><a href="javascript:void(0)" name="RKGrocery">R.K. Grocery</a></li>
             <li><a href="javascript:void(0)" name="Puran">Puran Indian Restaurent </a></li>
+              <li><a href="javascript:void(0)" name="Walmart">Walmart</a></li>
+            <li><a href="javascript:void(0)" name="Target">Target</a></li>
         </ul>
     </div>
     <div style="float: right;">
@@ -44,16 +46,32 @@
             "Longitude": "-88.958144",
             "Description": "RK Groceries - 106 Young Dr, Normal, 61761",
             "Phone": "(309) 454-5527",
-            "Website": ""
+            "Website": "http://www.yelp.com/biz/r-k-grocery-normal"
         },
         "Puran": {
             "Name": "Puran Indian Restaurant",
             "Latitude": "40.484553",
             "Longitude": "-88.950282",
-            "Description": "Puran Indian Restaurant - 1704 Eastland Drive, Bloomington, IL 61761",
+            "Description": "P40.514203uran Indian Restaurant - 1704 Eastland Drive, Bloomington, IL 61761",
             "Phone": "(309) 454-5527",
-            "Website": ""
-        }
+            "Website": "http://www.puranindian.com/"
+        },
+          "Walmart": {
+              "Name": "Walmart Normal",
+              "Latitude": "40.514203",
+              "Longitude": "-88.990631",
+              "Description": "300 Greenbriar Dr, Normal, IL 61761",
+    "Phone": "(309) 451-1100",
+    "Website": "http://www.walmart.com/storeLocator/ca_storefinder_details_short.do?edit_object_id=1125"
+    },
+    "Target": {
+        "Name": "Puran Indian Restaurant",
+        "Latitude": "40.514203",
+        "Longitude": "-88.990631",
+        "Description": "301 S Veterans Pkwy, Normal, IL 61761",
+        "Phone": "(309) 454-5648",
+        "Website": "http://www.target.com/store-locator/store-details/storeNumber=137#?afid=storeloc&cpng=IL&lnm=Bloomington-Normal_137"
+    }
     }
 
     function codeAddress(addr) {

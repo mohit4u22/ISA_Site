@@ -1050,13 +1050,13 @@ body > div.message > div > div {
 }
 
     .message2 h3 {
-        color: #ffffff;
+        color: #BA7440;
         font-size: 4em;
         font-weight: 400;
     }
 
     .message2 p {
-        color: #ffffff;
+        color: #BA7440;
         font-size: 2.5em;
         font-weight: 400;
     }
@@ -1075,6 +1075,63 @@ body > div.message > div > div {
     }
 
     .message3 p {
+        color: #ffffff;
+        font-size: 2.5em;
+        font-weight: 400;
+    }
+    /*--- message3 ---*/
+.message6 {
+    background: url("../images/Holinew.jpg") no-repeat;
+    background-size: 100%;
+    padding: 11% 0;
+    text-align: left;
+}
+
+    .message6 h3 {
+        color: #ffffff;
+        font-size: 4em;
+        font-weight: 400;
+    }
+
+    .message6 p {
+        color: #ffffff;
+        font-size: 2.5em;
+        font-weight: 400;
+    }
+    /*--- message3 ---*/
+.message7 {
+    background: url("../images/boatnew.jpg") no-repeat;
+    background-size: 100%;
+    padding: 11% 0;
+    text-align: left;
+}
+
+    .message7 h3 {
+        color: #ffffff;
+        font-size: 4em;
+        font-weight: 400;
+    }
+
+    .message7 p {
+        color: #ffffff;
+        font-size: 2.5em;
+        font-weight: 400;
+    }
+    /*--- message3 ---*/
+.message8 {
+    background: url("../images/indianew.jpg") no-repeat;
+    background-size: 100%;
+    padding: 11% 0;
+    text-align: left;
+}
+
+    .message8 h3 {
+        color: #ffffff;
+        font-size: 4em;
+        font-weight: 400;
+    }
+
+    .message8 p {
         color: #ffffff;
         font-size: 2.5em;
         font-weight: 400;
@@ -1966,7 +2023,7 @@ body {
 
     .span_1_of_3 li {
         display: inline-block;
-        width: 23%;
+        width: 100%;
         margin: 1% 1% 1% 0;
         cursor: pointer;
         -webkit-transition: all 0.3s ease-in-out;
@@ -2036,6 +2093,15 @@ body {
     .message2 {
         padding: 10% 0;
     }
+      .message6 {
+        padding: 10% 0;
+    }
+        .message7 {
+        padding: 10% 0;
+    }
+          .message8 {
+        padding: 10% 0;
+    }
 
     .social {
         padding: 8.9% 0;
@@ -2098,7 +2164,7 @@ body {
         padding: 28px;
     }
 
-    .message h3, .message1 h3, .message2 h3, .message3 h3 {
+    .message h3, .message1 h3, .message2 h3, .message3 h3,.message6 h3,.message7 h3,.message8 h3 {
         font-size: 2.5em;
     }
 
@@ -2119,7 +2185,7 @@ body {
         margin-left: 0%;
     }
 
-    .message1 p, .message2 p, .message3 p {
+    .message1 p, .message2 p, .message3 p, .message6 p, .message7 p, .message8 p {
         font-size: 1.5em;
     }
 
@@ -2253,6 +2319,15 @@ body {
     .message2 {
         padding: 9% 0;
     }
+     .message6 {
+        padding: 9% 0;
+    }
+      .message7 {
+        padding: 9% 0;
+    } 
+      .message8 {
+        padding: 9% 0;
+    }
 
     .form {
         width: 61%;
@@ -2322,7 +2397,7 @@ body {
         padding: 6px 10px;
     }
 
-    .message h3, .message1 h3, .message2 h3, .message3 h3 {
+    .message h3, .message1 h3, .message2 h3, .message3 h3, .message6 h3,.message7 h3, .message8 h3 {
         font-size: 1.5em;
     }
 
@@ -2342,7 +2417,7 @@ body {
         margin: 4% 4% 0 13%;
     }
 
-    .message1 p, .message2 p, .message3 p {
+    .message1 p, .message2 p, .message3 p, .message6 p,.message7 p,.message8 p {
         font-size: 1em;
     }
 
@@ -2392,7 +2467,7 @@ body {
         font-size: 1.1em;
     }
 
-    .message h3, .message1 h3, .message2 h3, .message3 h3, .contact h2 {
+    .message h3, .message1 h3, .message2 h3, .message3 h3, .contact h2, .message6 h3,.message7 h3,.message8 h3 {
         font-size: 1.2em;
     }
 
@@ -2564,6 +2639,15 @@ body {
     .message2 {
         padding: 7% 0;
     }
+     .message6 {
+        padding: 7% 0;
+    }
+      .message7 {
+        padding: 7% 0;
+    }
+       .message8 {
+        padding: 7% 0;
+    }
 
     .social-icons-set {
         display: none;
@@ -2667,3 +2751,16 @@ li.has-error input[type=text] {
     font-size:11px;
 
 }
+
+
+
+/*************************** iSwitch ************************************/
+.cb-enable, .cb-disable, .cb-enable span, .cb-disable span { background: url('../images/switch.gif') repeat-x; display: block; float: left; }
+	.cb-enable span, .cb-disable span { line-height: 30px; display: block; background-repeat: no-repeat; font-weight: bold; }
+	.cb-enable span { background-position: left -90px; padding: 0 10px; }
+	.cb-disable span { background-position: right -180px;padding: 0 10px; }
+	.cb-disable.selected { background-position: 0 -30px; }
+	.cb-disable.selected span { background-position: right -210px; color: #fff; }
+	.cb-enable.selected { background-position: 0 -60px; }
+	.cb-enable.selected span { background-position: left -150px; color: #fff; }
+	.switch label { cursor: pointer; }
