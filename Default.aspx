@@ -105,15 +105,19 @@
                         <li><a href="#BoardMembers" class="scroll">Board Members</a></li>
                         <li><a href="#services" class="scroll">Services</a></li>
                         <li><a href="#portfolio" class="scroll">Event Gallery</a></li>
-                        <li><a href="#pricing" class="scroll">Pricing</a></li>
-                        <li>
+                        <li><a href="#pricing" class="scroll">Request</a></li>
+                        <li id="liTopLogin">
                             <a class="popup-with-zoom-anim" href="#small-dialog-login"><i>Login</i></a>
                         </li>
-                        <li>
+                        <li id="litopRegister">
                             <a class="popup-with-zoom-anim" href="#small-dialog-register"><i>Register</i></a>
+                        </li>
+                        <li id="liTopLogout">
+                            <a href="#"><i>Logout</i></a>
                         </li>
                         <%-- <li><a href="#about" class="scroll">About</a></li>--%>
                         <li class="last"><a href="#contact" class="scroll">Contact</a></li>
+
                     </ul>
                     <div id="sb-search" class="sb-search">
                         <form>
@@ -121,6 +125,9 @@
                             <input class="sb-search-submit" type="submit" value="">
                             <span class="sb-icon-search"></span>
                         </form>
+                    </div>
+                    <div>
+                        <label id="LoggedinUserName" style="float:right; right:20px; top:35px; position:absolute;">test</label>
                     </div>
                     <script src="js/classie.js"></script>
                     <script src="js/uisearch.js"></script>
@@ -177,7 +184,7 @@
                     <div class="slide_content">
                         <div class="slide_content_wrap">
                             <!-- Text title -->
-                            <h4 class="title">Be proud of being an Indian</h4>
+                            <h4 class="title">Proud of being an Indian?</h4>
                             <!-- /Text title -->
                             <!-- Text description -->
                             <p class="description">Help us create more members!</p>
@@ -230,23 +237,27 @@ Ankit Rathore
                     <div class="images_1_of_4">
                         <img src="images/cal.png">
                         <h3><a href="#">NEW STUDENTS GUIDE</a></h3>
-                        <p>Lorem ipsum is simply dummy text of the printing and typesetting industry.Lorem ipsum has been </p>
+                        <p> </p>
                     </div>
                 </a>
+                <a onclick="OpenServicePdf('http://www.isaosu.com/data/vaccines_and_immunizations.pdf')">
                 <div class="images_1_of_4">
-                    <img src="images/port.png">
+                    <img src="images/cal.png">
                     <h3><a href="#">VACCINES AND IMMUNIZATIONS</a></h3>
-                    <p>Lorem ipsum is simply dummy text of the printing and typesetting industry.Lorem ipsum has been</p>
+                    <p></p>
                 </div>
+                    </a>
+                <a onclick="OpenServicePdf('http://www.isaosu.com/data/life_in_america.pdf')">
                 <div class="images_1_of_4">
-                    <img src="images/recyle.png">
+                    <img src="images/cal.png">
                     <h3><a href="#">LIFE IN AMERICA</a></h3>
-                    <p>Lorem ipsum is simply dummy text of the printing and typesetting industry.Lorem ipsum has been </p>
+                    <p></p>
                 </div>
+                    </a>
                 <div class="images_1_of_4">
-                    <img src="images/camera.png">
+                    <img src="images/cal.png">
                     <h3><a href="#">RESTAURANTS</a></h3>
-                    <p>Lorem ipsum is simply dummy text of the printing and typesetting industry.Lorem ipsum has been</p>
+                    <p></p>
                 </div>
                 <div class="clear"></div>
             </div>
@@ -256,8 +267,8 @@ Ankit Rathore
     <!----------- message ------------>
     <div class="message">
         <div class="wrap">
-            <h3 style="color: white; bacground-color: black; opacity: 0.5;">“Each of us is a unique strand in the intricate web of life and here to make a contribution.”</h3>
-            <h2 style="color: white; background-color: black; opacity: 0.5; font-size: 2em; font-weight: 400;">Want to contribute something to the community?</h2>
+            <h3 style="color: white; font-size:3em;">“Each of us is a unique strand in the intricate web of life and here to make a contribution.”</h3>
+            <h2 style="color: white;font-size: 2em; font-weight: 400;">Want to contribute something to the community?</h2>
             <div class="buttons">
                 <%-- <div class="span1">
                     <a href="#">
@@ -314,10 +325,10 @@ Ankit Rathore
 
     </div>
     <!----------- message1 ------------>
-    <div class="message2">
+    <div class="message6">
         <div class="wrap">
-            <h3>Our team</h3>
-            <p>We a professional and progresive team</p>
+            <h3>Events</h3>
+            <p>Our events are not just events, they are inscribed with much deeper cultural and political importance.</p>
         </div>
     </div>
 
@@ -328,29 +339,27 @@ Ankit Rathore
             <div class="pricing-grids">
                 <div class="pricing-grid">
                     <div class="price-value">
-                        <a href="#">Accomodation</a>
+                        <h3><a href="">Accomodation</a></h3>
                     </div>
-                    <h3><a href="#">$5.01/month</a></h3>
-                    <h3>Illinois State University has a wide range of accommodation options and most students find
+                    <h3 style="padding: 10px">Illinois State University has a wide range of accommodation options and most students find
                         that we have an accommodation solution to suit their needs.
 If you would prefer not to live in University accommodation, we can also offer you advice
                         and assistance on finding private rented accommodation.</h3>
                     <div class="cart">
                         <div class="span3">
-                            <a class="popup-with-zoom-anim" href="#small-dialog"><i>Purchase</i></a>
+                            <a class="popup-with-zoom-anim" href="#small-dialog-accomodation"><i>Request</i></a>
                         </div>
                     </div>
                 </div>
 
                 <div class="pricing-grid">
                     <div class="price-value">
-                        <a href="#">Need Any Help? Register!</a>
+                        <h3 style="padding: 10px"><a href="#">Need Any Help? Register!</a></h3>
                     </div>
                     <h3>ISA at ISU will be glad to provide services of accomodation and Pick up. Please fill up the registation
                     forms on the left and right to avail these services.</h3>
                     <br />
                     <br />
-                    <h3><a href="#">Some Other ISU Serices are</a></h3>
                     <ul>
                         <li><a href="#">ISA Library</a></li>
                         <li><a href="#">Academic Help</a></li>
@@ -358,16 +367,15 @@ If you would prefer not to live in University accommodation, we can also offer y
                     </ul>
                     <div class="cart">
                         <div class="span3">
-                            <a class="popup-with-zoom-anim" href="#small-dialog"><i>Purchase</i></a>
+                            <h3>More To Come..!!</h3>
                         </div>
                     </div>
                 </div>
                 <div class="pricing-grid">
                     <div class="price-value">
-                        <a href="#">Pick Up Service</a>
+                        <h3><a href="#">Pick Up Service</a></h3>
                     </div>
-                    <h3><a href="#">$10.01/month</a></h3>
-                    <h3>ISA tries to do the best it can to pick new students up from the airport.
+                    <h3 style="padding: 10px">ISA tries to do the best it can to pick new students up from the airport.
                         So to avoid any inconvenience please fill up the forms and wait until someone contacts you.
                         Feel free to contact in case there is any concern.
                         <br />
@@ -378,7 +386,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                     </h3>
                     <div class="cart">
                         <div class="span3">
-                            <a class="popup-with-zoom-anim" href="#small-dialog-pickup"><i>Purchase</i></a>
+                            <a class="popup-with-zoom-anim" href="#small-dialog-pickup"><i>Request</i></a>
                         </div>
                     </div>
                 </div>
@@ -494,7 +502,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                     <div class="clear"></div>
                                     <ul>
                                         <li>
-                                            <input class="text-box-dark" type="checkbox" id="chkregistersendemail" name="chkregistersendemail"></li>
+                                            <input class="text-box-dark" type="checkbox" id="chkregistersendemail" name="chkregistersendemail">Send Confirmation mail</li>
                                     </ul>
                                 </form>
                                 <div class="clear"></div>
@@ -548,7 +556,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                         <%-- <li>
                                             <input class="text-box-light hasDatepicker" type="date" id="datepicker" value="Expiration Date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Expiration Date';}"><em class="pay-date"> </em></li>--%>
                                         <li>
-                                            <input class="text-box-dark" type="date" id="txtpickupArrivalDate" name="txtpickupArrivalDate" value="yyyy-mm-dd" onkeypress="return false"></li>
+                                            <input class="text-box-dark" type="date" id="txtpickupArrivalDate" name="txtpickupArrivalDate" value="yyyy-mm-dd" onkeypress="return false">: Select Arrival</li>
 
 
                                     </ul>
@@ -556,9 +564,10 @@ If you would prefer not to live in University accommodation, we can also offer y
                                     <ul>
 
                                         <li>
-                                            <input class="text-box-dark" type="time" id="txtpickupTime" name="txtpickupTime" placeholder="Street"></li>
+                                            <input class="text-box-dark" type="time" id="txtpickupTime" name="txtpickupTime">: Time</li>
 
                                     </ul>
+                                    <div class="clear"></div>
                                     <ul>
 
                                         <li>
@@ -621,7 +630,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                     </ul>
 
                                     <div class="clear"></div>
-
+                            
                                     <ul>
                                         <li>
                                             <textarea class="text-box-dark" id="txtdonateComment" name="txtdonateComment" cols="40" rows="4" placeholder="Additional Comments/Description"></textarea></li>
@@ -640,6 +649,71 @@ If you would prefer not to live in University accommodation, we can also offer y
                                         </li>
                                         <li>
                                             <m> <a href="javascript:void(0)"  id="btndonate" onclick="DonateUser();" >Send</a></m>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                                <div class="clear"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-----pop-up-grid---->
+
+                     <!-----pop-up-grid---->
+                    <div id="small-dialog-accomodation" class="mfp-hide ModalPopup">
+                        <div class="pop_up">
+                            <div class="payment-online-form-left">
+                                <ul class="JQValidateErrors"></ul>
+                                <h4><span class="shipping"></span>Accomodation Form</h4>
+                                <form id="frmAccomodation" name="frmAccomodation">
+                                    <ul>
+                                        <li>
+                                            <input class="text-box-dark" type="text" id="txtaccomodationFName" name="txtaccomodationFName" placeholder="First Name"></li>
+                                        <li>
+                                            <input class="text-box-dark" type="text" id="txtaccomodationLName" name="txtaccomodationLName" placeholder="Last Name"></li>
+                                    </ul>
+                                    <ul>
+                                        <li>
+                                            <input class="text-box-dark" type="text" id="txtaccomodationEmail" name="txtaccomodationEmail" placeholder="Email"></li>
+                                        <li>
+                                            <input class="text-box-dark" type="text" id="txtaccomodationPhone" name="txtaccomodationPhone" placeholder="Phone Number"></li>
+
+                                    </ul>
+                                    <div class="clear"></div>
+                                    <ul>
+                                        <%-- <li>
+                                            <input class="text-box-light hasDatepicker" type="date" id="datepicker" value="Expiration Date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Expiration Date';}"><em class="pay-date"> </em></li>--%>
+                                        <li>
+                                            <input class="text-box-dark" type="date" id="txtaccomodationArrivalDate" name="txtaccomodationArrivalDate" value="yyyy-mm-dd" onkeypress="return false"> : Select Arrival</li>
+
+
+                                    </ul>
+                                    <div class="clear"></div>
+                                    <ul>
+
+                                        <li>
+                                            <input class="text-box-dark" type="time" id="txtaccomodationTime" name="txtaccomodationTime" > : Time</li> 
+
+                                    </ul>
+                                 
+                                   
+                                    <div class="clear"></div>
+                                    <ul>
+                                        <li>
+                                            <textarea class="text-box-dark" id="txtaccomodationComment" name="txtaccomodationComment" cols="40" rows="4" placeholder="Additional Comments"></textarea></li>
+                                    </ul>
+                                </form>
+                                <div class="clear"></div>
+                                <div class="span3">
+                                    <ul class="payment-sendbtns">
+                                        <li>
+                                            <k><a href="javascript:void(0)" onclick="ResetForm('frmAccomodation')"  id="btnaccomodationCancel">Cancel</a></k>
+                                        </li>
+                                        <li>
+                                            <m> <a href="javascript:void(0)"  id="btnaccomodation" onclick="AccomodationUser();" >Request</a></m>
                                         </li>
 
                                     </ul>
@@ -674,13 +748,17 @@ If you would prefer not to live in University accommodation, we can also offer y
 
             <div class="client">
                 <h3>
-                    <img src="images/line.png" /><i>CLIENT ABOUT US</i><img src="images/line.png" /></h3>
+                    <img src="images/line.png" /><i>PONDER</i><img src="images/line.png" /></h3>
                 <div class="img">
                     <img src="images/left.png" />
                 </div>
                 <div class="data">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic</p>
-                    <p><a href="#">#INDUSTY</a></p>
+                    <p>
+                        History itself bears testimony to the fact. All the soul-elevating ideas and 
+the different branches of knowledge that exist in the world are found on 
+proper investigation to have their roots in India.
+                    </p>
+                    <p><a href="#">#SWAMI VIVEKANANDA</a></p>
                 </div>
                 <div class="img1">
                     <img src="images/right.png" />
@@ -694,7 +772,7 @@ If you would prefer not to live in University accommodation, we can also offer y
     <div class="message2">
         <div class="wrap">
             <h3>Our team</h3>
-            <p>We a professional and progresive team</p>
+            <p>We are a professional and progressive team</p>
         </div>
     </div>
 
@@ -741,7 +819,7 @@ If you would prefer not to live in University accommodation, we can also offer y
     <!----End-pricingplans---->
     <!-----------end-pricing------------->
     <!----------- message2 ------------>
-    <div class="message2">
+    <div class="message8">
         <div class="wrap">
             <h3>Our team</h3>
             <p>We a professional and progresive team</p>
@@ -756,7 +834,7 @@ If you would prefer not to live in University accommodation, we can also offer y
         </div>
     </div>
 
-    <div class="message2">
+    <div class="message7">
         <div class="wrap">
             <h3>Our team</h3>
             <p>We a professional and progresive team</p>
@@ -835,12 +913,10 @@ If you would prefer not to live in University accommodation, we can also offer y
             <!---start-social-icons---->
             <div class="social-icons-set">
                 <ul>
-                    <li><a class="facebook" href="#"></a></li>
-                    <li><a class="twitter" href="#"></a></li>
-                    <li><a class="vimeo" href="#"></a></li>
+                    <li><a class="facebook" href="https://www.facebook.com/ISAATISU"></a></li>
+                    <li><a class="twitter" href="https://twitter.com/isaatisu"></a></li>
+                    <li><a class="vimeo" href="https://www.linkedin.com/groups?home=&gid=4324179&trk=anet_ug_hm"></a></li>
                     <li><a class="rss" href="#"></a></li>
-                    <li><a class="gplus" href="#"></a></li>
-                    <li><a class="pin" href="#"></a></li>
                     <div class="clear"></div>
                 </ul>
                 <div class="clear"></div>
@@ -858,32 +934,14 @@ If you would prefer not to live in University accommodation, we can also offer y
 
             </div>
             <div class="col_1_of_3 span_1_of_3">
-               <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FISAATISU&width=400&colorscheme=light&show_faces=true&border_color&stream=true&header=true&height=600" scrolling="yes" frameborder="0" style="border:none; overflow:hidden; width:400px; height:600px; background: white; float:left; " allowtransparency="true"></iframe>
+               <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FISAATISU&width=400&colorscheme=light&show_faces=true&border_color&stream=true&header=true&height=600" scrolling="yes" frameborder="0" style="border:none; overflow:hidden; width:100%; height:600px; background: white; float:left; " allowtransparency="true"></iframe>
 
             </div>
             <div class="col_1_of_3 span_1_of_3">
-                <h5>PHOTO STREAM</h5>
+                <h5>Photo of the Week</h5>
                 <ul>
                     <li>
-                        <img src="images/pf-1.jpg" alt=""></li>
-                    <li>
-                        <img src="images/pf-2.jpg" alt=""></li>
-                    <li>
-                        <img src="images/pf-3.jpg" alt=""></li>
-                    <li>
-                        <img src="images/pf-4.jpg" alt=""></li>
-                    <li>
-                        <img src="images/pf-5.jpg" alt=""></li>
-                    <li>
-                        <img src="images/pf-6.jpg" alt=""></li>
-                    <li>
-                        <img src="images/pf-8.jpg" alt=""></li>
-                    <li>
-                        <img src="images/pf-2.jpg" alt=""></li>
-                    <li>
-                        <img src="images/pf-4.jpg" alt=""></li>
-                    <li>
-                        <img src="images/pf-5.jpg" alt=""></li>
+                        <img src="images/Gallery/2013_08_Quad_Fest/1040876_628448143852732_740188696_o.jpg" alt=""></li>
                 </ul>
             </div>
             <div class="clear"></div>
@@ -893,7 +951,7 @@ If you would prefer not to live in University accommodation, we can also offer y
     <div class="footer-bottom">
         <div class="wrap">
             <div class="image">
-                <a href="index.html">
+                <a href="default.aspx">
                     <img src="images/logonew.png" alt=""></a>
             </div>
             <div class="copy-right">
