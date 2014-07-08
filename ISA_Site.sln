@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30324.0
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ISA_Site", "http://localhost:49685", "{D9DAB80E-0A62-4BE5-A7CA-EED81D0A0FE5}"
 	ProjectSection(WebsiteProperties) = preProject
@@ -31,6 +31,7 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{D9DAB80E-0A62-4BE5-A7CA-EED81D0A0FE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D9DAB80E-0A62-4BE5-A7CA-EED81D0A0FE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9DAB80E-0A62-4BE5-A7CA-EED81D0A0FE5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
