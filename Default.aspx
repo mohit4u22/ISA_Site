@@ -2,7 +2,7 @@
 
 <%@ Register Src="~/ISAGMap.ascx" TagName="ISAGmap" TagPrefix="uc" %>
 <%@ Register Src="~/ISAGallery.ascx" TagName="ISAGallery" TagPrefix="uc" %>
-<%@ Register Src="~/ISA_Events.ascx" TagName="ISAEvents" TagPrefix="uc" %>
+<%@ Register Src="~/ISA_Events.ascx" TagName="ISAEvents" TagPrefix="uc" %>  
 <!DOCTYPE HTML>
 <html>
 <head>
