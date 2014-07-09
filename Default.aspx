@@ -81,14 +81,7 @@
     <!-- //End fancyBox light-box -->
 </head>
 <body>
-    <div id="fb-root"></div>
-    <script>(function (d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+   
     <!-- start header -->
     <div class="header_bg">
         <div class="wrap">
@@ -929,12 +922,12 @@ proper investigation to have their roots in India.
     <div class="footer-top">
         <div class="wrap">
             <div class="col_1_of_3 span_1_of_3">
-                  <a class="twitter-timeline" href="https://twitter.com/isaatisu" data-widget-id="483472365469188096">Tweets by @isaatisu</a>
+                <a class="twitter-timeline" href="https://twitter.com/isaatisu" data-widget-id="483472365469188096">Tweets by @isaatisu</a>
 <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
 
             </div>
             <div class="col_1_of_3 span_1_of_3">
-               <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FISAATISU&width=400&colorscheme=light&show_faces=true&border_color&stream=true&header=true&height=600" scrolling="yes" frameborder="0" style="border:none; overflow:hidden; width:100%; height:600px; background: white; float:left; " allowtransparency="true"></iframe>
+             <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FISAATISU&width=400&colorscheme=light&show_faces=true&border_color&stream=true&header=true&height=600" scrolling="yes" frameborder="0" style="border:none; overflow:hidden; width:100%; height:600px; background: white; float:left; " allowtransparency="true"></iframe>
 
             </div>
             <div class="col_1_of_3 span_1_of_3">
