@@ -223,41 +223,42 @@ public class WebService : System.Web.Services.WebService
 
         string SQLString = "SELECT * FROM PickupTable WHERE email='" + email + "'";
         SqlHelper sqlh = new SqlHelper();
-        try{
+        try
+        {
 
-          SqlDataReader cc = sqlh.ReturnDataReaderFromSQLText(SQLString);
+            SqlDataReader cc = sqlh.ReturnDataReaderFromSQLText(SQLString);
 
 
-          if (cc.HasRows)
-          {
-            retval = "User Email already exists";
-          }
+            if (cc.HasRows)
+            {
+                retval = "User Email already exists";
+            }
 
-          else
-          {
-            cc.Close();
+            else
+            {
+                cc.Close();
 
-            string studentinfo = "insert into PickupTable values('"
-                + firstname + "', '"
-                + lastname + "', '"
-                + email + "', '"
-                + phone + "', '"
-                + flight + "', '"
-                + arrivaldate + "', '"
-                + time + "', '"
-                + airport + "', '"
-                + venue + "', '"
-                + comment + "')";
+                string studentinfo = "insert into PickupTable values('"
+                    + firstname + "', '"
+                    + lastname + "', '"
+                    + email + "', '"
+                    + phone + "', '"
+                    + flight + "', '"
+                    + arrivaldate + "', '"
+                    + time + "', '"
+                    + airport + "', '"
+                    + venue + "', '"
+                    + comment + "')";
 
-            sqlh.ExecuteNonQuerySQLText(studentinfo);
+                sqlh.ExecuteNonQuerySQLText(studentinfo);
 
-            sqlh.Kill();
-            retval = "Success";
+                sqlh.Kill();
+                retval = "Success";
 
-          }
+            }
         }
 
-              catch (SqlException exception)
+        catch (SqlException exception)
         {
             retval = "Sorry could not function this time";
         }
@@ -425,6 +426,20 @@ public class WebService : System.Web.Services.WebService
         sqlh.Parameters.AddWithValue("@Response", rs);
         sqlh.ExecuteStoredProcedure("[dbo].[SubmitRSVP]");
 
+    }
+
+    [WebMethod]
+    [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+    public string RetrievePickupData()
+    {
+        string retval = "";
+        SqlHelper sqlh = new SqlHelper();
+        DataSet ds = sqlh.ReturnDataSetFromSqlText("select * from PickupTable");
+        if (ds != null && ds.Tables.Count > 0)
+        {
+            retval = this.ConvertDataTabletoJSON(ds.Tables[0]);
+        }
+        return retval;
     }
 
     private string getrandomfile(string path)
