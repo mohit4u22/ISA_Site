@@ -33,7 +33,7 @@ $(document).ready(function () {
         $('#liTopLogout').hide();
         $.MyCookie.eraseCookie('Isa_Site_Login');
         alert('You are successfully logged out!!!');
-     
+
     });
 });
 
@@ -129,7 +129,8 @@ function RegisterUser() {
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (result) {
-                if (result.d.toString().toLowerCase() === "success") {
+                var res = JSON.parse(result.d);
+                if (res.toLowerCase() === "success") {
                     alert("User Created Successfully");
                 }
                 else {
@@ -171,7 +172,9 @@ function DonateUser() {
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (result) {
-                if (result.d == "Success") {
+                var res = JSON.parse(result.d);
+                if (res.toLowerCase() === "success") {
+                    $('#small-dialog-donate button.mfp-close').click();
                     alert(" Successful");
                 }
                 else {
@@ -221,7 +224,9 @@ function PickupUser() {
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (result) {
-                if (result.d == "Success") {
+                var res = JSON.parse(result.d);
+                if (res.toLowerCase() === "success") {
+                    $('#small-dialog-pickup button.mfp-close').click();
                     alert("Message sent Successfully");
                 }
                 else {
@@ -238,47 +243,49 @@ function PickupUser() {
 
 function AccomodationUser() {
     if (!AccomodationValidator.validate()) {
-            $('.JQValidateErrors').show();
-            return false;
-        }
-        else {
-            $('.JQValidateErrors').hide();
-            var firstname = $('#txtaccomodationFName').val();
-            var lastname = $('#txtaccomodationLName').val();
-            var email = $('#txtaccomodationEmail').val();
-            var phone = $('#txtaccomodationPhone').val();
-            var arrivaldate = $('#txtaccomodationArrivalDate').val();
-            var time = $('#txtaccomodationTime').val();
-            var comment = $('#txtaccomodationComment').val();
-
-            $.ajax({
-                type: "Post",
-                url: "../WebService.asmx/AccomodationUser",
-                data: "{'firstname': '" + firstname +
-                    "', 'lastname': '" + lastname +
-                    "', 'email': '" + email +
-                    "', 'phone': '" + phone +
-                    "', 'arrivaldate': '" + arrivaldate +
-                      "', 'time': '" + time +
-                    "', 'comment': '" + comment +
-                    "'}",
-                dataType: "json",
-                contentType: "application/json; charset=utf-8",
-                success: function (result) {
-                    if (result.d == "Success") {
-                        alert("Request sent Successfully");
-                    }
-                    else {
-                        alert("We're sorry but we are not able to send this requesr at this time. <br>" + result.d);
-                    }
-
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    alert("We're sorry but we are not able to send this request at this time.");
-                }
-            });
-        }
+        $('.JQValidateErrors').show();
+        return false;
     }
+    else {
+        $('.JQValidateErrors').hide();
+        var firstname = $('#txtaccomodationFName').val();
+        var lastname = $('#txtaccomodationLName').val();
+        var email = $('#txtaccomodationEmail').val();
+        var phone = $('#txtaccomodationPhone').val();
+        var arrivaldate = $('#txtaccomodationArrivalDate').val();
+        var time = $('#txtaccomodationTime').val();
+        var comment = $('#txtaccomodationComment').val();
+
+        $.ajax({
+            type: "Post",
+            url: "../WebService.asmx/AccomodationUser",
+            data: "{'firstname': '" + firstname +
+                "', 'lastname': '" + lastname +
+                "', 'email': '" + email +
+                "', 'phone': '" + phone +
+                "', 'arrivaldate': '" + arrivaldate +
+                  "', 'time': '" + time +
+                "', 'comment': '" + comment +
+                "'}",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                var res = JSON.parse(result.d);
+                if (res.toLowerCase() === "success") {
+                    $('#small-dialog-accomodation button.mfp-close').click();
+                    alert("Request sent Successfully");
+                }
+                else {
+                    alert("We're sorry but we are not able to send this requesr at this time. <br>" + result.d);
+                }
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert("We're sorry but we are not able to send this request at this time.");
+            }
+        });
+    }
+}
 
 
 //Bind Functions from here
@@ -437,8 +444,8 @@ function BindPickupValidation() {
         },
         txtpickupPhone: {
             required: true,
-            minlength: 10,
-            phoneUS: true
+            minlength: 10
+
         },
         txtpickupArrivalDate: {
             required: true
@@ -464,8 +471,8 @@ function BindPickupValidation() {
         },
         txtpickupPhone: {
             required: "Please enter Phone Number",
-            minlength: "Please enter valid Phone Number",
-            phoneUS: "Please enter valid Phone Number"
+            minlength: "Please enter valid Phone Number"
+
         },
         txtpickupArrivalDate: {
             required: "Please enter your Date"
@@ -498,8 +505,7 @@ function BindAccomodationValidation() {
         },
         txtaccomodationPhone: {
             required: true,
-            minlength: 10,
-            phoneUS: true
+            minlength: 10
         },
         txtaccomodationArrivalDate: {
             required: true
@@ -522,8 +528,7 @@ function BindAccomodationValidation() {
         },
         txtaccomodationPhone: {
             required: "Please enter Phone Number",
-            minlength: "Please enter valid Phone Number",
-            phoneUS: "Please enter valid Phone Number"
+            minlength: "Please enter valid Phone Number"
         },
         txtaccomodationArrivalDate: {
             required: "Please enter your Date"
