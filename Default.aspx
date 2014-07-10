@@ -2,7 +2,8 @@
 
 <%@ Register Src="~/ISAGMap.ascx" TagName="ISAGmap" TagPrefix="uc" %>
 <%@ Register Src="~/ISAGallery.ascx" TagName="ISAGallery" TagPrefix="uc" %>
-<%@ Register Src="~/ISA_Events.ascx" TagName="ISAEvents" TagPrefix="uc" %>  
+<%@ Register Src="~/ISA_Events.ascx" TagName="ISAEvents" TagPrefix="uc" %>
+<%@ Register Src="~/ViewPickup.ascx" TagName="ViewPickupGrid" TagPrefix="uc" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -81,7 +82,7 @@
     <!-- //End fancyBox light-box -->
 </head>
 <body>
-   
+
     <!-- start header -->
     <div class="header_bg">
         <div class="wrap">
@@ -120,7 +121,7 @@
                         </form>
                     </div>
                     <div>
-                        <label id="LoggedinUserName" style="float:right; right:20px; top:35px; position:absolute;">test</label>
+                        <label id="LoggedinUserName" style="float: right; right: 20px; top: 35px; position: absolute;">test</label>
                     </div>
                     <script src="js/classie.js"></script>
                     <script src="js/uisearch.js"></script>
@@ -230,23 +231,23 @@ Ankit Rathore
                     <div class="images_1_of_4">
                         <img src="images/cal.png">
                         <h3><a href="#">NEW STUDENTS GUIDE</a></h3>
-                        <p> </p>
+                        <p></p>
                     </div>
                 </a>
                 <a onclick="OpenServicePdf('http://www.isaosu.com/data/vaccines_and_immunizations.pdf')">
-                <div class="images_1_of_4">
-                    <img src="images/cal.png">
-                    <h3><a href="#">VACCINES AND IMMUNIZATIONS</a></h3>
-                    <p></p>
-                </div>
-                    </a>
+                    <div class="images_1_of_4">
+                        <img src="images/cal.png">
+                        <h3><a href="#">VACCINES AND IMMUNIZATIONS</a></h3>
+                        <p></p>
+                    </div>
+                </a>
                 <a onclick="OpenServicePdf('http://www.isaosu.com/data/life_in_america.pdf')">
-                <div class="images_1_of_4">
-                    <img src="images/cal.png">
-                    <h3><a href="#">LIFE IN AMERICA</a></h3>
-                    <p></p>
-                </div>
-                    </a>
+                    <div class="images_1_of_4">
+                        <img src="images/cal.png">
+                        <h3><a href="#">LIFE IN AMERICA</a></h3>
+                        <p></p>
+                    </div>
+                </a>
                 <div class="images_1_of_4">
                     <img src="images/cal.png">
                     <h3><a href="#">RESTAURANTS</a></h3>
@@ -260,8 +261,8 @@ Ankit Rathore
     <!----------- message ------------>
     <div class="message">
         <div class="wrap">
-            <h3 style="color: white; font-size:3em;">“Each of us is a unique strand in the intricate web of life and here to make a contribution.”</h3>
-            <h2 style="color: white;font-size: 2em; font-weight: 400;">Want to contribute something to the community?</h2>
+            <h3 style="color: white; font-size: 3em;">“Each of us is a unique strand in the intricate web of life and here to make a contribution.”</h3>
+            <h2 style="color: white; font-size: 2em; font-weight: 400;">Want to contribute something to the community?</h2>
             <div class="buttons">
                 <%-- <div class="span1">
                     <a href="#">
@@ -379,7 +380,16 @@ If you would prefer not to live in University accommodation, we can also offer y
                     </h3>
                     <div class="cart">
                         <div class="span3">
-                            <a class="popup-with-zoom-anim" href="#small-dialog-pickup"><i>Request</i></a>
+                            <table style="margin: 0 auto;">
+                                <tr>
+                                    <td>
+                                        <a class="popup-with-zoom-anim" href="#small-dialog-pickup"><i>Request</i></a>
+                                    </td>
+                                    <td style="padding-left:20px;">
+                                        <a onclick="PopulatePickupGrid()"><i>View</i></a>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -600,7 +610,14 @@ If you would prefer not to live in University accommodation, we can also offer y
                         </div>
                     </div>
                     <!-----pop-up-grid---->
+                    <!-----pop-up-grid---->
+                    <div id="small-dialog-pickup-Grid" class="mfp-hide ModalPopup">
+                        <div class="pop_up">
+                            <uc:ViewPickupGrid runat="server" ID="ucViewPickup" />
 
+                        </div>
+                    </div>
+                    <!-----pop-up-grid---->
                     <!-----pop-up-grid---->
                     <div id="small-dialog-donate" class="mfp-hide ModalPopup">
                         <div class="pop_up">
@@ -623,7 +640,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                     </ul>
 
                                     <div class="clear"></div>
-                            
+
                                     <ul>
                                         <li>
                                             <textarea class="text-box-dark" id="txtdonateComment" name="txtdonateComment" cols="40" rows="4" placeholder="Additional Comments/Description"></textarea></li>
@@ -655,7 +672,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                     </div>
                     <!-----pop-up-grid---->
 
-                     <!-----pop-up-grid---->
+                    <!-----pop-up-grid---->
                     <div id="small-dialog-accomodation" class="mfp-hide ModalPopup">
                         <div class="pop_up">
                             <div class="payment-online-form-left">
@@ -680,7 +697,8 @@ If you would prefer not to live in University accommodation, we can also offer y
                                         <%-- <li>
                                             <input class="text-box-light hasDatepicker" type="date" id="datepicker" value="Expiration Date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Expiration Date';}"><em class="pay-date"> </em></li>--%>
                                         <li>
-                                            <input class="text-box-dark" type="date" id="txtaccomodationArrivalDate" name="txtaccomodationArrivalDate" value="yyyy-mm-dd" onkeypress="return false"> : Select Arrival</li>
+                                            <input class="text-box-dark" type="date" id="txtaccomodationArrivalDate" name="txtaccomodationArrivalDate" value="yyyy-mm-dd" onkeypress="return false">
+                                            : Select Arrival</li>
 
 
                                     </ul>
@@ -688,11 +706,12 @@ If you would prefer not to live in University accommodation, we can also offer y
                                     <ul>
 
                                         <li>
-                                            <input class="text-box-dark" type="time" id="txtaccomodationTime" name="txtaccomodationTime" > : Time</li> 
+                                            <input class="text-box-dark" type="time" id="txtaccomodationTime" name="txtaccomodationTime">
+                                            : Time</li>
 
                                     </ul>
-                                 
-                                   
+
+
                                     <div class="clear"></div>
                                     <ul>
                                         <li>
