@@ -321,6 +321,50 @@ public class WebService : System.Web.Services.WebService
 
     }
 
+    
+    [WebMethod]
+    [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
+    public string ContactUser(String name,String email, String message)
+    {
+        //// Database code
+        String retval = "";
+        try{
+
+            SmtpClient mailClient = new SmtpClient();
+            MailMessage mail = new MailMessage("mohitjain0890@gmail.com", email);
+
+            string body = "This is a message sent from INDIAN STUDENTS ASSOCIATION website with information as below: <br/>";
+            body += "The Description is " + "<br>" +
+                   "<br /> Name : " + name +
+                   "<br /> Email : " + email +
+                   "<br /> Message : " + message +
+              "<br/><br/><br/>" ;
+
+
+            string path = Server.MapPath("images/logonew.png");
+            LinkedResource logo = new LinkedResource(path);
+            logo.ContentId = "MyLogo";
+            AlternateView altview = AlternateView.CreateAlternateViewFromString("<img src=cid:MyLogo/><br />" + body, null, "text/html");
+            altview.LinkedResources.Add(logo);
+
+            mail.AlternateViews.Add(altview);
+
+            mail.IsBodyHtml = true;
+            mail.Subject = "ISA at ISU - Contact Message";
+            mailClient.Send(mail);
+        }
+        
+
+        catch (SqlException exception)
+        {
+            retval = "Sorry could not process your request this time";
+        }
+
+        JavaScriptSerializer js = new JavaScriptSerializer();// Use this when formatting the data as JSON
+        return js.Serialize(retval);
+    }
+
+
 
     [WebMethod]
     [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
@@ -435,6 +479,20 @@ public class WebService : System.Web.Services.WebService
         string retval = "";
         SqlHelper sqlh = new SqlHelper();
         DataSet ds = sqlh.ReturnDataSetFromSqlText("select * from PickupTable");
+        if (ds != null && ds.Tables.Count > 0)
+        {
+            retval = this.ConvertDataTabletoJSON(ds.Tables[0]);
+        }
+        return retval;
+    }
+
+    [WebMethod]
+    [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+    public string RetrieveAccomodationData()
+    {
+        string retval = "";
+        SqlHelper sqlh = new SqlHelper();
+        DataSet ds = sqlh.ReturnDataSetFromSqlText("select * from AccomodationTable");
         if (ds != null && ds.Tables.Count > 0)
         {
             retval = this.ConvertDataTabletoJSON(ds.Tables[0]);
