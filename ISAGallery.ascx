@@ -57,7 +57,7 @@
 
                 var divtext = '';
                 $.each(obj, function (i, item) {
-                    divtext += "<div class='label_1_of_4 about_1_of_4'><div class='ic_container'> <img  height=250 width=250 src='" + item.FolderImage + "' alt='" + item.GalleryFolderName + "' /> ><div class='ic_caption'><p class='ic_category'></p><h3>" + item.GalleryFolderName + "</h3><p class='ic_text'><span style='margin:12px;' class='span3'><i><a onclick=\"openGallery('" + item.GalleryFolderPath + "')\" href='javascript:void(0)' style='color:white; opacity:1; text-decoration:none;'>View Images</a></i> </span></p></div></div></div>";
+                    divtext += "<div class='label_1_of_4 about_1_of_4'><div class='ic_container'> <img  height=250 width=250 src='" + item.FolderImage + "' alt='" + item.GalleryFolderName + "' /> ><div class='ic_caption'><p class='ic_category'></p><h3>" + item.GalleryFolderName + "</h3><p class='ic_text'><span style='margin:12px;' class='span3'><i><a onclick=\"openGallery('" + item.GalleryFolderPath + "')\" href='javascript:void(0)' style='color:white; opacity:1; text-decoration:none;'>View</a></i> </span></p></div></div></div>";
                 });
                 $('#divGalleryFolders').append(divtext);
 

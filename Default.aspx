@@ -4,6 +4,7 @@
 <%@ Register Src="~/ISAGallery.ascx" TagName="ISAGallery" TagPrefix="uc" %>
 <%@ Register Src="~/ISA_Events.ascx" TagName="ISAEvents" TagPrefix="uc" %>
 <%@ Register Src="~/ViewPickup.ascx" TagName="ViewPickupGrid" TagPrefix="uc" %>
+<%@ Register Src="~/ViewAccomodation.ascx" TagName="ViewAccomodationGrid" TagPrefix="uc" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -132,11 +133,21 @@
                     <nav class="nav">
                         <ul class="nav-list">
                             <li class="nav-item"><a href="#home">Home</a></li>
+                            <li class="nav-item"><a href="#BoardMembers" class="scroll">Board Members</a></li>
                             <li class="nav-item"><a href="#services" class="scroll">Services</a></li>
-                            <li class="nav-item"><a href="#portfolio" class="scroll">Portfolio</a></li>
-                            <li class="nav-item"><a href="#pricing" class="scroll">Pricing</a></li>
-                            <li class="nav-item"><a href="#about" class="scroll">About</a></li>
-                            <li class="nav-item"><a href="#contact" class="scroll">Contact</a></li>
+                            <li class="nav-item"><a href="#portfolio" class="scroll">Event Gallery</a></li>
+                            <li class="nav-item"><a href="#pricing" class="scroll">Request</a></li>
+                           <li class="nav-item" id="liTopLogin">
+                            <a class="popup-with-zoom-anim" href="#small-dialog-login"><i>Login</i></a>
+                        </li>
+                        <li class="nav-item" id="litopRegister">
+                            <a class="popup-with-zoom-anim" href="#small-dialog-register"><i>Register</i></a>
+                        </li>
+                        <li class="nav-item" id="liTopLogout">
+                            <a href="#"><i>Logout</i></a>
+                        </li>
+                        <%-- <li><a href="#about" class="scroll">About</a></li>--%>
+                        <li class="nav-item" class="last"><a href="#contact" class="scroll">Contact</a></li>
                             <div class="clear"></div>
                         </ul>
                     </nav>
@@ -340,8 +351,17 @@ Ankit Rathore
 If you would prefer not to live in University accommodation, we can also offer you advice
                         and assistance on finding private rented accommodation.</h3>
                     <div class="cart">
-                        <div class="span3">
-                            <a class="popup-with-zoom-anim" href="#small-dialog-accomodation"><i>Request</i></a>
+                            <div class="span3">
+                            <table style="margin: 0 auto;">
+                                <tr>
+                                    <td>
+                                        <a class="popup-with-zoom-anim" href="#small-dialog-accomodation"><i>Request</i></a>
+                                    </td>
+                                    <td style="padding-left:20px;">
+                                        <a onclick="PopulateAccomodationGrid()"><i>View</i></a>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -618,6 +638,14 @@ If you would prefer not to live in University accommodation, we can also offer y
                         </div>
                     </div>
                     <!-----pop-up-grid---->
+                     <!-----pop-up-grid---->
+                    <div id="small-dialog-accomodation-Grid" class="mfp-hide ModalPopup">
+                        <div class="pop_up">
+                            <uc:ViewAccomodationGrid runat="server" ID="ViewAccomodationGrid1" />
+
+                        </div>ViewAccomodation
+                    </div>
+                    <!-----pop-up-grid---->
                     <!-----pop-up-grid---->
                     <div id="small-dialog-donate" class="mfp-hide ModalPopup">
                         <div class="pop_up">
@@ -876,7 +904,20 @@ proper investigation to have their roots in India.
             <div class="contact-form">
                 <div class="form">
                     <h3>MAIL</h3>
-                    <form method="post" action="#">
+                     <form id="frmContact" name="frmContact">
+                        <input type="text" class="textbox" id="txtContactName" name="txtContactName" placeholder="Name">
+                        <input type="text" class="textbox" id="txtContactEmail" name="txtContactEmail" placeholder="Email">
+                        <div class="clear"></div>
+                            <textarea id="txtContactMessage" name="txtContactMessage" placeholder="Message:"></textarea>
+              <div class="span3">
+                                    <ul class="payment-sendbtns">
+                                        <li>
+                                            <a href="javascript:void(0)" id="btnContact" onclick="ContactUser();"><i>Submit Mail</i>
+                              
+
+                                </a></li></ul></div>
+                    </form>
+                 <%--   <form method="post" action="#">
                         <input type="text" class="textbox" value=" Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
                         <input type="text" class="textbox" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
                         <div class="clear"></div>
@@ -889,8 +930,26 @@ proper investigation to have their roots in India.
                                     <input type="submit" value="Submit mail"></i>
                                 <div class="clear"></div>
                             </a>
-                        </div>
-                    </form>
+                        </div>--%>
+
+
+                        <%--  <div class="span3">
+                                    <ul class="payment-sendbtns">
+                                        <li>
+                                            <k><a href="javascript:void(0)" onclick="ResetForm('frmRegister')"  id="btnRegisterCancel">Cancel</a></k>
+                                        </li>
+                                        <li>
+                                            <m> <a href="javascript:void(0)"  id="btnRegister" onclick="RegisterUser();" >Register</a></m>
+                                        </li>
+
+                                    </ul>
+
+                                </div>--%>
+
+
+
+
+                   <%-- </form>--%>
                 </div>
                 <div class="para-contact">
                     <h4>MORE INFO</h4>

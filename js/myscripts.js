@@ -3,6 +3,7 @@ var LoginValidator;
 var DonateValidator;
 var PickupValidator;
 var AccomodationValidator;
+var ContactValidator;
 $(document).ready(function () {
     $('.JQValidateErrors').hide();
     BindCountriesStates();
@@ -12,6 +13,7 @@ $(document).ready(function () {
     BindDonateValidation();
     BindPickupValidation();
     BindAccomodationValidation();
+    BindContactValidation();
     var cname = $.MyCookie.readCookie('Isa_Site_Login');
     if (cname != null) {
         $('#liTopLogin').hide();
@@ -287,7 +289,42 @@ function AccomodationUser() {
     }
 }
 
+function ContactUser() {
+    if (!ContactValidator.validate()) {
+        $('.JQValidateErrors').show();
+        return false;
+    }
+    else {
+        $('.JQValidateErrors').hide();
+        var name = $('#txtContactName').val();
+        var email = $('#txtContactEmail').val();
+        var message = $('#txtContactMessage').val();
 
+        $.ajax({
+            type: "Post",
+            url: "../WebService.asmx/ContactUser",
+            data: "{'name': '" + name +
+                "', 'email': '" + email +
+                "', 'message': '" + message +
+                "'}",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                var res = JSON.parse(result.d);
+                if (res.toLowerCase() === "success") {
+                    alert("Request sent Successfully");
+                }
+                else {
+                    alert("We're sorry but we are not able to send this requesr at this time. <br>" + result.d);
+                }
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert("We're sorry but we are not able to send this request at this time.");
+            }
+        });
+    }
+}
 //Bind Functions from here
 
 function BindRegisterUserValidation() {
@@ -542,6 +579,35 @@ function BindAccomodationValidation() {
     AccomodationValidator = new jQueryValidatorWrapper('frmAccomodation', rules, messages);
 
 
+}
+
+function BindContactValidation() {
+    var rules = {
+        txtContactName: {
+            required: true
+        },
+        txtContactEmail: {
+            required: true,
+            email: true
+        },
+        txtContactMessage: {
+             required:true
+        }
+    };
+    var messages = {
+        txtContactName: {
+            required: "Please enter your Name"
+        },
+        txtContactEmail: {
+            required: "Please enter Email",
+            email: "Please enter correct Email"
+        },
+        txtContactMessage: {
+            required: "Please enter Message"
+        }
+    };
+
+    ContactValidator = new jQueryValidatorWrapper('frmContact', rules, messages);
 }
 
 function BindCountriesStates() {
