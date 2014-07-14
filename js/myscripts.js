@@ -37,6 +37,22 @@ $(document).ready(function () {
         alert('You are successfully logged out!!!');
 
     });
+    $('.sb-icon-search').click(function (event) {
+        if ($('.sb-search').hasClass('sb-search-open')) {
+            $('.sb-search').removeClass('sb-search-open');
+
+        }
+        else {
+            $('.sb-search').addClass('sb-search-open');
+            $('#search_orig').val('');
+            $('#search_orig').focus();
+        }
+    });
+    $('#btnCustomSearch').click(function (event) {
+        $('#gsc-i-id1').val($('#search_orig').val());
+        $('.gsc-search-button').click();
+        $('.sb-search').removeClass('sb-search-open');
+    });
 });
 
 // Normal Functions from here
@@ -591,7 +607,7 @@ function BindContactValidation() {
             email: true
         },
         txtContactMessage: {
-             required:true
+            required: true
         }
     };
     var messages = {
