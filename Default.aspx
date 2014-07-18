@@ -446,7 +446,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                     </ul>
                                     <ul>
                                         <li>
-                                            <input class="text-box-dark" type="text" id="txtloginPassword" name="txtloginPassword" placeholder="Password"></li>
+                                            <input class="text-box-dark" type="password" id="txtloginPassword" name="txtloginPassword" placeholder="Password"></li>
                                     </ul>
                                     <div class="clear"></div>
 
@@ -491,9 +491,9 @@ If you would prefer not to live in University accommodation, we can also offer y
                                     </ul>
                                     <ul>
                                         <li>
-                                            <input class="text-box-dark" type="text" id="txtregisterPassword" name="txtregisterPassword" placeholder="Password"></li>
+                                            <input class="text-box-dark" type="password" id="txtregisterPassword" name="txtregisterPassword"  placeholder="Password"></li>
                                         <li>
-                                            <input class="text-box-dark" type="text" id="txtregisterCPassword" name="txtregisterCPassword" placeholder="Confirm Password"></li>
+                                            <input class="text-box-dark" type="password" id="txtregisterCPassword" name="txtregisterCPassword" placeholder="Confirm Password"></li>
 
                                     </ul>
                                     <div class="clear"></div>
