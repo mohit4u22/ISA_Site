@@ -2709,7 +2709,8 @@ body {
 
 
 
-li.has-error input[type=text] {
+li.has-error input[type=text],li.has-error input[type=date],li.has-error input[type=password],
+li.has-error input[type=time],li.has-error select {
     border-color: red;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
