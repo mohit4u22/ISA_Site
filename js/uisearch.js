@@ -92,11 +92,14 @@
 					// trim its value
 					self.inputEl.value = self.inputEl.value.trim();
 					
-					if( !classie.has( self.el, 'sb-search-open' ) ) { // open it
+					if (!classie.has(self.el, 'sb-search-open')) { // open it
+					    $('#gsc-i-id1').val('');
 						ev.preventDefault();
 						self.open();
 					}
-					else if( classie.has( self.el, 'sb-search-open' ) && /^\s*$/.test( self.inputEl.value ) ) { // close it
+					else if (classie.has(self.el, 'sb-search-open') && self.inputEl.value != undefined) { ///^\s*$/.test(self.inputEl.value)) { // close it
+					    $('#gsc-i-id1').val(self.inputEl.value);
+					    $('.gsc-search-button').click();
 						ev.preventDefault();
 						self.close();
 					}

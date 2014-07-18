@@ -116,19 +116,34 @@
                     </ul>
                     <div id="sb-search" class="sb-search">
                         <form>
-                            <input class="sb-search-input" placeholder="Enter your search term..." type="text" value="" name="search" id="search">
-                            <input class="sb-search-submit" type="submit" value="">
+
+                            <input class="sb-search-input" placeholder="Enter your search term..." type="text" value="" name="search" id="search_orig">
+                            <span class="sb-icon-search-close">
+                                <input type="button" id="btnCustomSearch" value="search" /></span>
+                            <script>
+                                (function () {
+                                    var cx = '003811348495736851644:8qqaq7sehes';
+                                    var gcse = document.createElement('script');
+                                    gcse.type = 'text/javascript';
+                                    gcse.async = true;
+                                    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                                        '//www.google.com/cse/cse.js?cx=' + cx;
+                                    var s = document.getElementsByTagName('script')[0];
+                                    s.parentNode.insertBefore(gcse, s);
+                                })();
+                            </script>
+                            <gcse:search></gcse:search>
                             <span class="sb-icon-search"></span>
                         </form>
                     </div>
                     <div>
                         <label id="LoggedinUserName" style="float: right; right: 20px; top: 35px; position: absolute;">test</label>
                     </div>
-                    <script src="js/classie.js"></script>
-                    <script src="js/uisearch.js"></script>
-                    <script>
+                    <%--   <script src="js/classie.js"></script>
+                    <script src="js/uisearch.js"></script>--%>
+                    <%--  <script>
                         new UISearch(document.getElementById('sb-search'));
-                    </script>
+                    </script>--%>
                     <!-- start smart_nav * -->
                     <nav class="nav">
                         <ul class="nav-list">
@@ -137,17 +152,17 @@
                             <li class="nav-item"><a href="#services" class="scroll">Services</a></li>
                             <li class="nav-item"><a href="#portfolio" class="scroll">Event Gallery</a></li>
                             <li class="nav-item"><a href="#pricing" class="scroll">Request</a></li>
-                           <li class="nav-item" id="liTopLogin">
-                            <a class="popup-with-zoom-anim" href="#small-dialog-login"><i>Login</i></a>
-                        </li>
-                        <li class="nav-item" id="litopRegister">
-                            <a class="popup-with-zoom-anim" href="#small-dialog-register"><i>Register</i></a>
-                        </li>
-                        <li class="nav-item" id="liTopLogout">
-                            <a href="#"><i>Logout</i></a>
-                        </li>
-                        <%-- <li><a href="#about" class="scroll">About</a></li>--%>
-                        <li class="nav-item" class="last"><a href="#contact" class="scroll">Contact</a></li>
+                            <li class="nav-item" id="liTopLogin">
+                                <a class="popup-with-zoom-anim" href="#small-dialog-login"><i>Login</i></a>
+                            </li>
+                            <li class="nav-item" id="litopRegister">
+                                <a class="popup-with-zoom-anim" href="#small-dialog-register"><i>Register</i></a>
+                            </li>
+                            <li class="nav-item" id="liTopLogout">
+                                <a href="#"><i>Logout</i></a>
+                            </li>
+                            <%-- <li><a href="#about" class="scroll">About</a></li>--%>
+                            <li class="nav-item" class="last"><a href="#contact" class="scroll">Contact</a></li>
                             <div class="clear"></div>
                         </ul>
                     </nav>
@@ -351,13 +366,13 @@ Ankit Rathore
 If you would prefer not to live in University accommodation, we can also offer you advice
                         and assistance on finding private rented accommodation.</h3>
                     <div class="cart">
-                            <div class="span3">
+                        <div class="span3">
                             <table style="margin: 0 auto;">
                                 <tr>
                                     <td>
                                         <a class="popup-with-zoom-anim" href="#small-dialog-accomodation"><i>Request</i></a>
                                     </td>
-                                    <td style="padding-left:20px;">
+                                    <td style="padding-left: 20px;">
                                         <a onclick="PopulateAccomodationGrid()"><i>View</i></a>
                                     </td>
                                 </tr>
@@ -405,7 +420,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                     <td>
                                         <a class="popup-with-zoom-anim" href="#small-dialog-pickup"><i>Request</i></a>
                                     </td>
-                                    <td style="padding-left:20px;">
+                                    <td style="padding-left: 20px;">
                                         <a onclick="PopulatePickupGrid()"><i>View</i></a>
                                     </td>
                                 </tr>
@@ -638,12 +653,13 @@ If you would prefer not to live in University accommodation, we can also offer y
                         </div>
                     </div>
                     <!-----pop-up-grid---->
-                     <!-----pop-up-grid---->
+                    <!-----pop-up-grid---->
                     <div id="small-dialog-accomodation-Grid" class="mfp-hide ModalPopup">
                         <div class="pop_up">
                             <uc:ViewAccomodationGrid runat="server" ID="ViewAccomodationGrid1" />
 
-                        </div>ViewAccomodation
+                        </div>
+                        ViewAccomodation
                     </div>
                     <!-----pop-up-grid---->
                     <!-----pop-up-grid---->
