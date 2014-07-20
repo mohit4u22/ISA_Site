@@ -19,20 +19,29 @@ $(document).ready(function () {
         $('#liTopLogin').hide();
         $('#litopRegister').hide();
         $('#liTopLogout').show();
+        $('#liMobileTopLogin').hide();
+        $('#liMobiletopRegister').hide();
+        $('#liMobileTopLogout').show();
         $('#LoggedinUserName').html('You are Logged in as: <b>' + cname + '</b>');
     }
     else {
         $('#liTopLogin').show();
         $('#litopRegister').show();
         $('#liTopLogout').hide();
+        $('#liMobileTopLogin').show();
+        $('#liMobiletopRegister').show();
+        $('#liMobileTopLogout').hide();
         $('#LoggedinUserName').html('');
     }
 
-    $('#liTopLogout a').click(function () {
+    $('#liTopLogout a, #liMobileTopLogout a').click(function () {
         $('#LoggedinUserName').html('');
         $('#liTopLogin').show();
         $('#litopRegister').show();
         $('#liTopLogout').hide();
+        $('#liMobileTopLogin').show();
+        $('#liMobiletopRegister').show();
+        $('#liMobileTopLogout').hide();
         $.MyCookie.eraseCookie('Isa_Site_Login');
         alert('You are successfully logged out!!!');
 
@@ -149,6 +158,7 @@ function RegisterUser() {
             success: function (result) {
                 var res = JSON.parse(result.d);
                 if (res.toLowerCase() === "success") {
+                    $('#small-dialog-register button.mfp-close').click();
                     alert("User Created Successfully");
                 }
                 else {
@@ -251,6 +261,7 @@ function PickupUser() {
                     alert("We're sorry but we are not able to send this information at this time. <br>" + result.d);
                 }
 
+
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 alert("We're sorry but we are not able to send this information at this time.");
@@ -329,6 +340,9 @@ function ContactUser() {
                 var res = JSON.parse(result.d);
                 if (res.toLowerCase() === "success") {
                     alert("Request sent Successfully");
+                    $('#txtContactName').val("");
+                    $('#txtContactEmail').val("");
+                    $('#txtContactMessage').val("");
                 }
                 else {
                     alert("We're sorry but we are not able to send this requesr at this time. <br>" + result.d);
@@ -371,6 +385,12 @@ function BindRegisterUserValidation() {
         txtregisterCity: {
             required: true
         },
+        txtregisterZip: {
+            minlength: 5,
+            maxlength: 6,
+            digits:true
+
+        },
         txtregisterSquestion: {
             required: true
         },
@@ -381,36 +401,41 @@ function BindRegisterUserValidation() {
 
     var messages = {
         txtregisterFName: {
-            required: "Please enter First Name"
+            required: "Please enter FIRST NAME"
         },
         txtregisterLName: {
-            required: "Please enter Last Name"
+            required: "Please enter LAST NAME"
         },
         txtregisterEmail: {
-            required: "Please enter email.",
-            email: "Please Enter a Valid Email"
+            required: "Please enter EMAIL",
+            email: "Please Enter a valid EMAIL"
         },
         txtregisterCEmail: {
-            equalTo: "Emails do not match"
+            equalTo: "Both EMAILs do not match"
         },
         txtregisterPassword: {
-            required: "Please enter Password",
-            minlength: "Please enter valid password"
+            required: "Please enter your PASSWORD",
+            minlength: "Please enter minimum 8 digit PASSWORD"
         },
         txtregisterCPassword: {
-            equalTo: "Passwords do not match"
+            equalTo: "Both PASSWORDs do not match"
         },
         txtregisterCountry: {
-            required: "Please enter your Country"
+            required: "Please enter your COUNTRY"
         },
         txtregisterCity: {
-            required: "Please enter your City"
+            required: "Please enter your CITY"
+        },
+        txtregisterZip: {
+            minlength: "Please enter minimum 5 and maximum 6 digit ZIP",
+            maxlength: "Please enterminimum 5 and maximum 6 digit ZIP",
+            digits: "Please enter only digits for ZIP"
         },
         txtregisterSquestion: {
-            required: "Please enter your Security Question"
+            required: "Please enter your Security QUESTION"
         },
         txtregisterSanswer: {
-            required: "Please enter your Security Answer"
+            required: "Please enter your Security ANSWER"
         }
     };
 
@@ -431,10 +456,10 @@ function BindLoginValidation() {
     };
     var messages = {
         txtloginEmail: {
-            required: "Please enter Email"
+            required: "Please enter EMAIL"
         },
         txtloginPassword: {
-            required: "Please enter Password"
+            required: "Please enter PASSWORD"
         }
     };
 
@@ -462,19 +487,19 @@ function BindDonateValidation() {
     };
     var messages = {
         txtdonateFName: {
-            required: "Please enter First Name"
+            required: "Please enter FIRST NAME"
         },
         txtdonateLName: {
-            required: "Please enter Last Name"
+            required: "Please enter LAST NAME"
         },
         txtdonateEmail: {
-            required: "Please enter email.",
-            email: "Please Enter a Valid Email"
+            required: "Please enter EMAIL",
+            email: "Please Enter a valid EMAIL"
         },
         txtdonatePhone: {
-            required: "Please enter Phone Number",
-            minlength: "Please enter valid Phone Number",
-            phoneUS: "Please enter valid Phone Number"
+            required: "Please enter PHONE NUMBER",
+            minlength: "Please enter atleast 10 digit PHONE NUMBER",
+            phoneUS: "Please enter valid PHONE NUMBER"
         }
     };
 
@@ -513,28 +538,28 @@ function BindPickupValidation() {
 
     var messages = {
         txtpickupFName: {
-            required: "Please enter First Name"
+            required: "Please enter FIRST NAME"
         },
         txtpickupLName: {
-            required: "Please enter Last Name"
+            required: "Please enter LAST NAME"
         },
         txtpickupEmail: {
-            required: "Please enter email.",
-            email: "Please Enter a Valid Email"
+            required: "Please enter EMAIL",
+            email: "Please Enter a valid EMAIL"
         },
         txtpickupPhone: {
-            required: "Please enter Phone Number",
-            minlength: "Please enter valid Phone Number"
+            required: "Please enter PHONE NUMBER",
+            minlength: "Please enter atleast 10 digit PHONE NUMBER"
 
         },
         txtpickupArrivalDate: {
-            required: "Please enter your Date"
+            required: "Please enter your DATE"
         },
         txtpickupTime: {
-            required: "Please enter your time"
+            required: "Please enter your TIME"
         },
         txtpickupVenue: {
-            required: "Please enter your Venue"
+            required: "Please enter your pick up VENUE"
         }
     };
 
@@ -570,24 +595,24 @@ function BindAccomodationValidation() {
 
     var messages = {
         txtaccomodationFName: {
-            required: "Please enter First Name"
+            required: "Please enter FIRST NAME"
         },
         txtaccomodationLName: {
-            required: "Please enter Last Name"
+            required: "Please enter LAST NAME"
         },
         txtaccomodationEmail: {
-            required: "Please enter email.",
-            email: "Please Enter a Valid Email"
+            required: "Please enter EMAIL",
+            email: "Please Enter a valid EMAIL"
         },
         txtaccomodationPhone: {
-            required: "Please enter Phone Number",
-            minlength: "Please enter valid Phone Number"
+            required: "Please enter PHONE NUMBER",
+            minlength: "Please enter atleast 10 digit PHONE NUMBER"
         },
         txtaccomodationArrivalDate: {
-            required: "Please enter your Date"
+            required: "Please enter your DATE"
         },
         txtaccomodationTime: {
-            required: "Please enter your Time"
+            required: "Please enter your TIME"
         }
     };
 
@@ -612,14 +637,14 @@ function BindContactValidation() {
     };
     var messages = {
         txtContactName: {
-            required: "Please enter your Name"
+            required: "Please enter your NAME"
         },
         txtContactEmail: {
-            required: "Please enter Email",
-            email: "Please enter correct Email"
+            required: "Please enter EMAIL",
+            email: "Please enter correct EMAIL"
         },
         txtContactMessage: {
-            required: "Please enter Message"
+            required: "Please enter your MESSAGE"
         }
     };
 

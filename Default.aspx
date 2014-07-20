@@ -152,13 +152,13 @@
                             <li class="nav-item"><a href="#services" class="scroll">Services</a></li>
                             <li class="nav-item"><a href="#portfolio" class="scroll">Event Gallery</a></li>
                             <li class="nav-item"><a href="#pricing" class="scroll">Request</a></li>
-                            <li class="nav-item" id="liTopLogin">
+                            <li class="nav-item" id="liMobileTopLogin">
                                 <a class="popup-with-zoom-anim" href="#small-dialog-login"><i>Login</i></a>
                             </li>
-                            <li class="nav-item" id="litopRegister">
+                            <li class="nav-item" id="liMobiletopRegister">
                                 <a class="popup-with-zoom-anim" href="#small-dialog-register"><i>Register</i></a>
                             </li>
-                            <li class="nav-item" id="liTopLogout">
+                            <li class="nav-item" id="liMobileTopLogout">
                                 <a href="#"><i>Logout</i></a>
                             </li>
                             <%-- <li><a href="#about" class="scroll">About</a></li>--%>
@@ -506,7 +506,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                     <ul>
 
                                         <li>
-                                            <select name="ddlCountry" id="ddlCountry" style="margin-right: 5%;"></select>
+                                            <select name="ddlCountry" class="text-box-light hasDatepicker" id="ddlCountry" style="margin-right: 5%;"></select>: Select Country
                                         </li>
                                     </ul>
                                     <div class="clear"></div>
@@ -523,7 +523,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                         <li>
                                             <select name="ddlState" id="ddlState" style="margin-right: 5%;"></select>
                                         <li>
-                                            <input class="text-box-light hasDatepicker" type="text" id="txtregisterZip" name="txtregisterZip" placeholder="Zip"><em class="pay-date"></em></li>
+                                            <input class="text-box-dark" type="text" id="txtregisterZip" name="txtregisterZip" placeholder="Zip"><em class="pay-date"></em></li>
 
                                     </ul>
                                     <div class="clear"></div>
@@ -921,6 +921,7 @@ proper investigation to have their roots in India.
                 <div class="form">
                     <h3>MAIL</h3>
                      <form id="frmContact" name="frmContact">
+                          <ul class="JQValidateErrors"></ul>
                         <input type="text" class="textbox" id="txtContactName" name="txtContactName" placeholder="Name">
                         <input type="text" class="textbox" id="txtContactEmail" name="txtContactEmail" placeholder="Email">
                         <div class="clear"></div>

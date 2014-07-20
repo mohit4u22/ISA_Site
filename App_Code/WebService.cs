@@ -352,6 +352,7 @@ public class WebService : System.Web.Services.WebService
             mail.IsBodyHtml = true;
             mail.Subject = "ISA at ISU - Contact Message";
             mailClient.Send(mail);
+            retval = "Success";
         }
         
 
