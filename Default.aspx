@@ -508,7 +508,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                     <ul>
 
                                         <li>
-                                            <select name="ddlCountry" class="text-box-light hasDatepicker" id="ddlCountry" style="margin-right: 5%;"></select>: Select Country
+                                            <select name="ddlCountry" class="text-box-light hasDatepicker" id="ddlCountry" ></select>: Select Country
                                         </li>
                                     </ul>
                                     <div class="clear"></div>

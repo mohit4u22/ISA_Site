@@ -190,8 +190,8 @@ function DonateUser() {
         $.ajax({
             type: "Post",
             url: "../WebService.asmx/DonateUser",
-            data: "{'fname': '" + firstname +
-                "', 'lname': '" + lastname +
+            data: "{'firstname': '" + firstname +
+                "', 'lastname': '" + lastname +
                 "', 'email': '" + email +
                   "', 'phone': '" + phone +
                  "', 'comment': '" + comment +
@@ -497,8 +497,7 @@ function BindDonateValidation() {
         },
         txtdonatePhone: {
             required: "Please enter PHONE NUMBER",
-            minlength: "Please enter atleast 10 digit PHONE NUMBER",
-            phoneUS: "Please enter valid PHONE NUMBER"
+            minlength: "Please enter atleast 10 digit PHONE NUMBER"
         }
     };
 
@@ -640,7 +639,7 @@ function BindContactValidation() {
         },
         txtContactEmail: {
             required: "Please enter EMAIL",
-            email: "Please enter correct EMAIL"
+            email: "Please enter a valid EMAIL"
         },
         txtContactMessage: {
             required: "Please enter your MESSAGE"
@@ -785,7 +784,7 @@ function ResetForm(FormID) {
 
 
 
-    $('#' + FormID).find('input[type=text],textarea,input,select').filter(':visible:first').focus();
+    $('#' + FormID).find('input[type=text],input[type=date],input[type=time],textarea,input,select').filter(':visible:first').focus();
 
 }
 
