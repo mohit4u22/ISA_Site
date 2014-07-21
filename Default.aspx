@@ -253,32 +253,34 @@ Ankit Rathore
                 <div class="clear"></div>
                 <br />
                 <br />
-                <a href="javascript:void(0)" onclick="OpenServicePdf('http://www.isaosu.com/data/new_students_guide.pdf')">
+                <a href="javascript:void(0)" onclick="OpenServicePdf('http://www.isaisu.azurewebsites.net/images/STUDENTGUIDEpdf2.pdf')">
                     <div class="images_1_of_4">
                         <img src="images/cal.png">
                         <h3><a href="#">NEW STUDENTS GUIDE</a></h3>
                         <p></p>
                     </div>
                 </a>
-                <a onclick="OpenServicePdf('http://www.isaosu.com/data/vaccines_and_immunizations.pdf')">
+                <a onclick="OpenServicePdf('http://www.isaisu.azurewebsites.net/images/VACCINEGUIDEpdf1.pdf')">
                     <div class="images_1_of_4">
                         <img src="images/cal.png">
                         <h3><a href="#">VACCINES AND IMMUNIZATIONS</a></h3>
                         <p></p>
                     </div>
                 </a>
-                <a onclick="OpenServicePdf('http://www.isaosu.com/data/life_in_america.pdf')">
+                <a onclick="OpenServicePdf('http://www.isaisu.azurewebsites.net/images/LIFEINUSApdf3.pdf')">
                     <div class="images_1_of_4">
                         <img src="images/cal.png">
                         <h3><a href="#">LIFE IN AMERICA</a></h3>
                         <p></p>
                     </div>
                 </a>
+                 <a onclick="OpenServicePdf('http://www.bloomingtonnormalcvb.org/documents/2013%20BNACVB%20Visitor%20Guide.pdf')">
                 <div class="images_1_of_4">
                     <img src="images/cal.png">
-                    <h3><a href="#">RESTAURANTS</a></h3>
+                    <h3><a href="#">VISITOR GUIDE (all encompassing)</a></h3>
                     <p></p>
                 </div>
+                    </a>
                 <div class="clear"></div>
             </div>
         </div>
@@ -789,7 +791,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                             <div class="payment-online-form-left">
 
 
-                                <iframe id="frmNewServicePDF" width="800" height="1084"></iframe>
+                                <iframe id="frmNewServicePDF" width="100%" height="1084"></iframe>
 
                                 <div class="clear"></div>
 

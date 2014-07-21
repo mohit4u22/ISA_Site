@@ -203,7 +203,7 @@ function DonateUser() {
                 var res = JSON.parse(result.d);
                 if (res.toLowerCase() === "success") {
                     $('#small-dialog-donate button.mfp-close').click();
-                    alert(" Successful");
+                    alert("Request Successful!");
                 }
                 else {
                     alert("We're sorry but we are not able to send this message at this time. <br>" + result.d);
