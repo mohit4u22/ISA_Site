@@ -481,8 +481,7 @@ function BindDonateValidation() {
         },
         txtdonatePhone: {
             required: true,
-            minlength: 10,
-            phoneUS: true
+            minlength: 10
         }
     };
     var messages = {

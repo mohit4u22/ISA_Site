@@ -253,21 +253,21 @@ Ankit Rathore
                 <div class="clear"></div>
                 <br />
                 <br />
-                <a href="javascript:void(0)" onclick="OpenServicePdf('http://www.isaisu.azurewebsites.net/images/STUDENTGUIDEpdf2.pdf')">
+                <a onclick="OpenServicePdf('http://isaisu.azurewebsites.net/images/STUDENTGUIDEpdf2.pdf')">
                     <div class="images_1_of_4">
                         <img src="images/cal.png">
                         <h3><a href="#">NEW STUDENTS GUIDE</a></h3>
                         <p></p>
                     </div>
                 </a>
-                <a onclick="OpenServicePdf('http://www.isaisu.azurewebsites.net/images/VACCINEGUIDEpdf1.pdf')">
+                <a onclick="OpenServicePdf('http://isaisu.azurewebsites.net/images/VACCINEGUIDEpdf1.pdf')">
                     <div class="images_1_of_4">
                         <img src="images/cal.png">
                         <h3><a href="#">VACCINES AND IMMUNIZATIONS</a></h3>
                         <p></p>
                     </div>
                 </a>
-                <a onclick="OpenServicePdf('http://www.isaisu.azurewebsites.net/images/LIFEINUSApdf3.pdf')">
+                <a onclick="OpenServicePdf('http://isaisu.azurewebsites.net/images/LIFEINUSAGUIDEpdf3.pdf')">
                     <div class="images_1_of_4">
                         <img src="images/cal.png">
                         <h3><a href="#">LIFE IN AMERICA</a></h3>
