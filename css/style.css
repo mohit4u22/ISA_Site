@@ -272,6 +272,8 @@ body {
     border-right: 1px solid #333333;
     border-bottom: 1px solid #333333;
     border-left: 1px solid #CCCCCC;
+    width:100%;
+    height:100%;
 }
 /*-- start-smartphone_nav --*/
 .nav {
@@ -2292,7 +2294,7 @@ body {
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1020px) {
     .wrap {
         width: 95%;
     }
@@ -2709,13 +2711,15 @@ body {
 
 
 
-li.has-error input[type=text] {
+li.has-error input[type=text],li.has-error input[type=date], li.has-error input[type=password],
+li.has-error input[type=time],li.has-error select {
     border-color: red;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 }
 
-    li.has-error input[type=text]:focus {
+    li.has-error input[type=text]:focus, li.has-error input[type=date]:focus, li.has-error input[type=password]:focus,
+li.has-error input[type=time]:focus, li.has-error select:focus {
         border-color: red;
         -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
         box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
