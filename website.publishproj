@@ -21,7 +21,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
     <SourceWebVirtualPath>/ISA_Site</SourceWebVirtualPath>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <SourceWebProject>http://localhost:49685</SourceWebProject>
-    <SourceWebMetabasePath>/IISExpress/7.5/LM/W3SVC/4/ROOT</SourceWebMetabasePath>
+    <SourceWebMetabasePath>/IISExpress/7.5/LM/W3SVC/35/ROOT</SourceWebMetabasePath>
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
