@@ -379,7 +379,7 @@ function BindRegisterUserValidation() {
         txtregisterCPassword: {
             equalTo: '#txtregisterPassword'
         },
-        txtregisterCountry: {
+        ddlCountry: {
             required: true
         },
         txtregisterCity: {
@@ -388,7 +388,7 @@ function BindRegisterUserValidation() {
         txtregisterZip: {
             minlength: 5,
             maxlength: 6,
-            digits:true
+            digits: true
 
         },
         txtregisterSquestion: {
@@ -420,7 +420,7 @@ function BindRegisterUserValidation() {
         txtregisterCPassword: {
             equalTo: "Both PASSWORDs do not match"
         },
-        txtregisterCountry: {
+        ddlCountry: {
             required: "Please enter your COUNTRY"
         },
         txtregisterCity: {
@@ -658,7 +658,7 @@ function BindCountriesStates() {
         success: function (result) {
             if (result.d.length > 0) {
                 var decoded = $('<div/>').html(result.d).text();
-                $('#ddlCountry').append("<option value=''></option>");
+                $('#ddlCountry').append("<option value=''>--Select Country--</option>");
                 $('#ddlCountry').append(decoded);
 
 
@@ -688,6 +688,7 @@ function BindCountriesStates() {
                 if (result.d.length > 0) {
                     dStates = $('<div/>').html(result.d).text();
                     $('#ddlState').html('');
+                    $('#ddlState').append("<option value=''>--Select State--</option>");
                     $('#ddlState').append(dStates);
                 }
 
@@ -723,8 +724,15 @@ function jQueryValidatorWrapper(formId, rules, messages) {
             $(element).parent().removeClass('has-error');
 
             $('#liJqValidate_' + $(element).attr('id') + '').remove();
-            if ($('ul.JQValidateErrors li').length == 0) {
-                $('.JQValidateErrors').hide();
+            if ($(element).parent().attr('id') == 'frmContact') {
+                if ($('ul.JQValidateErrors_contact li').length == 0) {
+                    $('.JQValidateErrors_contact').hide();
+                }
+            }
+            else {
+                if ($('ul.JQValidateErrors li').length == 0) {
+                    $('.JQValidateErrors').hide();
+                }
             }
         }
         , errorPlacement: function (error, element) {
@@ -733,7 +741,14 @@ function jQueryValidatorWrapper(formId, rules, messages) {
                 li.appendChild(document
                   .createTextNode(error.html()));
                 $(li).attr('id', 'liJqValidate_' + $(element).attr('id'))
-                $('.JQValidateErrors').append(li);
+                if ($(element).parent().attr('id') == 'frmContact') {
+                    $(li).css('color', 'red');
+                    $('.JQValidateErrors_contact').append(li);
+                }
+                else {
+                
+                    $('.JQValidateErrors').append(li);
+                }
             }
         },
         showErrors: function (errorMap, errorList) {
@@ -746,6 +761,7 @@ function jQueryValidatorWrapper(formId, rules, messages) {
     // This is the function to call whem make the validation
     this.validate = function () {
         $("ul.JQValidateErrors").empty();
+        $("ul.JQValidateErrors_contact").empty();
         showErrorMessage = true;
         var result = validator.form();
         showErrorMessage = false;
