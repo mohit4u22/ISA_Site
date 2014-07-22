@@ -152,13 +152,13 @@
                             <li class="nav-item"><a href="#services" class="scroll">Services</a></li>
                             <li class="nav-item"><a href="#portfolio" class="scroll">Event Gallery</a></li>
                             <li class="nav-item"><a href="#pricing" class="scroll">Request</a></li>
-                            <li class="nav-item" id="liTopLogin">
+                            <li class="nav-item" id="liMobileTopLogin">
                                 <a class="popup-with-zoom-anim" href="#small-dialog-login"><i>Login</i></a>
                             </li>
-                            <li class="nav-item" id="litopRegister">
+                            <li class="nav-item" id="liMobiletopRegister">
                                 <a class="popup-with-zoom-anim" href="#small-dialog-register"><i>Register</i></a>
                             </li>
-                            <li class="nav-item" id="liTopLogout">
+                            <li class="nav-item" id="liMobileTopLogout">
                                 <a href="#"><i>Logout</i></a>
                             </li>
                             <%-- <li><a href="#about" class="scroll">About</a></li>--%>
@@ -253,32 +253,34 @@ Ankit Rathore
                 <div class="clear"></div>
                 <br />
                 <br />
-                <a href="javascript:void(0)" onclick="OpenServicePdf('http://www.isaosu.com/data/new_students_guide.pdf')">
+                <a onclick="OpenServicePdf('http://isaisu.azurewebsites.net/images/STUDENTGUIDEpdf2.pdf')">
                     <div class="images_1_of_4">
                         <img src="images/cal.png">
                         <h3><a href="#">NEW STUDENTS GUIDE</a></h3>
                         <p></p>
                     </div>
                 </a>
-                <a onclick="OpenServicePdf('http://www.isaosu.com/data/vaccines_and_immunizations.pdf')">
+                <a onclick="OpenServicePdf('http://isaisu.azurewebsites.net/images/VACCINEGUIDEpdf1.pdf')">
                     <div class="images_1_of_4">
                         <img src="images/cal.png">
                         <h3><a href="#">VACCINES AND IMMUNIZATIONS</a></h3>
                         <p></p>
                     </div>
                 </a>
-                <a onclick="OpenServicePdf('http://www.isaosu.com/data/life_in_america.pdf')">
+                <a onclick="OpenServicePdf('http://isaisu.azurewebsites.net/images/LIFEINUSAGUIDEpdf3.pdf')">
                     <div class="images_1_of_4">
                         <img src="images/cal.png">
                         <h3><a href="#">LIFE IN AMERICA</a></h3>
                         <p></p>
                     </div>
                 </a>
+                 <a onclick="OpenServicePdf('http://www.bloomingtonnormalcvb.org/documents/2013%20BNACVB%20Visitor%20Guide.pdf')">
                 <div class="images_1_of_4">
                     <img src="images/cal.png">
-                    <h3><a href="#">RESTAURANTS</a></h3>
+                    <h3><a href="#">VISITOR GUIDE (all encompassing)</a></h3>
                     <p></p>
                 </div>
+                    </a>
                 <div class="clear"></div>
             </div>
         </div>
@@ -446,7 +448,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                     </ul>
                                     <ul>
                                         <li>
-                                            <input class="text-box-dark" type="text" id="txtloginPassword" name="txtloginPassword" placeholder="Password"></li>
+                                            <input class="text-box-dark" type="password" id="txtloginPassword" name="txtloginPassword" placeholder="Password"></li>
                                     </ul>
                                     <div class="clear"></div>
 
@@ -491,9 +493,9 @@ If you would prefer not to live in University accommodation, we can also offer y
                                     </ul>
                                     <ul>
                                         <li>
-                                            <input class="text-box-dark" type="text" id="txtregisterPassword" name="txtregisterPassword" placeholder="Password"></li>
+                                            <input class="text-box-dark" type="password" id="txtregisterPassword" name="txtregisterPassword"  placeholder="Password"></li>
                                         <li>
-                                            <input class="text-box-dark" type="text" id="txtregisterCPassword" name="txtregisterCPassword" placeholder="Confirm Password"></li>
+                                            <input class="text-box-dark" type="password" id="txtregisterCPassword" name="txtregisterCPassword" placeholder="Confirm Password"></li>
 
                                     </ul>
                                     <div class="clear"></div>
@@ -506,7 +508,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                     <ul>
 
                                         <li>
-                                            <select name="ddlCountry" id="ddlCountry" style="margin-right: 5%;"></select>
+                                            <select name="ddlCountry" class="text-box-light hasDatepicker" id="ddlCountry" ></select>: Select Country
                                         </li>
                                     </ul>
                                     <div class="clear"></div>
@@ -523,7 +525,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                         <li>
                                             <select name="ddlState" id="ddlState" style="margin-right: 5%;"></select>
                                         <li>
-                                            <input class="text-box-light hasDatepicker" type="text" id="txtregisterZip" name="txtregisterZip" placeholder="Zip"><em class="pay-date"></em></li>
+                                            <input class="text-box-dark" type="text" id="txtregisterZip" name="txtregisterZip" placeholder="Zip"><em class="pay-date"></em></li>
 
                                     </ul>
                                     <div class="clear"></div>
@@ -789,7 +791,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                             <div class="payment-online-form-left">
 
 
-                                <iframe id="frmNewServicePDF" width="800" height="1084"></iframe>
+                                <iframe id="frmNewServicePDF" width="100%" height="1084"></iframe>
 
                                 <div class="clear"></div>
 
@@ -921,6 +923,7 @@ proper investigation to have their roots in India.
                 <div class="form">
                     <h3>MAIL</h3>
                      <form id="frmContact" name="frmContact">
+                          <ul class="JQValidateErrors"></ul>
                         <input type="text" class="textbox" id="txtContactName" name="txtContactName" placeholder="Name">
                         <input type="text" class="textbox" id="txtContactEmail" name="txtContactEmail" placeholder="Email">
                         <div class="clear"></div>

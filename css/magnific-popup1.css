@@ -603,7 +603,7 @@ button::-moz-focus-inner {
     }
 
     .pricing-grid1 h3 a {
-        background: #424242;
+        background: #B87139;
         padding: 3% 2%;
         display: block;
         color: #FFF;
@@ -878,7 +878,7 @@ button::-moz-focus-inner {
         padding: 0 3%;
     }
 
-    .payment-online-form-left input[type="text"], .payment-online-form-left input[type="date"], .payment-online-form-left input[type="time"], .payment-online-form-left select {
+    .payment-online-form-left input[type="text"], .payment-online-form-left input[type="date"], .payment-online-form-left input[type="time"],.payment-online-form-left input[type="password"], .payment-online-form-left select {
         padding: 1em 1em;
         font-family: 'Open Sans', sans-serif;
         color: #485460;
@@ -896,7 +896,8 @@ button::-moz-focus-inner {
         border-color: #EEE;
     }
 
-        .payment-online-form-left input[type="text"]:hover {
+        .payment-online-form-left input[type="text"]:hover,.payment-online-form-left input[type="password"]:hover,.payment-online-form-left input[type="date"]:hover,
+         .payment-online-form-left input[type="time"]:hover, .payment-online-form-left select:hover {
             border-color: #49CBCD;
         }
 
@@ -909,11 +910,16 @@ button::-moz-focus-inner {
     position: relative;
 }
 
-.payment-online-form-left ul li:first-child input[type="text"] {
+.payment-online-form-left ul li:first-child input[type="text"],.payment-online-form-left ul li:first-child input[type="password"] {
     margin-right: 5%;
 }
 
-.payment-online-form-left input[type="text"]:active, .payment-online-form-left input[type="text"]:hover {
+.payment-online-form-left input[type="text"]:active, .payment-online-form-left input[type="text"]:hover,
+.payment-online-form-left input[type="password"]:active, .payment-online-form-left input[type="password"]:hover,
+.payment-online-form-left input[type="time"]:active, .payment-online-form-left input[type="time"]:hover,
+.payment-online-form-left input[type="date"]:active, .payment-online-form-left input[type="date"]:hover,
+.payment-online-form-left select:active, .payment-online-form-left select:hover
+ {
     border-color: #485460;
     color: #49CBCD;
 }
@@ -1569,7 +1575,8 @@ img.mfp-img {
 }
 
 @media only screen and (max-width: 480px) {
-    .payment-online-form-left input[type="text"] {
+    .payment-online-form-left input[type="text"],.payment-online-form-left input[type="password"],
+    .payment-online-form-left input[type="date"], .payment-online-form-left input[type="time"], .payment-online-form-left select {
         width: 90%;
         padding: 0.5em 1em;
     }
