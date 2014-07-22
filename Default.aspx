@@ -508,7 +508,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                     <ul>
 
                                         <li>
-                                            <select name="ddlCountry" class="text-box-light hasDatepicker" id="ddlCountry" ></select>: Select Country
+                                            <select name="ddlCountry" class="text-box-light hasDatepicker" id="ddlCountry" ></select>
                                         </li>
                                     </ul>
                                     <div class="clear"></div>
@@ -923,7 +923,7 @@ proper investigation to have their roots in India.
                 <div class="form">
                     <h3>MAIL</h3>
                      <form id="frmContact" name="frmContact">
-                          <ul class="JQValidateErrors"></ul>
+                          <ul class="JQValidateErrors_contact"></ul>
                         <input type="text" class="textbox" id="txtContactName" name="txtContactName" placeholder="Name">
                         <input type="text" class="textbox" id="txtContactEmail" name="txtContactEmail" placeholder="Email">
                         <div class="clear"></div>
