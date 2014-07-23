@@ -18,7 +18,8 @@
     <link rel="stylesheet" type="text/css" href="css/prettyPhoto.css">
     <!--  jquery plguin -->
     <script type="text/javascript" src="Scripts/jquery-1.9.1.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
 
     <!--start slider --  ---->
     <link rel="stylesheet" href="css/fwslider.css" media="all">
@@ -274,13 +275,13 @@ Ankit Rathore
                         <p></p>
                     </div>
                 </a>
-                 <a onclick="OpenServicePdf('http://www.bloomingtonnormalcvb.org/documents/2013%20BNACVB%20Visitor%20Guide.pdf')">
-                <div class="images_1_of_4">
-                    <img src="images/cal.png">
-                    <h3><a href="#">VISITOR GUIDE (all encompassing)</a></h3>
-                    <p></p>
-                </div>
-                    </a>
+                <a onclick="OpenServicePdf('http://www.bloomingtonnormalcvb.org/documents/2013%20BNACVB%20Visitor%20Guide.pdf')">
+                    <div class="images_1_of_4">
+                        <img src="images/cal.png">
+                        <h3><a href="#">VISITOR GUIDE (all encompassing)</a></h3>
+                        <p></p>
+                    </div>
+                </a>
                 <div class="clear"></div>
             </div>
         </div>
@@ -333,7 +334,7 @@ Ankit Rathore
         </div>
     </div>
     <!-- portfolio_script_javascript-->
-    <script type="text/javascript" src="js/jquery.min.js"></script>
+
     <script src="js/jquery.isotope.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/custom.js"></script>
@@ -493,7 +494,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                     </ul>
                                     <ul>
                                         <li>
-                                            <input class="text-box-dark" type="password" id="txtregisterPassword" name="txtregisterPassword"  placeholder="Password"></li>
+                                            <input class="text-box-dark" type="password" id="txtregisterPassword" name="txtregisterPassword" placeholder="Password"></li>
                                         <li>
                                             <input class="text-box-dark" type="password" id="txtregisterCPassword" name="txtregisterCPassword" placeholder="Confirm Password"></li>
 
@@ -508,7 +509,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                     <ul>
 
                                         <li>
-                                            <select name="ddlCountry" class="text-box-light hasDatepicker" id="ddlCountry" ></select>
+                                            <select name="ddlCountry" class="text-box-light hasDatepicker" id="ddlCountry"></select>
                                         </li>
                                     </ul>
                                     <div class="clear"></div>
@@ -596,7 +597,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                         <%-- <li>
                                             <input class="text-box-light hasDatepicker" type="date" id="datepicker" value="Expiration Date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Expiration Date';}"><em class="pay-date"> </em></li>--%>
                                         <li>
-                                            <input class="text-box-dark" type="date" id="txtpickupArrivalDate" name="txtpickupArrivalDate" value="yyyy-mm-dd" onkeypress="return false">: Select Arrival</li>
+                                            <input class="text-box-dark" type="text" id="txtpickupDate_arrival" name="txtpickupArrivalDate" placeholder="Select Arrival Date"></li>
 
 
                                     </ul>
@@ -604,7 +605,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                     <ul>
 
                                         <li>
-                                            <input class="text-box-dark" type="time" id="txtpickupTime" name="txtpickupTime">: Time</li>
+                                            <input class="text-box-dark" type="text" id="txtpickupTime" name="txtpickupTime" placeholder="Select Arrival Time"></li>
 
                                     </ul>
                                     <div class="clear"></div>
@@ -650,7 +651,9 @@ If you would prefer not to live in University accommodation, we can also offer y
                     <!-----pop-up-grid---->
                     <div id="small-dialog-pickup-Grid" class="mfp-hide ModalPopup">
                         <div class="pop_up">
-                            <uc:ViewPickupGrid runat="server" ID="ucViewPickup" />
+                           
+                                <uc:ViewPickupGrid runat="server" ID="ucViewPickup" />
+                          
 
                         </div>
                     </div>
