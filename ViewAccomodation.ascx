@@ -15,7 +15,7 @@
 <div class="tab-pane active" id="demo">
     <p>
         Search:
-                <input id="filter" type="text" />
+                <input id="Accomodationfilter" type="text" />
         <%-- Status:
                 <select class="filter-status">
                     <option></option>
@@ -26,7 +26,7 @@
         <a href="#clear" class="clear-filter" title="clear filter">[clear]</a>
         <span class="row-count"></span>
     </p>
-    <table id="tblViewAccomodation" class="table demo" data-filter="#filter" data-page-size="5">
+    <table id="tblViewAccomodation" class="table demo" data-filter="#Accomodationfilter" data-page-size="5" data-page-navigation=".pagination">
         <thead>
             <tr>
                 <th data-toggle="true">Name
@@ -46,10 +46,10 @@
         </thead>
         <tbody>
         </tbody>
-        <tfoot class="hide-if-no-paging">
+        <tfoot >
             <tr>
-                <td colspan="8">
-                    <div class="pagination pagination-centered"></div>
+                <td colspan="6">
+                    <div class="pagination pagination-centered hide-if-no-paging"></div>
                 </td>
             </tr>
         </tfoot>
@@ -84,7 +84,7 @@
 
         $('.filter-status').change(function (e) {
             e.preventDefault();
-            $('table.demo').data('footable-filter').filter($('#filter').val());
+            $('table.demo').data('footable-filter').filter($('#Accomodationfilter').val());
         });
     });
 
@@ -115,7 +115,7 @@
 
                     });
                     $('#tblViewAccomodation tbody').html('');
-                    $('#tblViewAccomodation tbody').append(txthtml);
+                    $('#tblViewAccomodation tbody').append(txthtml).trigger('footable_redraw');
 
                     setTimeout(function () {
                         $.magnificPopup.open({

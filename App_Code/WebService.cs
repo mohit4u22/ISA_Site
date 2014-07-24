@@ -148,7 +148,7 @@ public class WebService : System.Web.Services.WebService
                        "<br /> Password : " + password +
                        "<br /> Security Ques : " + securityques +
                        "<br /> Security Answer : " + securityanswer +
-                  "<br/><br/><br/>" + " <a href='" + ConfigurationManager.AppSettings["SiteRootUrl"] + "unsubscribe.aspx'>Click Here</a> to unsubscribe";
+                  "<br/><br/><br/>" + " <a href='" + ConfigurationManager.AppSettings["SiteRootUrl"] + "unsubscribe.aspx?email='" + email + ">Click Here</a> to unsubscribe";
 
 
                 string path = Server.MapPath("images/logonew.png");
@@ -248,12 +248,15 @@ public class WebService : System.Web.Services.WebService
                     + time + "', '"
                     + airport + "', '"
                     + venue + "', '"
-                    + comment + "')";
+                    + comment + "', 'Not Assigned')";
 
-                sqlh.ExecuteNonQuerySQLText(studentinfo);
+                bool success = sqlh.ExecuteNonQuerySQLText(studentinfo);
 
                 sqlh.Kill();
-                retval = "Success";
+                if (success)
+                    retval = "Success";
+                else
+                    retval = "error";
 
             }
         }
@@ -300,12 +303,14 @@ public class WebService : System.Web.Services.WebService
                     + phone + "', '"
                     + arrivaldate + "', '"
                     + time + "', '"
-                    + comment + "')";
+                    + comment + "', 'Not Asssigned')";
 
-                sqlh.ExecuteNonQuerySQLText(studentinfo);
-
+                bool success = sqlh.ExecuteNonQuerySQLText(studentinfo);
                 sqlh.Kill();
-                retval = "Success";
+                if (success)
+                    retval = "Success";
+                else
+                    retval = "error";
 
             }
         }
@@ -321,14 +326,15 @@ public class WebService : System.Web.Services.WebService
 
     }
 
-    
+
     [WebMethod]
     [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
-    public string ContactUser(String name,String email, String message)
+    public string ContactUser(String name, String email, String message)
     {
         //// Database code
         String retval = "";
-        try{
+        try
+        {
 
             SmtpClient mailClient = new SmtpClient();
             MailMessage mail = new MailMessage("mohitjain0890@gmail.com", email);
@@ -338,7 +344,7 @@ public class WebService : System.Web.Services.WebService
                    "<br /> Name : " + name +
                    "<br /> Email : " + email +
                    "<br /> Message : " + message +
-              "<br/><br/><br/>" ;
+              "<br/><br/><br/>";
 
 
             string path = Server.MapPath("images/logonew.png");
@@ -354,7 +360,7 @@ public class WebService : System.Web.Services.WebService
             mailClient.Send(mail);
             retval = "Success";
         }
-        
+
 
         catch (SqlException exception)
         {
