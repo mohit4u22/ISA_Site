@@ -2836,3 +2836,20 @@ li.has-error input[type=time]:focus, li.has-error select:focus {
 .switch label {
     cursor: pointer;
 }
+
+
+.ui-timepicker-minutes {
+padding-left:10px;
+}
+
+.ui-timepicker th.periods {
+padding: 5px;
+}
+
+.ui-timepicker .ui-timepicker-hour-cell, .ui-timepicker .ui-timepicker-minute-cell {
+padding:5px;
+}
+
+.ui-timepicker-minutes table.ui-timepicker {
+padding-top:5px;
+}

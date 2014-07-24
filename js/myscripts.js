@@ -6,6 +6,15 @@ var AccomodationValidator;
 var ContactValidator;
 $(document).ready(function () {
     $('.JQValidateErrors').hide();
+   
+
+    $("#txtpickupDate_arrival").datepicker({
+        showOn: "both",
+        buttonImage: "images/cal.png",
+        buttonImageOnly: true
+    });
+    $("#txtpickupTime").timepicker();
+
     BindCountriesStates();
     BindRegisterUserValidation();
     BindLoginValidation();
