@@ -8,12 +8,12 @@ $(document).ready(function () {
     $('.JQValidateErrors').hide();
    
 
-    $("#txtpickupDate_arrival").datepicker({
+    $("#txtpickupDate_arrival, #txtaccomodationArrivalDate").datepicker({
         showOn: "both",
         buttonImage: "images/cal.png",
         buttonImageOnly: true
     });
-    $("#txtpickupTime").timepicker();
+    $("#txtpickupTime, #txtaccomodationTime").timepicker();
 
     BindCountriesStates();
     BindRegisterUserValidation();
@@ -900,3 +900,14 @@ function ResetForm(FormID) {
 
 
 
+function  ReadQueryString( name )
+{
+    name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+    var regexS = "[\\?&]"+name+"=([^&#]*)";
+    var regex = new RegExp( regexS );
+    var results = regex.exec( window.location.href );
+    if( results == null )
+        return "";
+    else
+        return decodeURIComponent(results[1].replace(/\+/g, " "));
+}
