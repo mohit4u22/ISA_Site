@@ -461,7 +461,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                     <div class="span3">
                                         <ul class="payment-sendbtns">
                                             <li>
-                                                <k> <a href="javascript:void(0)" onclick="ResetForm('frmLogin')"  id="btnLoginCancel">Cancel
+                                                <k> <a href="javascript:void(0)" onclick="ResetForm('frmLogin')"  id="btnLoginCancel">Clear
                                                 </a></k>
                                             </li>
                                             <li>
@@ -555,7 +555,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                 <div class="span3">
                                     <ul class="payment-sendbtns">
                                         <li>
-                                            <k><a href="javascript:void(0)" onclick="ResetForm('frmRegister')"  id="btnRegisterCancel">Cancel</a></k>
+                                            <k><a href="javascript:void(0)" onclick="ResetForm('frmRegister')"  id="btnRegisterCancel">Clear</a></k>
                                         </li>
                                         <li>
                                             <m> <a href="javascript:void(0)"  id="btnRegister" onclick="RegisterUser();" >Register</a></m>
@@ -637,7 +637,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                 <div class="span3">
                                     <ul class="payment-sendbtns">
                                         <li>
-                                            <k><a href="javascript:void(0)" onclick="ResetForm('frmPickup')"  id="btnpickupCancel">Cancel</a></k>
+                                            <k><a href="javascript:void(0)" onclick="ResetForm('frmPickup')"  id="btnpickupCancel">Clear</a></k>
                                         </li>
                                         <li>
                                             <m> <a href="javascript:void(0)"  id="btnpickup" onclick="PickupUser();" >Request</a></m>
@@ -709,7 +709,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                 <div class="span3">
                                     <ul class="payment-sendbtns">
                                         <li>
-                                            <k><a href="javascript:void(0)" onclick="ResetForm('frmDonate')"  id="btndonateCancel">Cancel</a></k>
+                                            <k><a href="javascript:void(0)" onclick="ResetForm('frmDonate')"  id="btndonateCancel">Clear</a></k>
                                         </li>
                                         <li>
                                             <m> <a href="javascript:void(0)"  id="btndonate" onclick="DonateUser();" >Send</a></m>
@@ -776,7 +776,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                 <div class="span3">
                                     <ul class="payment-sendbtns">
                                         <li>
-                                            <k><a href="javascript:void(0)" onclick="ResetForm('frmAccomodation')"  id="btnaccomodationCancel">Cancel</a></k>
+                                            <k><a href="javascript:void(0)" onclick="ResetForm('frmAccomodation')"  id="btnaccomodationCancel">Clear</a></k>
                                         </li>
                                         <li>
                                             <m> <a href="javascript:void(0)"  id="btnaccomodation" onclick="AccomodationUser();" >Request</a></m>
@@ -963,7 +963,7 @@ proper investigation to have their roots in India.
                         <%--  <div class="span3">
                                     <ul class="payment-sendbtns">
                                         <li>
-                                            <k><a href="javascript:void(0)" onclick="ResetForm('frmRegister')"  id="btnRegisterCancel">Cancel</a></k>
+                                            <k><a href="javascript:void(0)" onclick="ResetForm('frmRegister')"  id="btnRegisterCancel">Clear</a></k>
                                         </li>
                                         <li>
                                             <m> <a href="javascript:void(0)"  id="btnRegister" onclick="RegisterUser();" >Register</a></m>
