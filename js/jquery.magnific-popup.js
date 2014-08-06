@@ -380,6 +380,17 @@
             mfp.updateSize(windowHeight);
             _mfpTrigger(OPEN_EVENT);
 
+            var currentITemid = mfp.currItem.src
+            ; 
+            if (currentITemid != undefined && currentITemid != null)
+            {
+                try {
+                    $(currentITemid + ' input[type=text]').val('');
+                 
+                }
+                catch (errr) { }
+            }
+
             return data;
         },
 

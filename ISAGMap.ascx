@@ -19,22 +19,29 @@
     type="text/javascript"></script>
 <script type="text/javascript" src="js/pdMarker.js"></script>
 
+<table style="margin: 0 auto; border: 1px solid white; border-radius: 10px;  padding: 10px;">
+    <tr>
+        <td>
+            <div style="background-color: #282A2E; ">
+                <div style="float: left; width: 200px; text-align: left;">
+                    <ul id="ulMapSideLinks">
+                        <li style="background-color:white; opacity:0.5; padding:10px;"><a href="javascript:void(0)" name="RKGrocery">R.K. Grocery</a></li>
+                        <li style="background-color:Gray;opacity:0.5; padding:10px;"><a href="javascript:void(0)" name="Puran">Puran Indian Restaurent </a></li>
+                        <li style="background-color:white; opacity:0.5; padding:10px;"><a href="javascript:void(0)" name="Walmart">Walmart</a></li>
+                        <li style="background-color:Gray;opacity:0.5; padding:10px;"><a href="javascript:void(0)" name="Target">Target</a></li>
+                        <li style="background-color:white; opacity:0.5; padding:10px;"><a href="javascript:void(0)" name="Illinois State University">Illinois State University</a></li>
+                    </ul>
+                </div>
+                <div style="float: right;">
+                    <div id="map" style="width: 600px; height: 600px;"></div>
+                    <!-- // define a place for PdMarker to calculate tooltip widths (optional) -->
+                    <div id="pdmarkerwork"></div>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
 
-<div style="background-color: #282A2E; height: 45%; width: 55%;">
-    <div style="float: left; width: 200px;">
-        <ul id="ulMapSideLinks">
-            <li><a href="javascript:void(0)" name="RKGrocery">R.K. Grocery</a></li>
-            <li><a href="javascript:void(0)" name="Puran">Puran Indian Restaurent </a></li>
-              <li><a href="javascript:void(0)" name="Walmart">Walmart</a></li>
-            <li><a href="javascript:void(0)" name="Target">Target</a></li>
-        </ul>
-    </div>
-    <div style="float: right;">
-        <div id="map" style="width: 600px; height: 600px;"></div>
-        <!-- // define a place for PdMarker to calculate tooltip widths (optional) -->
-        <div id="pdmarkerwork"></div>
-    </div>
-</div>
 <script type="text/javascript">
     //<![CDATA[
     window.onload = onPageLoad;
@@ -56,22 +63,30 @@
             "Phone": "(309) 454-5527",
             "Website": "http://www.puranindian.com/"
         },
-          "Walmart": {
-              "Name": "Walmart Normal",
-              "Latitude": "40.514203",
-              "Longitude": "-88.990631",
-              "Description": "300 Greenbriar Dr, Normal, IL 61761",
-    "Phone": "(309) 451-1100",
-    "Website": "http://www.walmart.com/storeLocator/ca_storefinder_details_short.do?edit_object_id=1125"
-    },
-    "Target": {
-        "Name": "Puran Indian Restaurant",
-        "Latitude": "40.514203",
-        "Longitude": "-88.990631",
-        "Description": "301 S Veterans Pkwy, Normal, IL 61761",
-        "Phone": "(309) 454-5648",
-        "Website": "http://www.target.com/store-locator/store-details/storeNumber=137#?afid=storeloc&cpng=IL&lnm=Bloomington-Normal_137"
-    }
+        "Walmart": {
+            "Name": "Walmart Normal",
+            "Latitude": "40.514203",
+            "Longitude": "-88.990631",
+            "Description": "300 Greenbriar Dr, Normal, IL 61761",
+            "Phone": "(309) 451-1100",
+            "Website": "http://www.walmart.com/storeLocator/ca_storefinder_details_short.do?edit_object_id=1125"
+        },
+        "Target": {
+            "Name": "Puran Indian Restaurant",
+            "Latitude": "40.5055374",
+            "Longitude": "-88.9555535",
+            "Description": "301 S Veterans Pkwy, Normal, IL 61761",
+            "Phone": "(309) 454-5648",
+            "Website": "http://www.target.com/store-locator/store-details/storeNumber=137#?afid=storeloc&cpng=IL&lnm=Bloomington-Normal_137"
+        },
+        "Illinois State University": {
+            "Name": "Illinois State University",
+            "Latitude": "40.511579",
+            "Longitude": "-88.993314",
+            "Description": "100 N University St, Normal, IL 61761",
+            "Phone": "(309) 438-2111",
+            "Website": "https://my.illinoisstate.edu/"
+        }
     }
 
     function codeAddress(addr) {
@@ -100,7 +115,7 @@
             $.getJSON(yelpaddr + '&callback=?',
          function (data) {
              $.each(data.businesses, function (i, bus) {
-                 var ltlg = codeAddress(bus.address1 + ' ' + bus.address2 + ' ' + bus.city + ' ' + bus.state + ' '+ bus.zip);
+                 var ltlg = codeAddress(bus.address1 + ' ' + bus.address2 + ' ' + bus.city + ' ' + bus.state + ' ' + bus.zip);
 
              });
 
