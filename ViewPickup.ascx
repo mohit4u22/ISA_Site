@@ -26,7 +26,7 @@
         <a href="#clear" class="clear-filter" title="clear filter">[clear]</a>
         <span class="row-count"></span>
     </p>
-    <table id="tblViewPickup" class="table demo" data-filter="#filter" data-page-size="5">
+    <table id="tblViewPickup" class="table demo" data-filter="#filter" data-page-size="5" data-page-navigation=".pagination">
         <thead>
             <tr>
                 <th data-toggle="true">Name
@@ -50,10 +50,10 @@
         </thead>
         <tbody>
         </tbody>
-        <tfoot class="hide-if-no-paging">
+        <tfoot>
             <tr>
                 <td colspan="8">
-                    <div class="pagination pagination-centered"></div>
+                    <div class="pagination pagination-centered hide-if-no-paging"></div>
                 </td>
             </tr>
         </tfoot>
@@ -121,7 +121,7 @@
 
                     });
                     $('#tblViewPickup tbody').html('');
-                    $('#tblViewPickup tbody').append(txthtml);
+                    $('#tblViewPickup tbody').append(txthtml).trigger('footable_redraw');
 
                     setTimeout(function () {
                         $.magnificPopup.open({
