@@ -111,7 +111,7 @@
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
                 success: function (result) {
-                    eventsJSON = JSON.parse(result.d);
+                   
                     $('#lblRSVPMessage').html('<font color="green">Your request submitted successfully !!!</font>');
                 },
                 error: function (jqXHR, textStatus, errorThrown) {

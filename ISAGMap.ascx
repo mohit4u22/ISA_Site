@@ -9,10 +9,14 @@
         color: black;
         font-weight: bold;
         background-color: white;
-        white-space: nowrap;
         margin: 0;
         padding: 2px 4px;
         border: 1px solid black;
+    }
+
+    .markerDetailClose {
+    position:absolute !important;
+    width:20px;
     }
 </style>
 <script src="http://maps.google.com/maps?file=api&v=2.x&key=AIzaSyDXMFlkWGN-dDVzy0ERh54poNkIGmzk8kI"
@@ -33,7 +37,7 @@
                     </ul>
                 </div>
                 <div style="float: right;">
-                    <div id="map" style="width: 600px; height: 600px;"></div>
+                    <div id="map" class="divMapContainer" style="width:600px; height:600px;"></div>
                     <!-- // define a place for PdMarker to calculate tooltip widths (optional) -->
                     <div id="pdmarkerwork"></div>
                 </div>

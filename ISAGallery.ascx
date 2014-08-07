@@ -119,6 +119,7 @@
             $('#supersized').remove();
             $('#SlideshowGallery').hide();
             $('#ancCloseGallery').remove();
+            window.location.href = window.location.href;
         });
     }
 </script>

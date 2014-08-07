@@ -385,8 +385,10 @@
             if (currentITemid != undefined && currentITemid != null)
             {
                 try {
-                    $(currentITemid + ' input[type=text]').val('');
-                 
+                    $(currentITemid + ' input').val('');
+                    $(currentITemid + ' textarea').val('');
+                   // $(currentITemid + " option:selected").remove();
+                    $(currentITemid+ ' select').val($(currentITemid + " select option:first").val());
                 }
                 catch (errr) { }
             }

@@ -238,7 +238,7 @@ function PickupUser() {
         var email = $('#txtpickupEmail').val();
         var phone = $('#txtpickupPhone').val();
         var flight = $('#txtpickupFlight').val();
-        var arrivaldate = $('#txtpickupArrivalDate').val();
+        var arrivaldate = $('#txtpickupDate_arrival').val();
         var time = $('#txtpickupTime').val();
         var airport = $('#txtpickupAirport').val();
         var venue = $('#txtpickupVenue').val();
@@ -438,7 +438,7 @@ function BindRegisterUserValidation() {
         txtregisterZip: {
             minlength: "Please enter minimum 5 and maximum 6 digit ZIP",
             maxlength: "Please enterminimum 5 and maximum 6 digit ZIP",
-            digits: "Please enter only digits for ZIP"
+            digits: "Please enter only numbers for ZIP"
         },
         txtregisterSquestion: {
             required: "Please enter your Security QUESTION"
@@ -490,7 +490,8 @@ function BindDonateValidation() {
         },
         txtdonatePhone: {
             required: true,
-            minlength: 10
+            minlength: 10,
+            digits:true
         }
     };
     var messages = {
@@ -506,7 +507,8 @@ function BindDonateValidation() {
         },
         txtdonatePhone: {
             required: "Please enter PHONE NUMBER",
-            minlength: "Please enter atleast 10 digit PHONE NUMBER"
+            minlength: "Please enter atleast 10 digit PHONE NUMBER",
+            digits: "Please enter only numbers for PHONE NUMBER"
         }
     };
 
@@ -529,7 +531,8 @@ function BindPickupValidation() {
         },
         txtpickupPhone: {
             required: true,
-            minlength: 10
+            minlength: 10,
+            digits: true
 
         },
         txtpickupArrivalDate: {
@@ -556,7 +559,8 @@ function BindPickupValidation() {
         },
         txtpickupPhone: {
             required: "Please enter PHONE NUMBER",
-            minlength: "Please enter atleast 10 digit PHONE NUMBER"
+            minlength: "Please enter atleast 10 digit PHONE NUMBER",
+            digits: "Please enter only numbers for PHONE NUMBER"
 
         },
         txtpickupArrivalDate: {
@@ -590,7 +594,8 @@ function BindAccomodationValidation() {
         },
         txtaccomodationPhone: {
             required: true,
-            minlength: 10
+            minlength: 10,
+            digits:true
         },
         txtaccomodationArrivalDate: {
             required: true
@@ -613,7 +618,8 @@ function BindAccomodationValidation() {
         },
         txtaccomodationPhone: {
             required: "Please enter PHONE NUMBER",
-            minlength: "Please enter atleast 10 digit PHONE NUMBER"
+            minlength: "Please enter atleast 10 digit PHONE NUMBER",
+            digits: "Please enter only numbers for PHONE NUMBER"
         },
         txtaccomodationArrivalDate: {
             required: "Please enter your DATE"
@@ -665,6 +671,7 @@ function BindCountriesStates() {
         dataType: "json",
         contentType: "application/json; charset=utf-8",
         success: function (result) {
+            $('#ddlCountry').html('');
             if (result.d.length > 0) {
                 var decoded = $('<div/>').html(result.d).text();
                 $('#ddlCountry').append("<option value=''>--Select Country--</option>");
