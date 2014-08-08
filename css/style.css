@@ -2854,13 +2854,7 @@ li.has-error input[type=time], li.has-error select {
     padding-top: 5px;
 }
 
- 
-
-
-
-@media (max-width: 600px) {
-  #divMapSection {
-       display:none;
-    }
-	}
-   
+.divpasswordhint {
+    font-size: 10px;
+    font-style: italic;
+}
