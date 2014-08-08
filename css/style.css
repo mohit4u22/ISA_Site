@@ -272,8 +272,8 @@ body {
     border-right: 1px solid #333333;
     border-bottom: 1px solid #333333;
     border-left: 1px solid #CCCCCC;
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
 }
 /*-- start-smartphone_nav --*/
 .nav {
@@ -2711,15 +2711,15 @@ body {
 
 
 
-li.has-error input[type=text],li.has-error input[type=date], li.has-error input[type=password],
-li.has-error input[type=time],li.has-error select {
+li.has-error input[type=text], li.has-error input[type=date], li.has-error input[type=password],
+li.has-error input[type=time], li.has-error select {
     border-color: red;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 }
 
     li.has-error input[type=text]:focus, li.has-error input[type=date]:focus, li.has-error input[type=password]:focus,
-li.has-error input[type=time]:focus, li.has-error select:focus {
+    li.has-error input[type=time]:focus, li.has-error select:focus {
         border-color: red;
         -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
         box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
@@ -2839,17 +2839,22 @@ li.has-error input[type=time]:focus, li.has-error select:focus {
 
 
 .ui-timepicker-minutes {
-padding-left:10px;
+    padding-left: 10px;
 }
 
 .ui-timepicker th.periods {
-padding: 5px;
+    padding: 5px;
 }
 
 .ui-timepicker .ui-timepicker-hour-cell, .ui-timepicker .ui-timepicker-minute-cell {
-padding:5px;
+    padding: 5px;
 }
 
 .ui-timepicker-minutes table.ui-timepicker {
-padding-top:5px;
+    padding-top: 5px;
+}
+
+.divpasswordhint {
+    font-size: 10px;
+    font-style: italic;
 }

@@ -42,8 +42,7 @@
             $().UItoTop({ easingType: 'easeOutQuart' });
 
             var pType = ReadQueryString("type");
-            if (pType === "unsubscribe")
-            {
+            if (pType === "unsubscribe") {
                 alert('You have been unsubscribed successfully');
             }
         });
@@ -499,13 +498,15 @@ If you would prefer not to live in University accommodation, we can also offer y
                                     </ul>
                                     <ul>
                                         <li>
-                                            <input class="text-box-dark" type="password" id="txtregisterPassword" name="txtregisterPassword" placeholder="Password"></li>
+                                            <input class="text-box-dark" type="password" id="txtregisterPassword" name="txtregisterPassword" placeholder="Password">
+                                        </li>
                                         <li>
                                             <input class="text-box-dark" type="password" id="txtregisterCPassword" name="txtregisterCPassword" placeholder="Confirm Password"></li>
 
                                     </ul>
-                                    <div class="clear"></div>
 
+                                    <div class="clear"></div>
+                                    <div class="divpasswordhint">Password must me 8 characters</div>
                                     <ul>
                                         <li>
                                             <input class="text-box-dark" type="text" id="txtregisterPhone" name="txtregisterPhone" placeholder="Phone Number"></li>
@@ -656,9 +657,9 @@ If you would prefer not to live in University accommodation, we can also offer y
                     <!-----pop-up-grid---->
                     <div id="small-dialog-pickup-Grid" class="mfp-hide ModalPopup">
                         <div class="pop_up">
-                           
-                                <uc:ViewPickupGrid runat="server" ID="ucViewPickup" />
-                          
+
+                            <uc:ViewPickupGrid runat="server" ID="ucViewPickup" />
+
 
                         </div>
                     </div>
@@ -752,7 +753,7 @@ If you would prefer not to live in University accommodation, we can also offer y
                                             <input class="text-box-light hasDatepicker" type="date" id="datepicker" value="Expiration Date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Expiration Date';}"><em class="pay-date"> </em></li>--%>
                                         <li>
                                             <input class="text-box-dark" type="text" id="txtaccomodationArrivalDate" name="txtaccomodationArrivalDate" placeholder="Select Arrival Date">
-                                            </li>
+                                        </li>
 
 
                                     </ul>
@@ -761,7 +762,7 @@ If you would prefer not to live in University accommodation, we can also offer y
 
                                         <li>
                                             <input class="text-box-dark" type="text" id="txtaccomodationTime" name="txtaccomodationTime" placeholder="Select Arrival Time">
-                                            </li>
+                                        </li>
 
                                     </ul>
 

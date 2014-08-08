@@ -58,7 +58,7 @@ public class WebService : System.Web.Services.WebService
                 {
                     if (userdata["Email"].Equals(email) && userdata["Password"].Equals(password))
                     {
-                        retval = "Success";
+                        retval = "Success|" + userdata["First Name"] + " " + userdata["Last Name"];
 
                     }
                     else
