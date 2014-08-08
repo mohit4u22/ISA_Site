@@ -25,13 +25,14 @@ $(document).ready(function () {
     BindContactValidation();
     var cname = $.MyCookie.readCookie('Isa_Site_Login');
     if (cname != null) {
+        var name = $.MyCookie.readCookie('Isa_Site_Login_Name');
         $('#liTopLogin').hide();
         $('#litopRegister').hide();
         $('#liTopLogout').show();
         $('#liMobileTopLogin').hide();
         $('#liMobiletopRegister').hide();
         $('#liMobileTopLogout').show();
-        $('#LoggedinUserName').html('You are Logged in as: <b>' + cname + '</b>');
+        $('#LoggedinUserName').html('You are Logged in as: <b>' + name + '</b>');
     }
     else {
         $('#liTopLogin').show();
@@ -52,6 +53,7 @@ $(document).ready(function () {
         $('#liMobiletopRegister').show();
         $('#liMobileTopLogout').hide();
         $.MyCookie.eraseCookie('Isa_Site_Login');
+        $.MyCookie.eraseCookie('Isa_Site_Login_Name');
         alert('You are successfully logged out!!!');
 
     });
@@ -93,14 +95,16 @@ function LoginUser() {
             contentType: "application/json; charset=utf-8",
             success: function (result) {
                 var res = JSON.parse(result.d);
-                if (res.toString().toLowerCase() == "success") {
+                if (res.toString().toLowerCase().indexOf("success") > -1) {
 
                     $.MyCookie.createCookie('Isa_Site_Login', email, 1);
+                    var name = res.toString().toUpperCase().replace("SUCCESS|", ""); 
+                    $.MyCookie.createCookie('Isa_Site_Login_Name', name, 1);
                     $('#small-dialog-login button.mfp-close').click();
                     $('#liTopLogin').hide();
                     $('#litopRegister').hide();
                     $('#liTopLogout').show();
-                    $('#LoggedinUserName').html('You are Logged in as: <b>' + email + '</b>');
+                    $('#LoggedinUserName').html('You are Logged in as: <b>' + name + '</b>');
                     if (ReopenForEventID != undefined && ReopenForEventID != null) {
                         ReopenForEventID = null;
                         OpenGalleryDetail(ReopenForEventID);

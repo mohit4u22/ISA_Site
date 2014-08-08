@@ -505,7 +505,7 @@ If you would prefer not to live in University accommodation, we can also offer y
 
                                     </ul>
                                     <div class="clear"></div>
-
+                                    <div class="divpasswordhint">Password must be minimum 8 character in length.</div>
                                     <ul>
                                         <li>
                                             <input class="text-box-dark" type="text" id="txtregisterPhone" name="txtregisterPhone" placeholder="Phone Number"></li>
